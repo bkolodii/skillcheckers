@@ -1,0 +1,171 @@
+@import "../../../../assets/styles/mixins";
+
+header {
+  width: 100%;
+  @include flexbox(row, nowrap, space-between, center);
+  position: fixed;
+  height: 7vh;
+  display: flex;
+  // justify-content: space-around;
+  // align-items: center;
+}
+
+.left-section {
+  width: 550px;
+  height: 7vh;
+  @include flexbox(row, nowrap, space-around, center);
+
+  &__logo {
+    width: 200px;
+    height: 4.5vh;
+    cursor: pointer;
+  }
+
+  &__search {
+    width: 250px;
+    padding: 2.5px;
+    @include flexbox(row, nowrap, space-between, center);
+    background-color: #eef0f8;
+    height: 4vh;
+    border-radius: 2px;
+
+    .icon-search {
+      margin-left: 6px;
+      height: 14px;
+      width: 14px;
+    }
+
+    .input-search {
+      width: 85%;
+      padding-left: 5px;
+      height: 100%;
+      border: none;
+      background-color: transparent;
+      font-size: 14px;
+    }
+
+  }
+}
+
+.right-section {
+  width: 280px;
+  height: 7vh;
+  @include flexbox(row, nowrap, space-around, center);
+
+  &__order {
+    width: 130px;
+    height: 4.5vh;
+    padding: 2.5px;
+    @include flexbox(row, nowrap, center, center);
+    background-color: #25bf50;
+    border-radius: 2px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 0 0 rgba(0, 128, 0, 1);
+    transition: background-color 600ms linear;
+
+
+    .plus {
+      width: 16px;
+      height: 16px;
+    }
+
+    .new-order {
+      margin-left: 10px;
+      margin-bottom: 1px;
+      font-family: sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: white;
+    }
+  }
+
+  &__order:focus {
+    animation: pulse 1.5s infinite linear;
+    box-shadow: 0 0 0 8px rgb(255, 255, 255);
+  }
+
+  &__order:hover {
+    background-color: green;
+    // box-shadow: 0 0 0 8px greenyellow;
+
+  }
+
+  &__notification {
+    border: none;
+    background-color: transparent;
+
+    .bell-notify {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      transform: rotate3d(0, 0, 0, 0deg);
+
+    }
+
+    
+  }
+  &__notification:hover {
+    animation: dingdong 1.5s infinite linear;
+    // transform: rotate3d(0, 0, 0, 0deg);
+  }
+  &__notification:focus {
+    transform: translate3d(-5px, 0, 0)  rotate(30deg);
+  }
+
+  &__user {
+    width: 55px;
+    height: 7vh;
+    @include flexbox(row, nowrap, space-around, center);
+
+    .user-logo {
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+    }
+
+    .drop-arrow {
+      width: 11px;
+      height: 9px;
+      cursor: pointer;
+    }
+  }
+}
+
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 128, 0, 1);
+  }
+
+  100% {
+    box-shadow: 0 0 0 8px rgb(255, 255, 255, 0);
+
+  }
+}
+
+@keyframes dingdong {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+
+  }
+
+  25% {
+    transform: rotate3d(1, 2, 0, 192deg);
+  }
+
+  50% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+
+  75% {
+    transform: rotate3d(-1, 2, 0, 192deg);
+
+  }
+
+  100% {
+    transform: rotate3d(0, 0, 0, 0deg);
+
+  }
+}

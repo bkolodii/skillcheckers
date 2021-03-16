@@ -1,0 +1,13 @@
+.header {
+  position: fixed;
+  width: 100%;
+}
+
+.container {
+  padding-top: 7vh;
+
+  &__menu {
+    position: fixed;
+    width: 250px;
+  }
+}
