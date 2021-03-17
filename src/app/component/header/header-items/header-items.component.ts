@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-items.component.scss']
 })
 export class HeaderItemsComponent implements OnInit {
-
+  dropWay = false
   constructor() { }
 
   ngOnInit(): void {
+  }
+  dropMenu(): void {
+    this.dropWay = !this.dropWay
   }
 
 }

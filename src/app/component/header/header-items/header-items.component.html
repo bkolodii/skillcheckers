@@ -2,21 +2,24 @@
   <section class="left-section">
     <img class="left-section__logo" src="../../../../assets/image/Skillcheckers-logo.png" alt="">
     <div class="left-section__search">
-            <img class="icon-search" src="../../../../assets/image/icons8-search.svg" alt="">
-        <input type="search" class="input-search" placeholder="Search">
+      <img class="icon-search" src="../../../../assets/image/icons8-search.svg" alt="">
+      <input type="search" class="input-search" placeholder="Search">
     </div>
   </section>
   <section class="right-section">
     <button class="right-section__order">
-        <img src="../../../../assets/image/iconmonstr-plus-6.svg" class="plus" alt="">
-        <p class="new-order">New order</p>
+      <img src="../../../../assets/image/iconmonstr-plus-6.svg" class="plus" alt="">
+      <p class="new-order">New order</p>
     </button>
     <button class="right-section__notification">
-        <img src="../../../../assets/image/notification.svg" class="bell-notify" alt="">
     </button>
     <div class="right-section__user">
-        <img class="user-logo" src="../../../../assets/image/images.png" alt="">
-        <img class="drop-arrow" src="../../../../assets/image/drop-down-arrow.svg" alt="">
+      <button class="right-section__user--button">
+      </button>
+      <img (click)="dropMenu()" class="drop-arrow" *ngIf="!dropWay" src="../../../../assets/image/drop-down-arrow.svg"
+        alt="">
+      <img (click)="dropMenu()" class="drop-arrow" *ngIf="dropWay" src="../../../../assets/image/drop-up-arrow.svg"
+        alt="">
     </div>
   </section>
 </header>

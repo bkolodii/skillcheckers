@@ -1,14 +1,40 @@
 <section class="menu-items">
-<div class="dashboard">
-    <img class="dashboard__icon" src="../../../../assets/image/noun_speed_1888061.svg" alt="">
-    <p class="dashboard__title"></p>
-</div>
-<div class="orders"></div>
-<div class="candidates"></div>
-<div class="interviews"></div>
-<div class="messages"></div>
-<div class="settings"></div>
-</section>
-<section class="premium">
+  <div class="menu-items__dashboard" routerLinkActive="select-item" [routerLink]="[ 'dashboard' ]">
+    <div class="menu-items__dashboard--contain" routerLinkActive="select-contain" [routerLink]="[ 'dashboard' ]">
+      <img class="icon" src="../../../../assets/image/noun_speed_1888061.svg" alt="">
+      <p class="title">Dashboard</p>
+    </div>
 
+  </div>
+  <div class="menu-items__orders" routerLinkActive="select-item" [routerLink]="[ 'orders' ]">
+    <div class="menu-items__orders--contain" routerLinkActive="select-contain" [routerLink]="[ 'orders' ]">
+      <img class="icon" src="../../../../assets/image/paste.svg" alt="">
+      <p class="title">Orders</p>
+    </div>
+  </div>
+  <div class="menu-items__candidates" routerLinkActive="select-item" [routerLink]="[ 'candidates' ]">
+    <div class="menu-items__candidates--contain" routerLinkActive="select-contain" [routerLink]="[ 'candidates' ]">
+      <img class="icon" src="../../../../assets/image/user (1).svg" alt="">
+      <p class="title">Candidates</p>
+    </div>
+  </div>
+  <div class="menu-items__interviews" routerLinkActive="select-item" [routerLink]="[ 'interviews' ]">
+    <div class="menu-items__interviews--contain" routerLinkActive="select-contain" [routerLink]="[ 'interviews' ]">
+      <img class="icon" src="../../../../assets/image/conversation.svg" alt="">
+      <p class="title">Interviews</p>
+      <p class="not-read">2</p>
+    </div>
+  </div>
+  <div class="menu-items__messages" routerLinkActive="select-item" [routerLink]="[ 'messages' ]">
+    <div class="menu-items__messages--contain" routerLinkActive="select-contain" [routerLink]="[ 'messages' ]">
+      <img class="icon" src="../../../../assets/image/email.svg" alt="">
+      <p class="title">Messages</p>
+    </div>
+  </div>
+  <div class="menu-items__settings" routerLinkActive="select-item" [routerLink]="[ 'settings' ]">
+    <div class="menu-items__settings--contain" routerLinkActive="select-contain" [routerLink]="[ 'settings' ]">
+      <img class="icon" src="../../../../assets/image/settings.svg" alt="">
+      <p class="title">Settings</p>
+    </div>
+  </div>
 </section>

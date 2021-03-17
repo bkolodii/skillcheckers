@@ -1,6 +1,9 @@
-.menu{
-    width: 250px;
-    height: 700px;
-    background-color: #292f3d;
-    color: white;
+@import "../../../assets/styles/mixins";
+
+.menu {
+  width: 250px;
+  height: 93vh;
+  background-color: #292f3d;
+  color: white;
+  @include flexbox(column, nowrap, space-between, none);
 }

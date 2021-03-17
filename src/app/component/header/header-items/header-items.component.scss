@@ -1,5 +1,10 @@
 @import "../../../../assets/styles/mixins";
 
+button {
+  border: none;
+  background-color: transparent;
+}
+
 header {
   width: 100%;
   @include flexbox(row, nowrap, space-between, center);
@@ -88,30 +93,27 @@ header {
 
   &__order:hover {
     background-color: green;
-    // box-shadow: 0 0 0 8px greenyellow;
 
   }
 
   &__notification {
     border: none;
-    background-color: transparent;
+    background-image: url('../../../../assets/image/notification.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transform: rotate3d(0, 0, 0, 0deg);
 
-    .bell-notify {
-      width: 20px;
-      height: 20px;
-      cursor: pointer;
-      transform: rotate3d(0, 0, 0, 0deg);
-
-    }
-
-    
   }
+
   &__notification:hover {
     animation: dingdong 1.5s infinite linear;
-    // transform: rotate3d(0, 0, 0, 0deg);
   }
+
   &__notification:focus {
-    transform: translate3d(-5px, 0, 0)  rotate(30deg);
+    transform: translate3d(-5px, 0, 0) rotate(30deg);
   }
 
   &__user {
@@ -119,10 +121,19 @@ header {
     height: 7vh;
     @include flexbox(row, nowrap, space-around, center);
 
-    .user-logo {
+    &--button {
+      border-radius: 50%;
       width: 35px;
       height: 35px;
       cursor: pointer;
+      border-radius: 50%;
+      background-image: url('../../../../assets/image/images.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &--button:focus {
+      box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
     }
 
     .drop-arrow {

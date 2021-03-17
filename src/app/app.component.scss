@@ -1,3 +1,5 @@
+@import "../assets/styles/mixins";
+
 .header {
   position: fixed;
   width: 100%;
@@ -5,9 +7,14 @@
 
 .container {
   padding-top: 7vh;
+  @include flexbox(row, nowrap, left, none);
 
   &__menu {
-    position: fixed;
+    // position: fixed;
     width: 250px;
+  }
+
+  &__items {
+    width: 85%;
   }
 }
