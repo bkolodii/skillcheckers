@@ -135,7 +135,7 @@
 
     &--choose-name {
       width: 18%;
-      height: 4.5vh;
+      min-height: 4.5vh;
       border-radius: 20px;
       background-color: #eef0f8;
       @include flexbox(row, nowrap, space-around, center);
@@ -239,11 +239,12 @@
   width: 100%;
   min-height: 10vh;
   background-color: #eef0f8;
+  overflow-y: auto;
 
   &__container {
     padding: 15px 15px 0px 15px;
     min-height: 77.5vh;
-    overflow-y: visible;
+    // overflow-y: visible;
 
     &--list {
       width: 100%;

@@ -1,121 +1,123 @@
 <section class="sorting">
-    <div class="sorting__left">
-      <div class="sorting__left--name">
-        <button class="visible" (click)="openHidden('name')" [style.border]="isName? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-          <p class="visible__title">{{name}}</p>
-          <img class="visible__drop-icon" *ngIf="!isName" src="../../../../assets/image/drop-down-arrow.svg" alt="">
-          <img class="visible__drop-icon" *ngIf="isName" src="../../../../assets/image/drop-up-arrow.svg" alt="">
-        </button>
-        <div class="hidden" [style.display]="isName ? 'block' : 'none'">
-          <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
-            [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p>
-        </div>
-      </div>
-  
-      <div class="sorting__left--location">
-        <button class="visible" (click)="openHidden('location')" [style.border]="isLocation ? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-          <p class="visible__title">{{location}}</p>
-          <img class="visible__drop-icon" *ngIf="!isLocation" src="../../../../assets/image/drop-down-arrow.svg" alt="">
-          <img class="visible__drop-icon" *ngIf="isLocation" src="../../../../assets/image/drop-up-arrow.svg" alt="">
-        </button>
-        <div class="hidden" [style.display]="isLocation ? 'block' : 'none'">
-          <p *ngFor="let location of unitLocation; let i=index" (click)="chooseItem(location, 'location')"
-            [style.border-bottom]="i == unitLocation.length-1 ? 'none' : ''">{{location}}</p>
-        </div>
-      </div>
-      <div class="sorting__left--choose-name">
-        <p class="title">Tech HQ</p>
-        <button class="delete-choose">
-          <img class="delete-choose__cross" src="../../../../assets/image/close.svg" alt="">
-        </button>
-      </div>
-      <div class="sorting__left--choose-location">
-        <p class="title">Seatle</p>
-        <button class="delete-choose">
-          <img class="delete-choose__cross" src="../../../../assets/image/close.svg" alt="">
-        </button>
+  <div class="sorting__left">
+    <div class="sorting__left--name">
+      <button class="visible" (click)="openHidden('name')"
+        [style.border]="isName? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+        <p class="visible__title">{{name}}</p>
+        <img class="visible__drop-icon" *ngIf="!isName" src="../../../../assets/image/drop-down-arrow.svg" alt="">
+        <img class="visible__drop-icon" *ngIf="isName" src="../../../../assets/image/drop-up-arrow.svg" alt="">
+      </button>
+      <div class="hidden" [style.display]="isName ? 'block' : 'none'">
+        <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
+          [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p>
       </div>
     </div>
-    <button class="sorting__date" (click)="openHidden('date')">
-      <p class="sorting__date--title">Creation date</p>
-      <img *ngIf="!isDate" class="sorting__date--drop" src="../../../../assets/image/drop-down-arrow.svg" alt="">
-      <img *ngIf="isDate" class="sorting__date--drop" src="../../../../assets/image/drop-up-arrow.svg" alt="">
-    </button>
-  </section>
-  <section class="jobApply">
-    <div class="jobApply__container">
-      <div class="jobApply__container--list" *ngFor="let item of vacancies ; let i=index">
-        <div class="createDate">
-          <p class="createDate__title">CREATION DATE</p>
-          <p class="createDate__text">{{item.creationDate}}</p>
-        </div>
-        <div class="name">
-          <p class="name__title">NAME</p>
-          <p class="name__text">{{item.name}}</p>
-        </div>
-        <div class="unitName">
-          <p class="unitName__title">UNIT NAME</p>
-          <p class="unitName__text">{{item.unitName}}</p>
-        </div>
-        <div class="unitLocation">
-          <p class="unitLocation__title">UNIT LOCAION</p>
-          <p class="unitLocation__text">{{item.unitLocation}}</p>
-        </div>
-        <div class="mainSkill">
-          <p class="mainSkill__title">MAIN SKILL</p>
-          <p class="mainSkill__text">{{item.mainSkill}}</p>
-        </div>
-        <div class="addSkill">
-          <p class="addSkill__title">ADITIONAL SKILLS</p>
-          <p class="addSkill__text">{{item.additionalSkill}}</p>
-        </div>
-        <div class="progNeed">
-          <p class="progNeed__title">PROGRAMMERS NEEDED</p>
-          <p class="progNeed__text">{{item.progNeed}}</p>
-        </div>
-        <div class="dueDate">
-          <p class="dueDate__title">DUE DATE</p>
-          <p class="dueDate__text">{{item.dueDate}}</p>
-        </div>
-        <div class="option">
-          <button class="option__button" [style.color]="checkOption == i ? '#19b0f8' : 'black'" (click)="openOption(i)">
-            <svg class="option__button--icon"  version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-              x="0px" y="0px" viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
+
+    <div class="sorting__left--location">
+      <button class="visible" (click)="openHidden('location')"
+        [style.border]="isLocation ? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+        <p class="visible__title">{{location}}</p>
+        <img class="visible__drop-icon" *ngIf="!isLocation" src="../../../../assets/image/drop-down-arrow.svg" alt="">
+        <img class="visible__drop-icon" *ngIf="isLocation" src="../../../../assets/image/drop-up-arrow.svg" alt="">
+      </button>
+      <div class="hidden" [style.display]="isLocation ? 'block' : 'none'">
+        <p *ngFor="let location of unitLocation; let i=index" (click)="chooseItem(location, 'location')"
+          [style.border-bottom]="i == unitLocation.length-1 ? 'none' : ''">{{location}}</p>
+      </div>
+    </div>
+    <div class="sorting__left--choose-name">
+      <p class="title">Tech HQ</p>
+      <button class="delete-choose">
+        <img class="delete-choose__cross" src="../../../../assets/image/close.svg" alt="">
+      </button>
+    </div>
+    <div class="sorting__left--choose-location">
+      <p class="title">Seatle</p>
+      <button class="delete-choose">
+        <img class="delete-choose__cross" src="../../../../assets/image/close.svg" alt="">
+      </button>
+    </div>
+  </div>
+  <button class="sorting__date" (click)="openHidden('date')">
+    <p class="sorting__date--title">Creation date</p>
+    <img *ngIf="!isDate" class="sorting__date--drop" src="../../../../assets/image/drop-down-arrow.svg" alt="">
+    <img *ngIf="isDate" class="sorting__date--drop" src="../../../../assets/image/drop-up-arrow.svg" alt="">
+  </button>
+</section>
+<section class="jobApply">
+  <div class="jobApply__container">
+    <div class="jobApply__container--list" *ngFor="let item of vacancies ; let i=index">
+      <div class="createDate">
+        <p class="createDate__title">CREATION DATE</p>
+        <p class="createDate__text">{{item.creationDate}}</p>
+      </div>
+      <div class="name">
+        <p class="name__title">NAME</p>
+        <p class="name__text">{{item.name}}</p>
+      </div>
+      <div class="unitName">
+        <p class="unitName__title">UNIT NAME</p>
+        <p class="unitName__text">{{item.unitName}}</p>
+      </div>
+      <div class="unitLocation">
+        <p class="unitLocation__title">UNIT LOCAION</p>
+        <p class="unitLocation__text">{{item.unitLocation}}</p>
+      </div>
+      <div class="mainSkill">
+        <p class="mainSkill__title">MAIN SKILL</p>
+        <p class="mainSkill__text">{{item.mainSkill}}</p>
+      </div>
+      <div class="addSkill">
+        <p class="addSkill__title">ADITIONAL SKILLS</p>
+        <p class="addSkill__text">{{item.additionalSkill}}</p>
+      </div>
+      <div class="progNeed">
+        <p class="progNeed__title">PROGRAMMERS NEEDED</p>
+        <p class="progNeed__text">{{item.progNeed}}</p>
+      </div>
+      <div class="dueDate">
+        <p class="dueDate__title">DUE DATE</p>
+        <p class="dueDate__text">{{item.dueDate}}</p>
+      </div>
+      <div class="option">
+        <button class="option__button" [style.color]="checkOption == i ? '#19b0f8' : 'black'" (click)="openOption(i)">
+          <svg class="option__button--icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 384 384"
+            style="enable-background:new 0 0 384 384;" xml:space="preserve">
+            <g>
               <g>
-                <g>
-                  <circle fill="currentColor" cx="192" cy="42.667" r="42.667" />
-                </g>
+                <circle fill="currentColor" cx="192" cy="42.667" r="42.667" />
               </g>
+            </g>
+            <g>
               <g>
-                <g>
-                  <circle fill="currentColor" cx="192" cy="192" r="42.667" />
-                </g>
+                <circle fill="currentColor" cx="192" cy="192" r="42.667" />
               </g>
+            </g>
+            <g>
               <g>
-                <g>
-                  <circle fill="currentColor" cx="192" cy="341.333" r="42.667" />
-                </g>
+                <circle fill="currentColor" cx="192" cy="341.333" r="42.667" />
               </g>
-            </svg>
-          </button>
-          <div class="option__menu" [style.display]="checkOption == i ? 'flex' : 'none'">
-            <div class="option__menu--items" (click)="openOption(i)">
-              <img class="items-icon" src="../../../../assets/image/view.svg" alt="">
-              <p class="items-text">View order</p>
-            </div>
-            <div class="option__menu--items" (click)="openOption(i)">
-              <img class="items-icon" src="../../../../assets/image/edit.svg" alt="">
-              <p class="items-text">Edit order</p>
-            </div>
-            <div class="option__menu--items" [style.border-bottom]="'none'" (click)="openOption(i)">
-              <img class="items-icon" src="../../../../assets/image/turn-off.svg" alt="">
-              <p class="items-text">Close order</p>
-            </div>
+            </g>
+          </svg>
+        </button>
+        <div class="option__menu" [style.display]="checkOption == i ? 'flex' : 'none'">
+          <div class="option__menu--items" (click)="openOption(i)">
+            <img class="items-icon" src="../../../../assets/image/view.svg" alt="">
+            <p class="items-text">View order</p>
+          </div>
+          <div class="option__menu--items" (click)="openOption(i)">
+            <img class="items-icon" src="../../../../assets/image/edit.svg" alt="">
+            <p class="items-text">Edit order</p>
+          </div>
+          <div class="option__menu--items" [style.border-bottom]="'none'" (click)="openOption(i)">
+            <img class="items-icon" src="../../../../assets/image/turn-off.svg" alt="">
+            <p class="items-text">Close order</p>
           </div>
         </div>
-  
       </div>
+
     </div>
-  
-  </section>
-  
+  </div>
+
+</section>

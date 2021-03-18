@@ -133,7 +133,7 @@ export class ActiveComponent implements OnInit {
 
   openOption(i: number): void {
 
-    if (this.checkOption !== null) {
+    if (this.checkOption == i && this.checkOption !== null) {
       this.checkOption = null;
     }
     else {

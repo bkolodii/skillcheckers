@@ -1,14 +1,181 @@
 <section class="new-order">
-    <div class="container-order">
-        <div class="create-order">
-            <h1 class="create-title"></h1>
-            <div class="position">
-                <img class="position__icon" src="" alt="">
-                <input class="position-input" type="text">
-            </div>
-            
+  <div class="container-order">
+    <div class="create-order">
+      <h1 class="create-title">Create a new order</h1>
+      <div class="position">
+        <img class="position__icon" src="../../../assets/image/position.svg" alt="">
+        <input class="position__input" type="text" placeholder="Position">
+      </div>
+      <div class="order-info">
+        <div class="order-info__programmer">
+          <p class="order-info__programmer--text">Programmers needed</p>
+          <div class="order-info__programmer--counter">
+            <button class="add">-</button>
+            <input type="text" class="programmer-input" minlength="1" value="1">
+            <button class="minus">+</button>
+          </div>
         </div>
-        <div class="other-info"></div>
+        <div class="order-info__mainSkill">
+          <p class="order-info__mainSkill--text">Main skill</p>
+          <div class="order-info__mainSkill--select">
+            <button class="visible" (click)="openHidden('mainSkill')"
+              [style.border]="isMainSkill? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+              <p class="visible__title">Java</p>
+              <img class="visible__drop-icon" *ngIf="!isMainSkill" src="../../../../assets/image/drop-down-arrow.svg"
+                alt="">
+              <img class="visible__drop-icon" *ngIf="isMainSkill" src="../../../../assets/image/drop-up-arrow.svg"
+                alt="">
+            </button>
+            <div class="hidden" [style.display]="isMainSkill ? 'block' : 'none'">
+              <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
+                              [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="order-info__experience">
+          <p class="order-info__experience--text">Years of experience</p>
+          <div class="order-info__experience--counter">
+            <button class="add">-</button>
+            <input type="text" class="experience-input" minlength="1" value="4">
+            <button class="minus">+</button>
+          </div>
+        </div>
+        <div class="order-info__addSkill">
+          <p class="order-info__addSkill--text">Additional skills</p>
+          <div class="order-info__addSkill--select">
+            <div class="visible" (click)="openHidden('addSkill')"
+              [style.border]="isAddSkill? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+              <div class="visible__choose-addSkill">
+                <p class="title">JavaScript</p>
+                <button class="delete-choose">
+                  <img class="delete-choose__cross" src="../../../../assets/image/close.svg" alt="">
+                </button>
+              </div>
+
+              <div class="visible__choose-addSkill">
+                <p class="title">HTML</p>
+                <button class="delete-choose">
+                  <img class="delete-choose__cross" src="../../../../assets/image/close.svg" alt="">
+                </button>
+              </div>
+
+              <img class="visible__drop-icon" *ngIf="!isAddSkill" src="../../../../assets/image/drop-down-arrow.svg"
+                alt="">
+              <img class="visible__drop-icon" *ngIf="isAddSkill" src="../../../../assets/image/drop-up-arrow.svg"
+                alt="">
+            </div>
+            <div class="hidden" [style.display]="isAddSkill ? 'block' : 'none'">
+              <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
+                              [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="order-info__unitName">
+          <p class="order-info__unitName--text">Unit name</p>
+          <div class="order-info__unitName--select">
+            <button class="visible" (click)="openHidden('unitName')"
+              [style.border]="isUnitName? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+              <p class="visible__title">Tech HQ</p>
+              <img class="visible__drop-icon" *ngIf="!isUnitName" src="../../../../assets/image/drop-down-arrow.svg"
+                alt="">
+              <img class="visible__drop-icon" *ngIf="isUnitName" src="../../../../assets/image/drop-up-arrow.svg"
+                alt="">
+            </button>
+            <div class="hidden" [style.display]="isUnitName ? 'block' : 'none'">
+              <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
+                              [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="order-info__unitLocation">
+          <p class="order-info__unitLocation--text">Unit location</p>
+          <input class="order-info__unitLocation--input" type="text" value="Seattle">
+        </div>
+        <div class="order-info__skillScore">
+          <div class="order-info__skillScore--text">Skillcheckers Score
+            <button class="questInfo">
+              <img src="../../../assets/image/question.svg" alt="">
+            </button>
+          </div>
+          <div class="order-info__skillScore--select">
+            <div class="skillScore-button">
+              <input type="radio" name="score" id="any">
+              <label for="any">Any</label>
+            </div>
+            <div class="skillScore-button">
+              <input type="radio" name="score" id="veryGood" checked>
+              <label for="veryGood">8 Very good</label>
+            </div>
+            <div class="skillScore-button">
+              <input type="radio" name="score" id="good">
+              <label for="good">7 Good</label>
+            </div>
+            <div class="skillScore-button">
+              <input type="radio" name="score" id="except">
+              <label for="except">9 Exceptional</label>
+            </div>
+          </div>
+        </div>
+        <div class="order-info__jobLocation">
+          <p class="order-info__jobLocation--text">Job location</p>
+          <div class="order-info__jobLocation--choose">
+            <input class="jobLocation-input" type="text" value="Seattle">
+            <div class="skillScore-button">
+              <input type="radio" name="jobLoc" id="onSite">
+              <label for="onSite">On site</label>
+            </div>
+            <div class="skillScore-button">
+              <input type="radio" name="jobLoc" id="remote">
+              <label for="remote">Remote</label>
+            </div>
+            <div class="skillScore-button">
+              <input type="radio" name="jobLoc" id="any" checked>
+              <label for="any">Any</label>
+            </div>
+          </div>
+
+        </div>
+        <div class="order-info__salary">
+          <p class="order-info__salary--text">Salary range</p>
+          <div class="order-info__salary--choose">
+            <div class="select-salary">
+                <button class="visible" (click)="openHidden('salary')"
+              [style.border]="isSalary? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+              <p class="visible__title">Tech HQ</p>
+              <img class="visible__drop-icon" *ngIf="!isSalary" src="../../../../assets/image/drop-down-arrow.svg"
+                alt="">
+              <img class="visible__drop-icon" *ngIf="isSalary" src="../../../../assets/image/drop-up-arrow.svg"
+                alt="">
+            </button>
+            <div class="hidden" [style.display]="isSalary ? 'block' : 'none'">
+              <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
+                                [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
+            </div>
+            </div>
+            <div class="select-currency">
+                <button class="visible" (click)="openHidden('currency')"
+              [style.border]="isCurrency? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+              <!-- <p class="visible__title"></p>
+             -->
+             <img class="visible__title-icon" src="../../../assets/image/dollar.svg" alt="">
+              <img class="visible__drop-icon" *ngIf="!isCurrency" src="../../../../assets/image/drop-down-arrow.svg"
+                alt="">
+              <img class="visible__drop-icon" *ngIf="isCurrency" src="../../../../assets/image/drop-up-arrow.svg"
+                alt="">
+            </button>
+            <div class="hidden" [style.display]="isCurrency ? 'block' : 'none'">
+              <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
+                                [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
     </div>
-    <button class="order-button">Place the order</button>
+    <div class="other-info"></div>
+  </div>
+  <button class="order-button">Place the order</button>
 </section>
