@@ -9,9 +9,11 @@ import { MenuComponent } from './component/menu/menu.component';
 import { MenuItemComponent } from './component/menu/menu-item/menu-item.component';
 import { PremiumComponent } from './component/menu/premium/premium.component';
 import { OrdersComponent } from './pages/orders/orders.component';
-import { ActiveComponent } from './pages/orders/active/active.component';
-import { DraftsComponent } from './pages/orders/drafts/drafts.component';
-import { ClosedComponent } from './pages/orders/closed/closed.component';
+import { NewOrderComponent } from './component/new-order/new-order.component';
+import { OrderItemsComponent } from './pages/orders/order-items/order-items.component';
+import { ActiveComponent } from './pages/orders/order-items/active/active.component';
+import { CloseComponent } from './pages/orders/order-items/close/close.component';
+import { DraftsComponent } from './pages/orders/order-items/drafts/drafts.component';
 
 @NgModule({
   declarations: [
@@ -23,8 +25,11 @@ import { ClosedComponent } from './pages/orders/closed/closed.component';
     PremiumComponent,
     OrdersComponent,
     ActiveComponent,
+
+    NewOrderComponent,
+    OrderItemsComponent,
+    CloseComponent,
     DraftsComponent,
-    ClosedComponent,
   ],
   imports: [
     BrowserModule,

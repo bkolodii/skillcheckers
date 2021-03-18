@@ -1,4 +1,4 @@
-@import "../../../../assets/styles/mixins";
+@import "../../../../../assets/styles/mixins";
 
 
 .sorting {
@@ -8,12 +8,12 @@
   @include flexbox(row, nowrap, space-between, center);
 
   &__left {
-    width: 500px;
+    width: 40%;
     height: 7vh;
     @include flexbox(row, nowrap, space-around, center);
 
     &--name {
-      width: 130px;
+      width: 23%;
       height: 4.5vh;
       //   border: 1px solid #dcdcdc;
       margin-left: 10px;
@@ -45,9 +45,9 @@
         }
       }
 
-      .visible:focus {
-        border: 1px solid #44b4e7;
-      }
+      // .visible:focus {
+      //   border: 1px solid #44b4e7;
+      // }
 
       .hidden {
         position: absolute;
@@ -74,7 +74,7 @@
     }
 
     &--location {
-      width: 130px;
+      width: 23%;
       height: 4.5vh;
       //   border: 1px solid #dcdcdc;
       @include flexbox(row, nowrap, space-between, center);
@@ -105,9 +105,9 @@
         }
       }
 
-      .visible:focus {
-        border: 1px solid #44b4e7;
-      }
+      // .visible:focus {
+      //   border: 1px solid #44b4e7;
+      // }
 
       .hidden {
         position: absolute;
@@ -134,7 +134,7 @@
     }
 
     &--choose-name {
-      width: 90px;
+      width: 18%;
       height: 4.5vh;
       border-radius: 20px;
       background-color: #eef0f8;
@@ -169,7 +169,7 @@
     }
 
     &--choose-location {
-      width: 90px;
+      width: 18%;
       height: 4.5vh;
       border-radius: 20px;
       background-color: #eef0f8;
@@ -249,13 +249,12 @@
       width: 100%;
       height: 60px;
       background-color: white;
-      //   box-shadow: 2px 9px 45px rgba(0, 0, 0, 0.25);
       border-radius: 2px;
       margin-bottom: 10px;
       @include flexbox(row, nowrap, space-around, center);
 
       .createDate {
-        width: 100px;
+        width: 10%;
         height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
@@ -275,141 +274,107 @@
       }
 
       .name {
-        width: 170px;
+        width: 15%;
         height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
-          color: rgb(142, 137, 137);
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 12px;
-          font-weight: 600;
+          @extend .createDate__title;
         }
 
         &__text {
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 14.5px;
+          @extend .createDate__text;
           font-weight: 700;
         }
 
       }
 
       .unitName {
-        width: 70px;
+        width: 8%;
         height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
-          color: rgb(142, 137, 137);
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 12px;
-          font-weight: 600;
+          @extend .createDate__title;
         }
 
         &__text {
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 14.5px;
-          font-weight: 500;
+          @extend .createDate__text;
         }
 
       }
 
       .unitLocation {
-        width: 100px;
+        width: 8%;
         height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
-          color: rgb(142, 137, 137);
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 12px;
-          font-weight: 600;
+          @extend .createDate__title;
         }
 
         &__text {
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 14.5px;
-          font-weight: 500;
+          @extend .createDate__text;
         }
 
       }
 
       .mainSkill {
-        width: 100px;
+        width: 8%;
         height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
-          color: rgb(142, 137, 137);
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 12px;
-          font-weight: 600;
+          @extend .createDate__title;
         }
 
         &__text {
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 14.5px;
-          font-weight: 500;
+          @extend .createDate__text;
         }
 
       }
 
       .addSkill {
-        width: 150px;
+        width: 15%;
         height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
-          color: rgb(142, 137, 137);
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 12px;
-          font-weight: 600;
+          @extend .createDate__title;
         }
 
         &__text {
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 14.5px;
-          font-weight: 500;
+          @extend .createDate__text;
         }
 
       }
 
       .progNeed {
-        width: 150px;
+        width: 14%;
         height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
-          color: rgb(142, 137, 137);
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 12px;
-          font-weight: 600;
+          @extend .createDate__title;
         }
 
         &__text {
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 14.5px;
-          font-weight: 500;
+          @extend .createDate__text;
         }
 
       }
 
       .dueDate {
-        width: 150px;
+        width: 10%;
         height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
-          color: rgb(142, 137, 137);
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 12px;
-          font-weight: 600;
+          @extend .createDate__title;
         }
 
         &__text {
-          font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-          font-size: 14.5px;
-          font-weight: 500;
+          @extend .createDate__text;
         }
 
       }
@@ -417,12 +382,65 @@
       .option {
         width: 30px;
         height: 20px;
-        background-color: transparent;
-        border: none;
-          img{
-              width: 15px;
-              height: 15px;
+        position: relative;
+
+        &__button {
+          position: absolute;
+          top: 0%;
+          width: 30px;
+          height: 20px;
+          background-color: transparent;
+          border: none;
+
+          img {
+            width: 15px;
+            height: 15px;
           }
+        }
+
+        &__menu {
+          // display: none;
+          position: absolute;
+          top: 30px;
+          right: -6px;
+          width: 135px;
+          height: 112px;
+          background-color: white;
+          @include flexbox(column, nowrap, space-around, center);
+          // border: 1px solid black;
+          z-index: 3;
+          box-shadow: 3px 3.5px 7px 0.5px rgba(0, 0, 0, 0.25);
+
+          &--items {
+            @include flexbox(row, nowrap, flex-start, center);
+            width: 70%;
+            height: 33px;
+            padding: 5px;
+            border-bottom: 1px solid gray;
+            transition: background 600ms ease-in-out, background-position 600ms ease-in-out;
+
+            .items-icon {
+              width: 18px;
+              height: 18px;
+            }
+
+            .items-text {
+              font-family: sans-serif;
+              font-size: 12px;
+              font-weight: 600;
+              color: #8e8989;
+              margin-left: 8px;
+            }
+          }
+
+          &--items:hover {
+            background: whitesmoke;
+            background-position: 50%;
+
+            cursor: pointer;
+          }
+        }
+
       }
     }
   }

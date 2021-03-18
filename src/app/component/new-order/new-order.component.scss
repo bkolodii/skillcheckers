@@ -1,0 +1,36 @@
+@import '../../../assets/styles/mixins';
+.new-order{
+    @include flexbox(column, wrap, space-around, center);
+    background-color: #eaecf4;
+    min-height: 93vh;
+    width: 100%;
+    overflow-y: auto;
+
+}
+.container-order{
+width: 80%;
+min-height: 80vh;
+@include flexbox(row, wrap, center, flex-start);
+}
+.create-order{
+    width: 500px;
+    background-color: white;
+    height: 80vh;
+    margin: 0px auto;
+}
+.other-info{
+    width: 500px;
+    background-color: white;
+    height: 77vh;
+    margin: 0px auto;
+}
+.order-button{
+    width: 150px;
+    height: 40px;
+    background-color: #0cacf8;
+    color: white;
+    border-radius: 2px;
+    border: 1px solid #0cacf8;
+    font-size: 13px;
+
+}

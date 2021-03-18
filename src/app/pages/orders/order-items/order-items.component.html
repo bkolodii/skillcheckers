@@ -1,0 +1,18 @@
+<nav class="order-type">
+    <div class="order-type__active" routerLinkActive="active" [routerLink]="[ 'active' ]">
+      <p class="order-type__active--title">ACTIVE</p>
+      <p class="order-type__active--unread">23</p>
+  
+    </div>
+    <div class="order-type__drafts">
+      <p class="order-type__drafts--title">DRAFTS</p>
+      <p class="order-type__drafts--unread">2</p>
+    </div>
+    <div class="order-type__closed">
+      <p class="order-type__closed--title">CLOSED</p>
+      <p class="order-type__closed--unread">4</p>
+    </div>
+  </nav>
+  <section>
+    <router-outlet></router-outlet>
+  </section>
