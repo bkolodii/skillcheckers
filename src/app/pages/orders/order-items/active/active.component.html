@@ -101,7 +101,7 @@
             </g>
           </svg>
         </button>
-        <div class="option__menu" [style.display]="checkOption == i ? 'flex' : 'none'">
+        <div class="option__menu" [style.top]="(i === vacancies.length-1 || i === vacancies.length-2 ) ? '-120px' : '30px'" [style.display]="checkOption == i ? 'flex' : 'none'">
           <div class="option__menu--items" (click)="openOption(i)">
             <img class="items-icon" src="../../../../assets/image/view.svg" alt="">
             <p class="items-text">View order</p>

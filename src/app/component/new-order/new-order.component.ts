@@ -13,6 +13,8 @@ export class NewOrderComponent implements OnInit {
   isJobLocation: boolean = false;
   isSalary: boolean = false;
   isCurrency: boolean = false;
+  isDate: boolean = false;
+  isFont: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
@@ -39,6 +41,12 @@ export class NewOrderComponent implements OnInit {
     }
     else if (item == 'currency') {
       this.isCurrency = !this.isCurrency;
+    }
+    else if (item == 'date') {
+      this.isDate = !this.isDate;
+    }
+    else if (item == 'font') {
+      this.isFont = !this.isFont;
     }
   }
 

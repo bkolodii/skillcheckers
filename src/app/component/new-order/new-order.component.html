@@ -139,43 +139,263 @@
           <p class="order-info__salary--text">Salary range</p>
           <div class="order-info__salary--choose">
             <div class="select-salary">
-                <button class="visible" (click)="openHidden('salary')"
-              [style.border]="isSalary? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-              <p class="visible__title">Tech HQ</p>
-              <img class="visible__drop-icon" *ngIf="!isSalary" src="../../../../assets/image/drop-down-arrow.svg"
-                alt="">
-              <img class="visible__drop-icon" *ngIf="isSalary" src="../../../../assets/image/drop-up-arrow.svg"
-                alt="">
-            </button>
-            <div class="hidden" [style.display]="isSalary ? 'block' : 'none'">
-              <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
+              <button class="visible" (click)="openHidden('salary')"
+                [style.border]="isSalary? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+                <p class="visible__title">100,000 - 120,000</p>
+                <img class="visible__drop-icon" *ngIf="!isSalary" src="../../../../assets/image/drop-down-arrow.svg"
+                  alt="">
+                <img class="visible__drop-icon" *ngIf="isSalary" src="../../../../assets/image/drop-up-arrow.svg"
+                  alt="">
+              </button>
+              <div class="hidden" [style.display]="isSalary ? 'block' : 'none'">
+                <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
                                 [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
-            </div>
+              </div>
             </div>
             <div class="select-currency">
-                <button class="visible" (click)="openHidden('currency')"
-              [style.border]="isCurrency? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-              <!-- <p class="visible__title"></p>
+              <button class="visible" (click)="openHidden('currency')"
+                [style.border]="isCurrency? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+                <!-- <p class="visible__title"></p>
              -->
-             <img class="visible__title-icon" src="../../../assets/image/dollar.svg" alt="">
-              <img class="visible__drop-icon" *ngIf="!isCurrency" src="../../../../assets/image/drop-down-arrow.svg"
-                alt="">
-              <img class="visible__drop-icon" *ngIf="isCurrency" src="../../../../assets/image/drop-up-arrow.svg"
-                alt="">
-            </button>
-            <div class="hidden" [style.display]="isCurrency ? 'block' : 'none'">
-              <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
+                <img class="visible__title-icon" src="../../../assets/image/dollar.svg" alt="">
+                <img class="visible__drop-icon" *ngIf="!isCurrency" src="../../../../assets/image/drop-down-arrow.svg"
+                  alt="">
+                <img class="visible__drop-icon" *ngIf="isCurrency" src="../../../../assets/image/drop-up-arrow.svg"
+                  alt="">
+              </button>
+              <div class="hidden" [style.display]="isCurrency ? 'block' : 'none'">
+                <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
                                 [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
-            </div>
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="order-info__termContr">
+          <p class="order-info__termContr--text">Term of contract</p>
+          <div class="order-info__termContr--choose">
+            <div class="termContr-button">
+              <input type="radio" name="termContr" id="longTerm">
+              <label for="longTerm">Long-term</label>
+            </div>
+            <div class="termContr-button">
+              <input type="radio" name="termContr" id="shortTerm">
+              <label for="shortTerm">Short-term</label>
+            </div>
+            <div class="termContr-button">
+              <input type="radio" name="termContr" id="any" checked>
+              <label for="any">Any</label>
+            </div>
+          </div>
+
+        </div>
+        <div class="order-info__workMode">
+          <p class="order-info__workMode--text">Work mode</p>
+          <div class="order-info__workMode--choose">
+            <div class="workMode-button">
+              <input type="radio" name="workMode" id="fullTime">
+              <label for="fullTime">Full time</label>
+            </div>
+            <div class="workMode-button">
+              <input type="radio" name="workMode" id="shortTerm">
+              <label for="partTime">Part time</label>
+            </div>
+            <div class="workMode-button">
+              <input type="radio" name="workMode" id="any" checked>
+              <label for="any">Any</label>
+            </div>
+          </div>
+
+        </div>
+        <div class="order-info__dueDate">
+          <div class="order-info__dueDate--text">
+            <button class="calendar-info">
+              <img src="../../../assets/image/calendar.svg" alt="">
+            </button>
+            Due date</div>
+          <div class="order-info__dueDate--select">
+            <button class="visible" (click)="openHidden('date')"
+              [style.border]="isDate? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+              <p class="visible__title">11.09.2020</p>
+              <svg id="Layer_1" class="visible__drop-icon" src="../../../../assets/image/drop-down-arrow.svg" alt
+                enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512"
+                xmlns="http://www.w3.org/2000/svg">
+                <g>
+                  <path
+                    d="m446 40h-46v-24c0-8.836-7.163-16-16-16s-16 7.164-16 16v24h-224v-24c0-8.836-7.163-16-16-16s-16 7.164-16 16v24h-46c-36.393 0-66 29.607-66 66v340c0 36.393 29.607 66 66 66h380c36.393 0 66-29.607 66-66v-340c0-36.393-29.607-66-66-66zm-380 32h46v16c0 8.836 7.163 16 16 16s16-7.164 16-16v-16h224v16c0 8.836 7.163 16 16 16s16-7.164 16-16v-16h46c18.748 0 34 15.252 34 34v38h-448v-38c0-18.748 15.252-34 34-34zm380 408h-380c-18.748 0-34-15.252-34-34v-270h448v270c0 18.748-15.252 34-34 34z" />
+                </g>
+              </svg>
+              <!-- <img class="visible__drop-icon" *ngIf="isUnitName" src="../../../../assets/image/drop-up-arrow.svg"
+                alt=""> -->
+            </button>
+            <div class="hidden" [style.display]="isDate ? 'block' : 'none'">
+              <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
+                            [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
+            </div>
+          </div>
+
+        </div>
+
       </div>
-
-
-
     </div>
-    <div class="other-info"></div>
+    <div class="other-info">
+      <div class="other-info__jobDesc">
+        <img class="other-info__jobDesc--arrowNavigate" src="../../../assets/image/up-arrow.svg" alt="">
+        <div class="other-info__jobDesc--visible">
+          <div class="jobDescription-icon">
+            <img src="../../../assets/image/description.png" alt="">
+          </div>
+          <div class="job-description">
+            <h2 class="job-description__title">Job description</h2>
+            <p class="job-description__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis sed non quam
+              dictum aliquam adipiscing imperdiet. Eu, suscipit arcu lacus tortor. </p>
+          </div>
+        </div>
+
+        <div class="other-info__jobDesc--textNote">
+          <div class="upload">
+            <div class="upload-btn-wrapper">
+              <button class="btn"> <img src="../../../assets/image/google-documents.svg" alt=""> Use resent</button>
+              <input type="file" name="myfile" />
+            </div>
+          </div>
+          <div class="notePad">
+            <div class="notePad__header">
+              <div class="notePad__header--font">
+                <button class="visible" (click)="openHidden('font')"
+                  [style.border]="isFont? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+                  <!-- <p class="visible__title"></p>
+               -->
+                  <img class="visible__title-icon" src="../../../assets/image/text.svg" alt="">
+                  <img class="visible__drop-icon" *ngIf="!isFont" src="../../../../assets/image/drop-down-arrow.svg"
+                    alt="">
+                  <img class="visible__drop-icon" *ngIf="isFont" src="../../../../assets/image/drop-up-arrow.svg"
+                    alt="">
+                </button>
+                <div class="hidden" [style.display]="isFont ? 'block' : 'none'">
+                  <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
+                                  [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
+                </div>
+              </div>
+              <button class="notePad__header--font-style">
+                <img src="../../../assets/image/bold-text-option.svg" alt="">
+              </button>
+              <button class="notePad__header--font-style">
+                <img src="../../../assets/image/italic.svg" alt="">
+              </button>
+              <button class="notePad__header--font-style">
+                <img src="../../../assets/image/underline-text-option.svg" alt="">
+              </button>
+              <button class="notePad__header--font-style">
+                <img src="../../../assets/image/strikethrough.svg" alt="">
+              </button>
+
+
+              <button class="notePad__header--text-align">
+                <img src="../../../assets/image/list-interface-symbol.svg" alt="">
+              </button>
+              <button class="notePad__header--text-align">
+                <img src="../../../assets/image/number-list.svg" alt="">
+              </button>
+              <button class="notePad__header--text-align">
+                <img src="../../../assets/image/dedent.svg" alt="">
+              </button>
+              <button class="notePad__header--text-align">
+                <img src="../../../assets/image/indent.svg" alt="">
+              </button>
+            </div>
+            <textarea class="notePad__text" name="" id="" cols="30" rows="10"></textarea>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="other-info__companyDesc">
+        <div class="other-info__companyDesc--visible">
+          <div class="compDescription-icon">
+            <img src="../../../assets/image/companyDesc.png" alt="">
+          </div>
+          <div class="company-description">
+            <h2 class="company-description__title">Company description</h2>
+            <p class="company-description__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis sed non
+              quam
+              dictum aliquam adipiscing imperdiet. Eu, suscipit arcu lacus tortor. </p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="other-info__question"></div> -->
+      <div class="other-info__question">
+        <img class="other-info__question--arrowNavigate" src="../../../assets/image/up-arrow.svg" alt="">
+        <div class="other-info__question--visible">
+          <div class="screenQuest-icon">
+            <img src="../../../assets/image/screenQuest.png" alt="">
+          </div>
+          <div class="screen-question">
+            <h2 class="screen-question__title">Your screening questions</h2>
+            <p class="screen-question__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis sed non quam
+              dictum aliquam adipiscing imperdiet. Eu, suscipit arcu lacus tortor. </p>
+          </div>
+        </div>
+
+        <div class="other-info__question--textNote">
+          <div class="upload">
+            <div class="upload-btn-wrapper">
+              <button class="btn"> <img src="../../../assets/image/google-documents.svg" alt=""> Use resent</button>
+              <input type="file" name="myfile" />
+            </div>
+          </div>
+          <div class="notePad">
+            <div class="notePad__header">
+              <div class="notePad__header--font">
+                <button class="visible" (click)="openHidden('font')"
+                  [style.border]="isFont? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+                  <!-- <p class="visible__title"></p>
+               -->
+                  <img class="visible__title-icon" src="../../../assets/image/text.svg" alt="">
+                  <img class="visible__drop-icon" *ngIf="!isFont" src="../../../../assets/image/drop-down-arrow.svg"
+                    alt="">
+                  <img class="visible__drop-icon" *ngIf="isFont" src="../../../../assets/image/drop-up-arrow.svg"
+                    alt="">
+                </button>
+                <div class="hidden" [style.display]="isFont ? 'block' : 'none'">
+                  <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
+                                  [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
+                </div>
+              </div>
+              <button class="notePad__header--font-style">
+                <img src="../../../assets/image/bold-text-option.svg" alt="">
+              </button>
+              <button class="notePad__header--font-style">
+                <img src="../../../assets/image/italic.svg" alt="">
+              </button>
+              <button class="notePad__header--font-style">
+                <img src="../../../assets/image/underline-text-option.svg" alt="">
+              </button>
+              <button class="notePad__header--font-style">
+                <img src="../../../assets/image/strikethrough.svg" alt="">
+              </button>
+
+
+              <button class="notePad__header--text-align">
+                <img src="../../../assets/image/list-interface-symbol.svg" alt="">
+              </button>
+              <button class="notePad__header--text-align">
+                <img src="../../../assets/image/number-list.svg" alt="">
+              </button>
+              <button class="notePad__header--text-align">
+                <img src="../../../assets/image/dedent.svg" alt="">
+              </button>
+              <button class="notePad__header--text-align">
+                <img src="../../../assets/image/indent.svg" alt="">
+              </button>
+            </div>
+            <textarea class="notePad__text" name="" id="" cols="30" rows="10"></textarea>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
   </div>
   <button class="order-button">Place the order</button>
 </section>
