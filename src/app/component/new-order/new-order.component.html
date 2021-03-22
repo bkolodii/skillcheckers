@@ -209,9 +209,9 @@
         </div>
         <div class="order-info__dueDate">
           <div class="order-info__dueDate--text">
-            <button class="calendar-info">
-              <img src="../../../assets/image/calendar.svg" alt="">
-            </button>
+              <button class="calendar-info">
+                <img src="../../../assets/image/calendar.svg" alt="">
+              </button>
             Due date</div>
           <div class="order-info__dueDate--select">
             <button class="visible" (click)="openHidden('date')"
@@ -225,12 +225,8 @@
                     d="m446 40h-46v-24c0-8.836-7.163-16-16-16s-16 7.164-16 16v24h-224v-24c0-8.836-7.163-16-16-16s-16 7.164-16 16v24h-46c-36.393 0-66 29.607-66 66v340c0 36.393 29.607 66 66 66h380c36.393 0 66-29.607 66-66v-340c0-36.393-29.607-66-66-66zm-380 32h46v16c0 8.836 7.163 16 16 16s16-7.164 16-16v-16h224v16c0 8.836 7.163 16 16 16s16-7.164 16-16v-16h46c18.748 0 34 15.252 34 34v38h-448v-38c0-18.748 15.252-34 34-34zm380 408h-380c-18.748 0-34-15.252-34-34v-270h448v270c0 18.748-15.252 34-34 34z" />
                 </g>
               </svg>
-              <!-- <img class="visible__drop-icon" *ngIf="isUnitName" src="../../../../assets/image/drop-up-arrow.svg"
-                alt=""> -->
             </button>
             <div class="hidden" [style.display]="isDate ? 'block' : 'none'">
-              <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
-                            [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
             </div>
           </div>
 
@@ -311,6 +307,7 @@
 
       </div>
       <div class="other-info__companyDesc">
+        <img class="other-info__question--arrowNavigate" src="../../../assets/image/arrow-down-sign-to-navigate.svg" alt="">
         <div class="other-info__companyDesc--visible">
           <div class="compDescription-icon">
             <img src="../../../assets/image/companyDesc.png" alt="">
@@ -337,60 +334,33 @@
           </div>
         </div>
 
-        <div class="other-info__question--textNote">
+        <div class="other-info__question--questNote">
           <div class="upload">
             <div class="upload-btn-wrapper">
               <button class="btn"> <img src="../../../assets/image/google-documents.svg" alt=""> Use resent</button>
               <input type="file" name="myfile" />
             </div>
           </div>
-          <div class="notePad">
-            <div class="notePad__header">
-              <div class="notePad__header--font">
-                <button class="visible" (click)="openHidden('font')"
-                  [style.border]="isFont? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-                  <!-- <p class="visible__title"></p>
-               -->
-                  <img class="visible__title-icon" src="../../../assets/image/text.svg" alt="">
-                  <img class="visible__drop-icon" *ngIf="!isFont" src="../../../../assets/image/drop-down-arrow.svg"
-                    alt="">
-                  <img class="visible__drop-icon" *ngIf="isFont" src="../../../../assets/image/drop-up-arrow.svg"
-                    alt="">
-                </button>
-                <div class="hidden" [style.display]="isFont ? 'block' : 'none'">
-                  <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
-                                  [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
-                </div>
-              </div>
-              <button class="notePad__header--font-style">
-                <img src="../../../assets/image/bold-text-option.svg" alt="">
+          <div class="question-list" *ngFor="let item of questions" (click)="selectQuestion(item)" [style.border]="item.status ? '1px solid #b7e6fd' : 'none'">
+            <p class="question-list__text">{{item.id}}. Lorem ipsum dolor sit amet?</p>
+            <div class="question-list__button">
+              <button *ngIf="item.status" class="question-list__button--bin">
               </button>
-              <button class="notePad__header--font-style">
-                <img src="../../../assets/image/italic.svg" alt="">
-              </button>
-              <button class="notePad__header--font-style">
-                <img src="../../../assets/image/underline-text-option.svg" alt="">
-              </button>
-              <button class="notePad__header--font-style">
-                <img src="../../../assets/image/strikethrough.svg" alt="">
-              </button>
-
-
-              <button class="notePad__header--text-align">
-                <img src="../../../assets/image/list-interface-symbol.svg" alt="">
-              </button>
-              <button class="notePad__header--text-align">
-                <img src="../../../assets/image/number-list.svg" alt="">
-              </button>
-              <button class="notePad__header--text-align">
-                <img src="../../../assets/image/dedent.svg" alt="">
-              </button>
-              <button class="notePad__header--text-align">
-                <img src="../../../assets/image/indent.svg" alt="">
+              <button class="question-list__button--menu">
               </button>
             </div>
-            <textarea class="notePad__text" name="" id="" cols="30" rows="10"></textarea>
           </div>
+        
+    
+  
+    
+          <button class="add-question">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="#39bbf9" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/>
+            </svg>
+            
+            Add question</button>
+          
 
         </div>
 

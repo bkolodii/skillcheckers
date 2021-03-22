@@ -14,6 +14,8 @@ import { OrderItemsComponent } from './pages/orders/order-items/order-items.comp
 import { ActiveComponent } from './pages/orders/order-items/active/active.component';
 import { CloseComponent } from './pages/orders/order-items/close/close.component';
 import { DraftsComponent } from './pages/orders/order-items/drafts/drafts.component';
+import { MessagesComponent } from './pages/messages/messages.component';
+import { MessagesDetailsComponent } from './pages/messages/messages-details/messages-details.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,9 @@ import { DraftsComponent } from './pages/orders/order-items/drafts/drafts.compon
     OrderItemsComponent,
     CloseComponent,
     DraftsComponent,
+    MessagesComponent,
+    MessagesDetailsComponent,
+  
   ],
   imports: [
     BrowserModule,

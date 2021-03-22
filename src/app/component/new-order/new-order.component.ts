@@ -1,4 +1,6 @@
+import { flatten } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { Question } from 'src/app/shared/interfaces/question.interface';
 
 @Component({
   selector: 'app-new-order',
@@ -15,16 +17,46 @@ export class NewOrderComponent implements OnInit {
   isCurrency: boolean = false;
   isDate: boolean = false;
   isFont: boolean = false;
+
+
+  questions: Array<Question> = [{
+    text: 'Lorem ipsum dolor sit amet?',
+    id: 1,
+    status: false
+  }, {
+    text: 'Lorem ipsum dolor sit amet?',
+    id: 2,
+    status: false
+  }, {
+
+    text: 'Lorem ipsum dolor sit amet?',
+    id: 3,
+    status: false
+  },]
+  prevQuestion : Question;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  selectQuestion(curr: Question): void {
+    if(this.prevQuestion){
+      this.prevQuestion.status = false;
+      curr.status = true;
+      this.prevQuestion = curr;
+    }
+    else{
+      curr.status = true;
+      this.prevQuestion = curr;
+    }
+  
   }
 
   openHidden(item: string): void {
     if (item == 'mainSkill') {
       this.isMainSkill = !this.isMainSkill;
     }
-    else if (item == 'addSkill') {
+    if (item == 'addSkill') {
       this.isAddSkill = !this.isAddSkill;
     }
     else if (item == 'unitName') {
