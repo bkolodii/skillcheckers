@@ -32,6 +32,7 @@ main {
     padding-bottom: 10px;
     padding-right: 5px;
     cursor: pointer;
+
     // background-color: white;
 
     &--padding {
@@ -98,9 +99,12 @@ main {
     }
   }
 }
-.users-messages{
-    padding: 2rem;
-    height: 90vh;
-    width: 80%;
-    background-color: #eef0f8;
+
+.users-messages {
+  padding-top: 20px;
+  padding-left: 10px;
+  height: 90vh;
+  width: 100%;
+  background-color: #eef0f8;
+
 }

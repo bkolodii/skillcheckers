@@ -23,6 +23,7 @@ const routes: Routes = [
   },
   {path: 'messages', component: MessagesComponent, children : [
     { path: ':url', component: MessagesDetailsComponent }, 
+    { path: '', pathMatch: 'full', redirectTo: 'Albert_Flores' },
   ]},
   
 ]

@@ -1,5 +1,4 @@
 @import '../../../assets/styles/mixins';
-@import '../../../assets/styles/fonts';
 
 .new-order {
   @include flexbox(column, wrap, space-around, center);
