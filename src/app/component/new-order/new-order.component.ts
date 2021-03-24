@@ -27,12 +27,14 @@ export class NewOrderComponent implements OnInit {
     text: 'Lorem ipsum dolor sit amet?',
     id: 2,
     status: false
-  }, {
+  }, 
+  // {
 
-    text: 'Lorem ipsum dolor sit amet?',
-    id: 3,
-    status: false
-  },]
+  //   text: 'Lg|',
+  //   id: 3,
+  //   status: false
+  // },
+]
   prevQuestion : Question;
   constructor() { }
 

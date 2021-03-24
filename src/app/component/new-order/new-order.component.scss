@@ -31,7 +31,7 @@
   .create-title {
     width: 90%;
     height: 6vh;
-    font-family: sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 17px;
     font-weight: 800;
     @include flexbox(row, wrap, left, center);
@@ -64,6 +64,10 @@
     &__input::placeholder {
       color: #bdc1c8;
     }
+
+    &__input:focus {
+      border: 1px solid #44b4e7;
+    }
   }
 
   .order-info {
@@ -91,6 +95,18 @@
           height: 25px;
           background-color: white;
           border: 1px solid #bdc1c8;
+          transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
+        }
+
+        button:focus {
+          border: 1px solid #44b4e7;
+        }
+
+        button:hover {
+          background-color: #0cacf8;
+          border: 1px solid #0cacf8;
+          box-shadow: 0px 0px 7px 1px #0cacf8;
+          color: white;
         }
 
         .minus {
@@ -98,6 +114,7 @@
           height: 25px;
           background-color: white;
           border: 1px solid #bdc1c8;
+          transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
         }
 
         .programmer-input {
@@ -203,6 +220,18 @@
           height: 25px;
           background-color: white;
           border: 1px solid #bdc1c8;
+          transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
+        }
+
+        button:focus {
+          border: 1px solid #44b4e7;
+        }
+
+        button:hover {
+          background-color: #0cacf8;
+          border: 1px solid #0cacf8;
+          box-shadow: 0px 0px 7px 1px #0cacf8;
+          color: white;
         }
 
         .minus {
@@ -210,6 +239,7 @@
           height: 25px;
           background-color: white;
           border: 1px solid #bdc1c8;
+          transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
         }
 
         .experience-input {
@@ -1011,6 +1041,9 @@
           padding: 10px;
           border: none;
         }
+        &__text:focus {
+          border: 1px solid #0cacf8;
+        }
 
         &__header {
           width: 100%;
@@ -1088,6 +1121,9 @@
               height: 10px;
             }
           }
+          &--font-style:focus {
+            border: 1px solid #0cacf8;
+          }
 
           &--font-style:nth-child(5) {
             border-top-right-radius: 3px;
@@ -1118,6 +1154,9 @@
           &--text-align:nth-child(9) {
             border-top-right-radius: 3px;
             border-bottom-right-radius: 3px;
+          }
+          &--text-align:focus {
+            border: 1px solid #0cacf8;
           }
 
           &--text-align:nth-child(6) {
@@ -1320,10 +1359,22 @@
         @include flexbox(row, nowrap, space-between, center);
         margin-bottom: 5px;
 
+        &__text {
+          width: 80%;
+          height: 2vh;
+          font-size: 12px;
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-weight: 500;
+
+          span {
+            border-left: 1px solid black;
+            height: 3vh;
+          }
+        }
+
         &__button {
           width: 45px;
           height: 4vh;
-
           @include flexbox(row, nowrap, flex-end, center);
 
           &--bin {
@@ -1351,7 +1402,7 @@
         }
       }
 
-      .add-question{
+      .add-question {
         width: 100%;
         height: 3vh;
         @include flexbox(row, nowrap, center, center);
@@ -1361,7 +1412,8 @@
         font-weight: 600;
         color: #39bbf9;
         border: none;
-        svg{
+
+        svg {
           width: 15px;
           height: 15px;
           margin-right: 8px;
@@ -1384,4 +1436,19 @@
   border: 1px solid #0cacf8;
   font-size: 13px;
   margin-bottom: 30px;
+  transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
+}
+
+.order-button:hover {
+  background-color: transparent;
+  border: 1px solid #0cacf8;
+  box-shadow: 0px 0px 7px 1px #0cacf8;
+  color: #0cacf8;
+}
+
+.order-button:focus {
+  background-color: transparent;
+  border: 1px solid #0cacf8;
+  box-shadow: 0px 0px 7px 1px #0cacf8;
+  color: #0cacf8;
 }

@@ -209,9 +209,9 @@
         </div>
         <div class="order-info__dueDate">
           <div class="order-info__dueDate--text">
-              <button class="calendar-info">
-                <img src="../../../assets/image/calendar.svg" alt="">
-              </button>
+            <button class="calendar-info">
+              <img src="../../../assets/image/calendar.svg" alt="">
+            </button>
             Due date</div>
           <div class="order-info__dueDate--select">
             <button class="visible" (click)="openHidden('date')"
@@ -307,7 +307,8 @@
 
       </div>
       <div class="other-info__companyDesc">
-        <img class="other-info__question--arrowNavigate" src="../../../assets/image/arrow-down-sign-to-navigate.svg" alt="">
+        <img class="other-info__question--arrowNavigate" src="../../../assets/image/arrow-down-sign-to-navigate.svg"
+          alt="">
         <div class="other-info__companyDesc--visible">
           <div class="compDescription-icon">
             <img src="../../../assets/image/companyDesc.png" alt="">
@@ -341,8 +342,9 @@
               <input type="file" name="myfile" />
             </div>
           </div>
-          <div class="question-list" *ngFor="let item of questions" (click)="selectQuestion(item)" [style.border]="item.status ? '1px solid #b7e6fd' : 'none'">
-            <p class="question-list__text">{{item.id}}. Lorem ipsum dolor sit amet?</p>
+          <div class="question-list" *ngFor="let item of questions" (click)="selectQuestion(item)"
+            [style.border]="item.status ? '1px solid #b7e6fd' : 'none'">
+            <p class="question-list__text">{{item.id}}. {{item.text}}</p>
             <div class="question-list__button">
               <button *ngIf="item.status" class="question-list__button--bin">
               </button>
@@ -350,17 +352,25 @@
               </button>
             </div>
           </div>
+          <div class="question-list">
+            <p class="question-list__text">3. Lg<span></span></p>
+            <div class="question-list__button">
+              <!-- <button *ngIf="item.status" class="question-list__button--bin">
+              </button> -->
+              <button class="question-list__button--menu">
+              </button>
+            </div>
+          </div>
         
-    
-  
-    
+
           <button class="add-question">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path fill="#39bbf9" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/>
+              <path fill="#39bbf9"
+                d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
             </svg>
-            
+
             Add question</button>
-          
+
 
         </div>
 
