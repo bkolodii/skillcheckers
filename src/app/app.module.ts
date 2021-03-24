@@ -16,6 +16,13 @@ import { CloseComponent } from './pages/orders/order-items/close/close.component
 import { DraftsComponent } from './pages/orders/order-items/drafts/drafts.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { MessagesDetailsComponent } from './pages/messages/messages-details/messages-details.component';
+import { FormsModule } from '@angular/forms';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -34,11 +41,16 @@ import { MessagesDetailsComponent } from './pages/messages/messages-details/mess
     DraftsComponent,
     MessagesComponent,
     MessagesDetailsComponent,
-  
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

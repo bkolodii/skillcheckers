@@ -51,7 +51,8 @@ main {
       }
 
     }
-    &--setting:hover{
+
+    &--setting:hover {
       animation: rotate 600ms ease-in-out infinite;
     }
   }
@@ -539,12 +540,13 @@ main {
   }
 }
 
-@keyframes rotate{
-  0%{
+@keyframes rotate {
+  0% {
     border-radius: 50px;
     transform: rotate(90deg);
   }
-  100%{
+
+  100% {
     border-radius: 50px;
     transform: rotate(180deg);
   }

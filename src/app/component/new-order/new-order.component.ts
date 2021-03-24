@@ -1,7 +1,8 @@
 import { flatten } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { QuestionService } from 'src/app/service/question.service';
 import { Question } from 'src/app/shared/interfaces/question.interface';
-
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-new-order',
   templateUrl: './new-order.component.html',
@@ -18,40 +19,54 @@ export class NewOrderComponent implements OnInit {
   isDate: boolean = false;
   isFont: boolean = false;
 
+  questions: Array<Question> = [];
+  //   questions: Array<Question> = [{
+  //     text: 'Lorem ipsum dolor sit amet?',
+  //     id: 1,
+  //     status: false
+  //   }, {
+  //     text: 'Lorem ipsum dolor sit amet?',
+  //     id: 2,
+  //     status: false
+  //   }, 
+  //   // {
 
-  questions: Array<Question> = [{
-    text: 'Lorem ipsum dolor sit amet?',
-    id: 1,
-    status: false
-  }, {
-    text: 'Lorem ipsum dolor sit amet?',
-    id: 2,
-    status: false
-  }, 
-  // {
-
-  //   text: 'Lg|',
-  //   id: 3,
-  //   status: false
-  // },
-]
-  prevQuestion : Question;
-  constructor() { }
+  //   //   text: 'Lg|',
+  //   //   id: 3,
+  //   //   status: false
+  //   // },
+  // ]
+  prevQuestion: Question;
+  constructor(private questService: QuestionService) { }
 
   ngOnInit(): void {
+    this.getQuestion();
+  }
+
+  getQuestion(): void {
+    this.questService.getAllquest().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      )
+    ).subscribe(data => {
+      this.questions = data;
+    });
+
   }
 
   selectQuestion(curr: Question): void {
-    if(this.prevQuestion){
+    if (this.prevQuestion) {
       this.prevQuestion.status = false;
       curr.status = true;
       this.prevQuestion = curr;
     }
-    else{
+    else {
       curr.status = true;
       this.prevQuestion = curr;
     }
-  
+
   }
 
   openHidden(item: string): void {

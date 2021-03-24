@@ -14,18 +14,22 @@ const routes: Routes = [
   {
     path: 'orders', component: OrdersComponent, children: [
       { path: '', pathMatch: 'full', redirectTo: 'order-items/active' },
-      { path: 'order-items', component: OrderItemsComponent, children: [
-        { path: '', pathMatch: 'full', redirectTo: '' },
-        { path: 'active', component: ActiveComponent},
-      ] },
+      {
+        path: 'order-items', component: OrderItemsComponent, children: [
+          { path: '', pathMatch: 'full', redirectTo: '' },
+          { path: 'active', component: ActiveComponent },
+        ]
+      },
       { path: 'new-order', component: NewOrderComponent },
     ]
   },
-  {path: 'messages', component: MessagesComponent, children : [
-    { path: ':url', component: MessagesDetailsComponent }, 
-    { path: '', pathMatch: 'full', redirectTo: 'Albert_Flores' },
-  ]},
-  
+  {
+    path: 'messages', component: MessagesComponent, children: [
+      { path: ':url', component: MessagesDetailsComponent },
+      { path: '', pathMatch: 'full', redirectTo: 'Albert_Flores' },
+    ]
+  },
+
 ]
 
 @NgModule({
