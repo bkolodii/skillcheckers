@@ -1,5 +1,6 @@
 export interface Question {
     text: string,
-    id: number,
+    count: number,
     status: boolean,
+    id?: string
 }

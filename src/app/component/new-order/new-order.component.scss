@@ -931,6 +931,7 @@
       width: 13px;
       height: 13px;
       color: #acb0ba;
+      cursor: pointer;
     }
 
     &--visible {
@@ -977,6 +978,7 @@
     &--textNote {
       width: 100%;
       @include flexbox(column, nowrap, left, center);
+      overflow: hidden;
 
       .upload {
         width: 100%;
@@ -1041,6 +1043,7 @@
           padding: 10px;
           border: none;
         }
+
         &__text:focus {
           border: 1px solid #0cacf8;
         }
@@ -1121,6 +1124,7 @@
               height: 10px;
             }
           }
+
           &--font-style:focus {
             border: 1px solid #0cacf8;
           }
@@ -1155,6 +1159,7 @@
             border-top-right-radius: 3px;
             border-bottom-right-radius: 3px;
           }
+
           &--text-align:focus {
             border: 1px solid #0cacf8;
           }
@@ -1188,6 +1193,8 @@
       width: 13px;
       height: 13px;
       color: #acb0ba;
+      cursor: pointer;
+
     }
 
     &--visible {
@@ -1251,6 +1258,8 @@
       width: 13px;
       height: 13px;
       color: #acb0ba;
+      cursor: pointer;
+
     }
 
     &--visible {
@@ -1295,6 +1304,7 @@
     }
 
     &--questNote {
+      overflow: hidden;
       width: 100%;
       @include flexbox(column, nowrap, left, center);
 
@@ -1359,6 +1369,33 @@
         @include flexbox(row, nowrap, space-between, center);
         margin-bottom: 5px;
 
+        &__write {
+          width: 80%;
+          height: 4vh;
+          @include flexbox(row, nowrap, space-between, center);
+
+          &--id {
+            font-size: 12px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 500;
+          }
+
+          &--input {
+            width: 100%;
+            height: 4vh;
+            border: none;
+            padding-left: 10px;
+            background-color: transparent;
+            font-size: 12px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: 500;
+          }
+
+          // &--input:focus {
+          //   border: 1px solid #0cacf8;
+          // }
+        }
+
         &__text {
           width: 80%;
           height: 2vh;
@@ -1403,7 +1440,7 @@
       }
 
       .add-question {
-        width: 100%;
+        width: 140px;
         height: 3vh;
         @include flexbox(row, nowrap, center, center);
         margin-top: 5px;

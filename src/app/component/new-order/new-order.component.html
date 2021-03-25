@@ -1,4 +1,4 @@
-<section class="new-order">
+<section class="new-order" >
   <div class="container-order">
     <div class="create-order">
       <h1 class="create-title">Create a new order</h1>
@@ -10,9 +10,9 @@
         <div class="order-info__programmer">
           <p class="order-info__programmer--text">Programmers needed</p>
           <div class="order-info__programmer--counter">
-            <button class="add">-</button>
-            <input type="text" class="programmer-input" minlength="1" value="1">
-            <button class="minus">+</button>
+            <button class="minus" (click)="counter('progNeed', false)">-</button>
+            <input type="text" class="programmer-input" [(ngModel)]="progNeedNumber" minlength="1" value="1">
+            <button class="add" (click)="counter('progNeed', true)">+</button>
           </div>
         </div>
         <div class="order-info__mainSkill">
@@ -35,9 +35,9 @@
         <div class="order-info__experience">
           <p class="order-info__experience--text">Years of experience</p>
           <div class="order-info__experience--counter">
-            <button class="add">-</button>
-            <input type="text" class="experience-input" minlength="1" value="4">
-            <button class="minus">+</button>
+            <button class="minus" (click)="counter('experience', false)">-</button>
+            <input type="text" class="experience-input" [(ngModel)]="experienceNumber" minlength="1" value="4">
+            <button class="add" (click)="counter('experience', true)">+</button>
           </div>
         </div>
         <div class="order-info__addSkill">
@@ -236,7 +236,8 @@
     </div>
     <div class="other-info">
       <div class="other-info__jobDesc">
-        <img class="other-info__jobDesc--arrowNavigate" src="../../../assets/image/up-arrow.svg" alt="">
+        <img class="other-info__question--arrowNavigate" src="../../../assets/image/up-arrow.svg" *ngIf="isTextNode" (click)="openHidden('notePad')" alt="">
+        <img class="other-info__question--arrowNavigate" src="../../../assets/image/arrow-down-sign-to-navigate.svg" *ngIf="!isTextNode" (click)="openHidden('notePad')" alt="">
         <div class="other-info__jobDesc--visible">
           <div class="jobDescription-icon">
             <img src="../../../assets/image/description.png" alt="">
@@ -248,7 +249,7 @@
           </div>
         </div>
 
-        <div class="other-info__jobDesc--textNote">
+        <div class="other-info__jobDesc--textNote" [style.height]="isTextNode ? 'auto' : '0px' " [style.transition]="'height 1600ms ease-in-out'">
           <div class="upload">
             <div class="upload-btn-wrapper">
               <button class="btn"> <img src="../../../assets/image/google-documents.svg" alt=""> Use resent</button>
@@ -323,7 +324,8 @@
       </div>
       <!-- <div class="other-info__question"></div> -->
       <div class="other-info__question">
-        <img class="other-info__question--arrowNavigate" src="../../../assets/image/up-arrow.svg" alt="">
+        <img class="other-info__question--arrowNavigate" src="../../../assets/image/up-arrow.svg" *ngIf="isQuestion" (click)="openHidden('question')" alt="">
+        <img class="other-info__question--arrowNavigate" src="../../../assets/image/arrow-down-sign-to-navigate.svg" *ngIf="!isQuestion" (click)="openHidden('question')" alt="">
         <div class="other-info__question--visible">
           <div class="screenQuest-icon">
             <img src="../../../assets/image/screenQuest.png" alt="">
@@ -335,7 +337,7 @@
           </div>
         </div>
 
-        <div class="other-info__question--questNote">
+        <div class="other-info__question--questNote"  [style.height]="isQuestion ? 'auto' : '0px' " [style.transition]="'height 1600ms ease-in-out'">
           <div class="upload">
             <div class="upload-btn-wrapper">
               <button class="btn"> <img src="../../../assets/image/google-documents.svg" alt=""> Use resent</button>
@@ -344,26 +346,27 @@
           </div>
           <div class="question-list" *ngFor="let item of questions" (click)="selectQuestion(item)"
             [style.border]="item.status ? '1px solid #b7e6fd' : 'none'">
-            <p class="question-list__text">{{item.id}}. {{item.text}}</p>
+            <p class="question-list__text">{{item.count}}. {{item.text}} <span *ngIf="item.count == 3"></span></p>
             <div class="question-list__button">
-              <button *ngIf="item.status" class="question-list__button--bin">
+              <button *ngIf="item.status" class="question-list__button--bin" (click)="deleteQuest(item)">
               </button>
               <button class="question-list__button--menu">
               </button>
             </div>
           </div>
-          <div class="question-list">
-            <p class="question-list__text">3. Lg<span></span></p>
-            <div class="question-list__button">
-              <!-- <button *ngIf="item.status" class="question-list__button--bin">
-              </button> -->
-              <button class="question-list__button--menu">
-              </button>
-            </div>
-          </div>
-        
+            <div class="question-list">
 
-          <button class="add-question">
+              <div class="question-list__write"> <p class="question-list__write--id">{{questions.length+1}}.</p> <input type="text" autoFocus [(ngModel)]="questText" class="question-list__write--input"> </div>
+              <div class="question-list__button">
+                <!-- <button *ngIf="item.status" class="question-list__button--bin">
+              </button> -->
+                <button class="question-list__button--menu">
+                </button>
+              </div>
+            </div>
+
+
+          <button class="add-question" (click)="addQuest()">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path fill="#39bbf9"
                 d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />

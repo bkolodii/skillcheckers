@@ -23,6 +23,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
+import { AutofocusDirective } from './shared/directive/auto-focus.directive';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { environment } from '../environments/environment';
     DraftsComponent,
     MessagesComponent,
     MessagesDetailsComponent,
-
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
