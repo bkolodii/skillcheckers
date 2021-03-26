@@ -1,0 +1,69 @@
+@import "../../../../assets/styles/mixins";
+
+.active {
+  border-bottom: 4px solid #0caaf5;
+  color: #0caaf5;
+}
+
+.interviews-type {
+  width: 100%;
+  height: 6vh;
+  border-bottom: 1.5px solid rgb(175, 175, 175);
+  @include flexbox(row, nowrap, flex-start, center);
+
+  &__upcoming {
+    @include flexbox(row, nowrap, space-between, center);
+    margin-left: 20px;
+    min-width: 90px;
+    height: 6vh;
+    cursor: pointer;
+
+    &--title {
+      font-family: sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    &--unread {
+      width: 18px;
+      height: 18px;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      @include flexbox(row, nowrap, center, center);
+      border-radius: 50%;
+      background-color: #0caaf5;
+      color: white;
+      margin-left: 5px;
+    }
+  }
+
+  &__completed {
+    @extend .interviews-type__upcoming;
+
+    &--title {
+      @extend .interviews-type__upcoming--title;
+
+    }
+
+    &--unread {
+      @extend .interviews-type__upcoming--unread;
+    }
+  }
+
+  &__unconfirmed {
+    @extend .interviews-type__upcoming;
+
+
+    &--title {
+      @extend .interviews-type__upcoming--title;
+
+    }
+
+    &--unread {
+      @extend .interviews-type__upcoming--unread;
+      background-color: #eff1f9;
+      color: #bdc1cc;
+    }
+  }
+}

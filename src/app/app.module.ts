@@ -24,6 +24,9 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AutofocusDirective } from './shared/directive/auto-focus.directive';
+import { InterviewsComponent } from './pages/interviews/interviews.component';
+import { InterviewsItemComponent } from './pages/interviews/interviews-item/interviews-item.component';
+import { UpcomingComponent } from './pages/interviews/interviews-item/upcoming/upcoming.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { AutofocusDirective } from './shared/directive/auto-focus.directive';
     DraftsComponent,
     MessagesComponent,
     MessagesDetailsComponent,
-    AutofocusDirective
+    AutofocusDirective,
+    InterviewsComponent,
+    InterviewsItemComponent,
+    UpcomingComponent
   ],
   imports: [
     BrowserModule,

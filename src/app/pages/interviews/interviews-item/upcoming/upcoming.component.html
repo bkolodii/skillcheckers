@@ -1,0 +1,456 @@
+<main>
+  <section class="users-list">
+    <p class="users-list__date">TODAY</p>
+    <div class="users-list__person">
+      <div class="users-list__person--logo">
+        <img class="person-logo" src="../../../../../assets/image/clearuser1.png" alt="">
+        <p class="person-rate">8.6</p>
+      </div>
+      <div class="users-list__person--data">
+        <h2 class="person-name">Guy Hawkins</h2>
+        <p class="person-profession">Java Developer</p>
+      </div>
+      <div class="users-list__person--interview-date">
+        <p class="date-title"> DATE & TIME </p>
+        <div class="interview-time"> <img class="interview-time__icon" src="../../../../../assets/image/clock.svg"
+            alt="">
+          <p class="interview-time__text">05.07.2020, 3:00 PM</p>
+        </div>
+      </div>
+      <div class="users-list__person--interviewers">
+        <p class="interviewers-title">INTERVIEWERS</p>
+        <div class="interviewers-all">
+            <img src="../../../../../assets/image/interviewer1.jpg" alt="" class="interviewers-all__icon">
+            <img src="../../../../../assets/image/interviewer2.jpg" alt="" class="interviewers-all__icon">
+        </div>
+      </div>
+      <div class="users-list__person--orders">
+        <p class="orders-title">ORDERS</p>
+        <p class="orders-prof">Full-stack developer</p>
+      </div>
+      <div class="users-list__person--buttons">
+        <button class="start"> <img class="start__play" src="../../../../../assets/image/play.svg" alt="">
+          Start</button>
+        <button class="make-date"><img src="../../../../../assets/image/calendar_clock_icon_135839.svg" alt=""></button>
+        <div class="cancel-button">
+          <div class="cancel-button__hidden" [style.display]="hover == 1 ? 'flex' : 'none'"
+            [style.transition]="'display 1600ms ease-in-out'">
+            <p class="cancel-button__hidden--text">Cancel</p>
+            <span class="cancel-button__hidden--arrow-down"></span>
+          </div>
+          <button class="cancel-button__visible" (mouseover)="hoverCancel(true, 1)" (mouseout)="hoverCancel(false, 1)"
+            [style.background-color]="hover == 1 ? '#0cacf8' : '#f0f8ff'">
+            <svg [style.fill]="hover == 1 ? 'white' : '#7e8594'" version="1.1" id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <g>
+                <g>
+                  <path d="M255.15,468.625H63.787c-11.737,0-21.262-9.526-21.262-21.262V64.638c0-11.737,9.526-21.262,21.262-21.262H255.15
+			c11.758,0,21.262-9.504,21.262-21.262S266.908,0.85,255.15,0.85H63.787C28.619,0.85,0,29.47,0,64.638v382.724
+			c0,35.168,28.619,63.787,63.787,63.787H255.15c11.758,0,21.262-9.504,21.262-21.262
+			C276.412,478.129,266.908,468.625,255.15,468.625z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d="M505.664,240.861L376.388,113.286c-8.335-8.25-21.815-8.143-30.065,0.213s-8.165,21.815,0.213,30.065l92.385,91.173
+			H191.362c-11.758,0-21.262,9.504-21.262,21.262c0,11.758,9.504,21.263,21.262,21.263h247.559l-92.385,91.173
+			c-8.377,8.25-8.441,21.709-0.213,30.065c4.167,4.21,9.653,6.336,15.139,6.336c5.401,0,10.801-2.041,14.926-6.124l129.276-127.575
+			c4.04-3.997,6.336-9.441,6.336-15.139C512,250.302,509.725,244.88,505.664,240.861z" />
+                </g>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <p class="users-list__date">TOMORROW, 6 JULY</p>
+    <div class="users-list__person">
+      <div class="users-list__person--logo">
+        <img class="person-logo" src="../../../../../assets/image/clearuser1.png" alt="">
+        <p class="person-rate">8.1</p>
+      </div>
+      <div class="users-list__person--data">
+        <h2 class="person-name">Edgar Torrey</h2>
+        <p class="person-profession">.Net Software Engineer</p>
+      </div>
+      <div class="users-list__person--interview-date">
+        <p class="date-title"> DATE & TIME </p>
+        <div class="interview-time"> <img class="interview-time__icon" src="../../../../../assets/image/clock.svg"
+            alt="">
+          <p class="interview-time__text">06.07.2020, 1:00 PM</p>
+        </div>
+      </div>
+      <div class="users-list__person--interviewers">
+        <p class="interviewers-title">INTERVIEWERS</p>
+        <div class="interviewers-all">
+            <img src="../../../../../assets/image/interviewer1.jpg" alt="" class="interviewers-all__icon">
+            <img src="../../../../../assets/image/interviewer2.jpg" alt="" class="interviewers-all__icon">
+        </div>
+      </div>
+      <div class="users-list__person--orders">
+        <p class="orders-title">ORDERS</p>
+        <p class="orders-prof">.Net Software Engineer</p>
+      </div>
+      <div class="users-list__person--buttons">
+        <button class="start"> <img class="start__play" src="../../../../../assets/image/play.svg" alt="">
+          Start</button>
+        <button class="make-date"><img src="../../../../../assets/image/calendar_clock_icon_135839.svg" alt=""></button>
+        <div class="cancel-button">
+          <div class="cancel-button__hidden" [style.display]="hover == 2 ? 'flex' : 'none'"
+            [style.transition]="'display 1600ms ease-in-out'">
+            <p class="cancel-button__hidden--text">Cancel</p>
+            <span class="cancel-button__hidden--arrow-down"></span>
+          </div>
+          <button class="cancel-button__visible" (mouseover)="hoverCancel(true, 2)" (mouseout)="hoverCancel(false, 2)"
+            [style.background-color]="hover == 2 ? '#0cacf8' : '#f0f8ff'">
+            <svg [style.fill]="hover == 2 ? 'white' : '#7e8594'" version="1.1" id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <g>
+                <g>
+                  <path d="M255.15,468.625H63.787c-11.737,0-21.262-9.526-21.262-21.262V64.638c0-11.737,9.526-21.262,21.262-21.262H255.15
+			c11.758,0,21.262-9.504,21.262-21.262S266.908,0.85,255.15,0.85H63.787C28.619,0.85,0,29.47,0,64.638v382.724
+			c0,35.168,28.619,63.787,63.787,63.787H255.15c11.758,0,21.262-9.504,21.262-21.262
+			C276.412,478.129,266.908,468.625,255.15,468.625z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d="M505.664,240.861L376.388,113.286c-8.335-8.25-21.815-8.143-30.065,0.213s-8.165,21.815,0.213,30.065l92.385,91.173
+			H191.362c-11.758,0-21.262,9.504-21.262,21.262c0,11.758,9.504,21.263,21.262,21.263h247.559l-92.385,91.173
+			c-8.377,8.25-8.441,21.709-0.213,30.065c4.167,4.21,9.653,6.336,15.139,6.336c5.401,0,10.801-2.041,14.926-6.124l129.276-127.575
+			c4.04-3.997,6.336-9.441,6.336-15.139C512,250.302,509.725,244.88,505.664,240.861z" />
+                </g>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="users-list__person">
+      <div class="users-list__person--logo">
+        <img class="person-logo" src="../../../../../assets/image/clearuser1.png" alt="">
+        <p class="person-rate">7.1</p>
+      </div>
+      <div class="users-list__person--data">
+        <h2 class="person-name">Lovern Laboy</h2>
+        <p class="person-profession">iOS Developer</p>
+      </div>
+      <div class="users-list__person--interview-date">
+        <p class="date-title"> DATE & TIME </p>
+        <div class="interview-time"> <img class="interview-time__icon" src="../../../../../assets/image/clock.svg"
+            alt="">
+          <p class="interview-time__text">06.07.2020, 3:00 PM</p>
+        </div>
+      </div>
+      <div class="users-list__person--interviewers">
+        <p class="interviewers-title">INTERVIEWERS</p>
+        <div class="interviewers-all">
+            <img src="../../../../../assets/image/interviewer1.jpg" alt="" class="interviewers-all__icon">
+            <img src="../../../../../assets/image/interviewer2.jpg" alt="" class="interviewers-all__icon">
+        </div>
+      </div>
+      <div class="users-list__person--orders">
+        <p class="orders-title">ORDERS</p>
+        <p class="orders-prof">Flutter Mobile Developer</p>
+      </div>
+      <div class="users-list__person--buttons">
+        <button class="start"> <img class="start__play" src="../../../../../assets/image/play.svg" alt="">
+          Start</button>
+        <button class="make-date"><img src="../../../../../assets/image/calendar_clock_icon_135839.svg" alt=""></button>
+        <div class="cancel-button">
+          <div class="cancel-button__hidden" [style.display]="hover == 3 ? 'flex' : 'none'"
+            [style.transition]="'display 1600ms ease-in-out'">
+            <p class="cancel-button__hidden--text">Cancel</p>
+            <span class="cancel-button__hidden--arrow-down"></span>
+          </div>
+          <button class="cancel-button__visible" (mouseover)="hoverCancel(true, 3)" (mouseout)="hoverCancel(false, 3)"
+            [style.background-color]="hover == 3 ? '#0cacf8' : '#f0f8ff'">
+            <svg [style.fill]="hover == 3 ? 'white' : '#7e8594'" version="1.1" id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <g>
+                <g>
+                  <path d="M255.15,468.625H63.787c-11.737,0-21.262-9.526-21.262-21.262V64.638c0-11.737,9.526-21.262,21.262-21.262H255.15
+			c11.758,0,21.262-9.504,21.262-21.262S266.908,0.85,255.15,0.85H63.787C28.619,0.85,0,29.47,0,64.638v382.724
+			c0,35.168,28.619,63.787,63.787,63.787H255.15c11.758,0,21.262-9.504,21.262-21.262
+			C276.412,478.129,266.908,468.625,255.15,468.625z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d="M505.664,240.861L376.388,113.286c-8.335-8.25-21.815-8.143-30.065,0.213s-8.165,21.815,0.213,30.065l92.385,91.173
+			H191.362c-11.758,0-21.262,9.504-21.262,21.262c0,11.758,9.504,21.263,21.262,21.263h247.559l-92.385,91.173
+			c-8.377,8.25-8.441,21.709-0.213,30.065c4.167,4.21,9.653,6.336,15.139,6.336c5.401,0,10.801-2.041,14.926-6.124l129.276-127.575
+			c4.04-3.997,6.336-9.441,6.336-15.139C512,250.302,509.725,244.88,505.664,240.861z" />
+                </g>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <p class="users-list__date">8 JULY 2020</p>
+    <div class="users-list__person">
+      <div class="users-list__person--logo">
+        <img class="person-logo" src="../../../../../assets/image/clearuser1.png" alt="">
+        <p class="person-rate">9.0</p>
+      </div>
+      <div class="users-list__person--data">
+        <h2 class="person-name">Aileen Fullbright</h2>
+        <p class="person-profession">Java Developer</p>
+      </div>
+      <div class="users-list__person--interview-date">
+        <p class="date-title"> DATE & TIME </p>
+        <div class="interview-time"> <img class="interview-time__icon" src="../../../../../assets/image/clock.svg"
+            alt="">
+          <p class="interview-time__text">08.07.2020, 4:30 PM</p>
+        </div>
+      </div>
+      <div class="users-list__person--interviewers">
+        <p class="interviewers-title">INTERVIEWERS</p>
+        <div class="interviewers-all">
+            <img src="../../../../../assets/image/interviewer1.jpg" alt="" class="interviewers-all__icon">
+            <img src="../../../../../assets/image/interviewer2.jpg" alt="" class="interviewers-all__icon">
+        </div>
+      </div>
+      <div class="users-list__person--orders">
+        <p class="orders-title">ORDERS</p>
+        <p class="orders-prof">Software Engineer</p>
+      </div>
+      <div class="users-list__person--buttons">
+        <button class="start"> <img class="start__play" src="../../../../../assets/image/play.svg" alt="">
+          Start</button>
+        <button class="make-date"><img src="../../../../../assets/image/calendar_clock_icon_135839.svg" alt=""></button>
+        <div class="cancel-button">
+          <div class="cancel-button__hidden" [style.display]="hover == 4 ? 'flex' : 'none'"
+            [style.transition]="'display 1600ms ease-in-out'">
+            <p class="cancel-button__hidden--text">Cancel</p>
+            <span class="cancel-button__hidden--arrow-down"></span>
+          </div>
+          <button class="cancel-button__visible" (mouseover)="hoverCancel(true, 4)" (mouseout)="hoverCancel(false, 4)"
+            [style.background-color]="hover == 4 ? '#0cacf8' : '#f0f8ff'">
+            <svg [style.fill]="hover == 4 ? 'white' : '#7e8594'" version="1.1" id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <g>
+                <g>
+                  <path d="M255.15,468.625H63.787c-11.737,0-21.262-9.526-21.262-21.262V64.638c0-11.737,9.526-21.262,21.262-21.262H255.15
+			c11.758,0,21.262-9.504,21.262-21.262S266.908,0.85,255.15,0.85H63.787C28.619,0.85,0,29.47,0,64.638v382.724
+			c0,35.168,28.619,63.787,63.787,63.787H255.15c11.758,0,21.262-9.504,21.262-21.262
+			C276.412,478.129,266.908,468.625,255.15,468.625z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d="M505.664,240.861L376.388,113.286c-8.335-8.25-21.815-8.143-30.065,0.213s-8.165,21.815,0.213,30.065l92.385,91.173
+			H191.362c-11.758,0-21.262,9.504-21.262,21.262c0,11.758,9.504,21.263,21.262,21.263h247.559l-92.385,91.173
+			c-8.377,8.25-8.441,21.709-0.213,30.065c4.167,4.21,9.653,6.336,15.139,6.336c5.401,0,10.801-2.041,14.926-6.124l129.276-127.575
+			c4.04-3.997,6.336-9.441,6.336-15.139C512,250.302,509.725,244.88,505.664,240.861z" />
+                </g>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="users-list__person">
+      <div class="users-list__person--logo">
+        <img class="person-logo" src="../../../../../assets/image/clearuser1.png" alt="">
+        <p class="person-rate">8.2</p>
+      </div>
+      <div class="users-list__person--data">
+        <h2 class="person-name">Hannah Burress</h2>
+        <p class="person-profession">Java Developer</p>
+      </div>
+      <div class="users-list__person--interview-date">
+        <p class="date-title"> DATE & TIME </p>
+        <div class="interview-time"> <img class="interview-time__icon" src="../../../../../assets/image/clock.svg"
+            alt="">
+          <p class="interview-time__text">08.07.2020, 5:40 PM</p>
+        </div>
+      </div>
+      <div class="users-list__person--interviewers">
+        <p class="interviewers-title">INTERVIEWERS</p>
+        <div class="interviewers-all">
+            <img src="../../../../../assets/image/interviewer1.jpg" alt="" class="interviewers-all__icon">
+            <img src="../../../../../assets/image/interviewer2.jpg" alt="" class="interviewers-all__icon">
+        </div>
+      </div>
+      <div class="users-list__person--orders">
+        <p class="orders-title">ORDERS</p>
+        <p class="orders-prof">Java Developer</p>
+      </div>
+      <div class="users-list__person--buttons">
+        <button class="start"> <img class="start__play" src="../../../../../assets/image/play.svg" alt="">
+          Start</button>
+        <button class="make-date"><img src="../../../../../assets/image/calendar_clock_icon_135839.svg" alt=""></button>
+        <div class="cancel-button">
+          <div class="cancel-button__hidden" [style.display]="hover == 5 ? 'flex' : 'none'"
+            [style.transition]="'display 1600ms ease-in-out'">
+            <p class="cancel-button__hidden--text">Cancel</p>
+            <span class="cancel-button__hidden--arrow-down"></span>
+          </div>
+          <button class="cancel-button__visible" (mouseover)="hoverCancel(true, 5)" (mouseout)="hoverCancel(false, 5)"
+            [style.background-color]="hover == 5 ? '#0cacf8' : '#f0f8ff'">
+            <svg [style.fill]="hover == 5 ? 'white' : '#7e8594'" version="1.1" id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <g>
+                <g>
+                  <path d="M255.15,468.625H63.787c-11.737,0-21.262-9.526-21.262-21.262V64.638c0-11.737,9.526-21.262,21.262-21.262H255.15
+			c11.758,0,21.262-9.504,21.262-21.262S266.908,0.85,255.15,0.85H63.787C28.619,0.85,0,29.47,0,64.638v382.724
+			c0,35.168,28.619,63.787,63.787,63.787H255.15c11.758,0,21.262-9.504,21.262-21.262
+			C276.412,478.129,266.908,468.625,255.15,468.625z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d="M505.664,240.861L376.388,113.286c-8.335-8.25-21.815-8.143-30.065,0.213s-8.165,21.815,0.213,30.065l92.385,91.173
+			H191.362c-11.758,0-21.262,9.504-21.262,21.262c0,11.758,9.504,21.263,21.262,21.263h247.559l-92.385,91.173
+			c-8.377,8.25-8.441,21.709-0.213,30.065c4.167,4.21,9.653,6.336,15.139,6.336c5.401,0,10.801-2.041,14.926-6.124l129.276-127.575
+			c4.04-3.997,6.336-9.441,6.336-15.139C512,250.302,509.725,244.88,505.664,240.861z" />
+                </g>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <p class="users-list__date">10 JULY 2020</p>
+    <div class="users-list__person">
+      <div class="users-list__person--logo">
+        <img class="person-logo" src="../../../../../assets/image/clearuser1.png" alt="">
+        <p class="person-rate">7.3</p>
+      </div>
+      <div class="users-list__person--data">
+        <h2 class="person-name">Willard Purnell</h2>
+        <p class="person-profession">Flutter Developer</p>
+      </div>
+      <div class="users-list__person--interview-date">
+        <p class="date-title"> DATE & TIME </p>
+        <div class="interview-time"> <img class="interview-time__icon" src="../../../../../assets/image/clock.svg"
+            alt="">
+          <p class="interview-time__text">10.07.2020, 1:30 PM</p>
+        </div>
+      </div>
+      <div class="users-list__person--interviewers">
+        <p class="interviewers-title">INTERVIEWERS</p>
+        <div class="interviewers-all">
+            <img src="../../../../../assets/image/interviewer1.jpg" alt="" class="interviewers-all__icon">
+            <img src="../../../../../assets/image/interviewer2.jpg" alt="" class="interviewers-all__icon">
+        </div>
+      </div>
+      <div class="users-list__person--orders">
+        <p class="orders-title">ORDERS</p>
+        <p class="orders-prof">Full-stack developer</p>
+      </div>
+      <div class="users-list__person--buttons">
+        <button class="start"> <img class="start__play" src="../../../../../assets/image/play.svg" alt="">
+          Start</button>
+        <button class="make-date"><img src="../../../../../assets/image/calendar_clock_icon_135839.svg" alt=""></button>
+        <div class="cancel-button">
+          <div class="cancel-button__hidden" [style.display]="hover == 6 ? 'flex' : 'none'"
+            [style.transition]="'display 1600ms ease-in-out'">
+            <p class="cancel-button__hidden--text">Cancel</p>
+            <span class="cancel-button__hidden--arrow-down"></span>
+          </div>
+          <button class="cancel-button__visible" (mouseover)="hoverCancel(true, 6)" (mouseout)="hoverCancel(false, 6)"
+            [style.background-color]="hover == 6 ? '#0cacf8' : '#f0f8ff'">
+            <svg [style.fill]="hover == 6 ? 'white' : '#7e8594'" version="1.1" id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <g>
+                <g>
+                  <path d="M255.15,468.625H63.787c-11.737,0-21.262-9.526-21.262-21.262V64.638c0-11.737,9.526-21.262,21.262-21.262H255.15
+			c11.758,0,21.262-9.504,21.262-21.262S266.908,0.85,255.15,0.85H63.787C28.619,0.85,0,29.47,0,64.638v382.724
+			c0,35.168,28.619,63.787,63.787,63.787H255.15c11.758,0,21.262-9.504,21.262-21.262
+			C276.412,478.129,266.908,468.625,255.15,468.625z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d="M505.664,240.861L376.388,113.286c-8.335-8.25-21.815-8.143-30.065,0.213s-8.165,21.815,0.213,30.065l92.385,91.173
+			H191.362c-11.758,0-21.262,9.504-21.262,21.262c0,11.758,9.504,21.263,21.262,21.263h247.559l-92.385,91.173
+			c-8.377,8.25-8.441,21.709-0.213,30.065c4.167,4.21,9.653,6.336,15.139,6.336c5.401,0,10.801-2.041,14.926-6.124l129.276-127.575
+			c4.04-3.997,6.336-9.441,6.336-15.139C512,250.302,509.725,244.88,505.664,240.861z" />
+                </g>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="users-list__person">
+      <div class="users-list__person--logo">
+        <img class="person-logo" src="../../../../../assets/image/clearuser1.png" alt="">
+        <p class="person-rate">6.6</p>
+      </div>
+      <div class="users-list__person--data">
+        <h2 class="person-name">Florencio Dorrance</h2>
+        <p class="person-profession">C++ Developer</p>
+      </div>
+      <div class="users-list__person--interview-date">
+        <p class="date-title"> DATE & TIME </p>
+        <div class="interview-time"> <img class="interview-time__icon" src="../../../../../assets/image/clock.svg"
+            alt="">
+          <p class="interview-time__text">10.07.2020, 3:00 PM</p>
+        </div>
+      </div>
+      <div class="users-list__person--interviewers">
+        <p class="interviewers-title">INTERVIEWERS</p>
+        <div class="interviewers-all">
+            <img src="../../../../../assets/image/interviewer1.jpg" alt="" class="interviewers-all__icon">
+            <img src="../../../../../assets/image/interviewer2.jpg" alt="" class="interviewers-all__icon">
+        </div>
+      </div>
+      <div class="users-list__person--orders">
+        <p class="orders-title">ORDERS</p>
+        <p class="orders-prof">C++ Developer</p>
+      </div>
+      <div class="users-list__person--buttons">
+        <button class="start"> <img class="start__play" src="../../../../../assets/image/play.svg" alt="">
+          Start</button>
+        <button class="make-date"><img src="../../../../../assets/image/calendar_clock_icon_135839.svg" alt=""></button>
+        <div class="cancel-button">
+          <div class="cancel-button__hidden" [style.display]="hover == 7 ? 'flex' : 'none'"
+            [style.transition]="'display 1600ms ease-in-out'">
+            <p class="cancel-button__hidden--text">Cancel</p>
+            <span class="cancel-button__hidden--arrow-down"></span>
+          </div>
+          <button class="cancel-button__visible" (mouseover)="hoverCancel(true, 7)" (mouseout)="hoverCancel(false, 7)"
+            [style.background-color]="hover == 7 ? '#0cacf8' : '#f0f8ff'">
+            <svg [style.fill]="hover == 7 ? 'white' : '#7e8594'" version="1.1" id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+              viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+              <g>
+                <g>
+                  <path d="M255.15,468.625H63.787c-11.737,0-21.262-9.526-21.262-21.262V64.638c0-11.737,9.526-21.262,21.262-21.262H255.15
+			c11.758,0,21.262-9.504,21.262-21.262S266.908,0.85,255.15,0.85H63.787C28.619,0.85,0,29.47,0,64.638v382.724
+			c0,35.168,28.619,63.787,63.787,63.787H255.15c11.758,0,21.262-9.504,21.262-21.262
+			C276.412,478.129,266.908,468.625,255.15,468.625z" />
+                </g>
+              </g>
+              <g>
+                <g>
+                  <path d="M505.664,240.861L376.388,113.286c-8.335-8.25-21.815-8.143-30.065,0.213s-8.165,21.815,0.213,30.065l92.385,91.173
+			H191.362c-11.758,0-21.262,9.504-21.262,21.262c0,11.758,9.504,21.263,21.262,21.263h247.559l-92.385,91.173
+			c-8.377,8.25-8.441,21.709-0.213,30.065c4.167,4.21,9.653,6.336,15.139,6.336c5.401,0,10.801-2.041,14.926-6.124l129.276-127.575
+			c4.04-3.997,6.336-9.441,6.336-15.139C512,250.302,509.725,244.88,505.664,240.861z" />
+                </g>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="calendar">
+    <div class="calendar__month">
+        <button class="calendar__month--navigate-left"></button>
+        <p class="calendar__month--date">July 5, 2020</p>
+        <button class="calendar__month--navigate-right"></button>
+    </div>
+  </section>
+</main>

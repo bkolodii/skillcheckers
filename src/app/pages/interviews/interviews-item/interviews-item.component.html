@@ -1,0 +1,19 @@
+<nav class="interviews-type">
+    <div class="interviews-type__upcoming" routerLinkActive="active" [routerLink]="[ 'upcoming' ]">
+      <p class="interviews-type__upcoming--title">UPCOMING</p>
+      <p class="interviews-type__upcoming--unread">23</p>
+  
+    </div>
+    <div class="interviews-type__completed">
+      <p class="interviews-type__completed--title">COMPLETED</p>
+      <p class="interviews-type__completed--unread">44</p>
+    </div>
+    <div class="interviews-type__unconfirmed">
+      <p class="interviews-type__unconfirmed--title">UNCONFIRMED</p>
+      <p class="interviews-type__unconfirmed--unread">0</p>
+    </div>
+  </nav>
+  <section>
+    <router-outlet></router-outlet>
+  </section>
+  

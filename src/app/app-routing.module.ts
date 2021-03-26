@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewOrderComponent } from './component/new-order/new-order.component';
+import { InterviewsItemComponent } from './pages/interviews/interviews-item/interviews-item.component';
+import { UpcomingComponent } from './pages/interviews/interviews-item/upcoming/upcoming.component';
+import { InterviewsComponent } from './pages/interviews/interviews.component';
 import { MessagesDetailsComponent } from './pages/messages/messages-details/messages-details.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { ActiveComponent } from './pages/orders/order-items/active/active.component';
@@ -18,6 +21,18 @@ const routes: Routes = [
         path: 'order-items', component: OrderItemsComponent, children: [
           { path: '', pathMatch: 'full', redirectTo: '' },
           { path: 'active', component: ActiveComponent },
+        ]
+      },
+      { path: 'new-order', component: NewOrderComponent },
+    ]
+  },
+  {
+    path: 'interviews', component: InterviewsComponent, children: [
+      { path: '', pathMatch: 'full', redirectTo: 'interviews-item/upcoming' },
+      {
+        path: 'interviews-item', component: InterviewsItemComponent, children: [
+          { path: '', pathMatch: 'full', redirectTo: '' },
+          { path: 'upcoming', component: UpcomingComponent },
         ]
       },
       { path: 'new-order', component: NewOrderComponent },

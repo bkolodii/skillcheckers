@@ -18,8 +18,8 @@
       <p class="title">Candidates</p>
     </div>
   </div>
-  <div class="menu-items__interviews">
-    <div class="menu-items__interviews--contain">
+  <div class="menu-items__interviews" routerLinkActive="select-item" [routerLink]="[ 'interviews' ]">
+    <div class="menu-items__interviews--contain" routerLinkActive="select-contain" [routerLink]="[ 'interviews' ]">
       <img class="icon" src="../../../../assets/image/conversation.svg" alt="">
       <p class="title">Interviews</p>
       <p class="not-read">2</p>
