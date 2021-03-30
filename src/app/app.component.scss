@@ -1,6 +1,18 @@
 @import "../assets/styles/mixins";
 
+#eventOut{
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  border: 1px solid #fab453;
 
+}
+#eventNext{
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  border: 1px solid #21b3f9;
+}
 
 .header {
   position: fixed;

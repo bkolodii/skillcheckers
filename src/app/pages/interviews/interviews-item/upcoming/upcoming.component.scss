@@ -4,279 +4,284 @@ main {
   width: 100%;
   min-height: 86.5vh;
   background-color: #eaecf4;
-  @include flexbox(row, nowrap, space-around, flex-start);
+  @include flexbox(row, nowrap, space-between, flex-start);
 }
+
 
 .users-list {
   width: 65%;
   min-height: 75vh;
-  padding: 15px;
-  @include flexbox(column, nowrap, space-around, center);
+  padding: 14px 0px 14px 14px;
+  @include flexbox(column, nowrap, flex-start, center);
 
-  &__date:first-child {
-    margin-top: 5px;
-  }
-
-  &__date {
+  &__fourEvents {
     width: 100%;
-    height: 3vh;
-    font-size: 12px;
-    font-family: sans-serif;
-    font-weight: 600;
-    color: #79808f;
-    margin-top: 10px;
-  }
 
-  &__person {
-    width: 100%;
-    height: 8vh;
-    background-color: white;
-    @include flexbox(row, nowrap, flex-start, center);
-    margin-bottom: 10px;
-
-    &--logo {
-      width: 50px;
-      height: 8vh;
-      position: relative;
-      margin-left: 10px;
+    &--date:first-child {
       margin-top: 5px;
-
-      //   @include flexbox(row, nowrap, center, center);
-      .person-logo {
-        width: 48px;
-        height: 45px;
-      }
-
-      .person-rate {
-        position: absolute;
-        bottom: 5px;
-        left: calc(50% - 18px);
-        width: 29px;
-        height: 14px;
-        border-radius: 10px;
-        background-color: #25bf50;
-        font-size: 10px;
-        font-family: sans-serif;
-        font-weight: 500;
-        color: white;
-        text-align: center;
-        line-height: 16px;
-        border: 3px solid white;
-      }
     }
 
-    &--data {
-      @include flexbox(column, nowrap, space-around, flex-start);
-      height: 5vh;
-      width: 145px;
-      margin-left: 5px;
-
-      .person-name {
-        font-family: sans-serif;
-        font-size: 13.5px;
-        font-weight: 600;
-        // margin-bottom: 5px;
-      }
-
-      .person-profession {
-        font-family: sans-serif;
-        font-size: 11px;
-        font-weight: 500;
-        color: #b3b3b6;
-      }
+    &--date {
+      width: 100%;
+      height: 3vh;
+      font-size: 12px;
+      font-family: sans-serif;
+      font-weight: 600;
+      color: #79808f;
+      margin-top: 10px;
     }
 
-    &--interview-date {
-      @include flexbox(column, nowrap, space-around, flex-start);
-      height: 5vh;
-      width: 148px;
+    &--person {
+      width: 100%;
+      height: 8vh;
+      background-color: white;
+      @include flexbox(row, nowrap, flex-start, center);
+      margin-bottom: 10px;
 
-      .interview-time {
-        width: 100%;
-        font-family: sans-serif;
-        font-size: 13.5px;
-        font-weight: 500;
+      .logo {
+        width: 50px;
+        height: 8vh;
+        position: relative;
+        margin-left: 10px;
+        margin-top: 5px;
 
-        @include flexbox(row, nowrap, space-between, center);
-
-        &__icon {
-          width: 16px;
-          height: 15px;
+        //   @include flexbox(row, nowrap, center, center);
+        &__person-img {
+          width: 48px;
+          height: 45px;
         }
 
-        &__text {
+        &__person-rate {
+          position: absolute;
+          bottom: 5px;
+          left: calc(50% - 18px);
+          width: 29px;
+          height: 14px;
+          border-radius: 10px;
+          background-color: #25bf50;
+          font-size: 10px;
+          font-family: sans-serif;
+          font-weight: 500;
+          color: white;
+          text-align: center;
+          line-height: 16px;
+          border: 3px solid white;
+        }
+      }
+
+      .data {
+        @include flexbox(column, nowrap, space-around, flex-start);
+        height: 5vh;
+        width: 145px;
+        margin-left: 5px;
+
+        &__person-name {
+          font-family: sans-serif;
+          font-size: 13.5px;
+          font-weight: 600;
+          // margin-bottom: 5px;
+        }
+
+        &__person-profession {
+          font-family: sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          color: #b3b3b6;
+        }
+      }
+
+      .interview-date {
+        @include flexbox(column, nowrap, space-around, flex-start);
+        height: 5vh;
+        width: 148px;
+
+        &__interview-time {
+          width: 100%;
+          font-family: sans-serif;
+          font-size: 13.5px;
+          font-weight: 500;
+
+          @include flexbox(row, nowrap, space-between, center);
+
+          &--icon {
+            width: 16px;
+            height: 15px;
+          }
+
+          &--text {
+            font-family: sans-serif;
+            font-size: 13.5px;
+            font-weight: 500;
+          }
+        }
+
+        &__date-title {
+          font-family: sans-serif;
+          font-size: 9.5px;
+          font-weight: 550;
+          color: #b3b3b6;
+          // margin-bottom: 5px;
+        }
+      }
+
+      .interviewers {
+        @include flexbox(column, nowrap, space-around, center);
+        height: 5vh;
+        width: 140px;
+
+        &__interviewers-all {
+          width: 50%;
+          height: 3vh;
+          position: relative;
+          @include flexbox(row, nowrap, flex-start, center);
+
+          &--icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50px;
+            border: 1px solid white;
+          }
+
+          &--icon:nth-child(2) {
+            position: absolute;
+            left: 16px;
+            border: 1px solid white;
+          }
+        }
+
+        &__interviewers-title {
+          font-family: sans-serif;
+          font-size: 9.5px;
+          font-weight: 550;
+          color: #b3b3b6;
+          // margin-bottom: 5px;
+        }
+      }
+
+      .orders {
+        @include flexbox(column, nowrap, space-around, flex-start);
+        height: 5vh;
+        width: 155px;
+
+        &__orders-prof {
+          width: 100%;
           font-family: sans-serif;
           font-size: 13.5px;
           font-weight: 500;
         }
-      }
 
-      .date-title {
-        font-family: sans-serif;
-        font-size: 9.5px;
-        font-weight: 550;
-        color: #b3b3b6;
-        // margin-bottom: 5px;
-      }
-    }
-
-    &--interviewers {
-      @include flexbox(column, nowrap, space-around, center);
-      height: 5vh;
-      width: 140px;
-
-      .interviewers-all {
-        width: 50%;
-        height: 3vh;
-        position: relative;
-        @include flexbox(row, nowrap, flex-start, center);
-
-        &__icon {
-          width: 20px;
-          height: 20px;
-          border-radius: 50px;
-          border: 1px solid white;
-        }
-
-        &__icon:nth-child(2) {
-          position: absolute;
-          left: 16px;
-          border: 1px solid white;
+        &__orders-title {
+          font-family: sans-serif;
+          font-size: 9.5px;
+          font-weight: 550;
+          color: #b3b3b6;
+          // margin-bottom: 5px;
         }
       }
 
-      .interviewers-title {
-        font-family: sans-serif;
-        font-size: 9.5px;
-        font-weight: 550;
-        color: #b3b3b6;
-        // margin-bottom: 5px;
-      }
-    }
+      .buttons {
+        width: 170px;
+        height: 5vh;
+        @include flexbox(row, nowrap, space-around, center);
 
-    &--orders {
-      @include flexbox(column, nowrap, space-around, flex-start);
-      height: 5vh;
-      width: 155px;
+        &__start {
+          width: 80px;
+          height: 4.2vh;
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: center;
+          align-items: center;
+          border: 2px solid #0cacf8;
+          background-color: white;
+          font-family: sans-serif;
+          font-size: 11.5px;
+          font-weight: 600;
+          padding: 0;
 
-      .orders-prof {
-        width: 100%;
-        font-family: sans-serif;
-        font-size: 13.5px;
-        font-weight: 500;
-      }
-
-      .orders-title {
-        font-family: sans-serif;
-        font-size: 9.5px;
-        font-weight: 550;
-        color: #b3b3b6;
-        // margin-bottom: 5px;
-      }
-    }
-
-    &--buttons {
-      width: 170px;
-      height: 5vh;
-      @include flexbox(row, nowrap, space-around, center);
-
-      .start {
-        width: 80px;
-        height: 4.2vh;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
-        border: 2px solid #0cacf8;
-        background-color: white;
-        font-family: sans-serif;
-        font-size: 11.5px;
-        font-weight: 600;
-        padding: 0;
-
-        // color: #b3b3b6;
-        &__play {
-          width: 10px;
-          height: 10px;
-          margin-right: 5px;
-          font-weight: 900;
-        }
-      }
-
-      .make-date {
-        width: 35px;
-        height: 4.2vh;
-        background-color: #0cacf8;
-        border: 1px solid #0cacf8;
-
-        img {
-          width: 20px;
-          height: 20px;
-        }
-      }
-
-      .cancel-button {
-        width: 35px;
-        height: 4.2vh;
-        position: relative;
-
-        &__hidden {
-          position: absolute;
-          width: 60px;
-          top: calc(-91%);
-          left: calc(-57%);
-          height: 3.2vh;
-          border-radius: 10px;
-          @include flexbox(column, nowrap, flex-start, center);
-
-          &--text {
-            width: 100%;
-            background-color: #696d77;
-            height: 3.5vh;
-            border-radius: 3px;
-            @include flexbox(row, nowrap, center, center);
-            font-family: sans-serif;
-            font-size: 11.5px;
-            font-weight: 500;
-            color: #cfd1d4;
-            z-index: 2;
-          }
-
-          &--arrow-down {
-            width: 15px;
-            height: 15px;
-            position: absolute;
-            background-color: #696d77;
-            transform: rotate(45deg);
-            top: 8px;
-            z-index: 1;
+          // color: #b3b3b6;
+          &--play {
+            width: 10px;
+            height: 10px;
+            margin-right: 5px;
+            font-weight: 900;
           }
         }
 
-        &__visible {
+        &__make-date {
           width: 35px;
           height: 4.2vh;
           background-color: #0cacf8;
-          border: none;
-          @include flexbox(row, nowrap, center, center);
-          padding: 0;
-          cursor: auto;
+          border: 1px solid #0cacf8;
 
-          svg {
-            fill: white;
-            width: 15px;
-            height: 15px;
-          }
-
-          svg:hover {
-            fill: #7e8594
+          img {
+            width: 20px;
+            height: 20px;
           }
         }
 
-        &__vissible:hover {
-          background-color: #f0f8ff;
-        }
+        &__cancel-button {
+          width: 35px;
+          height: 4.2vh;
+          position: relative;
 
+          &--hidden {
+            position: absolute;
+            width: 60px;
+            top: calc(-91%);
+            left: calc(-57%);
+            height: 3.2vh;
+            border-radius: 10px;
+            @include flexbox(column, nowrap, flex-start, center);
+
+            .hidden-text {
+              width: 100%;
+              background-color: #696d77;
+              height: 3.5vh;
+              border-radius: 3px;
+              @include flexbox(row, nowrap, center, center);
+              font-family: sans-serif;
+              font-size: 11.5px;
+              font-weight: 500;
+              color: #cfd1d4;
+              z-index: 2;
+            }
+
+            .hidden-arrow-down {
+              width: 15px;
+              height: 15px;
+              position: absolute;
+              background-color: #696d77;
+              transform: rotate(45deg);
+              top: 8px;
+              z-index: 1;
+            }
+          }
+
+          &--visible {
+            width: 35px;
+            height: 4.2vh;
+            background-color: #0cacf8;
+            border: none;
+            @include flexbox(row, nowrap, center, center);
+            padding: 0;
+            cursor: auto;
+
+            svg {
+              fill: white;
+              width: 15px;
+              height: 15px;
+            }
+
+            svg:hover {
+              fill: #7e8594
+            }
+          }
+
+          &--vissible:hover {
+            background-color: #f0f8ff;
+          }
+
+        }
       }
     }
   }
@@ -285,11 +290,11 @@ main {
 .calendar {
   width: 30%;
   min-height: 45vh;
-  padding: 15px;
+  padding: 10px;
   background-color: white;
   border-top: 5px solid #0cacf8;
   margin-top: 15px;
-  margin-right: 15px;
+  margin-right: 10px;
   @include flexbox(column, nowrap, flex-start, center);
 
   &__month {
@@ -326,6 +331,98 @@ main {
       font-family: sans-serif;
       font-weight: 500;
       //   color: #79808f;
+    }
+  }
+
+  &__day-list {
+    width: 95%;
+    height: 4vh;
+    @include flexbox(row, nowrap, space-around, center);
+
+    &--day {
+      font-size: 12px;
+      font-family: sans-serif;
+      font-weight: 550;
+      width: 49.9px;
+      text-align: center;
+    }
+  }
+
+  &__day-number {
+    width: 95%;
+    min-height: 10vh;
+    @include flexbox(row, wrap, flex-start, center);
+
+    &--block-day {
+      width: 49.9px;
+      height: 50px;
+      border: 1px solid #d2d2de;
+      @include flexbox(row, wrap, center, center);
+      font-size: 12px;
+      font-weight: 500;
+      font-family: sans-serif;
+      color: #7e828b;
+      cursor: pointer;
+
+      .eventBox {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__event {
+          width: 3px;
+          height: 3px;
+          border-radius: 50%;
+          border: 3px solid #fab453;
+          margin-right: 2px;
+
+        }
+      }
+
+    }
+
+  }
+
+  &__mean {
+    width: 95%;
+    min-height: 6vh;
+    @include flexbox(row, wrap, center, center);
+    margin-top: 5px;
+
+    &--upcoming {
+      width: 75px;
+      height: 3vh;
+      font-size: 12px;
+      font-family: sans-serif;
+      font-weight: 500;
+      @include flexbox(row, wrap, space-around, center);
+
+      span {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        border: 3px solid #21b3f9;
+        margin-right: 2px;
+      }
+    }
+
+    &--completed {
+      margin-left: 5px;
+      width: 75px;
+      height: 3vh;
+      font-size: 12px;
+      font-family: sans-serif;
+      font-weight: 500;
+      @include flexbox(row, wrap, space-around, center);
+
+      span {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        border: 3px solid #fab453;
+        margin-right: 2px;
+      }
     }
   }
 
