@@ -197,7 +197,7 @@ main {
           font-size: 11.5px;
           font-weight: 600;
           padding: 0;
-
+          transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
           // color: #b3b3b6;
           &--play {
             width: 10px;
@@ -207,18 +207,39 @@ main {
           }
         }
 
+        &__start:hover {
+          background-color: transparent;
+          border: 2px solid #0cacf8;
+          box-shadow: 0px 0px 7px 1px #0cacf8;
+          color: #0cacf8;
+        }
+    
+        &__start:focus {
+          background-color: transparent;
+          border: 2px solid #0cacf8;
+          box-shadow: 0px 0px 7px 1px #0cacf8;
+          color: #0cacf8;
+        }
+
         &__make-date {
           width: 35px;
           height: 4.2vh;
           background-color: #0cacf8;
           border: 1px solid #0cacf8;
-
+          transition: box-shadow 600ms ease-in-out, fill 600ms ease-in-out;
           img {
             width: 20px;
             height: 20px;
           }
         }
-
+        &__make-date:hover {
+          box-shadow: 0px 0px 7px 1px #0cacf8;
+          color: #0cacf8;
+        }
+        &__make-date:focus {
+          box-shadow: 0px 0px 7px 1px #0cacf8;
+          color: #0cacf8;
+        }
         &__cancel-button {
           width: 35px;
           height: 4.2vh;
@@ -265,6 +286,7 @@ main {
             @include flexbox(row, nowrap, center, center);
             padding: 0;
             cursor: auto;
+            transition: background-color 600ms ease-in-out, fill 600ms ease-in-out;
 
             svg {
               fill: white;
@@ -273,6 +295,7 @@ main {
             }
 
             svg:hover {
+              transition: fill 600ms ease-in-out;
               fill: #7e8594
             }
           }
@@ -363,7 +386,7 @@ main {
       font-family: sans-serif;
       color: #7e828b;
       cursor: pointer;
-
+      transition: background-color 600ms ease-in-out;
       .eventBox {
         width: 100%;
         display: flex;
@@ -381,6 +404,11 @@ main {
       }
 
     }
+
+    &--block-day:hover {
+      background-color: blanchedalmond;
+    }
+
 
   }
 

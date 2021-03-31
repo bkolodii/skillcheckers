@@ -8,11 +8,11 @@
         <p class="users-list__fourEvents--date"
           *ngIf="currDay+1 === +event[0]?.interviewTime.split('.')[0] ; else date">
           TOMORROW, {{+event[0].interviewTime.split('.')[0]}}
-          {{month[+event[0].interviewTime.split('.')[1] - 1].monthName}} </p>
+          {{month[+event[0].interviewTime.split('.')[1] - 1].monthName.toUpperCase()}} </p>
       </ng-template>
       <ng-template #date>
         <p class="users-list__fourEvents--date" *ngIf="+event[0]?.interviewTime.split('.')[0]">
-          {{+event[0].interviewTime.split('.')[0]}} {{month[+event[0].interviewTime.split('.')[1] - 1].monthName}} </p>
+          {{+event[0].interviewTime.split('.')[0]}} {{month[+event[0].interviewTime.split('.')[1] - 1].monthName.toUpperCase()}} {{+event[0].interviewTime.split('.')[2].substr(0,4)}}</p>
       </ng-template>
 
       <div class="users-list__fourEvents--person" *ngFor="let person of event">
@@ -97,7 +97,8 @@
     </div>
     <div class="calendar__day-number">
       <div class="calendar__day-number--block-day" *ngFor="let item of dates"
-        [style.border]="(currDay === item.dayNumber) ? '1px solid #16b4ff' : '1px solid #d2d2de'"
+        [style.border]="(currDay === item.dayNumber ) ? '1px solid #16b4ff' : '1px solid #d2d2de'"
+        [style.background-color]="currTime.currDay === item.dayNumber ? '#d0d7e1' : 'white' "
         (click)="chooseDate(item)">
         {{item.dayNumber}}
         <div class="eventBox">

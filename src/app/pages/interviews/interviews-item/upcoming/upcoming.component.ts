@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { MonthService } from 'src/app/service/month.service';
 import { allEvents } from 'src/app/shared/interfaces/allEvents.interface';
 import { Events } from 'src/app/shared/interfaces/events.interface';
 import { Month } from 'src/app/shared/interfaces/month.interface';
-const DAY_MS = 60 * 60 * 24 * 1000;
+import { map } from 'rxjs/operators';
+import { DayEventsService } from 'src/app/service/day-events.service';
+
 @Component({
   selector: 'app-upcoming',
   templateUrl: './upcoming.component.html',
@@ -11,330 +13,11 @@ const DAY_MS = 60 * 60 * 24 * 1000;
 })
 export class UpcomingComponent implements OnInit {
   hover: string = 'Guy Hawkins';
-  dates: Array<any>;
-  date: Date = new Date(2021, 2, 5);
+  dates: Array<any> = [];
+  date: Date = new Date(2021, 6, 5);
   days: Array<string> = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  month: Array<Month> = [
-    {
-      month: 0,
-      monthName: 'January',
-      dayCount: 31
-    },
-    {
-      month: 1,
-      monthName: 'February',
-      dayCount: 28
-    },
-    {
-      month: 2,
-      monthName: 'March',
-      dayCount: 31
-    },
-    {
-      month: 3,
-      monthName: 'April',
-      dayCount: 30
-    },
-    {
-      month: 4,
-      monthName: 'May',
-      dayCount: 31
-    },
-    {
-      month: 5,
-      monthName: 'June',
-      dayCount: 30
-    },
-    {
-      month: 6,
-      monthName: 'July',
-      dayCount: 31
-    },
-    {
-      month: 7,
-      monthName: 'August',
-      dayCount: 31
-    },
-    {
-      month: 8,
-      monthName: 'September',
-      dayCount: 30
-    },
-    {
-      month: 9,
-      monthName: 'October',
-      dayCount: 31
-    },
-    {
-      month: 10,
-      monthName: 'November',
-      dayCount: 30
-    },
-    {
-      month: 11,
-      monthName: 'December',
-      dayCount: 31
-    }
-  ]
-  events: Array<Events> = [
-    {
-      monthNumber: 2,
-      dayNumber: 3,
-      countEvent: [
-        {
-          personData: 'Bill Hawkins',
-          personRate: 8.6,
-          profesion: 'Java Developer',
-          interviewTime: '03.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        }
-      ],
-      yearNumber: 2021
-    },
-    {
-      monthNumber: 2,
-      dayNumber: 4,
-      countEvent: [
-        {
-          personData: 'Skill Hawkins',
-          personRate: 8.6,
-          profesion: 'Java Developer',
-          interviewTime: '04.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        }
-      ],
-      yearNumber: 2021
-    },
-    {
-      monthNumber: 2,
-      dayNumber: 5,
-      countEvent: [
-        {
-          personData: 'Guy Hawkins',
-          personRate: 8.6,
-          profesion: 'Java Developer',
-          interviewTime: '05.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        }
-      ],
-      yearNumber: 2021
-    },
-    {
-      monthNumber: 2,
-      dayNumber: 6,
-      countEvent: [
-        {
-          personData: 'Edgar Torrey',
-          personRate: 8.1,
-          profesion: '.Net Software Engineer',
-          interviewTime: '06.03.2021, 1.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: '.Net Software Engineer'
-        },
-        {
-          personData: 'Lovern Laboy',
-          personRate: 7.1,
-          profesion: 'iOS Developer',
-          interviewTime: '06.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Flutter Mobile Developer'
-        },
-      ],
-      yearNumber: 2021
-    },
-    {
-      monthNumber: 2,
-      dayNumber: 8,
-      countEvent: [
-        {
-          personData: 'Aileen Fullbright',
-          personRate: 9.0,
-          profesion: 'Java Developer',
-          interviewTime: '08.03.2021, 4.30 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Software Engineer'
-        },
-        {
-          personData: 'Hannah Burress',
-          profesion: 'Java Developer',
-          personRate: 8.2,
-          interviewTime: '08.03.2021, 5.40 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Java Developer'
-        },
-      ],
-      yearNumber: 2021
-    },
-    {
-      monthNumber: 2,
-      dayNumber: 10,
-      countEvent: [
-        {
-          personData: 'Willard Purnell',
-          personRate: 7.3,
-          profesion: 'Flutter Developer',
-          interviewTime: '10.03.2021, 1.30 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        },
-        {
-          personData: 'Florencio Dorrance',
-          personRate: 6.6,
-          profesion: 'C++ Developer',
-          interviewTime: '10.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'C++ Developer'
-        },
-      ],
-      yearNumber: 2021
-    },
-    {
-      monthNumber: 2,
-      dayNumber: 12,
-      countEvent: [
-        {
-          personData: 'Johnatan Hawkins',
-          personRate: 8.6,
-          profesion: 'Java Developer',
-          interviewTime: '12.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        }
-      ],
-      yearNumber: 2021
-    },
-    {
-      monthNumber: 2,
-      dayNumber: 14,
-      countEvent: [
-        {
-          personData: 'Joy Hawkins',
-          personRate: 8.6,
-          profesion: 'Java Developer',
-          interviewTime: '14.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        }
-      ],
-      yearNumber: 2021
-    },
-    {
-      monthNumber: 2,
-      dayNumber: 17,
-      countEvent: [
-        {
-          personData: 'Sky Hawkins',
-          personRate: 8.6,
-          profesion: 'Java Developer',
-          interviewTime: '17.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        },
-        {
-          personData: 'Gray Hawkins',
-          personRate: 8.6,
-          profesion: 'Java Developer',
-          interviewTime: '17.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        },
-        {
-          personData: 'Maickle Hawkins',
-          personRate: 8.6,
-          profesion: 'Java Developer',
-          interviewTime: '17.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        },
-      ],
-      yearNumber: 2021
-    },
-    {
-      monthNumber: 2,
-      dayNumber: 20,
-      countEvent: [
-        {
-          personData: 'Mishel Hawkins',
-          personRate: 8.6,
-          profesion: 'Java Developer',
-          interviewTime: '20.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        },
-        {
-          personData: 'Bob Hawkins',
-          personRate: 8.6,
-          profesion: 'Java Developer',
-          interviewTime: '20.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        },
-        {
-          personData: 'Bille Hawkins',
-          personRate: 8.6,
-          profesion: 'Java Developer',
-          interviewTime: '20.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        },
-      ],
-      yearNumber: 2021
-    },
-    {
-      monthNumber: 2,
-      dayNumber: 22,
-      countEvent: [
-        {
-          personData: 'Blake Hawkins',
-          personRate: 8.6,
-          profesion: 'Java Developer',
-          interviewTime: '22.03.2021, 3.00 PM',
-          interviewers: [
-            '', ''
-          ],
-          orders: 'Full-stack developer'
-        }
-      ],
-      yearNumber: 2021
-    },
-  ]
+  month: Array<Month> = [];
+  events: Array<Events> = [];
   currTime = {
     currMonth: 0,
     currYear: 0,
@@ -345,15 +28,43 @@ export class UpcomingComponent implements OnInit {
   fourDayEvents = [];
   // currDay: number = new Date().getDate();
   currDay: number = 5;
-  constructor() {
-
+  constructor(private monthService: MonthService,
+    private eventsService: DayEventsService) {
   }
 
   ngOnInit(): void {
-    this.getCalendarDays(this.date);
+    this.getMonth();
+    this.getDayEvents()
   }
 
 
+  getMonth(): void {
+    this.monthService.getAllmonth().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      )
+    ).subscribe(data => {
+      this.month = data;
+      this.getDayEvents();
+
+    });
+
+  }
+
+  getDayEvents(): void {
+    this.eventsService.getAllEvents().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      )
+    ).subscribe(data => {
+      this.events = data;
+      this.getCalendarDays(this.date);
+    });
+  }
 
   getCalendarDays(date: Date = new Date): void {
     const currDayNumber: number = date.getDate()
@@ -361,7 +72,6 @@ export class UpcomingComponent implements OnInit {
     const firstDayOfMonth: Date = new Date(year, month, 1);
     let day: string = firstDayOfMonth.toString().split(' ')[0];
     let dayNumber: number;
-
     this.days.forEach((res, i) => {
       if (res === day) {
         dayNumber = i;
@@ -389,20 +99,19 @@ export class UpcomingComponent implements OnInit {
         return res.countEvent;
       }
     )
+    this.allEvents = this.allEvents.sort(this.sortEvents)
     this.allEvents.forEach(
-      (elem, index) => {
-        elem.map((res, i) => {
+      (elem, ind) => {
+        elem.map((res, index) => {
           if (+res.interviewTime.split('.')[0] === this.currTime.currDay && +res.interviewTime.split('.')[1] === this.currTime.currMonth + 1 && +res.interviewTime.split('.')[2].substr(0, 4) === this.currTime.currYear) {
-            if (i < 1) {
-              for (let i = index; i < index + 4; i++) {
-                if (this.allEvents[i]) {
+            if (index < 1) {
+              for (let i = ind; i < (ind + 4); i++) {
+                if (this.allEvents[i] && +this.allEvents[i][0].interviewTime.split('.')[0] >= this.currTime.currDay) {
                   this.fourDayEvents.push(this.allEvents[i]);
                 }
               }
             }
-
           }
-
         })
       }
     )
@@ -418,17 +127,24 @@ export class UpcomingComponent implements OnInit {
         this.currTime.currMonth = month
         this.getCalendarDays(new Date(yaer, month, this.currTime.currDay));
       }
-
     }
     else {
       this.currTime.currMonth = month
       this.getCalendarDays(new Date(yaer, month, this.currTime.currDay));
-
     }
-
   }
-  chooseDate(curr: Events): void {
 
+  sortEvents(a, b) {
+    if (a[0].interviewTime.split('.')[0] > b[0].interviewTime.split('.')[0]) {
+      return 1;
+    }
+    if (a[0].interviewTime.split('.')[0] < b[0].interviewTime.split('.')[0]) {
+      return -1;
+    }
+    return 0;
+  }
+
+  chooseDate(curr: Events): void {
     if (typeof curr !== 'string') {
       if (curr.hasOwnProperty('monthNumber')) {
         this.getCalendarDays(new Date(curr.yearNumber, curr.monthNumber, curr.dayNumber));
@@ -440,7 +156,6 @@ export class UpcomingComponent implements OnInit {
     else {
       this.getCalendarDays(new Date(this.currTime.currYear, this.currTime.currMonth, this.currTime.currDay));
     }
-
   }
 
   private range(start: number, end: number, length: number = end - start + 1): Array<any> {
