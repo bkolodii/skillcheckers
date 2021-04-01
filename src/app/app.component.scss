@@ -21,16 +21,18 @@
 }
 
 .container {
-  padding-top: 7vh;
+  padding-top: 50px;
   @include flexbox(row, nowrap, left, none);
-
+  height: 100%;
   &__menu {
     position: fixed;
     width: 250px;
+    height: 100%;
   }
 
   &__items {
     margin-left: 250px;
     width: 85%;
+    height: 100%;
   }
 }

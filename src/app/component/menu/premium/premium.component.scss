@@ -1,26 +1,27 @@
 @import "../../../../assets/styles/mixins";
 
 .premium {
-  min-height: 20vh;
+  min-height: 180px;
   width: 100%;
   background-color: #363d4c;
-  display: flex;
-  flex-flow: column nowrap;
-  @include flexbox(column, nowrap, center, center);
+  @include flexbox(column, nowrap, flex-start, center);
 
   &__title {
     width: 80%;
     height: 30px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 700;
-    font-size: 26px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 23px;
+    margin-top: 10px;
   }
 
   &__text {
     color: #bcbec3;
     width: 80%;
     height: 30px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Poppins";
+    font-size: 12px;
   }
 
   &__button {

@@ -4,12 +4,12 @@
     <p class="order-type__active--unread">23</p>
 
   </div>
-  <div class="order-type__drafts">
-    <p class="order-type__drafts--title">DRAFTS</p>
+  <div class="order-type__drafts" routerLinkActive="active" [routerLink]="[ 'drafts' ]">
+    <p class="order-type__drafts--title" >DRAFTS</p>
     <p class="order-type__drafts--unread">2</p>
   </div>
-  <div class="order-type__closed">
-    <p class="order-type__closed--title">CLOSED</p>
+  <div class="order-type__closed" routerLinkActive="active" [routerLink]="[ 'closed' ]">
+    <p class="order-type__closed--title" >CLOSED</p>
     <p class="order-type__closed--unread">4</p>
   </div>
 </nav>

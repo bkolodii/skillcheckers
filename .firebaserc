@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "skillcheckers-ac855": {
+      "hosting": {
+        "skillcheckers": [
+          "skillcheckers-ac855"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "skillcheckers-ac855"
+  }
+}

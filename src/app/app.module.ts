@@ -22,11 +22,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from '../environments/environment';
+import { environment } from '../environments/environment.prod';
 import { AutofocusDirective } from './shared/directive/auto-focus.directive';
 import { InterviewsComponent } from './pages/interviews/interviews.component';
 import { InterviewsItemComponent } from './pages/interviews/interviews-item/interviews-item.component';
 import { UpcomingComponent } from './pages/interviews/interviews-item/upcoming/upcoming.component';
+import { SortOrdersPipe } from './shared/pipe/sort-orders.pipe';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { UpcomingComponent } from './pages/interviews/interviews-item/upcoming/u
     AutofocusDirective,
     InterviewsComponent,
     InterviewsItemComponent,
-    UpcomingComponent
+    UpcomingComponent,
+    SortOrdersPipe
   ],
   imports: [
     BrowserModule,

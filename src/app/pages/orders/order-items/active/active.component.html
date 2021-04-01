@@ -8,8 +8,8 @@
         <img class="visible__drop-icon" *ngIf="isName" src="../../../../assets/image/drop-up-arrow.svg" alt="">
       </button>
       <div class="hidden" [style.display]="isName ? 'block' : 'none'">
-        <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
-          [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p>
+        <p *ngFor="let name of unitNames; let i=index" (click)="addSort(name, 'name')"
+          (click)="chooseItem(name, 'name')">{{name}}</p>
       </div>
     </div>
 
@@ -21,32 +21,40 @@
         <img class="visible__drop-icon" *ngIf="isLocation" src="../../../../assets/image/drop-up-arrow.svg" alt="">
       </button>
       <div class="hidden" [style.display]="isLocation ? 'block' : 'none'">
-        <p *ngFor="let location of unitLocation; let i=index" (click)="chooseItem(location, 'location')"
-          [style.border-bottom]="i == unitLocation.length-1 ? 'none' : ''">{{location}}</p>
+        <p *ngFor="let location of unitLocation; let i=index" (click)="addSort(location, 'location')"
+          (click)="chooseItem(location, 'location')">{{location}}
+        </p>
       </div>
     </div>
-    <div class="sorting__left--choose-name">
-      <p class="title">Tech HQ</p>
-      <button class="delete-choose">
+    <div class="sorting__left--choose-sort" *ngFor="let sortOption of sortOptions; let i=index">
+      <p class="title">{{sortOption.item}}</p>
+      <button class="delete-choose" (click)="deleteSort(i, sortOption)">
         <img class="delete-choose__cross" src="../../../../assets/image/close.svg" alt="">
       </button>
     </div>
-    <div class="sorting__left--choose-location">
+    <!-- <div class="sorting__left--choose-sort">
       <p class="title">Seatle</p>
       <button class="delete-choose">
         <img class="delete-choose__cross" src="../../../../assets/image/close.svg" alt="">
       </button>
+    </div> -->
+  </div>
+  <div class="sorting__date">
+    <button class="sorting__date--visible" (click)="openHidden('dates')">
+      <p class="drop-title">{{date}}</p>
+      <img *ngIf="!isDate" class="drop" src="../../../../assets/image/drop-down-arrow.svg" alt="">
+      <img *ngIf="isDate" class="drop" src="../../../../assets/image/drop-up-arrow.svg" alt="">
+    </button>
+    <div class="sorting__date--hidden" [style.display]="isDate ? 'block' : 'none'">
+      <p *ngFor="let dates of creatDate; let i=index" (click)="addSort(dates, 'dates')"
+        (click)="chooseItem(dates, 'dates')">
+        {{dates}}</p>
     </div>
   </div>
-  <button class="sorting__date" (click)="openHidden('date')">
-    <p class="sorting__date--title">Creation date</p>
-    <img *ngIf="!isDate" class="sorting__date--drop" src="../../../../assets/image/drop-down-arrow.svg" alt="">
-    <img *ngIf="isDate" class="sorting__date--drop" src="../../../../assets/image/drop-up-arrow.svg" alt="">
-  </button>
 </section>
 <section class="jobApply">
   <div class="jobApply__container">
-    <div class="jobApply__container--list" *ngFor="let item of vacancies ; let i=index">
+    <div class="jobApply__container--list" *ngFor="let item of vacancies  | sortOrders: name : location; let i=index ">
       <div class="createDate">
         <p class="createDate__title">CREATION DATE</p>
         <p class="createDate__text">{{item.creationDate}}</p>

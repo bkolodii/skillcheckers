@@ -1,5 +1,5 @@
 @import "../../../../assets/styles/mixins";
-
+@import "../../../../assets/styles/font";
 button {
   border: none;
   background-color: transparent;
@@ -9,35 +9,35 @@ header {
   width: 100%;
   @include flexbox(row, nowrap, space-between, center);
   position: fixed;
-  height: 7vh;
+  height: 50px;
   display: flex;
   // justify-content: space-around;
   // align-items: center;
 }
 
 .left-section {
-  width: 550px;
-  height: 7vh;
+  width: 600px;
+  height: 50px;
   @include flexbox(row, nowrap, space-around, center);
 
   &__logo {
-    width: 200px;
-    height: 4.5vh;
+    width: 205px;
+    height: 32px;
     cursor: pointer;
   }
 
   &__search {
-    width: 250px;
+    width: 320px;
     padding: 2.5px;
-    @include flexbox(row, nowrap, space-between, center);
+    @include flexbox(row, nowrap, space-around, center);
     background-color: #eef0f8;
-    height: 4vh;
+    height: 28px;
     border-radius: 2px;
 
     .icon-search {
-      margin-left: 6px;
-      height: 14px;
-      width: 14px;
+      margin-left: 5px;
+      height: 15px;
+      width: 15px;
     }
 
     .input-search {
@@ -46,6 +46,7 @@ header {
       height: 100%;
       border: none;
       background-color: transparent;
+      font-family: 'Poppins';
       font-size: 14px;
     }
 
@@ -54,12 +55,12 @@ header {
 
 .right-section {
   width: 280px;
-  height: 7vh;
+  height: 50px;
   @include flexbox(row, nowrap, space-around, center);
 
   &__order {
-    width: 130px;
-    height: 4.5vh;
+    width: 138px;
+    height: 34.5px;
     padding: 2.5px;
     @include flexbox(row, nowrap, center, center);
     background-color: #25bf50;
@@ -79,8 +80,9 @@ header {
     .new-order {
       margin-left: 10px;
       margin-bottom: 1px;
-      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-family: "Poppins";
       font-size: 12px;
+      font-weight: 500;
       color: white;
     }
   }
@@ -104,32 +106,24 @@ header {
     height: 25px;
     padding: 0;
     cursor: pointer;
-    transform: rotate3d(0, 0, 0, 0deg);
 
-  }
-
-  &__notification:hover {
-    animation: dingdong 1.5s infinite linear;
-  }
-
-  &__notification:focus {
-    transform: translate3d(-5px, 0, 0) rotate(30deg);
   }
 
   &__user {
     width: 55px;
-    height: 7vh;
+    height: 50px;
     @include flexbox(row, nowrap, space-around, center);
 
     &--button {
       border-radius: 50%;
-      width: 35px;
-      height: 35px;
+      width: 32px;
+      height: 32px;
       cursor: pointer;
       border-radius: 50%;
-      background-image: url('https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fmainuser.png?alt=media&token=e1f16a35-c4b8-48db-8316-8e2572a5cc99');
+      background-image: url('../../../../assets/image/mainuser.png');
       background-repeat: no-repeat;
       background-size: cover;
+      padding: 0%;
     }
 
     &--button:focus {
@@ -156,27 +150,3 @@ header {
   }
 }
 
-@keyframes dingdong {
-  0% {
-    transform: rotate3d(0, 0, 0, 0deg);
-
-  }
-
-  25% {
-    transform: rotate3d(1, 2, 0, 192deg);
-  }
-
-  50% {
-    transform: rotate3d(0, 0, 0, 0deg);
-  }
-
-  75% {
-    transform: rotate3d(-1, 2, 0, 192deg);
-
-  }
-
-  100% {
-    transform: rotate3d(0, 0, 0, 0deg);
-
-  }
-}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RequiredSkillsService } from 'src/app/service/required-skills.service';
 import { RequiredSkills } from 'src/app/shared/interfaces/requiredSkill.interface';
@@ -101,12 +102,15 @@ export class ActiveComponent implements OnInit {
   //     dueDate: '15.03.2020'
   //   }
   // ];
-  isName: boolean = true;
+  isName: boolean = false;
   isLocation: boolean = false;
   isDate: boolean = false;
   name: string = 'Unit name';
   location: string = 'Unit location';
-  checkOption = 1;
+  date: string = 'Creation date'
+  checkOption = null;
+  sortOptions: Array<any> = [];
+  creatDate: Array<string> = [];
   constructor(private requiredSkills: RequiredSkillsService) { }
 
   ngOnInit(): void {
@@ -122,6 +126,8 @@ export class ActiveComponent implements OnInit {
       )
     ).subscribe(data => {
       this.vacancies = data;
+      this.creatDate = this.vacancies.map(res => res.creationDate)
+      this.creatDate = this.creatDate.filter((v, i, a) => a.indexOf(v) === i)
     });
 
   }
@@ -132,7 +138,8 @@ export class ActiveComponent implements OnInit {
     else if (item == 'location') {
       this.isLocation = !this.isLocation;
     }
-    else {
+    else if (item == 'dates') {
+      console.log('sdfdsf');
       this.isDate = !this.isDate;
     }
   }
@@ -141,11 +148,93 @@ export class ActiveComponent implements OnInit {
       this.name = currName;
       this.isName = false;
     }
-    else {
+    else if (item == 'location') {
       this.location = currName;
       this.isLocation = false;
     }
+    else if (item == 'dates') {
+      this.date = currName;
+      this.isDate = false;
+    }
 
+  }
+
+  addSort(curr: string, sortItem: string): void {
+    if (sortItem == 'location') {
+      if (this.sortOptions.some(res => res.sortItem == 'location')) {
+        this.sortOptions.forEach(res => {
+          if (res.sortItem == 'location') {
+            res.item = curr
+          }
+        })
+      }
+      else {
+        this.sortOptions.push({
+          item: curr,
+          sortItem: sortItem
+        })
+      }
+    }
+    else if (sortItem == 'name') {
+      if (this.sortOptions.some(res => res.sortItem == 'name')) {
+        this.sortOptions.forEach(res => {
+          if (res.sortItem == 'name') {
+            res.item = curr
+          }
+        })
+
+      }
+      else {
+        this.sortOptions.push({
+          item: curr,
+          sortItem: sortItem
+        })
+      }
+    }
+    else if (sortItem == 'dates') {
+      if (this.sortOptions.some(res => res.sortItem == 'dates')) {
+        this.sortOptions.forEach(res => {
+          if (res.sortItem == 'dates') {
+            res.item = curr
+          }
+        })
+
+      }
+      else {
+        this.sortOptions.push({
+          item: curr,
+          sortItem: sortItem
+        })
+      }
+    }
+
+  }
+
+  deleteSort(currId: number, curr) {
+    if (curr.sortItem == 'location') {
+      this.location = "Unit location"
+    } else {
+      this.name = "Unit name"
+    }
+    this.sortOptions.splice(currId, 1);
+  }
+
+  sortingOrders(): void {
+    // if (this.sortOptions.length !== 0) {
+
+
+    // this.vacancies == this.vacancies.filter(res => {
+    //     if (this.sortOptions.some(sort => console.log(res.unitLocation))) {
+    //       console.log('sdfsdf');
+    //       return res;
+    //     }
+    //     else if (this.sortOptions.some(sort => sort.item == res.unitLocation)) {
+    //       return res
+    //       console.log('sdfsdf');
+
+    //     }
+    //   })
+    // }
   }
 
   openOption(i: number): void {

@@ -7,29 +7,31 @@
 
 .order-type {
   width: 100%;
-  height: 6vh;
+  height: 45px;
   border-bottom: 1.5px solid rgb(175, 175, 175);
   @include flexbox(row, nowrap, flex-start, center);
 
   &__active {
     @include flexbox(row, nowrap, space-between, center);
     margin-left: 20px;
-    width: 75px;
-    height: 6vh;
+    width: 67px;
+    height: 45px;
     cursor: pointer;
 
     &--title {
-      font-family: sans-serif;
-      font-weight: 700;
-      font-size: 12.5px;
+      font-family: "Poppins";
+      font-weight: 600;
+      font-style: normal;
+      font-size: 12px;
     }
 
     &--unread {
       width: 18px;
       height: 18px;
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      font-size: 12px;
-      font-weight: 400;
+      font-family: "Poppins";
+      font-weight: 500;
+      font-style: normal;
+      font-size: 10px;
       @include flexbox(row, nowrap, center, center);
       border-radius: 50%;
       background-color: #0caaf5;
