@@ -4,12 +4,14 @@ import { QuestionService } from 'src/app/service/question.service';
 import { Question } from 'src/app/shared/interfaces/question.interface';
 import { map } from 'rxjs/operators';
 import { AutofocusDirective } from '../../shared/directive/auto-focus.directive';
+import { RequiredSkills } from 'src/app/shared/interfaces/requiredSkill.interface';
 @Component({
   selector: 'app-new-order',
   templateUrl: './new-order.component.html',
   styleUrls: ['./new-order.component.scss']
 })
 export class NewOrderComponent implements OnInit {
+  isLorem: boolean = false;
   isMainSkill: boolean = false;
   isAddSkill: boolean = false;
   isUnitName: boolean = false;
@@ -20,34 +22,58 @@ export class NewOrderComponent implements OnInit {
   isDate: boolean = false;
   isFont: boolean = false;
   questText: string = 'Lg';
-  questions: Array<Question> = [];
   myheight: string = '0px';
-
-  //   questions: Array<Question> = [{
-  //     text: 'Lorem ipsum dolor sit amet?',
-  //     id: 1,
-  //     status: false
-  //   }, {
-  //     text: 'Lorem ipsum dolor sit amet?',
-  //     id: 2,
-  //     status: false
-  //   }, 
-  //   // {
-
-  //   //   text: 'Lg|',
-  //   //   id: 3,
-  //   //   status: false
-  //   // },
-  // ]
   progNeedNumber: number = 1;
   experienceNumber: number = 4;
+  editOrder: RequiredSkills;
+  position: string;
+  mainSkil: string = 'Java';
+  unitName: string = 'Tech HQ';
+  unitLocation: string = 'Seatle';
+  jobLocation: string = 'Seatle';
+  dueDate = '11.09.2020';
+  namesUnit: Array<string> = ['Tech HQ', 'Tech HQ', 'Tech HQ', 'Tech HQ', 'Tech HQ'];
+  mainSkills: Array<string> = ['PHP', 'Java', 'C++', 'Flutter', 'iOS', 'UI UX', 'JS', 'C#', 'Python'];
+  addSkills: Array<string> = ['PHP', 'Java', 'C++', 'Flutter', 'iOS', 'UI UX', 'JavaScript', 'C#', 'Python', 'HTML', 'CSS'];
+  salaryRange: Array<string> = ['10,000 - 25,000', '25,000 - 50,000', '50,000 - 100,000', '100,000 - 120,000', '120,000 - 140,000', '140,000 - 160,000', '160,000 - 180,000', '180,000 - 200,000'];
+  currencyRange: Array<string> = ['../../../assets/image/dollar.svg', '../../../assets/image/euro-currency-symbol.svg', '../../../assets/image/poland-zloty-currency-symbol.svg', '../../../assets/image/pound-symbol-variant.svg', '../../../assets/image/pound-symbol-variant.svg'];
+  checkAddSkill: Array<string> = ['JavaScript', 'HTML'];
+  currCurrency: string = '../../../assets/image/dollar.svg';
+  salary: string = '100,000 - 120,000';
+  questions: Array<Question> = [];
   prevQuestion: Question;
   isQuestion: boolean = true;
   isTextNode: boolean = true;
+  skillScore: string = '8 Very good';
+  kindJob: string = 'Any';
+  workMode: string = 'Any';
+  termOfContract: string = 'Any';
   constructor(private questService: QuestionService) { }
 
   ngOnInit(): void {
     this.getQuestion();
+    if (localStorage.getItem('edit-order')) {
+      this.editOrder = JSON.parse(localStorage.getItem('edit-order'));
+      this.parseOrder(this.editOrder)
+    }
+  }
+  parseOrder(order: RequiredSkills): void {
+    this.progNeedNumber = order.progNeed;
+    this.experienceNumber = 4;
+    this.position = order.name;
+    this.mainSkil = order.mainSkill;
+    this.unitName = order.unitName;
+    this.unitLocation = order.unitLocation;
+    this.jobLocation = order.unitLocation;
+    this.dueDate = order.dueDate;
+    this.checkAddSkill = order.additionalSkill.split(', ');
+    this.salary = order.salaryRange;
+    this.experienceNumber = order.yearExperience;
+    this.skillScore = order.skillScore;
+    this.kindJob = order.kindJob;
+    this.workMode = order.workMode;
+    this.termOfContract = order.termOfContract;
+
   }
 
   getQuestion(): void {
@@ -60,11 +86,33 @@ export class NewOrderComponent implements OnInit {
     ).subscribe(data => {
 
       this.questions = data.sort(this.compare);
-      this.prevQuestion = this.questions[0]
+      this.prevQuestion = this.questions[0];
     });
 
   }
+  chooseItem(currName: string, item: string): void {
+    if (item == 'name') {
+      this.unitName = currName;
+      this.isUnitName = false;
+    }
+    else if (item == 'mainSkill') {
+      this.mainSkil = currName;
+      this.isMainSkill = false;
+    }
+    else if (item == 'salary') {
+      this.salary = currName;
+      this.isSalary = false;
+    }
+    else if (item == 'currency') {
+      this.currCurrency = currName;
+      this.isCurrency = false;
+    }
+    else if (item == 'addSkill') {
+      this.currCurrency = currName;
+      this.isAddSkill = false;
+    }
 
+  }
   deleteQuest(quest: Question): void {
     this.questService.delete(quest.id.toString())
       .then(() => {
@@ -121,6 +169,7 @@ export class NewOrderComponent implements OnInit {
     }
     return comparison;
   }
+
   counter(item: string, todo: boolean): void {
     if (item == 'progNeed') {
       if (todo) {
@@ -178,6 +227,20 @@ export class NewOrderComponent implements OnInit {
     else if (item == 'notePad') {
       this.isTextNode = !this.isTextNode;
     }
+    else if (item == 'lorem') {
+      this.isLorem = !this.isLorem;
+    }
+  }
+
+
+  addSkill(curr: string): void {
+    if (this.checkAddSkill.length < 10) {
+      this.checkAddSkill.push(curr)
+    }
+  }
+
+  deleteSkill(currId: number) {
+    this.checkAddSkill.splice(currId, 1);
   }
 
 }

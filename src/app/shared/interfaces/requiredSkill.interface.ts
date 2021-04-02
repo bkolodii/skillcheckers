@@ -6,5 +6,11 @@ export interface RequiredSkills {
     mainSkill: string,
     additionalSkill: string,
     progNeed: number,
-    dueDate: string
+    dueDate: string,
+    salaryRange: string,
+    yearExperience: number,
+    skillScore: string,
+    kindJob: string,
+    workMode: string,
+    termOfContract: string
 }

@@ -40,7 +40,8 @@
     </div> -->
   </div>
   <div class="sorting__date">
-    <button class="sorting__date--visible" (click)="openHidden('dates')">
+    <button class="sorting__date--visible" (click)="openHidden('dates')"
+      [style.border]="isDate ? '1px solid #44b4e7' : '1px solid #dcdcdc'">
       <p class="drop-title">{{date}}</p>
       <img *ngIf="!isDate" class="drop" src="../../../../assets/image/drop-down-arrow.svg" alt="">
       <img *ngIf="isDate" class="drop" src="../../../../assets/image/drop-up-arrow.svg" alt="">
@@ -54,7 +55,8 @@
 </section>
 <section class="jobApply">
   <div class="jobApply__container">
-    <div class="jobApply__container--list" *ngFor="let item of vacancies  | sortOrders: name : location; let i=index ">
+    <div class="jobApply__container--list"
+      *ngFor="let item of vacancies  | sortOrders: name : location : date; let i=index ">
       <div class="createDate">
         <p class="createDate__title">CREATION DATE</p>
         <p class="createDate__text">{{item.creationDate}}</p>
@@ -112,11 +114,11 @@
         <div class="option__menu"
           [style.top]="(i === vacancies.length-1 || i === vacancies.length-2 ) ? '-120px' : '30px'"
           [style.display]="checkOption == i ? 'flex' : 'none'">
-          <div class="option__menu--items" (click)="openOption(i)">
+          <!-- <div class="option__menu--items" (click)="openOption(i)">
             <img class="items-icon" src="../../../../assets/image/view.svg" alt="">
             <p class="items-text">View order</p>
-          </div>
-          <div class="option__menu--items" (click)="openOption(i)">
+          </div> -->
+          <div class="option__menu--items" (click)="openOption(i)" (click)="editCurrOrder(item)">
             <img class="items-icon" src="../../../../assets/image/edit.svg" alt="">
             <p class="items-text">Edit order</p>
           </div>

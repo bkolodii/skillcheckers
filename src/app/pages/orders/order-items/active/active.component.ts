@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { RequiredSkillsService } from 'src/app/service/required-skills.service';
@@ -111,7 +112,7 @@ export class ActiveComponent implements OnInit {
   checkOption = null;
   sortOptions: Array<any> = [];
   creatDate: Array<string> = [];
-  constructor(private requiredSkills: RequiredSkillsService) { }
+  constructor(private requiredSkills: RequiredSkillsService, private router: Router) { }
 
   ngOnInit(): void {
     this.getRequiredSkills();
@@ -125,7 +126,7 @@ export class ActiveComponent implements OnInit {
         )
       )
     ).subscribe(data => {
-      this.vacancies = data;
+      this.vacancies = data;      
       this.creatDate = this.vacancies.map(res => res.creationDate)
       this.creatDate = this.creatDate.filter((v, i, a) => a.indexOf(v) === i)
     });
@@ -139,7 +140,6 @@ export class ActiveComponent implements OnInit {
       this.isLocation = !this.isLocation;
     }
     else if (item == 'dates') {
-      console.log('sdfdsf');
       this.isDate = !this.isDate;
     }
   }
@@ -213,28 +213,16 @@ export class ActiveComponent implements OnInit {
   deleteSort(currId: number, curr) {
     if (curr.sortItem == 'location') {
       this.location = "Unit location"
-    } else {
+    } else if(curr.sortItem == 'name') {
       this.name = "Unit name"
+    } else if(curr.sortItem == 'dates') {
+      this.date = "Creation date"
     }
     this.sortOptions.splice(currId, 1);
   }
-
-  sortingOrders(): void {
-    // if (this.sortOptions.length !== 0) {
-
-
-    // this.vacancies == this.vacancies.filter(res => {
-    //     if (this.sortOptions.some(sort => console.log(res.unitLocation))) {
-    //       console.log('sdfsdf');
-    //       return res;
-    //     }
-    //     else if (this.sortOptions.some(sort => sort.item == res.unitLocation)) {
-    //       return res
-    //       console.log('sdfsdf');
-
-    //     }
-    //   })
-    // }
+  editCurrOrder(currOrder):void{
+    localStorage.setItem('edit-order', JSON.stringify(currOrder))
+    this.router.navigateByUrl('/orders/new-order');
   }
 
   openOption(i: number): void {

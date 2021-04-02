@@ -15,4 +15,8 @@ export class RequiredSkillsService {
   getAllrequiredSkills(): AngularFirestoreCollection<RequiredSkills> {
     return this.requiredSkillsRef;
   }
+  // getOne(id): any {
+  //   return this.requiredSkillsRef.ref.where('id', '==', id);
+
+  // }
 }
