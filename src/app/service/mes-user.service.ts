@@ -15,4 +15,9 @@ export class MesUserService {
   getAllusers(): AngularFirestoreCollection<mesUser> {
     return this.mesUserRef;
   }
+  getOne(id): any {
+    return this.mesUserRef.ref.where('url', '==', id);
+
+  }
 }
+

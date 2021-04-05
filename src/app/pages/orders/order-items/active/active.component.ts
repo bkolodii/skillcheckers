@@ -132,6 +132,14 @@ export class ActiveComponent implements OnInit {
     });
 
   }
+  closeOrder(currId: string):void{
+    this.requiredSkills.delete(currId).then(
+      ()=> {
+        console.log('success');
+        
+      }
+    )
+  }
   openHidden(item: string): void {
     if (item == 'name') {
       this.isName = !this.isName;

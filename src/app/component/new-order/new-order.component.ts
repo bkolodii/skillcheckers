@@ -5,6 +5,8 @@ import { Question } from 'src/app/shared/interfaces/question.interface';
 import { map } from 'rxjs/operators';
 import { AutofocusDirective } from '../../shared/directive/auto-focus.directive';
 import { RequiredSkills } from 'src/app/shared/interfaces/requiredSkill.interface';
+import { FormControl, FormGroup } from '@angular/forms';
+import { RequiredSkillsService } from 'src/app/service/required-skills.service';
 @Component({
   selector: 'app-new-order',
   templateUrl: './new-order.component.html',
@@ -48,7 +50,19 @@ export class NewOrderComponent implements OnInit {
   kindJob: string = 'Any';
   workMode: string = 'Any';
   termOfContract: string = 'Any';
-  constructor(private questService: QuestionService) { }
+  editorForm: FormGroup;
+  editorStyle = {
+    height: '300px'
+  }
+  config = {
+    toolbar: [
+      [{ 'header': 1 }],
+      ['bold', 'italic', 'underline'],
+      [{ 'align': null }, { 'align': 'center' }, { 'align': 'right' }, { 'align': 'justify' }],
+    ]
+  }
+
+  constructor(private questService: QuestionService, private requiredSkills: RequiredSkillsService) { }
 
   ngOnInit(): void {
     this.getQuestion();
@@ -56,6 +70,9 @@ export class NewOrderComponent implements OnInit {
       this.editOrder = JSON.parse(localStorage.getItem('edit-order'));
       this.parseOrder(this.editOrder)
     }
+    this.editorForm = new FormGroup({
+      'editor': new FormControl(null)
+    })
   }
   parseOrder(order: RequiredSkills): void {
     this.progNeedNumber = order.progNeed;
@@ -157,7 +174,7 @@ export class NewOrderComponent implements OnInit {
     )
   }
   compare(a: Question, b: Question) {
-    // Use toUpperCase() to ignore character casing
+
     const bandA = a.count;
     const bandB = b.count;
 
@@ -243,4 +260,85 @@ export class NewOrderComponent implements OnInit {
     this.checkAddSkill.splice(currId, 1);
   }
 
+  createNewOrder(): void {
+    if (localStorage.getItem('edit-order')) {
+      const item: RequiredSkills = JSON.parse(localStorage.getItem('edit-order'))
+      const newOrder: RequiredSkills = {
+        creationDate: item.creationDate,
+        name: this.position,
+        unitName: this.unitName,
+        unitLocation: this.unitLocation,
+        mainSkill: this.mainSkil,
+        additionalSkill: this.checkAddSkill.join(', '),
+        progNeed: this.progNeedNumber,
+        dueDate: this.dueDate,
+        salaryRange: this.salary,
+        yearExperience: this.experienceNumber,
+        skillScore: this.skillScore,
+        kindJob: this.kindJob,
+        workMode: this.workMode,
+        termOfContract: this.termOfContract,
+        id: item.id
+      }
+      this.requiredSkills.update(newOrder.id, newOrder).then(
+        () => {
+          this.resetAll();
+          localStorage.removeItem('edit-order');
+        }
+      ).catch(
+        (e) => {
+          console.log(e);
+
+        }
+      )
+    } else {
+      let arr = [new Date().getDate(), new Date().getMonth() + 1, new Date().getFullYear()];
+      const newOrder: RequiredSkills = {
+        creationDate: arr.join('.'),
+        name: this.position,
+        unitName: this.unitName,
+        unitLocation: this.unitLocation,
+        mainSkill: this.mainSkil,
+        additionalSkill: this.checkAddSkill.join(', '),
+        progNeed: this.progNeedNumber,
+        dueDate: this.dueDate,
+        salaryRange: this.salary,
+        yearExperience: this.experienceNumber,
+        skillScore: this.skillScore,
+        kindJob: this.kindJob,
+        workMode: this.workMode,
+        termOfContract: this.termOfContract,
+      }
+      this.requiredSkills.create(newOrder)
+      this.requiredSkills.updOrder.subscribe(
+        data => {
+          this.questText = '';
+          newOrder.id = data
+          this.requiredSkills.update(data, newOrder).then(
+            () => {
+              this.resetAll();
+            }
+          ).catch((e) => {
+            console.log(e);
+
+          })
+        }
+      )
+    }
+  }
+  resetAll(): void {
+    this.position = '',
+      this.unitName = 'Tech HQ',
+      this.unitLocation = 'Seatle',
+      this.mainSkil = 'Java',
+      this.checkAddSkill = ['JavaScript', 'HTML'],
+      this.progNeedNumber = 1,
+      this.dueDate = '',
+      this.salary = '100,000 - 120,000',
+      this.experienceNumber = 1,
+      this.skillScore = 'Any',
+      this.kindJob = 'Any',
+      this.workMode = 'Any',
+      this.termOfContract = 'Any'
+  }
 }

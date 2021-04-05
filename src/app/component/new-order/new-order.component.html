@@ -254,53 +254,13 @@
               <input type="file" name="myfile" />
             </div>
           </div>
-          <div class="notePad">
-            <div class="notePad__header">
-              <div class="notePad__header--font">
-                <button class="visible" (click)="openHidden('font')"
-                  [style.border]="isFont? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-                  <!-- <p class="visible__title"></p>
-               -->
-                  <img class="visible__title-icon" src="../../../assets/image/text.svg" alt="">
-                  <img class="visible__drop-icon" *ngIf="!isFont" src="../../../../assets/image/drop-down-arrow.svg"
-                    alt="">
-                  <img class="visible__drop-icon" *ngIf="isFont" src="../../../../assets/image/drop-up-arrow.svg"
-                    alt="">
-                </button>
-                <div class="hidden" [style.display]="isFont ? 'block' : 'none'">
-                  <!-- <p *ngFor="let name of unitNames; let i=index" (click)="chooseItem(name, 'name')"
-                                  [style.border-bottom]="i == unitNames.length-1 ? 'none' : ''">{{name}}</p> -->
-                </div>
-              </div>
-              <button class="notePad__header--font-style">
-                <img src="../../../assets/image/bold-text-option.svg" alt="">
-              </button>
-              <button class="notePad__header--font-style">
-                <img src="../../../assets/image/italic.svg" alt="">
-              </button>
-              <button class="notePad__header--font-style">
-                <img src="../../../assets/image/underline-text-option.svg" alt="">
-              </button>
-              <button class="notePad__header--font-style">
-                <img src="../../../assets/image/strikethrough.svg" alt="">
-              </button>
-
-
-              <button class="notePad__header--text-align">
-                <img src="../../../assets/image/list-interface-symbol.svg" alt="">
-              </button>
-              <button class="notePad__header--text-align">
-                <img src="../../../assets/image/number-list.svg" alt="">
-              </button>
-              <button class="notePad__header--text-align">
-                <img src="../../../assets/image/dedent.svg" alt="">
-              </button>
-              <button class="notePad__header--text-align">
-                <img src="../../../assets/image/indent.svg" alt="">
-              </button>
+          <!-- <div class="notePad"> -->
+          <form [formGroup]="editorForm" class="notePad">
+            <div class="notePad__form-group">
+              <quill-editor [style]="editorStyle" [modules]='config' formControlName="editor"></quill-editor>
             </div>
-            <textarea class="notePad__text" name="" id="" cols="30" rows="10"></textarea>
-          </div>
+          </form>
+          <!-- </div> -->
 
         </div>
 
@@ -330,9 +290,18 @@
             </div>
           </div>
 
-          <div class="lorem">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Obcaecati fuga sequi molestias ex vitae, quo natus
-            esse dolor rem sint incidunt harum numquam soluta debitis, laborum, ullam illo veniam eum?
+          <div class="hidden-text">
+            GD Tech — hi-tech R&D center of the global holding company General Development.<br>
+            <br>
+            <br>
+            
+            We are an innovative
+            provider of future-defining tech solutions in the Gaming & Entertainment industry. We are committed to
+            innovation to provide the global community with the highest quality betting products and gaming experience.
+            Hi-tech solutions and innovative approach are what drive us forward in the gaming market and remain our
+            basis for success and development. We join our forces to come up with revolutionary solutions for the tech
+            market.
+
           </div>
 
 
@@ -402,5 +371,5 @@
       </div>
     </div>
   </div>
-  <button class="order-button">Place the order</button>
+  <button class="order-button" (click)="createNewOrder()">Place the order</button>
 </section>

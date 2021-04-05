@@ -1,27 +1,29 @@
 <main>
   <section class="users">
-    <div class="users__members" *ngFor="let item of messaging"
+    <div class="users__all">
+      <div class="users__all--members" *ngFor="let item of messaging"
       [style.background-color]="item.missing == 0 ? 'white' : '#fdf5ec' " routerLinkActive="select-item"
       [routerLink]="[ item.url ]">
-      <div class="users__members--padding" routerLinkActive="select-contain" [routerLink]="[ item.url ]">
-        <img class="logo" [src]="item.img" alt="">
-        <div class="person-data">
-          <h2 class="person-data__title">
+      <div class="person" routerLinkActive="select-contain" [routerLink]="[ item.url ]">
+        <img class="person__logo" [src]="item.img" alt="">
+        <div class="person__person-data">
+          <h2 class="person__person-data--title">
             {{item.name}}
           </h2>
-          <p class="person-data__text">
+          <p class="person__person-data--text">
             {{item.text}}
           </p>
         </div>
-        <div class="other-data">
-          <p class="other-data__time">
+        <div class="person__other-data">
+          <p class="person__other-data--time">
             {{item.time}}
           </p>
-          <p class="other-data__missing" *ngIf="item.missing > 0">
+          <p class="person__other-data--missing" *ngIf="item.missing > 0">
             {{item.missing}}
           </p>
         </div>
       </div>
+    </div>
     </div>
   </section>
   <section class="users-messages">

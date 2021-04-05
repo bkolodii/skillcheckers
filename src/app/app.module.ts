@@ -16,7 +16,7 @@ import { CloseComponent } from './pages/orders/order-items/close/close.component
 import { DraftsComponent } from './pages/orders/order-items/drafts/drafts.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { MessagesDetailsComponent } from './pages/messages/messages-details/messages-details.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -28,7 +28,7 @@ import { InterviewsComponent } from './pages/interviews/interviews.component';
 import { InterviewsItemComponent } from './pages/interviews/interviews-item/interviews-item.component';
 import { UpcomingComponent } from './pages/interviews/interviews-item/upcoming/upcoming.component';
 import { SortOrdersPipe } from './shared/pipe/sort-orders.pipe';
-
+import { QuillModule } from 'ngx-quill';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,7 +59,9 @@ import { SortOrdersPipe } from './shared/pipe/sort-orders.pipe';
     AngularFireStorageModule,
     AngularFirestoreModule,
     AngularFireAuthModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    QuillModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

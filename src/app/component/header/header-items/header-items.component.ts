@@ -10,6 +10,10 @@ export class HeaderItemsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    localStorage.setItem('mainuser', JSON.stringify({
+      icon : '../../../../assets/image/mainuser.png',
+      username: 'Benny Spanbauer'
+    }))
   }
   dropMenu(): void {
     this.dropWay = !this.dropWay

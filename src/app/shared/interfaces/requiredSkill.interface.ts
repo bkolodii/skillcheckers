@@ -12,5 +12,6 @@ export interface RequiredSkills {
     skillScore: string,
     kindJob: string,
     workMode: string,
-    termOfContract: string
+    termOfContract: string,
+    id?: string
 }

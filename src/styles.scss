@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./assets/styles/reset";
+@import "./assets/styles/mixins";
+@import "./assets/styles/font";
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -25,4 +27,61 @@
   background: #b7bac2;
 }
 
+.user-recieve-reverse {
+
+  width: 100%;
+  min-height: 48px;
+  @include flexbox(row-reverse, nowrap, space-around, flex-start);
+  margin-bottom: 10px;
+
+  &__logo {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+    //   margin-bottom: 20px;
+  }
+
+  &__person-data {
+    width: 80%;
+    min-height: 35px;
+    @include flexbox(column, nowrap, flex-start, flex-start);
+    margin-top: 3px;
+
+    &--title {
+      width: 100%;
+      font-family: "Poppins";
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      text-align: right;
+    }
+
+    &--text {
+      text-align: right;
+      width: 100%;
+      font-family: "Poppins";
+      font-size: 10px;
+      font-weight: 500;
+      color: #434955;
+      line-height: 18px;
+    }
+
+  }
+
+  &__other-data {
+    width: 45px;
+    height: 40px;
+    margin-top: 5px;
+    @include flexbox(column, nowrap, flex-start, flex-end);
+
+    &--time {
+      font-family: "Poppins";
+      font-size: 10px;
+      font-weight: 500;
+      color: #b3b3b6;
+      margin-bottom: 5px;
+
+    }
+  }
+}
 

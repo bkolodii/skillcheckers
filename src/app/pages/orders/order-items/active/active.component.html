@@ -122,7 +122,7 @@
             <img class="items-icon" src="../../../../assets/image/edit.svg" alt="">
             <p class="items-text">Edit order</p>
           </div>
-          <div class="option__menu--items" [style.border-bottom]="'none'" (click)="openOption(i)">
+          <div class="option__menu--items" [style.border-bottom]="'none'" (click)="closeOrder(item.id)" (click)="openOption(i)">
             <img class="items-icon" src="../../../../assets/image/turn-off.svg" alt="">
             <p class="items-text">Close order</p>
           </div>
