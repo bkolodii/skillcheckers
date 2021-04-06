@@ -24,6 +24,7 @@
   padding-top: 50px;
   @include flexbox(row, nowrap, left, none);
   height: 100%;
+  overflow: hidden;
   &__menu {
     position: fixed;
     width: 16%;

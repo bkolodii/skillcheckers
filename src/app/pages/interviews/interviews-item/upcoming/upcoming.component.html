@@ -17,7 +17,7 @@
 
       <div class="users-list__fourEvents--person" *ngFor="let person of event">
         <div class="logo">
-          <img class="logo__person-img" src="../../../../../assets/image/clearuser1.png" alt="">
+          <img class="logo__person-img" [src]="person.interviewIcon" alt="">
           <p class="logo__person-rate">{{person.personRate.toFixed(1)}}</p>
         </div>
         <div class="data">
@@ -34,8 +34,7 @@
         <div class="interviewers">
           <p class="interviewers__interviewers-title">INTERVIEWERS</p>
           <div class="interviewers__interviewers-all">
-            <img src="../../../../../assets/image/interviewer1.jpg" alt="" class="interviewers__interviewers-all--icon">
-            <img src="../../../../../assets/image/interviewer2.jpg" alt="" class="interviewers__interviewers-all--icon">
+            <img [src]="interv" alt="" class="interviewers__interviewers-all--icon" *ngFor="let interv of person.interviewers">
           </div>
         </div>
         <div class="orders">

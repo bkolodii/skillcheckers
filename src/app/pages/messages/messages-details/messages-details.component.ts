@@ -43,7 +43,7 @@ export class MessagesDetailsComponent implements OnInit {
             ...prod.data() as mesUser
           };
           this.currMesUser = user;
-          console.log(this.currMesUser);
+          console.log(this.currMesUser.img);
           
         });
       }

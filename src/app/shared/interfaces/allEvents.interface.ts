@@ -3,6 +3,7 @@ export interface allEvents {
     personRate : number,
     profesion: string,
     interviewTime: string,
+    interviewIcon: string,
     interviewers: Array<string>,
     orders: string
 }

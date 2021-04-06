@@ -12,7 +12,7 @@ import { DayEventsService } from 'src/app/service/day-events.service';
   styleUrls: ['./upcoming.component.scss']
 })
 export class UpcomingComponent implements OnInit {
-  hover: string = 'Guy Hawkins';
+  hover: string = '';
   dates: Array<any> = [];
   date: Date = new Date(2021, 6, 5);
   days: Array<string> = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];

@@ -1,18 +1,20 @@
 @import "../../../../../assets/styles/mixins";
+@import "../../../../../assets/styles/font";
 
 main {
   width: 100%;
   min-height: 86.5vh;
   background-color: #eaecf4;
-  @include flexbox(row, nowrap, space-between, flex-start);
+  @include flexbox(row, nowrap, space-around, flex-start);
 }
 
 
 .users-list {
   width: 65%;
-  min-height: 75vh;
-  padding: 14px 0px 14px 14px;
+  min-height: 10px;
+  // padding: 14px 0px 14px 14px;
   @include flexbox(column, nowrap, flex-start, center);
+  margin-top: 10px;
 
   &__fourEvents {
     width: 100%;
@@ -23,84 +25,89 @@ main {
 
     &--date {
       width: 100%;
-      height: 3vh;
-      font-size: 12px;
-      font-family: sans-serif;
+      height: 24px;
+      font-family: "Poppins";
       font-weight: 600;
+      font-style: normal;
+      font-size: 11px;
       color: #79808f;
       margin-top: 10px;
     }
 
     &--person {
       width: 100%;
-      height: 8vh;
+      height: 60px;
       background-color: white;
-      @include flexbox(row, nowrap, flex-start, center);
+      @include flexbox(row, nowrap, space-around, center);
       margin-bottom: 10px;
 
       .logo {
         width: 50px;
-        height: 8vh;
+        height: 50px;
         position: relative;
         margin-left: 10px;
-        margin-top: 5px;
+        // margin-top: 5px;
 
         //   @include flexbox(row, nowrap, center, center);
         &__person-img {
-          width: 48px;
-          height: 45px;
+          width: 40px;
+          height: 41px;
         }
 
         &__person-rate {
           position: absolute;
           bottom: 5px;
-          left: calc(50% - 18px);
+          left: calc(50% - 22px);
+          top: calc(50% + 8px);
           width: 29px;
-          height: 14px;
+          height: 13px;
           border-radius: 10px;
           background-color: #25bf50;
-          font-size: 10px;
-          font-family: sans-serif;
+          font-family: "Poppins";
           font-weight: 500;
+          font-style: normal;
+          font-size: 10px;
           color: white;
           text-align: center;
-          line-height: 16px;
+          line-height: 14px;
           border: 3px solid white;
         }
       }
 
       .data {
         @include flexbox(column, nowrap, space-around, flex-start);
-        height: 5vh;
-        width: 145px;
+        height: 40px;
+        width: 15%;
         margin-left: 5px;
 
         &__person-name {
-          font-family: sans-serif;
-          font-size: 13.5px;
+          font-family: "Poppins";
           font-weight: 600;
+          font-style: normal;
+          font-size: 13px;
           // margin-bottom: 5px;
         }
 
         &__person-profession {
-          font-family: sans-serif;
-          font-size: 11px;
+          font-family: "Poppins";
           font-weight: 500;
+          font-style: normal;
+          font-size: 11px;
           color: #b3b3b6;
         }
       }
 
       .interview-date {
         @include flexbox(column, nowrap, space-around, flex-start);
-        height: 5vh;
-        width: 148px;
+        height: 40px;
+        width: 16%;
 
         &__interview-time {
           width: 100%;
-          font-family: sans-serif;
-          font-size: 13.5px;
+          font-family: "Poppins";
           font-weight: 500;
-
+          font-style: normal;
+          font-size: 12px;
           @include flexbox(row, nowrap, space-between, center);
 
           &--icon {
@@ -109,16 +116,21 @@ main {
           }
 
           &--text {
-            font-family: sans-serif;
-            font-size: 13.5px;
+            font-family: "Poppins";
             font-weight: 500;
+            font-style: normal;
+            font-size: 12px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
         }
 
         &__date-title {
-          font-family: sans-serif;
-          font-size: 9.5px;
+          font-family: "Poppins";
           font-weight: 550;
+          font-style: normal;
+          font-size: 10px;
           color: #b3b3b6;
           // margin-bottom: 5px;
         }
@@ -126,12 +138,12 @@ main {
 
       .interviewers {
         @include flexbox(column, nowrap, space-around, center);
-        height: 5vh;
-        width: 140px;
+        height: 40px;
+        width: 16%;
 
         &__interviewers-all {
           width: 50%;
-          height: 3vh;
+          height: 24px;
           position: relative;
           @include flexbox(row, nowrap, flex-start, center);
 
@@ -150,9 +162,10 @@ main {
         }
 
         &__interviewers-title {
-          font-family: sans-serif;
-          font-size: 9.5px;
+          font-family: "Poppins";
           font-weight: 550;
+          font-style: normal;
+          font-size: 10px;
           color: #b3b3b6;
           // margin-bottom: 5px;
         }
@@ -160,44 +173,54 @@ main {
 
       .orders {
         @include flexbox(column, nowrap, space-around, flex-start);
-        height: 5vh;
-        width: 155px;
+        height: 40px;
+        width: 15%;
 
         &__orders-prof {
           width: 100%;
-          font-family: sans-serif;
-          font-size: 13.5px;
+          font-family: "Poppins";
           font-weight: 500;
+          font-style: normal;
+          font-size: 12px;
+          height: 20px;
+          line-height: 20px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         &__orders-title {
-          font-family: sans-serif;
-          font-size: 9.5px;
+          font-family: "Poppins";
           font-weight: 550;
+          font-style: normal;
+          font-size: 10px;
           color: #b3b3b6;
+          height: 10px;
           // margin-bottom: 5px;
         }
       }
 
       .buttons {
         width: 170px;
-        height: 5vh;
+        height: 40px;
         @include flexbox(row, nowrap, space-around, center);
 
         &__start {
           width: 80px;
-          height: 4.2vh;
+          height: 32px;
           display: flex;
           flex-flow: row nowrap;
           justify-content: center;
           align-items: center;
           border: 2px solid #0cacf8;
           background-color: white;
-          font-family: sans-serif;
-          font-size: 11.5px;
-          font-weight: 600;
+          font-family: "Poppins";
+          font-weight: 500;
+          font-style: normal;
+          font-size: 11px;
           padding: 0;
           transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
+
           // color: #b3b3b6;
           &--play {
             width: 10px;
@@ -213,7 +236,7 @@ main {
           box-shadow: 0px 0px 7px 1px #0cacf8;
           color: #0cacf8;
         }
-    
+
         &__start:focus {
           background-color: transparent;
           border: 2px solid #0cacf8;
@@ -223,26 +246,30 @@ main {
 
         &__make-date {
           width: 35px;
-          height: 4.2vh;
+          height: 32px;
           background-color: #0cacf8;
           border: 1px solid #0cacf8;
           transition: box-shadow 600ms ease-in-out, fill 600ms ease-in-out;
+
           img {
             width: 20px;
             height: 20px;
           }
         }
+
         &__make-date:hover {
           box-shadow: 0px 0px 7px 1px #0cacf8;
           color: #0cacf8;
         }
+
         &__make-date:focus {
           box-shadow: 0px 0px 7px 1px #0cacf8;
           color: #0cacf8;
         }
+
         &__cancel-button {
           width: 35px;
-          height: 4.2vh;
+          height: 32px;
           position: relative;
 
           &--hidden {
@@ -250,19 +277,20 @@ main {
             width: 60px;
             top: calc(-91%);
             left: calc(-57%);
-            height: 3.2vh;
+            height: 23px;
             border-radius: 10px;
             @include flexbox(column, nowrap, flex-start, center);
 
             .hidden-text {
               width: 100%;
               background-color: #696d77;
-              height: 3.5vh;
+              height: 30px;
               border-radius: 3px;
               @include flexbox(row, nowrap, center, center);
-              font-family: sans-serif;
-              font-size: 11.5px;
+              font-family: "Poppins";
               font-weight: 500;
+              font-style: normal;
+              font-size: 11px;
               color: #cfd1d4;
               z-index: 2;
             }
@@ -280,7 +308,7 @@ main {
 
           &--visible {
             width: 35px;
-            height: 4.2vh;
+            height: 32px;
             background-color: #0cacf8;
             border: none;
             @include flexbox(row, nowrap, center, center);
@@ -311,19 +339,20 @@ main {
 }
 
 .calendar {
-  width: 30%;
-  min-height: 45vh;
-  padding: 10px;
+  width: 340px;
+  min-height: 10px;
+  // padding: 10px;
   background-color: white;
   border-top: 5px solid #0cacf8;
   margin-top: 15px;
-  margin-right: 10px;
-  @include flexbox(column, nowrap, flex-start, center);
+  // margin-right: 10px;
+  @include flexbox(column, nowrap, center, center);
 
   &__month {
-    width: 95%;
-    height: 4vh;
+    width: 90%;
+    height: 30px;
     @include flexbox(row, nowrap, space-between, center);
+    margin-top: 10px;
 
     &--navigate-right {
       width: 10px;
@@ -350,35 +379,37 @@ main {
     }
 
     &--date {
-      font-size: 14.5px;
-      font-family: sans-serif;
+      font-family: "Poppins";
       font-weight: 500;
+      font-style: normal;
+      font-size: 13px;
       //   color: #79808f;
     }
   }
 
   &__day-list {
-    width: 95%;
-    height: 4vh;
-    @include flexbox(row, nowrap, space-around, center);
+    width: 90%;
+    height: 30px;
+    @include flexbox(row, nowrap, center, center);
 
     &--day {
-      font-size: 12px;
-      font-family: sans-serif;
-      font-weight: 550;
-      width: 49.9px;
+      font-family: "Poppins";
+      font-weight: 500;
+      font-style: normal;
+      font-size: 11px;
+      width: 42.7px;
       text-align: center;
     }
   }
 
   &__day-number {
-    width: 95%;
+    width: 90%;
     min-height: 10vh;
     @include flexbox(row, wrap, flex-start, center);
 
     &--block-day {
-      width: 49.9px;
-      height: 50px;
+      width: 41.7px;
+      height: 45px;
       border: 1px solid #d2d2de;
       @include flexbox(row, wrap, center, center);
       font-size: 12px;
@@ -387,6 +418,7 @@ main {
       color: #7e828b;
       cursor: pointer;
       transition: background-color 600ms ease-in-out;
+
       .eventBox {
         width: 100%;
         display: flex;
@@ -414,16 +446,18 @@ main {
 
   &__mean {
     width: 95%;
-    min-height: 6vh;
+    min-height: 43px;
     @include flexbox(row, wrap, center, center);
     margin-top: 5px;
+    margin-bottom: 10px;
 
     &--upcoming {
       width: 75px;
-      height: 3vh;
-      font-size: 12px;
-      font-family: sans-serif;
+      height: 24px;
+      font-family: "Poppins";
       font-weight: 500;
+      font-style: normal;
+      font-size: 11px;
       @include flexbox(row, wrap, space-around, center);
 
       span {
@@ -438,10 +472,11 @@ main {
     &--completed {
       margin-left: 5px;
       width: 75px;
-      height: 3vh;
-      font-size: 12px;
-      font-family: sans-serif;
+      height: 24px;
+      font-family: "Poppins";
       font-weight: 500;
+      font-style: normal;
+      font-size: 11px;
       @include flexbox(row, wrap, space-around, center);
 
       span {

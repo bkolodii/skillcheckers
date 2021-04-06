@@ -29,6 +29,8 @@ import { InterviewsItemComponent } from './pages/interviews/interviews-item/inte
 import { UpcomingComponent } from './pages/interviews/interviews-item/upcoming/upcoming.component';
 import { SortOrdersPipe } from './shared/pipe/sort-orders.pipe';
 import { QuillModule } from 'ngx-quill';
+import { CompletedComponent } from './pages/interviews/interviews-item/completed/completed.component';
+import { UnconfirmedComponent } from './pages/interviews/interviews-item/unconfirmed/unconfirmed.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,9 @@ import { QuillModule } from 'ngx-quill';
     InterviewsComponent,
     InterviewsItemComponent,
     UpcomingComponent,
-    SortOrdersPipe
+    SortOrdersPipe,
+    CompletedComponent,
+    UnconfirmedComponent
   ],
   imports: [
     BrowserModule,
