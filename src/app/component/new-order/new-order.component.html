@@ -1,375 +1,382 @@
 <section class="new-order">
-  <div class="container-order">
-    <div class="create-order">
-      <h1 class="create-title">Create a new order</h1>
-      <div class="position">
-        <img class="position__icon" src="../../../assets/image/position.svg" alt="">
-        <input class="position__input" type="text" [(ngModel)]="position" placeholder="Position">
-      </div>
-      <div class="order-info">
-        <div class="order-info__programmer">
-          <p class="order-info__programmer--text">Programmers needed</p>
-          <div class="order-info__programmer--counter">
-            <button class="minus" (click)="counter('progNeed', false)">-</button>
-            <input type="text" class="programmer-input" [(ngModel)]="progNeedNumber" minlength="1" value="1">
-            <button class="add" (click)="counter('progNeed', true)">+</button>
-          </div>
+  <div class="new-order__items">
+    <div class="container-order">
+      <div class="create-order">
+        <h1 class="create-title" *ngIf="!editOrder">Create a new order</h1>
+        <h1 class="create-title" *ngIf="editOrder">Edit order</h1>
+        <div class="position">
+          <!-- <img class="position__icon" src="../../../assets/image/position.svg" alt=""> -->
+          <span class="position__icon"><span class="path1"></span><span class="path2"></span><span
+              class="path3"></span><span class="path4"></span><span class="path5"></span><span
+              class="path6"></span><span class="path7"></span></span>
+          <input class="position__input" type="text" [(ngModel)]="position" placeholder="Position">
         </div>
-        <div class="order-info__mainSkill">
-          <p class="order-info__mainSkill--text">Main skill</p>
-          <div class="order-info__mainSkill--select">
-            <button class="visible" (click)="openHidden('mainSkill')"
-              [style.border]="isMainSkill? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-              <p class="visible__title">{{ mainSkil }}</p>
-              <img class="visible__drop-icon" *ngIf="!isMainSkill" src="../../../../assets/image/drop-down-arrow.svg"
-                alt="">
-              <img class="visible__drop-icon" *ngIf="isMainSkill" src="../../../../assets/image/drop-up-arrow.svg"
-                alt="">
-            </button>
-            <div class="hidden" [style.display]="isMainSkill ? 'block' : 'none'">
-              <p *ngFor="let skill of mainSkills; let i=index" (click)="chooseItem(skill, 'mainSkill')"
-                [style.border-bottom]="i == mainSkills.length-1 ? 'none' : ''">{{skill}}</p>
+        <div class="order-info">
+          <div class="order-info__programmer">
+            <p class="order-info__programmer--text">Programmers needed</p>
+            <div class="order-info__programmer--counter">
+              <button class="minus" (click)="counter('progNeed', false)">-</button>
+              <input type="text" class="programmer-input" [(ngModel)]="progNeedNumber" minlength="1" value="1">
+              <button class="add" (click)="counter('progNeed', true)">+</button>
             </div>
           </div>
-        </div>
-        <div class="order-info__experience">
-          <p class="order-info__experience--text">Years of experience</p>
-          <div class="order-info__experience--counter">
-            <button class="minus" (click)="counter('experience', false)">-</button>
-            <input type="text" class="experience-input" [(ngModel)]="experienceNumber" minlength="1" value="4">
-            <button class="add" (click)="counter('experience', true)">+</button>
+          <div class="order-info__mainSkill">
+            <p class="order-info__mainSkill--text">Main skill</p>
+            <div class="order-info__mainSkill--select" (clickOutside)="onClickedOutsideItem($event, 'mainSkill')">
+              <button class="visible" (click)="openHidden('mainSkill')"
+                [style.border]="isMainSkill? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+                <p class="visible__title">{{ mainSkil }}</p>
+                <span aria-hidden="true" data-icon="&#xe900;"
+                  [style.font-family]="!isMainSkill ? 'drop-down-arrow' : 'drop-up-arrow'"
+                  class="visible__drop-icon"></span>
+              </button>
+              <div class="hidden" [style.display]="isMainSkill ? 'block' : 'none'">
+                <p *ngFor="let skill of mainSkills; let i=index" (click)="chooseItem(skill, 'mainSkill')"
+                  [style.border-bottom]="i == mainSkills.length-1 ? 'none' : ''">{{skill}}</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="order-info__addSkill">
-          <p class="order-info__addSkill--text">Additional skills</p>
-          <div class="order-info__addSkill--select" (click)="openHidden('addSkill')"
-            [style.border]="isAddSkill? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-            <div class="choose-addSkill" *ngFor="let addSkill of checkAddSkill; let i=index;"
-              [style.margin-top]="checkAddSkill.length >= 3 ? '4px' : '0px'"
-              [style.margin-bottom]="checkAddSkill.length >= 3 ? '4px' : '0px'">
-              <p class="choose-addSkill__title">{{addSkill}}</p>
-              <button class="choose-addSkill__delete-choose" (click)="deleteSkill(i)">
-                <img class="choose-addSkill__delete-choose--cross" src="../../../../assets/image/close.svg" alt="">
+          <div class="order-info__experience">
+            <p class="order-info__experience--text">Years of experience</p>
+            <div class="order-info__experience--counter">
+              <button class="minus" (click)="counter('experience', false)">-</button>
+              <input type="text" class="experience-input" [(ngModel)]="experienceNumber" minlength="1" value="4">
+              <button class="add" (click)="counter('experience', true)">+</button>
+            </div>
+          </div>
+          <div class="order-info__addSkill">
+            <p class="order-info__addSkill--text">Additional skills</p>
+            <div class="order-info__addSkill--select" (clickOutside)="onClickedOutsideItem($event, 'addSkill')"
+              (click)="openHidden('addSkill')" [style.border]="isAddSkill? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+              <div class="choose-addSkill" *ngFor="let addSkill of checkAddSkill; let i=index;"
+                [style.margin-top]="checkAddSkill.length >= 3 ? '4px' : '0px'"
+                [style.margin-bottom]="checkAddSkill.length >= 3 ? '4px' : '0px'">
+                <p class="choose-addSkill__title">{{addSkill}}</p>
+                <button class="choose-addSkill__delete-choose" (click)="deleteSkill(i)">
+                  <span aria-hidden="true" data-icon="&#xe900;" class="choose-addSkill__delete-choose--cross"></span>
+                </button>
+              </div>
+              <span aria-hidden="true" data-icon="&#xe900;"
+                [style.font-family]="!isAddSkill ? 'drop-down-arrow' : 'drop-up-arrow'" class="drop-icon"></span>
+              <!-- </div> -->
+              <div class="hidden" [style.display]="isAddSkill ? 'block' : 'none'">
+                <p *ngFor="let addential of addSkills; let i=index" (click)="addSkill(addential)"
+                  [style.border-bottom]="i == addSkills.length-1 ? 'none' : ''">{{addential}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="order-info__unitName">
+            <p class="order-info__unitName--text">Unit name</p>
+            <div class="order-info__unitName--select">
+              <button class="visible" (click)="openHidden('unitName')"
+                [style.border]="isUnitName? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+                <p class="visible__title">{{unitName}}</p>
+                <span aria-hidden="true" data-icon="&#xe900;"
+                  [style.font-family]="!isUnitName ? 'drop-down-arrow' : 'drop-up-arrow'"
+                  class="visible__drop-icon"></span>
+              </button>
+              <div class="hidden" [style.display]="isUnitName ? 'block' : 'none'">
+                <p *ngFor="let name of namesUnit; let i=index" (click)="chooseItem(name, 'name')"
+                  [style.border-bottom]="i == namesUnit.length-1 ? 'none' : ''">{{name}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="order-info__unitLocation">
+            <p class="order-info__unitLocation--text">Unit location</p>
+            <input class="order-info__unitLocation--input" [(ngModel)]="unitLocation" name="unitLocation" type="text">
+          </div>
+          <div class="order-info__skillScore">
+            <div class="order-info__skillScore--text">Skillcheckers Score
+              <button class="questInfo">
+                <span aria-hidden="true" data-icon="&#xe900;" class="questInfo__quest-icon"></span>
+
               </button>
             </div>
-            <img class="drop-icon" *ngIf="!isAddSkill" src="../../../../assets/image/drop-down-arrow.svg" alt="">
-            <img class="drop-icon" *ngIf="isAddSkill" src="../../../../assets/image/drop-up-arrow.svg" alt="">
+            <div class="order-info__skillScore--select">
+              <div class="skillScore-button">
+                <input type="radio" name="score" id="any" value="Any" [(ngModel)]="skillScore">
+                <label for="any">Any</label>
+              </div>
+              <div class="skillScore-button">
+                <input type="radio" name="score" value="8 Very good" id="veryGood" checked [(ngModel)]="skillScore">
+                <label for="veryGood">8 Very good</label>
+              </div>
+              <div class="skillScore-button">
+                <input type="radio" name="score" id="good" value="7 Good" [(ngModel)]="skillScore">
+                <label for="good">7 Good</label>
+              </div>
+              <div class="skillScore-button">
+                <input type="radio" name="score" id="except" value="9 Exceptional" [(ngModel)]="skillScore">
+                <label for="except">9 Exceptional</label>
+              </div>
+            </div>
+          </div>
+          <div class="order-info__jobLocation">
+            <p class="order-info__jobLocation--text">Job location</p>
+            <div class="order-info__jobLocation--choose">
+              <input class="jobLocation-input" [(ngModel)]="jobLocation" name="jobLocation" type="text">
+              <div class="skillScore-button">
+                <input type="radio" name="jobLoc" id="onSite" [(ngModel)]="kindJob" value="On site">
+                <label for="onSite">On site</label>
+              </div>
+              <div class="skillScore-button">
+                <input type="radio" name="jobLoc" id="remote" [(ngModel)]="kindJob" value="Remote">
+                <label for="remote">Remote</label>
+              </div>
+              <div class="skillScore-button">
+                <input type="radio" name="jobLoc" id="any" checked [(ngModel)]="kindJob" value="Any">
+                <label for="any">Any</label>
+              </div>
+            </div>
+
+          </div>
+          <div class="order-info__salary">
+            <p class="order-info__salary--text">Salary range</p>
+            <div class="order-info__salary--choose">
+              <div class="select-salary">
+                <button class="visible" (click)="openHidden('salary')"
+                  [style.border]="isSalary? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+                  <p class="visible__title">{{salary}}</p>
+                  <span aria-hidden="true" data-icon="&#xe900;"
+                    [style.font-family]="!isSalary ? 'drop-down-arrow' : 'drop-up-arrow'"
+                    class="visible__drop-icon"></span>
+                </button>
+                <div class="hidden" [style.display]="isSalary ? 'block' : 'none'">
+                  <p *ngFor="let salar of salaryRange; let i=index" (click)="chooseItem(salar, 'salary')"
+                    [style.border-bottom]="i == salaryRange.length-1 ? 'none' : ''">{{salar}}</p>
+                </div>
+              </div>
+              <div class="select-currency">
+                <button class="visible" (click)="openHidden('currency')"
+                  [style.border]="isCurrency? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+                  <span aria-hidden="true" data-icon="&#xe900;" [style.font-family]="currCurrency"
+                    class="visible__title-icon"></span>
+                  <span aria-hidden="true" data-icon="&#xe900;"
+                    [style.font-family]="!isCurrency ? 'drop-down-arrow' : 'drop-up-arrow'"
+                    class="visible__drop-icon"></span>
+                </button>
+                <div class="hidden" [style.display]="isCurrency ? 'block' : 'none'">
+                  <p class="hidden__currency" *ngFor="let currency of currencyRange; let i=index"
+                    (click)="chooseItem(currency, 'currency')"
+                    [style.border-bottom]="i == currencyRange.length-1 ? 'none' : ''">
+                    <!-- <img class="hidden__currency--icon" [src]="currency" alt=""> -->
+                    <span aria-hidden="true" data-icon="&#xe900;" [style.font-family]="currency"
+                      class="hidden__currency--icon"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="order-info__termContr">
+            <p class="order-info__termContr--text">Term of contract</p>
+            <div class="order-info__termContr--choose">
+              <div class="termContr-button">
+                <input type="radio" name="termContr" id="longTerm" [(ngModel)]="termOfContract" value="Long-term">
+                <label for="longTerm">Long-term</label>
+              </div>
+              <div class="termContr-button">
+                <input type="radio" name="termContr" id="shortTerm" [(ngModel)]="termOfContract" value="Short-term">
+                <label for="shortTerm">Short-term</label>
+              </div>
+              <div class="termContr-button">
+                <input type="radio" name="termContr" id="any" checked [(ngModel)]="termOfContract" value="Any">
+                <label for="any">Any</label>
+              </div>
+            </div>
+
+          </div>
+          <div class="order-info__workMode">
+            <p class="order-info__workMode--text">Work mode</p>
+            <div class="order-info__workMode--choose">
+              <div class="workMode-button">
+                <input type="radio" name="workMode" id="fullTime" [(ngModel)]="workMode" value="Full time">
+                <label for="fullTime">Full time</label>
+              </div>
+              <div class="workMode-button">
+                <input type="radio" name="workMode" id="shortTerm" [(ngModel)]="workMode" value="Part time">
+                <label for="partTime">Part time</label>
+              </div>
+              <div class="workMode-button">
+                <input type="radio" name="workMode" id="any" checked [(ngModel)]="workMode" value="Any">
+                <label for="any">Any</label>
+              </div>
+            </div>
+
+          </div>
+          <div class="order-info__dueDate">
+            <div class="order-info__dueDate--text">
+              <button class="calendar-info">
+                <span aria-hidden="true" data-icon="&#xe900;" class="calendar-info__icon"></span>
+              </button>
+              Due date</div>
+            <div class="order-info__dueDate--select">
+              <button class="visible" (click)="openHidden('date')"
+                [style.border]="isDate? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+                <p class="visible__title">{{dueDate}}</p>
+                <span aria-hidden="true" data-icon="&#xe900;" class="visible__drop-icon"></span>
+              </button>
+              <div class="hidden" [style.display]="isDate ? 'block' : 'none'">
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="other-info">
+        <div class="other-info__jobDesc">
+          <span aria-hidden="true" data-icon="&#xe900;"
+            [style.font-family]="!isTextNode ? 'down-navigate-arrow' : 'up-navigate-arrow'"
+            (click)="openHidden('notePad')" class="other-info__jobDesc--arrowNavigate"></span>
+          <div class="other-info__jobDesc--visible">
+            <div class="jobDescription-icon">
+              <span class="icon-description"><span class="path1"></span><span class="path2"></span><span
+                  class="path3"></span><span class="path4"></span><span class="path5"></span><span
+                  class="path6"></span></span>
+            </div>
+            <div class="job-description">
+              <h2 class="job-description__title">Job description</h2>
+              <p class="job-description__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis sed non
+                quam
+                dictum aliquam adipiscing imperdiet. Eu, suscipit arcu lacus tortor. </p>
+            </div>
+          </div>
+
+          <div class="other-info__jobDesc--textNote" [style.height]="isTextNode ? 'auto' : '0px' "
+            [style.transition]="'height 1600ms ease-in-out'">
+            <div class="upload">
+              <div class="upload-btn-wrapper">
+                <button class="btn"> <span aria-hidden="true" data-icon="&#xe900;" class="btn__resent-icon"></span> Use
+                  resent</button>
+                <input type="file" name="myfile" />
+              </div>
+            </div>
+            <!-- <div class="notePad"> -->
+            <form [formGroup]="editorForm" class="notePad">
+              <div class="notePad__form-group">
+                <quill-editor [style]="editorStyle" [modules]='config' formControlName="editor"></quill-editor>
+              </div>
+            </form>
             <!-- </div> -->
-            <div class="hidden" [style.display]="isAddSkill ? 'block' : 'none'">
-              <p *ngFor="let addential of addSkills; let i=index" (click)="addSkill(addential)"
-                [style.border-bottom]="i == addSkills.length-1 ? 'none' : ''">{{addential}}</p>
-            </div>
-          </div>
-        </div>
-        <div class="order-info__unitName">
-          <p class="order-info__unitName--text">Unit name</p>
-          <div class="order-info__unitName--select">
-            <button class="visible" (click)="openHidden('unitName')"
-              [style.border]="isUnitName? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-              <p class="visible__title">{{unitName}}</p>
-              <img class="visible__drop-icon" *ngIf="!isUnitName" src="../../../../assets/image/drop-down-arrow.svg"
-                alt="">
-              <img class="visible__drop-icon" *ngIf="isUnitName" src="../../../../assets/image/drop-up-arrow.svg"
-                alt="">
-            </button>
-            <div class="hidden" [style.display]="isUnitName ? 'block' : 'none'">
-              <p *ngFor="let name of namesUnit; let i=index" (click)="chooseItem(name, 'name')"
-                [style.border-bottom]="i == namesUnit.length-1 ? 'none' : ''">{{name}}</p>
-            </div>
-          </div>
-        </div>
-        <div class="order-info__unitLocation">
-          <p class="order-info__unitLocation--text">Unit location</p>
-          <input class="order-info__unitLocation--input" [(ngModel)]="unitLocation" name="unitLocation" type="text">
-        </div>
-        <div class="order-info__skillScore">
-          <div class="order-info__skillScore--text">Skillcheckers Score
-            <button class="questInfo">
-              <img src="../../../assets/image/question.svg" alt="">
-            </button>
-          </div>
-          <div class="order-info__skillScore--select">
-            <div class="skillScore-button">
-              <input type="radio" name="score" id="any" value="Any" [(ngModel)]="skillScore">
-              <label for="any">Any</label>
-            </div>
-            <div class="skillScore-button">
-              <input type="radio" name="score" value="8 Very good" id="veryGood" checked [(ngModel)]="skillScore">
-              <label for="veryGood">8 Very good</label>
-            </div>
-            <div class="skillScore-button">
-              <input type="radio" name="score" id="good" value="7 Good" [(ngModel)]="skillScore">
-              <label for="good">7 Good</label>
-            </div>
-            <div class="skillScore-button">
-              <input type="radio" name="score" id="except" value="9 Exceptional" [(ngModel)]="skillScore">
-              <label for="except">9 Exceptional</label>
-            </div>
-          </div>
-        </div>
-        <div class="order-info__jobLocation">
-          <p class="order-info__jobLocation--text">Job location</p>
-          <div class="order-info__jobLocation--choose">
-            <input class="jobLocation-input" [(ngModel)]="jobLocation" name="jobLocation" type="text">
-            <div class="skillScore-button">
-              <input type="radio" name="jobLoc" id="onSite" [(ngModel)]="kindJob" value="On site">
-              <label for="onSite">On site</label>
-            </div>
-            <div class="skillScore-button">
-              <input type="radio" name="jobLoc" id="remote" [(ngModel)]="kindJob" value="Remote">
-              <label for="remote">Remote</label>
-            </div>
-            <div class="skillScore-button">
-              <input type="radio" name="jobLoc" id="any" checked [(ngModel)]="kindJob" value="Any">
-              <label for="any">Any</label>
-            </div>
+
           </div>
 
         </div>
-        <div class="order-info__salary">
-          <p class="order-info__salary--text">Salary range</p>
-          <div class="order-info__salary--choose">
-            <div class="select-salary">
-              <button class="visible" (click)="openHidden('salary')"
-                [style.border]="isSalary? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-                <p class="visible__title">{{salary}}</p>
-                <img class="visible__drop-icon" *ngIf="!isSalary" src="../../../../assets/image/drop-down-arrow.svg"
-                  alt="">
-                <img class="visible__drop-icon" *ngIf="isSalary" src="../../../../assets/image/drop-up-arrow.svg"
-                  alt="">
-              </button>
-              <div class="hidden" [style.display]="isSalary ? 'block' : 'none'">
-                <p *ngFor="let salar of salaryRange; let i=index" (click)="chooseItem(salar, 'salary')"
-                  [style.border-bottom]="i == salaryRange.length-1 ? 'none' : ''">{{salar}}</p>
+        <div class="other-info__companyDesc">
+          <span aria-hidden="true" data-icon="&#xe900;"
+            [style.font-family]="!isLorem ? 'down-navigate-arrow' : 'up-navigate-arrow'" (click)="openHidden('lorem')"
+            class="other-info__companyDesc--arrowNavigate"></span>
+          <div class="other-info__companyDesc--visible">
+            <div class="compDescription-icon">
+              <span class="icon-companyDesc"><span class="path1"></span><span class="path2"></span><span
+                  class="path3"></span><span class="path4"></span><span class="path5"></span><span
+                  class="path6"></span><span class="path7"></span><span class="path8"></span><span
+                  class="path9"></span><span class="path10"></span><span class="path11"></span><span
+                  class="path12"></span><span class="path13"></span><span class="path14"></span><span
+                  class="path15"></span><span class="path16"></span><span class="path17"></span></span>
+            </div>
+            <div class="company-description">
+              <h2 class="company-description__title">Company description</h2>
+              <p class="company-description__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis sed non
+                quam
+                dictum aliquam adipiscing imperdiet. Eu, suscipit arcu lacus tortor. </p>
+            </div>
+          </div>
+          <div class="other-info__companyDesc--hidden" [style.height]="isLorem ? 'auto' : '0px' "
+            [style.transition]="'height 1600ms ease-in-out'">
+            <div class="upload">
+              <div class="upload-btn-wrapper">
+                <button class="btn"> <span aria-hidden="true" data-icon="&#xe900;" class="btn__resent-icon"></span> Use
+                  resent</button>
+                <input type="file" name="myfile" />
               </div>
             </div>
-            <div class="select-currency">
-              <button class="visible" (click)="openHidden('currency')"
-                [style.border]="isCurrency? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-                <!-- <p class="visible__title"></p>
-             -->
-                <img class="visible__title-icon" [src]="currCurrency" alt="">
-                <img class="visible__drop-icon" *ngIf="!isCurrency" src="../../../../assets/image/drop-down-arrow.svg"
-                  alt="">
-                <img class="visible__drop-icon" *ngIf="isCurrency" src="../../../../assets/image/drop-up-arrow.svg"
-                  alt="">
-              </button>
-              <div class="hidden" [style.display]="isCurrency ? 'block' : 'none'">
-                <p class="hidden__currency" *ngFor="let currency of currencyRange; let i=index"
-                  (click)="chooseItem(currency, 'currency')"
-                  [style.border-bottom]="i == currencyRange.length-1 ? 'none' : ''">
-                  <img class="hidden__currency--icon" [src]="currency" alt="">
 
-                </p>
+            <div class="hidden-text">
+              GD Tech — hi-tech R&D center of the global holding company General Development.<br>
+              <br>
+              <br>
+
+              We are an innovative
+              provider of future-defining tech solutions in the Gaming & Entertainment industry. We are committed to
+              innovation to provide the global community with the highest quality betting products and gaming
+              experience.
+              Hi-tech solutions and innovative approach are what drive us forward in the gaming market and remain our
+              basis for success and development. We join our forces to come up with revolutionary solutions for the tech
+              market.
+
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="other-info__question">
+          <span aria-hidden="true" data-icon="&#xe900;"
+            [style.font-family]="!isQuestion ? 'down-navigate-arrow' : 'up-navigate-arrow'"
+            (click)="openHidden('question')" class="other-info__question--arrowNavigate"></span>
+          <div class="other-info__question--visible">
+            <div class="screenQuest-icon">
+              <span class="icon-screenQuest"><span class="path1"></span><span class="path2"></span><span
+                  class="path3"></span><span class="path4"></span><span class="path5"></span><span
+                  class="path6"></span><span class="path7"></span><span class="path8"></span><span
+                  class="path9"></span></span>
+            </div>
+            <div class="screen-question">
+              <h2 class="screen-question__title">Your screening questions</h2>
+              <p class="screen-question__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis sed non
+                quam
+                dictum aliquam adipiscing imperdiet. Eu, suscipit arcu lacus tortor. </p>
+            </div>
+          </div>
+
+          <div class="other-info__question--questNote" [style.height]="isQuestion ? 'auto' : '0px' "
+            [style.transition]="'height 1600ms ease-in-out'">
+            <div class="upload">
+              <div class="upload-btn-wrapper">
+                <button class="btn"> <span aria-hidden="true" data-icon="&#xe900;" class="btn__resent-icon"></span> Use
+                  resent</button>
+                <input type="file" name="myfile" />
               </div>
             </div>
-          </div>
-        </div>
+            <div class="question-list" *ngFor="let item of questions" (click)="selectQuestion(item)"
+              [style.border]="item.status ? '1px solid #b7e6fd' : 'none'">
+              <p class="question-list__text">{{item.count}}. {{item.text}} <span *ngIf="item.count == 3"></span></p>
+              <div class="question-list__button">
+                <button *ngIf="item.status" class="question-list__button--bin" (click)="deleteQuest(item)">
+                  <span aria-hidden="true" data-icon="&#xe900;" class="delete"></span>
+                </button>
+                <button class="question-list__button--menu">
+                  <span aria-hidden="true" data-icon="&#xe900;" class="menu"></span>
+                </button>
+              </div>
+            </div>
+            <div class="question-list">
 
-        <div class="order-info__termContr">
-          <p class="order-info__termContr--text">Term of contract</p>
-          <div class="order-info__termContr--choose">
-            <div class="termContr-button">
-              <input type="radio" name="termContr" id="longTerm" [(ngModel)]="termOfContract" value="Long-term">
-              <label for="longTerm">Long-term</label>
+              <div class="question-list__write">
+                <p class="question-list__write--id">{{questions.length+1}}.</p> <input type="text" autoFocus
+                  [(ngModel)]="questText" class="question-list__write--input">
+              </div>
+              <div class="question-list__button">
+                <button class="question-list__button--menu">
+                  <span aria-hidden="true" data-icon="&#xe900;" class="menu"></span>
+                </button>
+              </div>
             </div>
-            <div class="termContr-button">
-              <input type="radio" name="termContr" id="shortTerm" [(ngModel)]="termOfContract" value="Short-term">
-              <label for="shortTerm">Short-term</label>
-            </div>
-            <div class="termContr-button">
-              <input type="radio" name="termContr" id="any" checked [(ngModel)]="termOfContract" value="Any">
-              <label for="any">Any</label>
-            </div>
-          </div>
 
-        </div>
-        <div class="order-info__workMode">
-          <p class="order-info__workMode--text">Work mode</p>
-          <div class="order-info__workMode--choose">
-            <div class="workMode-button">
-              <input type="radio" name="workMode" id="fullTime" [(ngModel)]="workMode" value="Full time">
-              <label for="fullTime">Full time</label>
-            </div>
-            <div class="workMode-button">
-              <input type="radio" name="workMode" id="shortTerm" [(ngModel)]="workMode" value="Part time">
-              <label for="partTime">Part time</label>
-            </div>
-            <div class="workMode-button">
-              <input type="radio" name="workMode" id="any" checked [(ngModel)]="workMode" value="Any">
-              <label for="any">Any</label>
-            </div>
+
+            <button class="add-question" (click)="addQuest()">
+              <span aria-hidden="true" data-icon="&#xe901;" class="plus"></span>
+              Add question</button>
+
+
           </div>
 
         </div>
-        <div class="order-info__dueDate">
-          <div class="order-info__dueDate--text">
-            <button class="calendar-info">
-              <img src="../../../assets/image/calendar.svg" alt="">
-            </button>
-            Due date</div>
-          <div class="order-info__dueDate--select">
-            <button class="visible" (click)="openHidden('date')"
-              [style.border]="isDate? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-              <p class="visible__title">{{dueDate}}</p>
-              <svg id="Layer_1" class="visible__drop-icon" src="../../../../assets/image/drop-down-arrow.svg" alt
-                enable-background="new 0 0 512 512" height="512" viewBox="0 0 512 512" width="512"
-                xmlns="http://www.w3.org/2000/svg">
-                <g>
-                  <path
-                    d="m446 40h-46v-24c0-8.836-7.163-16-16-16s-16 7.164-16 16v24h-224v-24c0-8.836-7.163-16-16-16s-16 7.164-16 16v24h-46c-36.393 0-66 29.607-66 66v340c0 36.393 29.607 66 66 66h380c36.393 0 66-29.607 66-66v-340c0-36.393-29.607-66-66-66zm-380 32h46v16c0 8.836 7.163 16 16 16s16-7.164 16-16v-16h224v16c0 8.836 7.163 16 16 16s16-7.164 16-16v-16h46c18.748 0 34 15.252 34 34v38h-448v-38c0-18.748 15.252-34 34-34zm380 408h-380c-18.748 0-34-15.252-34-34v-270h448v270c0 18.748-15.252 34-34 34z" />
-                </g>
-              </svg>
-            </button>
-            <div class="hidden" [style.display]="isDate ? 'block' : 'none'">
-            </div>
-          </div>
-
-        </div>
-
       </div>
     </div>
-    <div class="other-info">
-      <div class="other-info__jobDesc">
-        <img class="other-info__jobDesc--arrowNavigate" src="../../../assets/image/up-arrow.svg" *ngIf="isTextNode"
-          (click)="openHidden('notePad')" alt="">
-        <img class="other-info__jobDesc--arrowNavigate" src="../../../assets/image/arrow-down-sign-to-navigate.svg"
-          *ngIf="!isTextNode" (click)="openHidden('notePad')" alt="">
-        <div class="other-info__jobDesc--visible">
-          <div class="jobDescription-icon">
-            <img src="../../../assets/image/description.png" alt="">
-          </div>
-          <div class="job-description">
-            <h2 class="job-description__title">Job description</h2>
-            <p class="job-description__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis sed non quam
-              dictum aliquam adipiscing imperdiet. Eu, suscipit arcu lacus tortor. </p>
-          </div>
-        </div>
-
-        <div class="other-info__jobDesc--textNote" [style.height]="isTextNode ? 'auto' : '0px' "
-          [style.transition]="'height 1600ms ease-in-out'">
-          <div class="upload">
-            <div class="upload-btn-wrapper">
-              <button class="btn"> <img src="../../../assets/image/google-documents.svg" alt=""> Use resent</button>
-              <input type="file" name="myfile" />
-            </div>
-          </div>
-          <!-- <div class="notePad"> -->
-          <form [formGroup]="editorForm" class="notePad">
-            <div class="notePad__form-group">
-              <quill-editor [style]="editorStyle" [modules]='config' formControlName="editor"></quill-editor>
-            </div>
-          </form>
-          <!-- </div> -->
-
-        </div>
-
-      </div>
-      <div class="other-info__companyDesc">
-        <img class="other-info__companyDesc--arrowNavigate" src="../../../assets/image/up-arrow.svg" *ngIf="isLorem"
-          (click)="openHidden('lorem')" alt="">
-        <img class="other-info__companyDesc--arrowNavigate" src="../../../assets/image/arrow-down-sign-to-navigate.svg"
-          *ngIf="!isLorem" (click)="openHidden('lorem')" alt="">
-        <div class="other-info__companyDesc--visible">
-          <div class="compDescription-icon">
-            <img src="../../../assets/image/companyDesc.png" alt="">
-          </div>
-          <div class="company-description">
-            <h2 class="company-description__title">Company description</h2>
-            <p class="company-description__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis sed non
-              quam
-              dictum aliquam adipiscing imperdiet. Eu, suscipit arcu lacus tortor. </p>
-          </div>
-        </div>
-        <div class="other-info__companyDesc--hidden" [style.height]="isLorem ? 'auto' : '0px' "
-          [style.transition]="'height 1600ms ease-in-out'">
-          <div class="upload">
-            <div class="upload-btn-wrapper">
-              <button class="btn"> <img src="../../../assets/image/google-documents.svg" alt=""> Use resent</button>
-              <input type="file" name="myfile" />
-            </div>
-          </div>
-
-          <div class="hidden-text">
-            GD Tech — hi-tech R&D center of the global holding company General Development.<br>
-            <br>
-            <br>
-            
-            We are an innovative
-            provider of future-defining tech solutions in the Gaming & Entertainment industry. We are committed to
-            innovation to provide the global community with the highest quality betting products and gaming experience.
-            Hi-tech solutions and innovative approach are what drive us forward in the gaming market and remain our
-            basis for success and development. We join our forces to come up with revolutionary solutions for the tech
-            market.
-
-          </div>
-
-
-        </div>
-      </div>
-
-      <div class="other-info__question">
-        <img class="other-info__question--arrowNavigate" src="../../../assets/image/up-arrow.svg" *ngIf="isQuestion"
-          (click)="openHidden('question')" alt="">
-        <img class="other-info__question--arrowNavigate" src="../../../assets/image/arrow-down-sign-to-navigate.svg"
-          *ngIf="!isQuestion" (click)="openHidden('question')" alt="">
-        <div class="other-info__question--visible">
-          <div class="screenQuest-icon">
-            <img src="../../../assets/image/screenQuest.png" alt="">
-          </div>
-          <div class="screen-question">
-            <h2 class="screen-question__title">Your screening questions</h2>
-            <p class="screen-question__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis sed non quam
-              dictum aliquam adipiscing imperdiet. Eu, suscipit arcu lacus tortor. </p>
-          </div>
-        </div>
-
-        <div class="other-info__question--questNote" [style.height]="isQuestion ? 'auto' : '0px' "
-          [style.transition]="'height 1600ms ease-in-out'">
-          <div class="upload">
-            <div class="upload-btn-wrapper">
-              <button class="btn"> <img src="../../../assets/image/google-documents.svg" alt=""> Use resent</button>
-              <input type="file" name="myfile" />
-            </div>
-          </div>
-          <div class="question-list" *ngFor="let item of questions" (click)="selectQuestion(item)"
-            [style.border]="item.status ? '1px solid #b7e6fd' : 'none'">
-            <p class="question-list__text">{{item.count}}. {{item.text}} <span *ngIf="item.count == 3"></span></p>
-            <div class="question-list__button">
-              <button *ngIf="item.status" class="question-list__button--bin" (click)="deleteQuest(item)">
-              </button>
-              <button class="question-list__button--menu">
-              </button>
-            </div>
-          </div>
-          <div class="question-list">
-
-            <div class="question-list__write">
-              <p class="question-list__write--id">{{questions.length+1}}.</p> <input type="text" autoFocus
-                [(ngModel)]="questText" class="question-list__write--input">
-            </div>
-            <div class="question-list__button">
-              <!-- <button *ngIf="item.status" class="question-list__button--bin">
-              </button> -->
-              <button class="question-list__button--menu">
-              </button>
-            </div>
-          </div>
-
-
-          <button class="add-question" (click)="addQuest()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-              <path fill="#39bbf9"
-                d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z" />
-            </svg>
-
-            Add question</button>
-
-
-        </div>
-
-      </div>
-    </div>
+    <button class="order-button" *ngIf="!editOrder" (click)="createNewOrder()">Place the order</button>
+    <button class="order-button" *ngIf="editOrder" (click)="updateOrder()">Save</button>
   </div>
-  <button class="order-button" (click)="createNewOrder()">Place the order</button>
 </section>

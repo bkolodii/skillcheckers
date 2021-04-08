@@ -22,37 +22,37 @@ export class NewOrderComponent implements OnInit {
   isSalary: boolean = false;
   isCurrency: boolean = false;
   isDate: boolean = false;
-  isFont: boolean = false;
   questText: string = 'Lg';
   myheight: string = '0px';
   progNeedNumber: number = 1;
-  experienceNumber: number = 4;
+  experienceNumber: number = 1;
   editOrder: RequiredSkills;
   position: string;
-  mainSkil: string = 'Java';
-  unitName: string = 'Tech HQ';
-  unitLocation: string = 'Seatle';
-  jobLocation: string = 'Seatle';
+  mainSkil: string = '';
+  unitName: string = '';
+  unitLocation: string = '';
+  jobLocation: string = '';
   dueDate = '11.09.2020';
   namesUnit: Array<string> = ['Tech HQ', 'Tech HQ', 'Tech HQ', 'Tech HQ', 'Tech HQ'];
   mainSkills: Array<string> = ['PHP', 'Java', 'C++', 'Flutter', 'iOS', 'UI UX', 'JS', 'C#', 'Python'];
   addSkills: Array<string> = ['PHP', 'Java', 'C++', 'Flutter', 'iOS', 'UI UX', 'JavaScript', 'C#', 'Python', 'HTML', 'CSS'];
   salaryRange: Array<string> = ['10,000 - 25,000', '25,000 - 50,000', '50,000 - 100,000', '100,000 - 120,000', '120,000 - 140,000', '140,000 - 160,000', '160,000 - 180,000', '180,000 - 200,000'];
-  currencyRange: Array<string> = ['../../../assets/image/dollar.svg', '../../../assets/image/euro-currency-symbol.svg', '../../../assets/image/poland-zloty-currency-symbol.svg', '../../../assets/image/pound-symbol-variant.svg', '../../../assets/image/pound-symbol-variant.svg'];
-  checkAddSkill: Array<string> = ['JavaScript', 'HTML'];
-  currCurrency: string = '../../../assets/image/dollar.svg';
-  salary: string = '100,000 - 120,000';
+  currencyRange: Array<string> = ['euro', 'pound', 'poland', 'hryvnia', 'dollar'];
+  checkAddSkill: Array<string> = [];
+  currCurrency: string = 'dollar';
+  salary: string = '';
   questions: Array<Question> = [];
   prevQuestion: Question;
   isQuestion: boolean = true;
   isTextNode: boolean = true;
-  skillScore: string = '8 Very good';
+  skillScore: string = 'Any';
   kindJob: string = 'Any';
   workMode: string = 'Any';
   termOfContract: string = 'Any';
   editorForm: FormGroup;
   editorStyle = {
-    height: '300px'
+    height: '300px',
+    border: 'none'
   }
   config = {
     toolbar: [
@@ -235,9 +235,6 @@ export class NewOrderComponent implements OnInit {
     else if (item == 'date') {
       this.isDate = !this.isDate;
     }
-    else if (item == 'font') {
-      this.isFont = !this.isFont;
-    }
     else if (item == 'question') {
       this.isQuestion = !this.isQuestion;
     }
@@ -261,37 +258,8 @@ export class NewOrderComponent implements OnInit {
   }
 
   createNewOrder(): void {
-    if (localStorage.getItem('edit-order')) {
-      const item: RequiredSkills = JSON.parse(localStorage.getItem('edit-order'))
-      const newOrder: RequiredSkills = {
-        creationDate: item.creationDate,
-        name: this.position,
-        unitName: this.unitName,
-        unitLocation: this.unitLocation,
-        mainSkill: this.mainSkil,
-        additionalSkill: this.checkAddSkill.join(', '),
-        progNeed: this.progNeedNumber,
-        dueDate: this.dueDate,
-        salaryRange: this.salary,
-        yearExperience: this.experienceNumber,
-        skillScore: this.skillScore,
-        kindJob: this.kindJob,
-        workMode: this.workMode,
-        termOfContract: this.termOfContract,
-        id: item.id
-      }
-      this.requiredSkills.update(newOrder.id, newOrder).then(
-        () => {
-          this.resetAll();
-          localStorage.removeItem('edit-order');
-        }
-      ).catch(
-        (e) => {
-          console.log(e);
+    if (this.position && this.unitName && this.unitLocation && this.checkAddSkill.join(', ') && this.progNeedNumber && this.dueDate && this.salary && this.experienceNumber && this.skillScore && this.kindJob && this.workMode && this.termOfContract) {
 
-        }
-      )
-    } else {
       let arr = [new Date().getDate(), new Date().getMonth() + 1, new Date().getFullYear()];
       const newOrder: RequiredSkills = {
         creationDate: arr.join('.'),
@@ -326,19 +294,80 @@ export class NewOrderComponent implements OnInit {
       )
     }
   }
+  updateOrder(): void {
+    if (this.position && this.unitName && this.unitLocation && this.checkAddSkill.join(', ') && this.progNeedNumber && this.dueDate && this.salary && this.experienceNumber && this.skillScore && this.kindJob && this.workMode && this.termOfContract) {
+      const item: RequiredSkills = JSON.parse(localStorage.getItem('edit-order'))
+      const newOrder: RequiredSkills = {
+        creationDate: item.creationDate,
+        name: this.position,
+        unitName: this.unitName,
+        unitLocation: this.unitLocation,
+        mainSkill: this.mainSkil,
+        additionalSkill: this.checkAddSkill.join(', '),
+        progNeed: this.progNeedNumber,
+        dueDate: this.dueDate,
+        salaryRange: this.salary,
+        yearExperience: this.experienceNumber,
+        skillScore: this.skillScore,
+        kindJob: this.kindJob,
+        workMode: this.workMode,
+        termOfContract: this.termOfContract,
+        id: item.id
+      }
+      this.requiredSkills.update(newOrder.id, newOrder).then(
+        () => {
+          this.resetAll();
+          localStorage.removeItem('edit-order');
+        }
+      ).catch(
+        (e) => {
+          console.log(e);
+
+        }
+      )
+    }
+  }
   resetAll(): void {
     this.position = '',
-      this.unitName = 'Tech HQ',
-      this.unitLocation = 'Seatle',
-      this.mainSkil = 'Java',
-      this.checkAddSkill = ['JavaScript', 'HTML'],
+      this.unitName = '',
+      this.unitLocation = '',
+      this.mainSkil = '',
+      this.checkAddSkill = [],
       this.progNeedNumber = 1,
       this.dueDate = '',
-      this.salary = '100,000 - 120,000',
+      this.salary = '',
       this.experienceNumber = 1,
       this.skillScore = 'Any',
       this.kindJob = 'Any',
       this.workMode = 'Any',
       this.termOfContract = 'Any'
+  }
+
+  onClickedOutsideItem(e: Event, item: string) {
+    e.stopPropagation()
+    if (item == 'mainSkill') {
+      this.isMainSkill = false;
+    }
+    if (item == 'addSkill') {
+      this.isAddSkill = false;
+    }
+    else if (item == 'unitName') {
+      this.isUnitName = false;
+    }
+    else if (item == 'unitLocation') {
+      this.isUnitLocation = false;
+    }
+    else if (item == 'jobLocation') {
+      this.isJobLocation = false;
+    }
+    else if (item == 'salary') {
+      this.isSalary = false;
+    }
+    else if (item == 'currency') {
+      this.isCurrency = false;
+    }
+    else if (item == 'date') {
+      this.isDate = false;
+    }
   }
 }

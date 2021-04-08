@@ -1,62 +1,56 @@
 <section class="sorting">
   <div class="sorting__left">
-    <div class="sorting__left--name">
-      <button class="visible" (click)="openHidden('name')"
-        [style.border]="isName? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+
+    <div class="sorting__left--name" (clickOutside)="onClickedOutsideItem($event, 'name')" (click)="openHidden('name')">
+      <button class="visible" [style.border]="isName? '1px solid #0CACF8' : '1px solid #CBCBD9'">
         <p class="visible__title">{{name}}</p>
-        <img class="visible__drop-icon" *ngIf="!isName" src="../../../../assets/image/drop-down-arrow.svg" alt="">
-        <img class="visible__drop-icon" *ngIf="isName" src="../../../../assets/image/drop-up-arrow.svg" alt="">
+        <span aria-hidden="true" data-icon="&#xe900;"
+          [style.font-family]="!isName ? 'drop-down-arrow' : 'drop-up-arrow'" class="items-drop"></span>
       </button>
       <div class="hidden" [style.display]="isName ? 'block' : 'none'">
-        <p *ngFor="let name of unitNames; let i=index" (click)="addSort(name, 'name')"
+        <p *ngFor="let name of unitNames; let i=index" (click)="addFilter(name, 'name')"
           (click)="chooseItem(name, 'name')">{{name}}</p>
       </div>
     </div>
 
-    <div class="sorting__left--location">
-      <button class="visible" (click)="openHidden('location')"
-        [style.border]="isLocation ? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+
+    <div class="sorting__left--location" (clickOutside)="onClickedOutsideItem($event, 'location')"
+      (click)="openHidden('location')">
+      <button class="visible" [style.border]="isLocation ? '1px solid #0CACF8' : '1px solid #CBCBD9'">
         <p class="visible__title">{{location}}</p>
-        <img class="visible__drop-icon" *ngIf="!isLocation" src="../../../../assets/image/drop-down-arrow.svg" alt="">
-        <img class="visible__drop-icon" *ngIf="isLocation" src="../../../../assets/image/drop-up-arrow.svg" alt="">
+        <span aria-hidden="true" data-icon="&#xe900;"
+          [style.font-family]="!isLocation ? 'drop-down-arrow' : 'drop-up-arrow'" class="items-drop"></span>
       </button>
       <div class="hidden" [style.display]="isLocation ? 'block' : 'none'">
-        <p *ngFor="let location of unitLocation; let i=index" (click)="addSort(location, 'location')"
+        <p *ngFor="let location of unitLocation; let i=index" (click)="addFilter(location, 'location')"
           (click)="chooseItem(location, 'location')">{{location}}
         </p>
       </div>
     </div>
     <div class="sorting__left--choose-sort" *ngFor="let sortOption of sortOptions; let i=index">
       <p class="title">{{sortOption.item}}</p>
-      <button class="delete-choose" (click)="deleteSort(i, sortOption)">
-        <img class="delete-choose__cross" src="../../../../assets/image/close.svg" alt="">
+      <button class="delete-choose" (click)="deleteFilter(i, sortOption)">
+        <!-- <img class="delete-choose__cross" src="../../../../assets/image/close.svg" alt=""> -->
+        <span aria-hidden="true" data-icon="&#xe900;" class="delete-choose__cross"></span>
       </button>
     </div>
-    <!-- <div class="sorting__left--choose-sort">
-      <p class="title">Seatle</p>
-      <button class="delete-choose">
-        <img class="delete-choose__cross" src="../../../../assets/image/close.svg" alt="">
-      </button>
-    </div> -->
   </div>
-  <div class="sorting__date">
-    <button class="sorting__date--visible" (click)="openHidden('dates')"
-      [style.border]="isDate ? '1px solid #44b4e7' : '1px solid #dcdcdc'">
+  <div class="sorting__date" (clickOutside)="onClickedOutsideItem($event, 'dates')" (click)="openHidden('dates')">
+    <button class="sorting__date--visible" [style.border]="isDate ? '1px solid #0CACF8' : '1px solid #EEF0F8'">
       <p class="drop-title">{{date}}</p>
-      <img *ngIf="!isDate" class="drop" src="../../../../assets/image/drop-down-arrow.svg" alt="">
-      <img *ngIf="isDate" class="drop" src="../../../../assets/image/drop-up-arrow.svg" alt="">
+      <span aria-hidden="true" data-icon="&#xe900;" [style.font-family]="!isDate ? 'drop-down-arrow' : 'drop-up-arrow'"
+        class="items-drop"></span>
+
     </button>
     <div class="sorting__date--hidden" [style.display]="isDate ? 'block' : 'none'">
-      <p *ngFor="let dates of creatDate; let i=index" (click)="addSort(dates, 'dates')"
-        (click)="chooseItem(dates, 'dates')">
+      <p *ngFor="let dates of creatDate; let i=index" (click)="chooseItem(dates, 'dates')">
         {{dates}}</p>
     </div>
   </div>
 </section>
 <section class="jobApply">
   <div class="jobApply__container">
-    <div class="jobApply__container--list"
-      *ngFor="let item of vacancies  | sortOrders: name : location : date; let i=index ">
+    <div class="jobApply__container--list" *ngFor="let item of vacancies  | sortOrders: name : location; let i=index ">
       <div class="createDate">
         <p class="createDate__title">CREATION DATE</p>
         <p class="createDate__text">{{item.creationDate}}</p>
@@ -89,41 +83,25 @@
         <p class="dueDate__title">DUE DATE</p>
         <p class="dueDate__text">{{item.dueDate}}</p>
       </div>
-      <div class="option">
-        <button class="option__button" [style.color]="checkOption == i ? '#19b0f8' : 'black'" (click)="openOption(i)">
-          <svg class="option__button--icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 384 384"
-            style="enable-background:new 0 0 384 384;" xml:space="preserve">
-            <g>
-              <g>
-                <circle fill="currentColor" cx="192" cy="42.667" r="42.667" />
-              </g>
-            </g>
-            <g>
-              <g>
-                <circle fill="currentColor" cx="192" cy="192" r="42.667" />
-              </g>
-            </g>
-            <g>
-              <g>
-                <circle fill="currentColor" cx="192" cy="341.333" r="42.667" />
-              </g>
-            </g>
-          </svg>
+      <div class="option" (clickOutside)="onClickedOutsideOption($event, i)" (click)="openOption(i)">
+        <button class="option__button">
+          <span aria-hidden="true" [style.color]="checkOption == i ? '#0CACF8' : '#6E7585'" data-icon="&#xe900;"
+            class="option__button--icon"></span>
         </button>
         <div class="option__menu"
-          [style.top]="(i === vacancies.length-1 || i === vacancies.length-2 ) ? '-120px' : '30px'"
+          [style.top]="((i === vacancies.length-1 && vacancies.length > 2) || (i === vacancies.length-2 && vacancies.length > 3) ) ? '-120px' : '30px'"
           [style.display]="checkOption == i ? 'flex' : 'none'">
           <!-- <div class="option__menu--items" (click)="openOption(i)">
             <img class="items-icon" src="../../../../assets/image/view.svg" alt="">
             <p class="items-text">View order</p>
           </div> -->
           <div class="option__menu--items" (click)="openOption(i)" (click)="editCurrOrder(item)">
-            <img class="items-icon" src="../../../../assets/image/edit.svg" alt="">
+            <span aria-hidden="true" data-icon="&#xe900;" class="items-edit"></span>
             <p class="items-text">Edit order</p>
           </div>
-          <div class="option__menu--items" [style.border-bottom]="'none'" (click)="closeOrder(item.id)" (click)="openOption(i)">
-            <img class="items-icon" src="../../../../assets/image/turn-off.svg" alt="">
+          <div class="option__menu--items" [style.border-bottom]="'none'" (click)="closeOrder(item.id)"
+            (click)="openOption(i)">
+            <span aria-hidden="true" data-icon="&#xe900;" class="items-turn-off"></span>
             <p class="items-text">Close order</p>
           </div>
         </div>

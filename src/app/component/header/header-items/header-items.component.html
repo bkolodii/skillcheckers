@@ -2,24 +2,23 @@
   <section class="left-section">
     <img class="left-section__logo" src="../../../../assets/image/Skillcheckers-logo.png" alt="">
     <div class="left-section__search">
-      <img class="icon-search" src="../../../../assets/image/icons8-search.svg" alt="">
+      <span aria-hidden="true" data-icon="&#xe902;"  class="icon-search"></span>
       <input type="search" class="input-search" placeholder="Search">
     </div>
   </section>
   <section class="right-section">
-    <button class="right-section__order" [routerLink]="[ '/orders/new-order' ]">
-      <img src="../../../../assets/image/iconmonstr-plus-6.svg" class="plus" alt="">
+    <button class="right-section__order" (click)="navigateToNewOrder()">
+      <span aria-hidden="true" data-icon="&#xe901;"  class="plus"></span>
       <p class="new-order">New order</p>
     </button>
     <button class="right-section__notification">
+      <span aria-hidden="true" data-icon1="&#xe903;" data-icon2="&#xe904;"  class="notifi-icon"></span>
     </button>
     <div class="right-section__user">
       <button class="right-section__user--button">
       </button>
-      <img (click)="dropMenu()" class="drop-arrow" *ngIf="!dropWay" src="../../../../assets/image/drop-down-arrow.svg"
-        alt="">
-      <img (click)="dropMenu()" class="drop-arrow" *ngIf="dropWay" src="../../../../assets/image/drop-up-arrow.svg"
-        alt="">
+        <span aria-hidden="true" (click)="dropMenu()" data-icon="&#xe900;" *ngIf="!dropWay" class="items-drop-down"></span>
+        <span aria-hidden="true" (click)="dropMenu()" data-icon="&#xe900;" *ngIf="dropWay" class="items-drop-up"></span>
       <div class="right-section__user--menu" [style.height]="dropWay ? '100px' : '0px'" [style.display]="dropWay ? 'flex' : 'none'"
       [style.transition]="'height 600ms ease-in-out'">
         <p class=" menu-profile"> <svg viewBox="-42 0 512 512.001" xmlns="http://www.w3.org/2000/svg">

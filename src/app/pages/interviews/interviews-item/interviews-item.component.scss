@@ -1,7 +1,6 @@
 @import "../../../../assets/styles/mixins";
 @import "../../../../assets/styles/font";
 .active {
-  border-bottom: 4px solid #0caaf5;
   color: #0caaf5;
 }
 
@@ -10,6 +9,7 @@
   height: 45px;
   border-bottom: 1.5px solid rgb(175, 175, 175);
   @include flexbox(row, nowrap, flex-start, center);
+  background-color: white;
 
   &__upcoming {
     @include flexbox(row, nowrap, space-between, center);
@@ -17,7 +17,7 @@
     min-width: 90px;
     height: 45px;
     cursor: pointer;
-
+    position: relative;
     &--title {
       font-family: "Poppins";
       font-weight: 600;
@@ -37,6 +37,14 @@
       color: white;
       margin-left: 5px;
     }
+    &--choose{
+      position: absolute;
+      width: 100%;
+      height: 5px;
+      background-color: #0CACF8;
+      bottom: -1px;
+ 
+     }
   }
 
   &__completed {

@@ -31,6 +31,7 @@ import { SortOrdersPipe } from './shared/pipe/sort-orders.pipe';
 import { QuillModule } from 'ngx-quill';
 import { CompletedComponent } from './pages/interviews/interviews-item/completed/completed.component';
 import { UnconfirmedComponent } from './pages/interviews/interviews-item/unconfirmed/unconfirmed.component';
+import { ClickOutsideModule } from 'ng-click-outside';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { UnconfirmedComponent } from './pages/interviews/interviews-item/unconfi
     FormsModule,
     ReactiveFormsModule,
     QuillModule.forRoot(),
+    ClickOutsideModule
   ],
   providers: [],
   bootstrap: [AppComponent]

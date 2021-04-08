@@ -1,4 +1,279 @@
 @font-face {
-    font-family: 'Poppins';
-    src: url("../Poppins/Poppins-Regular.ttf");
+  font-family: 'Poppins';
+  src: url("../Poppins/Poppins-Regular.ttf");
+}
+
+@font-face {
+  font-family: "turn-off";
+  src: url("../fonts/icomoon/fonts/icomoon.eot"),
+    url("../fonts/icomoon/fonts/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/icomoon/fonts/icomoon.woff") format("woff"),
+    url("../fonts/icomoon/fonts/icomoon.ttf") format("truetype"),
+    url("../fonts/icomoon/fonts/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "edit";
+  src: url("../fonts/edit/icomoon.eot"),
+    url("../fonts/edit/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/edit/icomoon.woff") format("woff"),
+    url("../fonts/edit/icomoon.ttf") format("truetype"),
+    url("../fonts/edit/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "drop-down-arrow";
+  src: url("../fonts/drop-down-arrow/icomoon.eot"),
+    url("../fonts/drop-down-arrow/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/drop-down-arrow/icomoon.woff") format("woff"),
+    url("../fonts/drop-down-arrow/icomoon.ttf") format("truetype"),
+    url("../fonts/drop-down-arrow/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "drop-up-arrow";
+  src: url("../fonts/drop-up-arrow/icomoon.eot"),
+    url("../fonts/drop-up-arrow/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/drop-up-arrow/icomoon.woff") format("woff"),
+    url("../fonts/drop-up-arrow/icomoon.ttf") format("truetype"),
+    url("../fonts/drop-up-arrow/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "search";
+  src: url("../fonts/search/icomoon.eot"),
+    url("../fonts/search/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/search/icomoon.woff") format("woff"),
+    url("../fonts/search/icomoon.ttf") format("truetype"),
+    url("../fonts/search/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "plus-circuse";
+  src: url("../fonts/plus-circuse/icomoon.eot"),
+    url("../fonts/plus-circuse/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/plus-circuse/icomoon.woff") format("woff"),
+    url("../fonts/plus-circuse/icomoon.ttf") format("truetype"),
+    url("../fonts/plus-circuse/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "notification";
+  src: url("../fonts/notification/icomoon.eot"),
+    url("../fonts/notification/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/notification/icomoon.woff") format("woff"),
+    url("../fonts/notification/icomoon.ttf") format("truetype"),
+    url("../fonts/notification/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "more";
+  src: url("../fonts/more/icomoon.eot"),
+    url("../fonts/more/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/more/icomoon.woff") format("woff"),
+    url("../fonts/more/icomoon.ttf") format("truetype"),
+    url("../fonts/more/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "position";
+  src: url("../fonts/position/icomoon.eot"),
+    url("../fonts/position/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/position/icomoon.woff") format("woff"),
+    url("../fonts/position/icomoon.ttf") format("truetype"),
+    url("../fonts/position/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "description";
+  src: url("../fonts/description/icomoon.eot"),
+    url("../fonts/description/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/description/icomoon.woff") format("woff"),
+    url("../fonts/description/icomoon.ttf") format("truetype"),
+    url("../fonts/description/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "companyDesc";
+  src: url("../fonts/companyDesc/icomoon.eot"),
+    url("../fonts/companyDesc/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/companyDesc/icomoon.woff") format("woff"),
+    url("../fonts/companyDesc/icomoon.ttf") format("truetype"),
+    url("../fonts/companyDesc/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "screenQuest";
+  src: url("../fonts/screenQuest/icomoon.eot"),
+    url("../fonts/screenQuest/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/screenQuest/icomoon.woff") format("woff"),
+    url("../fonts/screenQuest/icomoon.ttf") format("truetype"),
+    url("../fonts/screenQuest/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "up-navigate-arrow";
+  src: url("../fonts/up-navigate-arrow/icomoon.eot"),
+    url("../fonts/up-navigate-arrow/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/up-navigate-arrow/icomoon.woff") format("woff"),
+    url("../fonts/up-navigate-arrow/icomoon.ttf") format("truetype"),
+    url("../fonts/up-navigate-arrow/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "down-navigate-arrow";
+  src: url("../fonts/down-navigate-arrow/icomoon.eot"),
+    url("../fonts/down-navigate-arrow/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/down-navigate-arrow/icomoon.woff") format("woff"),
+    url("../fonts/down-navigate-arrow/icomoon.ttf") format("truetype"),
+    url("../fonts/down-navigate-arrow/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "close";
+  src: url("../fonts/close/icomoon.eot"),
+    url("../fonts/close/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/close/icomoon.woff") format("woff"),
+    url("../fonts/close/icomoon.ttf") format("truetype"),
+    url("../fonts/close/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "question";
+  src: url("../fonts/question/icomoon.eot"),
+    url("../fonts/question/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/question/icomoon.woff") format("woff"),
+    url("../fonts/question/icomoon.ttf") format("truetype"),
+    url("../fonts/question/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "resent";
+  src: url("../fonts/resent/icomoon.eot"),
+    url("../fonts/resent/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/resent/icomoon.woff") format("woff"),
+    url("../fonts/resent/icomoon.ttf") format("truetype"),
+    url("../fonts/resent/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "delete";
+  src: url("../fonts/delete/icomoon.eot"),
+    url("../fonts/delete/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/delete/icomoon.woff") format("woff"),
+    url("../fonts/delete/icomoon.ttf") format("truetype"),
+    url("../fonts/delete/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "menu";
+  src: url("../fonts/menu/icomoon.eot"),
+    url("../fonts/menu/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/menu/icomoon.woff") format("woff"),
+    url("../fonts/menu/icomoon.ttf") format("truetype"),
+    url("../fonts/menu/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "dollar";
+  src: url("../fonts/dollar/icomoon.eot"),
+    url("../fonts/dollar/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/dollar/icomoon.woff") format("woff"),
+    url("../fonts/dollar/icomoon.ttf") format("truetype"),
+    url("../fonts/dollar/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "pound";
+  src: url("../fonts/pound/icomoon.eot"),
+    url("../fonts/pound/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/pound/icomoon.woff") format("woff"),
+    url("../fonts/pound/icomoon.ttf") format("truetype"),
+    url("../fonts/pound/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "poland";
+  src: url("../fonts/poland/icomoon.eot"),
+    url("../fonts/poland/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/poland/icomoon.woff") format("woff"),
+    url("../fonts/poland/icomoon.ttf") format("truetype"),
+    url("../fonts/poland/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "euro";
+  src: url("../fonts/euro/icomoon.eot"),
+    url("../fonts/euro/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/euro/icomoon.woff") format("woff"),
+    url("../fonts/euro/icomoon.ttf") format("truetype"),
+    url("../fonts/euro/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "hryvnia";
+  src: url("../fonts/hryvnia/icomoon.eot"),
+    url("../fonts/hryvnia/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/hryvnia/icomoon.woff") format("woff"),
+    url("../fonts/hryvnia/icomoon.ttf") format("truetype"),
+    url("../fonts/hryvnia/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "calendar";
+  src: url("../fonts/calendar/icomoon.eot"),
+    url("../fonts/calendar/icomoon.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/calendar/icomoon.woff") format("woff"),
+    url("../fonts/calendar/icomoon.ttf") format("truetype"),
+    url("../fonts/calendar/icomoon.svg#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }

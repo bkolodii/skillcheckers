@@ -4,8 +4,9 @@
 .sorting {
   width: 100%;
   height: 50px;
-  border-bottom: 1px solid rgb(175, 175, 175);
+  border-bottom: 1px solid #CBCBD9;
   @include flexbox(row, nowrap, space-between, center);
+  background-color: white;
 
   &__left {
     width: 40%;
@@ -15,10 +16,8 @@
     &--name {
       width: 110px;
       height: 30px;
-      //   border: 1px solid #dcdcdc;
-      margin-left: 20px;
+      margin-left: 30px;
       @include flexbox(row, nowrap, space-between, center);
-      //   background-color: transparent;
       cursor: pointer;
       position: relative;
 
@@ -30,7 +29,7 @@
         position: absolute;
         background-color: transparent;
         @include flexbox(row, nowrap, space-between, center);
-        border: 1px solid #dcdcdc;
+        border: 1px solid #CBCBD9;
 
         &__title {
           font-family: "Poppins";
@@ -39,10 +38,19 @@
           padding-left: 4px;
         }
 
-        &__drop-icon {
-          width: 11px;
-          height: 9px;
+        .items-drop {
+          width: 9px;
+          height: 6px;
+          line-height: 5px;
+          font-family: 'drop-down-arrow';
+          font-size: 9px;
+          color: #6E7585;
         }
+
+        .items-drop::before {
+          content: "\e900";
+        }
+
       }
 
       // .visible:focus {
@@ -58,18 +66,17 @@
         width: 100%;
         padding: 10px;
         background-color: white;
-        box-shadow: 8px 14px 8px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 11px 20px rgba(29, 29, 47, 0.25);
 
         p {
           width: 100%;
-          height: 30px;
-          border-bottom: 1px solid rgb(175, 175, 175);
-          color: #5e5f63;
-          margin-bottom: 5px;
+          height: 34px;
+          border-bottom: 1px solid #CBCBD9;
+          color: #292F3D;
           font-family: "Poppins";
           font-size: 13px;
           font-weight: 500;
-          line-height: 21px;
+          line-height: 34px;
         }
       }
 
@@ -79,9 +86,7 @@
       width: 110px;
       height: 30px;
       margin-left: 10px;
-      //   border: 1px solid #dcdcdc;
       @include flexbox(row, nowrap, space-between, center);
-      //   background-color: transparent;
       cursor: pointer;
       position: relative;
 
@@ -93,7 +98,7 @@
         position: absolute;
         background-color: transparent;
         @include flexbox(row, nowrap, space-between, center);
-        border: 1px solid #dcdcdc;
+        border: 1px solid #CBCBD9;
 
         &__title {
           font-family: "Poppins";
@@ -102,10 +107,19 @@
           padding-left: 4px;
         }
 
-        &__drop-icon {
-          width: 11px;
-          height: 9px;
+        .items-drop {
+          width: 9px;
+          height: 6px;
+          line-height: 5px;
+          font-family: 'drop-down-arrow';
+          font-size: 9px;
+          color: #6E7585;
         }
+
+        .items-drop::before {
+          content: "\e900";
+        }
+
       }
 
       // .visible:focus {
@@ -121,18 +135,17 @@
         width: 100%;
         padding: 10px;
         background-color: white;
-        box-shadow: 8px 14px 8px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px 11px 20px rgba(29, 29, 47, 0.25);
 
         p {
           width: 100%;
-          height: 30px;
-          border-bottom: 1px solid rgb(175, 175, 175);
-          color: #5e5f63;
-          margin-bottom: 5px;
+          height: 34px;
+          border-bottom: 1px solid #CBCBD9;
+          color: #292F3D;
           font-family: "Poppins";
           font-size: 13px;
           font-weight: 500;
-          line-height: 21px;
+          line-height: 34px;
         }
       }
 
@@ -141,10 +154,10 @@
     &--choose-sort {
       min-width: auto;
       height: 20px;
-      border-radius: 20px;
       padding: 6px;
       margin-left: 10px;
-      background-color: #eef0f8;
+      background-color: #EEF0F8;
+      border-radius: 182px;
       @include flexbox(row, nowrap, space-around, center);
 
       .title {
@@ -152,7 +165,7 @@
         font-size: 11px;
         font-weight: 500;
         padding-left: 4px;
-        color: rgb(113, 111, 111);
+        color: #292F3D;
         margin-right: 5px;
         margin-left: 5px;
       }
@@ -160,17 +173,31 @@
       .delete-choose {
         width: 20px;
         height: 20px;
-        background-color: #d2d4de;
+        background-color: #D2D4DE;
         border-radius: 50%;
         border: none;
         @include flexbox(row, nowrap, center, center);
         transition: transform 400ms linear;
-        margin-left: 5px;
+        margin-left: 6px;
+
+        // &__cross {
+        //   width: 7px;
+        //   height: 7px;
+        // }
 
         &__cross {
-          width: 7px;
-          height: 7px;
+          width: 9px;
+          height: 6px;
+          line-height: 5px;
+          font-family: 'close';
+          font-size: 9px;
+          color: #292F3D;
         }
+
+        &__cross::before {
+          content: "\e900";
+        }
+
 
       }
 
@@ -184,11 +211,11 @@
     width: 120px;
     height: 30px;
     @include flexbox(row, nowrap, space-around, center);
-    border-radius: 20px;
-    background-color: #eef0f8;
+    background-color: #EEF0F8;
+    border-radius: 182px;
     margin-right: 10px;
     cursor: pointer;
-    border: 1px solid #eef0f8;
+    border: 1px solid #EEF0F8;
     position: relative;
 
     &--visible {
@@ -200,46 +227,57 @@
       background-color: transparent;
       border-radius: 20px;
       @include flexbox(row, nowrap, space-between, center);
-      border: 1px solid #dcdcdc;
+      // border: 1px solid #EEF0F8;
 
       .drop-title {
         font-family: "Poppins";
         font-size: 11px;
         font-weight: 500;
         padding-left: 4px;
-        color: rgb(113, 111, 111);
+        color: #292F3D;
       }
 
-      .drop {
-        width: 11px;
-        height: 9px;
+      // .drop {
+      //   width: 11px;
+      //   height: 9px;
+      // }
+      .items-drop {
+        width: 9px;
+        height: 6px;
+        line-height: 5px;
+        font-family: 'drop-down-arrow';
+        font-size: 9px;
+        color: #6E7585;
+      }
+
+      .items-drop::before {
+        content: "\e900";
       }
     }
 
     &--hidden {
-     
+
 
       overflow-y: auto;
       position: absolute;
-      height: 165px;
-      top: 30px;
+      height: 98px;
+      top: 35px;
       right: 6px;
       width: 100%;
       padding: 10px;
       background-color: white;
-      box-shadow: 8px 14px 8px rgba(0, 0, 0, 0.25);
+      box-shadow: 0px 11px 20px rgba(29, 29, 47, 0.25);
       z-index: 1;
 
       p {
         width: 100%;
-        height: 30px;
-        border-bottom: 1px solid rgb(175, 175, 175);
-        color: #5e5f63;
-        margin-bottom: 5px;
+        height: 34px;
+        border-bottom: 1px solid #CBCBD9;
+        color: #292F3D;
         font-family: "Poppins";
         font-size: 13px;
         font-weight: 500;
-        line-height: 21px;
+        line-height: 34px;
       }
     }
 
@@ -253,46 +291,56 @@
 
 .jobApply {
   width: 100%;
-  min-height: 77.5vh;
-  background-color: #eef0f8;
+  height: 100%;
+  background-color: #EEF0F8;
   overflow-y: auto;
 
   &__container {
     padding: 15px 15px 0px 15px;
-    min-height: 77.5vh;
-    // overflow-y: visible;
+    height: 77vh;
+    overflow-y: auto;
 
     &--list {
       width: 100%;
-      height: 60px;
+      min-height: 60px;
       background-color: white;
       border-radius: 2px;
       margin-bottom: 10px;
       @include flexbox(row, nowrap, space-around, center);
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
 
       .createDate {
         width: 10%;
-        height: 40px;
+        min-height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
-          color: rgb(142, 137, 137);
           font-family: "Poppins";
+          font-style: normal;
+          font-weight: 500;
           font-size: 10px;
-          font-weight: 550;
+          line-height: 18px;
+          text-transform: uppercase;
+          color: #6E7585;
+
         }
 
         &__text {
-          font-family: "Poppins";
-          font-size: 11px;
-          font-weight: 400;
+          font-family: 'Poppins';
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 21px;
+          display: flex;
+          align-items: center;
+          color: #292F3D;
         }
 
       }
 
       .name {
         width: 15%;
-        height: 40px;
+        min-height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
@@ -302,13 +350,14 @@
         &__text {
           @extend .createDate__text;
           font-weight: 700;
+          line-height: 22px;
         }
 
       }
 
       .unitName {
         width: 8%;
-        height: 40px;
+        min-height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
@@ -323,7 +372,7 @@
 
       .unitLocation {
         width: 8%;
-        height: 40px;
+        min-height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
@@ -338,7 +387,7 @@
 
       .mainSkill {
         width: 8%;
-        height: 40px;
+        min-height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
@@ -353,7 +402,7 @@
 
       .addSkill {
         width: 15%;
-        height: 40px;
+        min-height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
@@ -368,7 +417,7 @@
 
       .progNeed {
         width: 14%;
-        height: 40px;
+        min-height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
@@ -383,7 +432,7 @@
 
       .dueDate {
         width: 10%;
-        height: 40px;
+        min-height: 40px;
         @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
@@ -409,9 +458,29 @@
           background-color: transparent;
           border: none;
 
-          img {
+          &--icon {
+            fill: #6E7585;
             width: 15px;
             height: 15px;
+          }
+
+          &--icon {
+            width: 4px;
+            height: 16px;
+            line-height: 2px;
+            font-family: 'more';
+            color: #6E7585;
+          }
+
+          &--icon::before {
+            font-family: "more";
+            content: attr(data-icon);
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            line-height: 1;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
           }
         }
 
@@ -420,7 +489,7 @@
           position: absolute;
           top: 30px;
           right: -6px;
-          width: 135px;
+          width: 140px;
           height: 112px;
           background-color: white;
           @include flexbox(column, nowrap, space-around, center);
@@ -432,20 +501,52 @@
             width: 70%;
             height: 33px;
             padding: 5px;
-            border-bottom: 1px solid gray;
+            border-bottom: 1px solid #CBCBD9;
             transition: background 600ms ease-in-out, background-position 600ms ease-in-out;
 
-            .items-icon {
-              width: 18px;
-              height: 18px;
+            .items-turn-off {
+              width: 20px;
+              height: 20px;
+              font-family: 'edit';
+            }
+
+            .items-edit {
+              width: 20px;
+              height: 20px;
+              font-family: 'turn-off';
+            }
+
+            .items-edit::before {
+              font-family: "edit";
+              content: attr(data-icon);
+              font-weight: normal;
+              font-variant: normal;
+              text-transform: none;
+              line-height: 1;
+              font-size: 15px;
+              -webkit-font-smoothing: antialiased;
+            }
+
+            .items-turn-off::before {
+              font-family: "turn-off";
+              content: attr(data-icon);
+              font-weight: normal;
+              font-variant: normal;
+              text-transform: none;
+              line-height: 1;
+              font-size: 15px;
+              -webkit-font-smoothing: antialiased;
             }
 
             .items-text {
-              font-family: sans-serif;
+              font-family: 'Poppins';
+              font-style: normal;
+              font-weight: normal;
               font-size: 12px;
-              font-weight: 600;
-              color: #8e8989;
+              line-height: 21px;
+              color: #292F3D;
               margin-left: 8px;
+              line-height: 21px;
             }
           }
 
@@ -460,6 +561,7 @@
     }
   }
 }
+
 ::-webkit-scrollbar {
   width: 2.5px;
   height: 6px;

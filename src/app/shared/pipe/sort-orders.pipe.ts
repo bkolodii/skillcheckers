@@ -8,34 +8,22 @@ import { RequiredSkills } from '../interfaces/requiredSkill.interface';
 export class SortOrdersPipe implements PipeTransform {
 
 
-  transform(value: Array<RequiredSkills>, name: string, location: string, date: string): unknown {
+  transform(value: Array<RequiredSkills>, name: string, location: string): unknown {
     if (!value) {
       return value
     }
-    if (name == 'Unit name' && location == 'Unit location' && date == 'Creation date') {
+    if (name == 'Unit name' && location == 'Unit location' ) {
       return value
     }
     else {
-      if (name !== 'Unit name' && location === 'Unit location' && date === "Creation date") {
+      if (name !== 'Unit name' && location === 'Unit location') {
         return value.filter(sort => sort.unitName == name);
       }
-      else if (name === 'Unit name' && location !== 'Unit location' && date === "Creation date") {
+      else if (name === 'Unit name' && location !== 'Unit location') {
         return value.filter(sort => sort.unitLocation == location);
       }
-      else if (name !== 'Unit name' && location !== 'Unit location' && date === "Creation date") {
+      else if (name !== 'Unit name' && location !== 'Unit location' ) {
         return value.filter(sort => sort.unitLocation == location && sort.unitName == name);
-      }
-      else if (name === 'Unit name' && location === 'Unit location' && date !== "Creation date") {
-        return value.filter(sort => sort.creationDate == date);
-      }
-      else if (name !== 'Unit name' && location === 'Unit location' && date !== "Creation date") {
-        return value.filter(sort => sort.creationDate == date && sort.unitName == name);
-      }
-      else if (name === 'Unit name' && location !== 'Unit location' && date !== "Creation date") {
-        return value.filter(sort => sort.creationDate == date && sort.unitLocation == location);
-      }
-      else if (name !== 'Unit name' && location !== 'Unit location' && date !== "Creation date") {
-        return value.filter(sort => sort.unitLocation == location && sort.unitName == name && sort.creationDate == date);
       }
 
     }
