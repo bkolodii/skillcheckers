@@ -1,13 +1,14 @@
 @import "../assets/styles/mixins";
 
-#eventOut{
+#eventOut {
   width: 10px;
   height: 10px;
   border-radius: 50px;
   border: 1px solid #fab453;
 
 }
-#eventNext{
+
+#eventNext {
   width: 10px;
   height: 10px;
   border-radius: 50px;
@@ -23,8 +24,10 @@
 .container {
   padding-top: 50px;
   @include flexbox(row, nowrap, left, none);
-  height: 100%;
+  height: auto;
   overflow: hidden;
+  // height: 80vh;
+
   &__menu {
     position: fixed;
     width: 16%;
@@ -33,8 +36,12 @@
 
   &__items {
     margin-left: 16%;
-    width: 85%;
+    width: 84%;
     height: 100%;
+    position: fixed;
+
+    overflow: hidden;
+
     background-color: #EEF0F8;
   }
 }

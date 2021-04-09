@@ -34,9 +34,10 @@ export class UpcomingComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMonth();
-    this.getDayEvents()
+    this.getDayEvents();
+    
   }
-
+  
 
   getMonth(): void {
     this.monthService.getAllmonth().snapshotChanges().pipe(

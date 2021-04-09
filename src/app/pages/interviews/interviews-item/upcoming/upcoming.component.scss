@@ -3,9 +3,11 @@
 
 main {
   width: 100%;
-  min-height: 86.5vh;
+  height: 86vh;
   background-color: #eaecf4;
-  @include flexbox(row, nowrap, space-around, flex-start);
+  overflow-y: auto;
+
+  @include flexbox(row, nowrap, space-between, flex-start);
 }
 
 
@@ -14,7 +16,8 @@ main {
   min-height: 10px;
   // padding: 14px 0px 14px 14px;
   @include flexbox(column, nowrap, flex-start, center);
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-left: 20px;
 
   &__fourEvents {
     width: 100%;
@@ -108,11 +111,21 @@ main {
           font-weight: 500;
           font-style: normal;
           font-size: 12px;
-          @include flexbox(row, nowrap, space-between, center);
+          @include flexbox(row, nowrap, flex-start, center);
 
           &--icon {
-            width: 16px;
+            width: 15px;
             height: 15px;
+            line-height: 15px;
+            font-weight: 500;
+            font-family: "clock";
+            font-size: 15px;
+            color:#0CACF8;
+            margin-right: 7px;
+          }
+
+          &--icon::before {
+            content: "\e900";
           }
 
           &--text {
@@ -228,6 +241,21 @@ main {
             margin-right: 5px;
             font-weight: 900;
           }
+
+          &--play {
+            width: 12px;
+            height: 12px;
+            line-height: 12px;
+            font-weight: 500;
+            font-family: 'play';
+            font-size: 12px;
+            color: #0CACF8;
+          }
+
+          &--play::before {
+            content: "\e901";
+          }
+
         }
 
         &__start:hover {
@@ -251,9 +279,18 @@ main {
           border: 1px solid #0cacf8;
           transition: box-shadow 600ms ease-in-out, fill 600ms ease-in-out;
 
-          img {
-            width: 20px;
-            height: 20px;
+          &--calendar-date {
+            width: 30px;
+            height: 30px;
+            line-height: 32px;
+            font-weight: 500;
+            font-family: "calendar-date";
+            font-size: 20px;
+            color: #FFFFFF;
+          }
+
+          &--calendar-date::before {
+            content: "\e900";
           }
         }
 
@@ -345,7 +382,7 @@ main {
   background-color: white;
   border-top: 5px solid #0cacf8;
   margin-top: 15px;
-  // margin-right: 10px;
+  margin-right: 10px;
   @include flexbox(column, nowrap, center, center);
 
   &__month {
@@ -360,22 +397,39 @@ main {
       padding: 0%;
       border: none;
       background-color: white;
-      background-image: url("../../../../../assets/image/arrow-point-to-right.svg");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
+      .navigate-right {
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        font-weight: 500;
+        font-family: "navigate-right";
+        font-size: 15px;
+        color:#6E7585;
+      }
 
+      .navigate-right::before {
+        content: "\e900";
+      }
+    }
     &--navigate-left {
       width: 10px;
       height: 13px;
       padding: 0%;
       border: none;
       background-color: white;
-      background-image: url("../../../../../assets/image/arrowhead-thin-outline-to-the-left.svg");
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: cover;
+      .navigate-left {
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        font-weight: 500;
+        font-family: "navigate-left";
+        font-size: 15px;
+        color:#6E7585;
+      }
+
+      .navigate-left::before {
+        content: "\e900";
+      }
     }
 
     &--date {

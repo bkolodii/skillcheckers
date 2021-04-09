@@ -6,6 +6,13 @@
           "skillcheckers-ac855"
         ]
       }
+    },
+    "currency-converter-20f15": {
+      "hosting": {
+        "skillcheckers": [
+          "currency-converter-20f15"
+        ]
+      }
     }
   },
   "projects": {

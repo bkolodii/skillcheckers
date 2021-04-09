@@ -27,7 +27,8 @@
         <div class="interview-date">
           <p class="interview-date__date-title"> DATE & TIME </p>
           <div class="interview-date__interview-time">
-            <img class="interview-date__interview-time--icon" src="../../../../../assets/image/clock.svg" alt="">
+            <!-- <img class="interview-date__interview-time--icon" src="../../../../../assets/image/clock.svg" alt=""> -->
+            <span aria-hidden="true" data-icon="&#xe900;" class="interview-date__interview-time--icon"></span>
             <p class="interview-date__interview-time--text">{{person.interviewTime}}</p>
           </div>
         </div>
@@ -42,12 +43,12 @@
           <p class="orders__orders-prof">{{person.orders}}</p>
         </div>
         <div class="buttons">
-          <button class="buttons__start"> <img class="buttons__start--play" src="../../../../../assets/image/play.svg"
-              alt="">
+           <button class="buttons__start"> <!-- <img class="buttons__start--play" src="../../../../../assets/image/play.svg"
+              alt=""> -->
+              <span aria-hidden="true" data-icon="&#xe901;" class="buttons__start--play"></span>
             Start</button>
-          <button class="buttons__make-date"><img src="../../../../../assets/image/calendar_clock_icon_135839.svg"
-              alt=""></button>
-          <div class="buttons__cancel-button">
+          <button class="buttons__make-date"><span aria-hidden="true" data-icon="&#xe900;" class="buttons__make-date--calendar-date"></span></button>
+          <div class="">
             <div class="buttons__cancel-button--hidden" [style.display]="hover == person.personData ? 'flex' : 'none'"
               [style.transition]="'display 1600ms ease-in-out'">
               <p class="hidden-text">Cancel</p>
@@ -86,10 +87,14 @@
   <section class="calendar">
     <div class="calendar__month">
       <button class="calendar__month--navigate-left"
-        (click)="changeDate(currTime.currYear, currTime.currMonth-1, currTime.currDay)"></button>
+        (click)="changeDate(currTime.currYear, currTime.currMonth-1, currTime.currDay)">
+        <span aria-hidden="true" data-icon="&#xe900;" class="navigate-left"></span>
+      </button>
       <p class="calendar__month--date">{{currDate}}</p>
       <button class="calendar__month--navigate-right"
-        (click)="changeDate(currTime.currYear, currTime.currMonth+1, currTime.currDay)"></button>
+        (click)="changeDate(currTime.currYear, currTime.currMonth+1, currTime.currDay)"> 
+        <span aria-hidden="true" data-icon="&#xe900;" class="navigate-right"></span>
+      </button>
     </div>
     <div class="calendar__day-list">
       <p class="calendar__day-list--day" *ngFor="let day of days">{{day.substr(0,2)}}</p>

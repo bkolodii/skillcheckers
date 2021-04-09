@@ -22,7 +22,7 @@ main {
 
 .users {
   width: 295px;
-  height: 670px;
+  height: 93vh;
   @include flexbox(column, nowrap, space-between, center);
   overflow-y: scroll;
 
