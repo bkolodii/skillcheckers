@@ -9,7 +9,7 @@ button {
 header {
   width: 100%;
   @include flexbox(row, nowrap, space-between, center);
-  position: fixed;
+  // position: fixed;
   height: 50px;
   display: flex;
   // justify-content: space-around;

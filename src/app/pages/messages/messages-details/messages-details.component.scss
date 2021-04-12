@@ -3,8 +3,8 @@
 
 main {
   @include flexbox(row, nowrap, space-around, flex-start);
-  //   overflow: hidden;
-
+    overflow: hidden;
+    background-color: #EEF0F8;
 }
 
 .chat {
@@ -13,7 +13,7 @@ main {
   height: 87vh;
   background-color: white;
   box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.25);
-
+  @include flexbox(column, nowrap, space-between, center);
   &__search {
     width: 100%;
     height: 40px;
@@ -58,6 +58,7 @@ main {
       border: none;
       background-color: #F0F8FF;
       margin-left: 20px;
+      margin-right: 7px;
       @include flexbox(row, nowrap, center, center);
 
       .settings {
@@ -83,7 +84,7 @@ main {
   }
 
   &__conversation {
-    height: 74vh;
+    height: 90%;
     width: 100%;
     border-bottom: 1px solid #b9c1cc;
     overflow-y: auto;
@@ -163,7 +164,7 @@ main {
         &__logo {
           width: 35px;
           height: 35px;
-          margin-right: 5px;
+          margin-left: 5px;
           //   margin-bottom: 20px;
         }
 

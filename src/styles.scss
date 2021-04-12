@@ -37,7 +37,7 @@
   &__logo {
     width: 35px;
     height: 35px;
-    margin-right: 5px;
+    margin-left: 5px;
     //   margin-bottom: 20px;
   }
 
@@ -86,4 +86,6 @@
 }
 
 
-
+body{
+  overflow: hidden;
+}

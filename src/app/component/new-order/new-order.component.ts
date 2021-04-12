@@ -110,23 +110,23 @@ export class NewOrderComponent implements OnInit {
   chooseItem(currName: string, item: string): void {
     if (item == 'name') {
       this.unitName = currName;
-      // this.isUnitName = false;
+      this.isUnitName = false;
     }
     else if (item == 'mainSkill') {
       this.mainSkil = currName;
-      // this.isMainSkill = false;
+      this.isMainSkill = false;
     }
     else if (item == 'salary') {
       this.salary = currName;
-      // this.isSalary = false;
+      this.isSalary = false;
     }
     else if (item == 'currency') {
       this.currCurrency = currName;
-      // this.isCurrency = false;
+      this.isCurrency = false;
     }
     else if (item == 'addSkill') {
       this.currCurrency = currName;
-      // this.isAddSkill = false;
+      this.isAddSkill = false;
     }
 
   }

@@ -1,7 +1,7 @@
 @import "../../../../assets/styles/mixins";
 
 .premium {
-  min-height: 180px;
+  min-height: 130px;
   width: 100%;
   background-color: #363d4c;
   @include flexbox(column, nowrap, flex-start, center);
