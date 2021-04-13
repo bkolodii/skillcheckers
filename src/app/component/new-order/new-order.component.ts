@@ -5,7 +5,7 @@ import { Question } from 'src/app/shared/interfaces/question.interface';
 import { map } from 'rxjs/operators';
 import { AutofocusDirective } from '../../shared/directive/auto-focus.directive';
 import { RequiredSkills } from 'src/app/shared/interfaces/requiredSkill.interface';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { RequiredSkillsService } from 'src/app/service/required-skills.service';
 @Component({
   selector: 'app-new-order',
@@ -24,14 +24,8 @@ export class NewOrderComponent implements OnInit {
   isDate: boolean = false;
   questText: string = 'Lg';
   myheight: string = '0px';
-  progNeedNumber: number = 1;
-  experienceNumber: number = 1;
   editOrder: RequiredSkills;
   position: string;
-  mainSkil: string = '';
-  unitName: string = '';
-  unitLocation: string = '';
-  jobLocation: string = '';
   dueDate = '11.09.2020';
   namesUnit: Array<string> = ['Tech HQ', 'Tech HQ', 'Tech HQ', 'Tech HQ', 'Tech HQ'];
   mainSkills: Array<string> = ['PHP', 'Java', 'C++', 'Flutter', 'iOS', 'UI UX', 'JS', 'C#', 'Python'];
@@ -40,16 +34,12 @@ export class NewOrderComponent implements OnInit {
   currencyRange: Array<string> = ['euro', 'pound', 'poland', 'hryvnia', 'dollar'];
   checkAddSkill: Array<string> = [];
   currCurrency: string = 'dollar';
-  salary: string = '';
   questions: Array<Question> = [];
   prevQuestion: Question;
   isQuestion: boolean = true;
   isTextNode: boolean = true;
-  skillScore: string = 'Any';
-  kindJob: string = 'Any';
-  workMode: string = 'Any';
-  termOfContract: string = 'Any';
   editorForm: FormGroup;
+  order: FormGroup;
   editorStyle = {
     height: '300px',
     border: 'none'
@@ -62,10 +52,36 @@ export class NewOrderComponent implements OnInit {
     ]
   }
 
-  constructor(private questService: QuestionService, private requiredSkills: RequiredSkillsService) { }
+  constructor(private questService: QuestionService, private requiredSkills: RequiredSkillsService, public fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getQuestion();
+    this.order = this.fb.group({
+      programmer: new FormControl(1),
+      experience: new FormControl(1),
+      unitLocation: new FormControl(''),
+      jobLocation: new FormControl(''),
+      kindJob: new FormControl('Remote'),
+      termOfContract: new FormControl('Any'),
+      workMode: new FormControl('Any'),
+      skillScore: new FormControl('Any'),
+      unitName: new FormControl({
+        value: '',
+        disabled: true
+      }),
+      mainSkil: new FormControl({
+        value: '',
+        disabled: true
+      }),
+      salary: new FormControl({
+        value: '',
+        disabled: true
+      }),
+      addSkill: new FormControl({
+        value: [],
+        disabled: true
+      }),
+    });
     if (localStorage.getItem('edit-order')) {
       this.editOrder = JSON.parse(localStorage.getItem('edit-order'));
       this.parseOrder(this.editOrder)
@@ -73,24 +89,27 @@ export class NewOrderComponent implements OnInit {
     this.editorForm = new FormGroup({
       'editor': new FormControl(null)
     })
+
+
+
   }
   parseOrder(order: RequiredSkills): void {
-    this.progNeedNumber = order.progNeed;
-    this.experienceNumber = 4;
     this.position = order.name;
-    this.mainSkil = order.mainSkill;
-    this.unitName = order.unitName;
-    this.unitLocation = order.unitLocation;
-    this.jobLocation = order.unitLocation;
+    this.order.patchValue({
+      programmer: order.progNeed,
+      experience: order.yearExperience,
+      unitLocation: order.unitLocation,
+      jobLocation: order.unitLocation,
+      kindJob: order.kindJob,
+      termOfContract: order.termOfContract,
+      workMode: order.workMode,
+      skillScore: order.skillScore,
+      unitName: order.unitName,
+      mainSkil: order.mainSkill,
+      salary: order.salaryRange,
+      addSkill: order.additionalSkill.split(', ')
+    })
     this.dueDate = order.dueDate;
-    this.checkAddSkill = order.additionalSkill.split(', ');
-    this.salary = order.salaryRange;
-    this.experienceNumber = order.yearExperience;
-    this.skillScore = order.skillScore;
-    this.kindJob = order.kindJob;
-    this.workMode = order.workMode;
-    this.termOfContract = order.termOfContract;
-
   }
 
   getQuestion(): void {
@@ -109,15 +128,21 @@ export class NewOrderComponent implements OnInit {
   }
   chooseItem(currName: string, item: string): void {
     if (item == 'name') {
-      this.unitName = currName;
+      this.order.patchValue({
+        unitName: currName
+      })
       this.isUnitName = false;
     }
     else if (item == 'mainSkill') {
-      this.mainSkil = currName;
+      this.order.patchValue({
+        mainSkil: currName
+      })
       this.isMainSkill = false;
     }
     else if (item == 'salary') {
-      this.salary = currName;
+      this.order.patchValue({
+        salary: currName
+      })
       this.isSalary = false;
     }
     else if (item == 'currency') {
@@ -125,7 +150,6 @@ export class NewOrderComponent implements OnInit {
       this.isCurrency = false;
     }
     else if (item == 'addSkill') {
-      this.currCurrency = currName;
       this.isAddSkill = false;
     }
 
@@ -190,25 +214,35 @@ export class NewOrderComponent implements OnInit {
   counter(item: string, todo: boolean): void {
     if (item == 'progNeed') {
       if (todo) {
-        this.progNeedNumber++;
+        this.order.patchValue({
+          programmer: this.order.get('programmer').value + 1
+        })
       }
       else {
-        if (this.progNeedNumber > 1) {
-          this.progNeedNumber--;
+        if (this.order.get('programmer').value > 1) {
+          this.order.patchValue({
+            programmer: this.order.get('programmer').value - 1
+          })
         }
       }
     }
     else if (item == 'experience') {
       if (todo) {
-        this.experienceNumber++;
+        this.order.patchValue({
+          experience: this.order.get('experience').value + 1
+        });
       }
       else {
-        if (this.experienceNumber > 1) {
-          this.experienceNumber--;
+        if (this.order.get('experience').value > 1) {
+          this.order.patchValue({
+            experience: this.order.get('experience').value - 1
+          });
         }
       }
     }
   }
+
+
 
   openHidden(item: string): void {
     if (item == 'mainSkill') {
@@ -249,33 +283,42 @@ export class NewOrderComponent implements OnInit {
 
   addSkill(curr: string): void {
     if (this.checkAddSkill.length < 10) {
-      this.checkAddSkill.push(curr)
+      this.checkAddSkill = this.order.get('addSkill').value;
+      if (!this.checkAddSkill.some(res => res == curr)) {
+        this.checkAddSkill.push(curr);
+        this.order.get('addSkill').setValue(this.checkAddSkill)
+      }
     }
+
+
+
   }
 
   deleteSkill(currId: number) {
+    this.checkAddSkill = this.order.get('addSkill').value;
     this.checkAddSkill.splice(currId, 1);
+    this.order.get('addSkill').setValue(this.checkAddSkill)
   }
 
   createNewOrder(): void {
-    if (this.position && this.unitName && this.unitLocation && this.checkAddSkill.join(', ') && this.progNeedNumber && this.dueDate && this.salary && this.experienceNumber && this.skillScore && this.kindJob && this.workMode && this.termOfContract) {
+    if (this.position && this.order.get('unitName').value && this.order.get('unitLocation').value && this.checkAddSkill.join(', ') && this.order.get('programmer').value && this.dueDate && this.order.get('salary').value && this.order.get('experience').value && this.order.get('skillScore').value && this.order.get('kindJob').value && this.order.get('workMode').value && this.order.get('termOfContract').value) {
 
       let arr = [new Date().getDate(), new Date().getMonth() + 1, new Date().getFullYear()];
       const newOrder: RequiredSkills = {
         creationDate: arr.join('.'),
         name: this.position,
-        unitName: this.unitName,
-        unitLocation: this.unitLocation,
-        mainSkill: this.mainSkil,
-        additionalSkill: this.checkAddSkill.join(', '),
-        progNeed: this.progNeedNumber,
+        unitName: this.order.get('unitName').value,
+        unitLocation: this.order.get('unitLocation').value,
+        mainSkill: this.order.get('mainSkil').value,
+        additionalSkill: this.order.get('addSkill').value.join(', '),
+        progNeed: this.order.get('programmer').value,
         dueDate: this.dueDate,
-        salaryRange: this.salary,
-        yearExperience: this.experienceNumber,
-        skillScore: this.skillScore,
-        kindJob: this.kindJob,
-        workMode: this.workMode,
-        termOfContract: this.termOfContract,
+        salaryRange: this.order.get('salary').value,
+        yearExperience: this.order.get('experience').value,
+        skillScore: this.order.get('skillScore').value,
+        kindJob: this.order.get('kindJob').value,
+        workMode: this.order.get('workMode').value,
+        termOfContract: this.order.get('termOfContract').value,
       }
       this.requiredSkills.create(newOrder)
       this.requiredSkills.updOrder.subscribe(
@@ -295,23 +338,23 @@ export class NewOrderComponent implements OnInit {
     }
   }
   updateOrder(): void {
-    if (this.position && this.unitName && this.unitLocation && this.checkAddSkill.join(', ') && this.progNeedNumber && this.dueDate && this.salary && this.experienceNumber && this.skillScore && this.kindJob && this.workMode && this.termOfContract) {
+    if (this.position && this.order.get('unitName').value && this.order.get('unitLocation').value && this.checkAddSkill.join(', ') && this.order.get('programmer').value && this.dueDate && this.order.get('salary').value && this.order.get('experience').value && this.order.get('skillScore').value && this.order.get('kindJob').value && this.order.get('workMode').value && this.order.get('termOfContract').value) {
       const item: RequiredSkills = JSON.parse(localStorage.getItem('edit-order'))
       const newOrder: RequiredSkills = {
         creationDate: item.creationDate,
         name: this.position,
-        unitName: this.unitName,
-        unitLocation: this.unitLocation,
-        mainSkill: this.mainSkil,
-        additionalSkill: this.checkAddSkill.join(', '),
-        progNeed: this.progNeedNumber,
+        unitName: this.order.get('unitName').value,
+        unitLocation: this.order.get('unitLocation').value,
+        mainSkill: this.order.get('mainSkil').value,
+        additionalSkill: this.order.get('addSkill').value.join(', '),
+        progNeed: this.order.get('programmer').value,
         dueDate: this.dueDate,
-        salaryRange: this.salary,
-        yearExperience: this.experienceNumber,
-        skillScore: this.skillScore,
-        kindJob: this.kindJob,
-        workMode: this.workMode,
-        termOfContract: this.termOfContract,
+        salaryRange: this.order.get('salary').value,
+        yearExperience: this.order.get('experience').value,
+        skillScore: this.order.get('skillScore').value,
+        kindJob: this.order.get('kindJob').value,
+        workMode: this.order.get('workMode').value,
+        termOfContract: this.order.get('termOfContract').value,
         id: item.id
       }
       this.requiredSkills.update(newOrder.id, newOrder).then(
@@ -328,19 +371,23 @@ export class NewOrderComponent implements OnInit {
     }
   }
   resetAll(): void {
-    this.position = '',
-      this.unitName = '',
-      this.unitLocation = '',
-      this.mainSkil = '',
-      this.checkAddSkill = [],
-      this.progNeedNumber = 1,
-      this.dueDate = '',
-      this.salary = '',
-      this.experienceNumber = 1,
-      this.skillScore = 'Any',
-      this.kindJob = 'Any',
-      this.workMode = 'Any',
-      this.termOfContract = 'Any'
+    this.order.reset({
+      programmer: 1,
+      experience: 1,
+      unitLocation: '',
+      jobLocation: '',
+      kindJob: 'Any',
+      termOfContract: 'Any',
+      workMode: 'Any',
+      skillScore: 'Any',
+      unitName: '',
+      mainSkil: '',
+      salary: '',
+      addSkill: []
+    })
+
+    this.position = '';
+    this.checkAddSkill = [];
   }
 
   onClickedOutsideItem(e: Event, item: string) {

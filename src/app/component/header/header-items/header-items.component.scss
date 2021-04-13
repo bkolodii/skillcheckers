@@ -89,7 +89,7 @@ header {
     .plus {
       width: 19.25px;
       height: 19.25px;
-      line-height: 21.25px;
+      line-height: 19.25px;
       font-family: 'plus-circuse';
       color: white;
     }
@@ -235,6 +235,7 @@ header {
       background-color: white;
       transition: height 600ms ease-in-out, display 600ms ease-in-out;
       @include flexbox(column, nowrap, center, center);
+      z-index: 3;
 
       hr {
         width: 90%;
@@ -247,12 +248,12 @@ header {
         height: 30px;
         width: 100%;
         @include flexbox(row, nowrap, center, center);
-
-        svg {
-          height: 15px;
-          width: 15px;
-          margin-right: 5px;
+        img {
+          height: 20px;
+          width: 20px;
+          margin-right: 13px;
         }
+      
       }
 
       .menu-sighOut {
@@ -260,10 +261,19 @@ header {
         width: 100%;
         @include flexbox(row, nowrap, center, center);
 
-        svg {
-          height: 15px;
-          width: 15px;
-          margin-right: 5px;
+        &__icon {
+          width: 20px;
+          height: 30px;
+          line-height: 32px;
+          font-weight: 500;
+          font-family: "logout";
+          font-size: 16px;
+          color: #6E7585;
+          transition: color 600ms ease-in-out;
+        }
+
+        &__icon::before {
+          content: "\e900";
         }
       }
     }

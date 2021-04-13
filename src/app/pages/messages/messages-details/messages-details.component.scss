@@ -3,7 +3,6 @@
 
 main {
   @include flexbox(row, nowrap, space-around, flex-start);
-    overflow: hidden;
     background-color: #EEF0F8;
 }
 

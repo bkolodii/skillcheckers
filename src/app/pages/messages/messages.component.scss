@@ -31,7 +31,7 @@ main {
 
 .users {
   width: 295px;
-  height: 92vh;
+  height: 92.5vh;
   @include flexbox(column, nowrap, space-between, center);
   overflow-y: scroll;
 

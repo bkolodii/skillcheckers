@@ -12,12 +12,12 @@ main {
 
 
 .users-list {
-  width: 65%;
+  width: 50vw;
   min-height: 10px;
   // padding: 14px 0px 14px 14px;
   @include flexbox(column, nowrap, flex-start, center);
-  margin-top: 20px;
-  margin-left: 20px;
+  margin-top: 2%;
+  margin-left: 2%;
 
   &__fourEvents {
     width: 100%;
@@ -39,9 +39,11 @@ main {
 
     &--person {
       width: 100%;
-      height: 60px;
+      min-height: 60px;
+      padding-top: 5px;
+      padding-bottom: 5px;
       background-color: white;
-      @include flexbox(row, nowrap, space-around, center);
+      @include flexbox(row, wrap, space-around, center);
       margin-bottom: 10px;
 
       .logo {
@@ -120,7 +122,7 @@ main {
             font-weight: 500;
             font-family: "clock";
             font-size: 15px;
-            color:#0CACF8;
+            color: #0CACF8;
             margin-right: 7px;
           }
 
@@ -353,15 +355,19 @@ main {
             cursor: auto;
             transition: background-color 600ms ease-in-out, fill 600ms ease-in-out;
 
-            svg {
-              fill: white;
-              width: 15px;
-              height: 15px;
+            .calendarout {
+              width: 30px;
+              height: 30px;
+              line-height: 32px;
+              font-weight: 500;
+              font-family: "logout";
+              font-size: 20px;
+              color: #6E7585;
+              transition: color 600ms ease-in-out;
             }
 
-            svg:hover {
-              transition: fill 600ms ease-in-out;
-              fill: #7e8594
+            .calendarout::before {
+              content: "\e900";
             }
           }
 
@@ -376,7 +382,7 @@ main {
 }
 
 .calendar {
-  width: 340px;
+  width: 27vw;
   min-height: 10px;
   // padding: 10px;
   background-color: white;
@@ -386,7 +392,7 @@ main {
   @include flexbox(column, nowrap, center, center);
 
   &__month {
-    width: 90%;
+    width: 94%;
     height: 30px;
     @include flexbox(row, nowrap, space-between, center);
     margin-top: 10px;
@@ -397,6 +403,7 @@ main {
       padding: 0%;
       border: none;
       background-color: white;
+
       .navigate-right {
         width: 15px;
         height: 15px;
@@ -404,19 +411,21 @@ main {
         font-weight: 500;
         font-family: "navigate-right";
         font-size: 15px;
-        color:#6E7585;
+        color: #6E7585;
       }
 
       .navigate-right::before {
         content: "\e900";
       }
     }
+
     &--navigate-left {
       width: 10px;
       height: 13px;
       padding: 0%;
       border: none;
       background-color: white;
+
       .navigate-left {
         width: 15px;
         height: 15px;
@@ -424,7 +433,7 @@ main {
         font-weight: 500;
         font-family: "navigate-left";
         font-size: 15px;
-        color:#6E7585;
+        color: #6E7585;
       }
 
       .navigate-left::before {
@@ -442,27 +451,27 @@ main {
   }
 
   &__day-list {
-    width: 90%;
+    width: 94%;
     height: 30px;
-    @include flexbox(row, nowrap, center, center);
+    @include flexbox(row, nowrap, flex-start, center);
 
     &--day {
       font-family: "Poppins";
       font-weight: 500;
       font-style: normal;
       font-size: 11px;
-      width: 42.7px;
+      width: 14%;
       text-align: center;
     }
   }
 
   &__day-number {
-    width: 90%;
+    width: 94%;
     min-height: 10vh;
     @include flexbox(row, wrap, flex-start, center);
 
     &--block-day {
-      width: 41.7px;
+      width: 13.5%;
       height: 45px;
       border: 1px solid #d2d2de;
       @include flexbox(row, wrap, center, center);
@@ -499,7 +508,7 @@ main {
   }
 
   &__mean {
-    width: 95%;
+    width: 94%;
     min-height: 43px;
     @include flexbox(row, wrap, center, center);
     margin-top: 5px;

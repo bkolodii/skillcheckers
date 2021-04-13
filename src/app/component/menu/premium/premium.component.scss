@@ -29,12 +29,12 @@
     height: 40px;
     background-color: transparent;
     color: white;
-    border: 2px solid #25bf50;
+    border: 2px solid #25BF50;
     transition: background-color .250s linear, color .250s linear, border .250s linear;
   }
 
   &__button:hover {
-    background: #25bf50;
+    background: #25BF50;
     color: #292f3d;
     border: 2px solid white;
   }

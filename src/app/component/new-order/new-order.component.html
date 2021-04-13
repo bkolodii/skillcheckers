@@ -11,12 +11,13 @@
               class="path6"></span><span class="path7"></span></span>
           <input class="position__input" type="text" [(ngModel)]="position" placeholder="Position">
         </div>
-        <div class="order-info">
+        <form class="order-info" [formGroup]="order">
           <div class="order-info__programmer">
             <p class="order-info__programmer--text">Programmers needed</p>
             <div class="order-info__programmer--counter">
               <button class="minus" (click)="counter('progNeed', false)">-</button>
-              <input type="text" class="programmer-input" [(ngModel)]="progNeedNumber" minlength="1" value="1">
+              <!-- <input type="text" class="programmer-input" [(ngModel)]="progNeedNumber" minlength="1" value="1"> -->
+              <input type="text" class="programmer-input" formControlName="programmer" minlength="1" value="1">
               <button class="add" (click)="counter('progNeed', true)">+</button>
             </div>
           </div>
@@ -25,7 +26,7 @@
             <div class="order-info__mainSkill--select" (clickOutside)="onClickedOutsideItem($event, 'mainSkill')">
               <button class="visible" (click)="openHidden('mainSkill')"
                 [style.border]="isMainSkill? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-                <p class="visible__title">{{ mainSkil }}</p>
+                <input class="visible__title" type="text" formControlName="mainSkil">
                 <span aria-hidden="true" data-icon="&#xe900;"
                   [style.font-family]="!isMainSkill ? 'drop-down-arrow' : 'drop-up-arrow'"
                   class="visible__drop-icon"></span>
@@ -40,7 +41,8 @@
             <p class="order-info__experience--text">Years of experience</p>
             <div class="order-info__experience--counter">
               <button class="minus" (click)="counter('experience', false)">-</button>
-              <input type="text" class="experience-input" [(ngModel)]="experienceNumber" minlength="1" value="4">
+              <!-- <input type="text" class="experience-input" [(ngModel)]="experienceNumber" minlength="1" value="4"> -->
+              <input type="text" class="experience-input" formControlName="experience" minlength="1" value="4">
               <button class="add" (click)="counter('experience', true)">+</button>
             </div>
           </div>
@@ -48,7 +50,7 @@
             <p class="order-info__addSkill--text">Additional skills</p>
             <div class="order-info__addSkill--select" (clickOutside)="onClickedOutsideItem($event, 'addSkill')"
               (click)="openHidden('addSkill')" [style.border]="isAddSkill? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-              <div class="choose-addSkill" *ngFor="let addSkill of checkAddSkill; let i=index;"
+              <div class="choose-addSkill" *ngFor="let addSkill of order.get('addSkill').value; let i=index;"
                 [style.margin-top]="checkAddSkill.length >= 3 ? '4px' : '0px'"
                 [style.margin-bottom]="checkAddSkill.length >= 3 ? '4px' : '0px'">
                 <p class="choose-addSkill__title">{{addSkill}}</p>
@@ -56,12 +58,12 @@
                   <span aria-hidden="true" data-icon="&#xe900;" class="choose-addSkill__delete-choose--cross"></span>
                 </button>
               </div>
+
               <span aria-hidden="true" data-icon="&#xe900;"
                 [style.font-family]="!isAddSkill ? 'drop-down-arrow' : 'drop-up-arrow'" class="drop-icon"></span>
-              <!-- </div> -->
               <div class="hidden" [style.display]="isAddSkill ? 'block' : 'none'">
                 <p *ngFor="let addential of addSkills; let i=index" (click)="addSkill(addential)"
-                  [style.border-bottom]="i == addSkills.length-1 ? 'none' : ''">{{addential}}</p>
+                  [style.border-bottom]="i == addSkills.length-1 ? 'none' : ''" (change)="changeCity($event)">{{addential}}</p>
               </div>
             </div>
           </div>
@@ -70,7 +72,7 @@
             <div class="order-info__unitName--select" (clickOutside)="onClickedOutsideItem($event, 'unitName')">
               <button (click)="openHidden('unitName')" class="visible"
                 [style.border]="isUnitName? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-                <p class="visible__title">{{unitName}}</p>
+                <input class="visible__title" type="text" name="unitName" formControlName="unitName">
                 <span aria-hidden="true" data-icon="&#xe900;"
                   [style.font-family]="!isUnitName ? 'drop-down-arrow' : 'drop-up-arrow'"
                   class="visible__drop-icon"></span>
@@ -83,7 +85,9 @@
           </div>
           <div class="order-info__unitLocation">
             <p class="order-info__unitLocation--text">Unit location</p>
-            <input class="order-info__unitLocation--input" [(ngModel)]="unitLocation" name="unitLocation" type="text">
+            <!-- <input class="order-info__unitLocation--input" [(ngModel)]="unitLocation" name="unitLocation" type="text"> -->
+            <input class="order-info__unitLocation--input" formControlName="unitLocation" name="unitLocation"
+              type="text">
           </div>
           <div class="order-info__skillScore">
             <div class="order-info__skillScore--text">Skillcheckers Score
@@ -94,19 +98,20 @@
             </div>
             <div class="order-info__skillScore--select">
               <div class="skillScore-button">
-                <input type="radio" name="score" id="any" value="Any" [(ngModel)]="skillScore">
-                <label for="any">Any</label>
+                <input type="radio" name="skillScore" id="any0" value="Any" formControlName="skillScore">
+                <label for="any0">Any</label>
               </div>
               <div class="skillScore-button">
-                <input type="radio" name="score" value="8 Very good" id="veryGood" checked [(ngModel)]="skillScore">
+                <input type="radio" name="skillScore" value="8 Very good" id="veryGood" checked
+                  formControlName="skillScore">
                 <label for="veryGood">8 Very good</label>
               </div>
               <div class="skillScore-button">
-                <input type="radio" name="score" id="good" value="7 Good" [(ngModel)]="skillScore">
+                <input type="radio" name="skillScore" id="good" value="7 Good" formControlName="skillScore">
                 <label for="good">7 Good</label>
               </div>
               <div class="skillScore-button">
-                <input type="radio" name="score" id="except" value="9 Exceptional" [(ngModel)]="skillScore">
+                <input type="radio" name="skillScore" id="except" value="9 Exceptional" formControlName="skillScore">
                 <label for="except">9 Exceptional</label>
               </div>
             </div>
@@ -114,18 +119,19 @@
           <div class="order-info__jobLocation">
             <p class="order-info__jobLocation--text">Job location</p>
             <div class="order-info__jobLocation--choose">
-              <input class="jobLocation-input" [(ngModel)]="jobLocation" name="jobLocation" type="text">
+              <!-- <input class="jobLocation-input" [(ngModel)]="jobLocation" name="jobLocation" type="text"> -->
+              <input class="jobLocation-input" formControlName="jobLocation" name="jobLocation" type="text">
               <div class="skillScore-button">
-                <input type="radio" name="jobLoc" id="onSite" [(ngModel)]="kindJob" value="On site">
+                <input type="radio" name="kindJob" id="onSite" formControlName="kindJob" value="On site">
                 <label for="onSite">On site</label>
               </div>
               <div class="skillScore-button">
-                <input type="radio" name="jobLoc" id="remote" [(ngModel)]="kindJob" value="Remote">
+                <input type="radio" name="kindJob" id="remote" formControlName="kindJob" value="Remote">
                 <label for="remote">Remote</label>
               </div>
               <div class="skillScore-button">
-                <input type="radio" name="jobLoc" id="any" checked [(ngModel)]="kindJob" value="Any">
-                <label for="any">Any</label>
+                <input type="radio" name="kindJob" id="any1" checked formControlName="kindJob" value="Any">
+                <label for="any1">Any</label>
               </div>
             </div>
 
@@ -136,7 +142,7 @@
               <div class="select-salary" (clickOutside)="onClickedOutsideItem($event, 'salary')">
                 <button class="visible" (click)="openHidden('salary')"
                   [style.border]="isSalary? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-                  <p class="visible__title">{{salary}}</p>
+                  <input class="visible__title" type="text" formControlName="salary">
                   <span aria-hidden="true" data-icon="&#xe900;"
                     [style.font-family]="!isSalary ? 'drop-down-arrow' : 'drop-up-arrow'"
                     class="visible__drop-icon"></span>
@@ -159,7 +165,6 @@
                   <p class="hidden__currency" *ngFor="let currency of currencyRange; let i=index"
                     (click)="chooseItem(currency, 'currency')"
                     [style.border-bottom]="i == currencyRange.length-1 ? 'none' : ''">
-                    <!-- <img class="hidden__currency--icon" [src]="currency" alt=""> -->
                     <span aria-hidden="true" data-icon="&#xe900;" [style.font-family]="currency"
                       class="hidden__currency--icon"></span>
                   </p>
@@ -172,16 +177,19 @@
             <p class="order-info__termContr--text">Term of contract</p>
             <div class="order-info__termContr--choose">
               <div class="termContr-button">
-                <input type="radio" name="termContr" id="longTerm" [(ngModel)]="termOfContract" value="Long-term">
+                <input type="radio" name="termOfContract" id="longTerm" formControlName="termOfContract"
+                  value="Long-term">
                 <label for="longTerm">Long-term</label>
               </div>
               <div class="termContr-button">
-                <input type="radio" name="termContr" id="shortTerm" [(ngModel)]="termOfContract" value="Short-term">
+                <input type="radio" name="termOfContract" id="shortTerm" formControlName="termOfContract"
+                  value="Short-term">
                 <label for="shortTerm">Short-term</label>
               </div>
               <div class="termContr-button">
-                <input type="radio" name="termContr" id="any" checked [(ngModel)]="termOfContract" value="Any">
-                <label for="any">Any</label>
+                <input type="radio" name="termOfContract" id="any2" checked formControlName="termOfContract"
+                  value="Any">
+                <label for="any2">Any</label>
               </div>
             </div>
 
@@ -190,16 +198,16 @@
             <p class="order-info__workMode--text">Work mode</p>
             <div class="order-info__workMode--choose">
               <div class="workMode-button">
-                <input type="radio" name="workMode" id="fullTime" [(ngModel)]="workMode" value="Full time">
+                <input type="radio" name="workMode" id="fullTime" formControlName="workMode" value="Full time">
                 <label for="fullTime">Full time</label>
               </div>
               <div class="workMode-button">
-                <input type="radio" name="workMode" id="shortTerm" [(ngModel)]="workMode" value="Part time">
+                <input type="radio" name="workMode" id="partTime" formControlName="workMode" value="Part time">
                 <label for="partTime">Part time</label>
               </div>
               <div class="workMode-button">
-                <input type="radio" name="workMode" id="any" checked [(ngModel)]="workMode" value="Any">
-                <label for="any">Any</label>
+                <input type="radio" name="workMode" id="any3" checked formControlName="workMode" value="Any">
+                <label for="any3">Any</label>
               </div>
             </div>
 
@@ -222,7 +230,7 @@
 
           </div>
 
-        </div>
+        </form>
       </div>
       <div class="other-info">
         <div class="other-info__jobDesc">

@@ -57,7 +57,8 @@
             <button class="buttons__cancel-button--visible" (mouseover)="hoverCancel(true, person.personData)"
               (mouseout)="hoverCancel(false, person.personData)"
               [style.background-color]="hover == person.personData ? '#0cacf8' : '#f0f8ff'">
-              <svg [style.fill]="hover == person.personData ? 'white' : '#7e8594'" version="1.1" id="Capa_1"
+              <span aria-hidden="true" data-icon="&#xe900;" class="calendarout" [style.color]="hover == person.personData ? 'white' : '#6E7585'"></span>
+              <!-- <svg [style.fill]="hover == person.personData ? 'white' : '#7e8594'" version="1.1" id="Capa_1"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                 <g>
@@ -76,7 +77,7 @@
 			c4.04-3.997,6.336-9.441,6.336-15.139C512,250.302,509.725,244.88,505.664,240.861z" />
                   </g>
                 </g>
-              </svg>
+              </svg> -->
             </button>
           </div>
         </div>
