@@ -32,6 +32,14 @@ import { QuillModule } from 'ngx-quill';
 import { CompletedComponent } from './pages/interviews/interviews-item/completed/completed.component';
 import { UnconfirmedComponent } from './pages/interviews/interviews-item/unconfirmed/unconfirmed.component';
 import { ClickOutsideModule } from 'ng-click-outside';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,7 +75,14 @@ import { ClickOutsideModule } from 'ng-click-outside';
     FormsModule,
     ReactiveFormsModule,
     QuillModule.forRoot(),
-    ClickOutsideModule
+    ClickOutsideModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

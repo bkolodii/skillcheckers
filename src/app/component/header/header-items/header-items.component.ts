@@ -28,4 +28,9 @@ export class HeaderItemsComponent implements OnInit {
     });
   }
 
+
+  onClickedOutsideItem(e: Event) {
+    e.stopPropagation()
+      this.dropWay = false;
+  }
 }

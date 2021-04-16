@@ -24,17 +24,11 @@ export class MessagesDetailsComponent implements OnInit {
 
   getMainUser():void{
     if(localStorage.getItem('mainuser')){
-      console.log(localStorage.getItem('mainuser'));
-      
       this.mainUser = JSON.parse(localStorage.getItem('mainuser'));
-      console.log(this.mainUser);
-      
     }
   }
   getCurrUser(): void {
     const name = this.activatedRoute.snapshot.paramMap.get('url');
-    console.log(name);
-    
     this.mesUser.getOne(name).onSnapshot(
       document => {
         document.forEach(prod => {
@@ -43,8 +37,6 @@ export class MessagesDetailsComponent implements OnInit {
             ...prod.data() as mesUser
           };
           this.currMesUser = user;
-          console.log(this.currMesUser.img);
-          
         });
       }
     );
@@ -70,9 +62,7 @@ export class MessagesDetailsComponent implements OnInit {
     </div>
   </div>`
    }
-  console.log(new Date().toString().split(' ')[4].substr(0,5));
   
-
   this.getText = '';
   }
 

@@ -5,10 +5,7 @@
   background-color: #eef0f8 !important;
 }
 
-// .select-contain {
-//   border-left: 5px solid #0cacf8;
-// }
-.choose{
+.choose {
   position: absolute;
   height: 70%;
   width: 5px;
@@ -16,7 +13,8 @@
   background-color: #0CACF8;
   left: -1px;
 
- }
+}
+
 .missing {
   background-color: #fdf5ec;
 }
@@ -53,11 +51,29 @@ main {
         height: 50px;
         @include flexbox(row, nowrap, flex-end, center);
         position: relative;
-        
+
         &__logo {
           width: 40px;
           height: 40px;
           margin-right: 5px;
+          position: relative;
+
+          &--icon {
+            width: 40px;
+            height: 40px;
+          }
+
+          &--active {
+            position: absolute;
+            display: block;
+            bottom: 0px;
+            right: 0px;
+            width: 7px;
+            height: 8px;
+            background: #25BF50;
+            border: 1px solid #FFFFFF;
+            border-radius: 50%;
+          }
         }
 
         &__person-data {
@@ -120,7 +136,6 @@ main {
     margin-top: 1px;
     cursor: pointer;
     height: 90px;
-    // background-color: white;
     @include flexbox(row, nowrap, flex-end, center);
 
     &--padding {

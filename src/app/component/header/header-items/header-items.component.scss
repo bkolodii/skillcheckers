@@ -9,11 +9,8 @@ button {
 header {
   width: 100%;
   @include flexbox(row, nowrap, space-between, center);
-  // position: fixed;
   height: 50px;
   display: flex;
-  // justify-content: space-around;
-  // align-items: center;
 }
 
 .left-section {
@@ -168,7 +165,6 @@ header {
     width: 55px;
     height: 50px;
     @include flexbox(row, nowrap, space-around, center);
-    position: relative;
 
     &--button {
       border-radius: 50%;
@@ -186,99 +182,94 @@ header {
       box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
     }
 
-    .items-drop-down {
-      width: 9px;
-      height: 6px;
-      line-height: 3px;
-      font-family: 'drop-down-arrow';
-      color: #6E7585;
-    }
+    .user-menu {
+      position: relative;
+      width: 10px;
+      height: 35px;
+      line-height: 30px;
 
-    .items-drop-down::before {
-      font-family: "drop-down-arrow";
-      content: attr(data-icon);
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none;
-      line-height: 1;
-      font-size: 9px;
-      -webkit-font-smoothing: antialiased;
-    }
+      &__visible {
+        border: none;
 
-
-    .items-drop-up {
-      width: 9px;
-      height: 6px;
-      line-height: 2px;
-      font-family: 'drop-up-arrow';
-      color: #6E7585;
-    }
-
-    .items-drop-up::before {
-      font-family: "drop-up-arrow";
-      content: attr(data-icon);
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none;
-      line-height: 1;
-      font-size: 9px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    &--menu {
-      position: absolute;
-      top: 40px;
-      right: 0;
-      height: 100px;
-      width: 100px;
-      box-shadow: 3px 3.5px 7px 0.5px rgba(0, 0, 0, 0.25);
-      background-color: white;
-      transition: height 600ms ease-in-out, display 600ms ease-in-out;
-      @include flexbox(column, nowrap, center, center);
-      z-index: 3;
-
-      hr {
-        width: 90%;
-        // border-bottom: 0.5px solid gray;
-        background-color: gray;
-        border-radius: 50px;
-      }
-
-      .menu-profile {
-        height: 30px;
-        width: 100%;
-        @include flexbox(row, nowrap, center, center);
-        img {
-          height: 20px;
-          width: 20px;
-          margin-right: 13px;
-        }
-      
-      }
-
-      .menu-sighOut {
-        height: 30px;
-        width: 100%;
-        @include flexbox(row, nowrap, center, center);
-
-        &__icon {
-          width: 20px;
-          height: 30px;
-          line-height: 32px;
-          font-weight: 500;
-          font-family: "logout";
-          font-size: 16px;
+        &--items-drop-down {
+          width: 9px;
+          height: 6px;
+          line-height: 3px;
+          font-family: 'drop-down-arrow';
           color: #6E7585;
-          transition: color 600ms ease-in-out;
+          font-weight: normal;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1;
+          font-size: 9px;
         }
 
-        &__icon::before {
-          content: "\e900";
+        &--items-drop-down::before {
+          content: attr(data-icon);
+        }
+
+      }
+
+      &__hidden {
+        position: absolute;
+        top: 35px;
+        right: 0;
+        height: 100px;
+        width: 100px;
+        box-shadow: 3px 3.5px 7px 0.5px rgba(0, 0, 0, 0.25);
+        background-color: white;
+        transition: height 600ms ease-in-out, display 600ms ease-in-out;
+        @include flexbox(column, nowrap, center, center);
+        z-index: 3;
+
+        hr {
+          width: 90%;
+          background-color: gray;
+          border-radius: 50px;
+        }
+
+        &--profile {
+          height: 30px;
+          width: 100%;
+          @include flexbox(row, nowrap, center, center);
+          font-family: 'Poppins';
+          font-size: 13px;
+          cursor: pointer;
+
+          img {
+            height: 20px;
+            width: 20px;
+            margin-right: 13px;
+          }
+
+        }
+
+        &--sighOut {
+          height: 30px;
+          width: 100%;
+          @include flexbox(row, nowrap, center, center);
+          font-family: 'Poppins';
+          font-size: 13px;
+          cursor: pointer;
+
+          .logout-icon {
+            width: 20px;
+            height: 30px;
+            line-height: 32px;
+            font-weight: 500;
+            font-family: "logout";
+            font-size: 16px;
+            color: #6E7585;
+            transition: color 600ms ease-in-out;
+          }
+
+          .logout-icon::before {
+            content: "\e900";
+          }
         }
       }
     }
   }
-
 }
 
 

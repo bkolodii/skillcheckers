@@ -14,7 +14,6 @@ main {
 .users-list {
   width: 50vw;
   min-height: 10px;
-  // padding: 14px 0px 14px 14px;
   @include flexbox(column, nowrap, flex-start, center);
   margin-top: 2%;
   margin-left: 2%;
@@ -51,12 +50,11 @@ main {
         height: 50px;
         position: relative;
         margin-left: 10px;
-        // margin-top: 5px;
 
-        //   @include flexbox(row, nowrap, center, center);
         &__person-img {
           width: 40px;
           height: 41px;
+          border-radius: 50%;
         }
 
         &__person-rate {
@@ -90,7 +88,6 @@ main {
           font-weight: 600;
           font-style: normal;
           font-size: 13px;
-          // margin-bottom: 5px;
         }
 
         &__person-profession {
@@ -147,7 +144,6 @@ main {
           font-style: normal;
           font-size: 10px;
           color: #b3b3b6;
-          // margin-bottom: 5px;
         }
       }
 
@@ -182,7 +178,6 @@ main {
           font-style: normal;
           font-size: 10px;
           color: #b3b3b6;
-          // margin-bottom: 5px;
         }
       }
 
@@ -211,7 +206,6 @@ main {
           font-size: 10px;
           color: #b3b3b6;
           height: 10px;
-          // margin-bottom: 5px;
         }
       }
 
@@ -236,7 +230,6 @@ main {
           padding: 0;
           transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
 
-          // color: #b3b3b6;
           &--play {
             width: 10px;
             height: 10px;
@@ -384,7 +377,6 @@ main {
 .calendar {
   width: 27vw;
   min-height: 10px;
-  // padding: 10px;
   background-color: white;
   border-top: 5px solid #0cacf8;
   margin-top: 15px;
@@ -446,7 +438,6 @@ main {
       font-weight: 500;
       font-style: normal;
       font-size: 13px;
-      //   color: #79808f;
     }
   }
 

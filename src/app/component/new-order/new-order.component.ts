@@ -1,12 +1,13 @@
-import { flatten } from '@angular/compiler';
+
 import { Component, OnInit } from '@angular/core';
 import { QuestionService } from 'src/app/service/question.service';
 import { Question } from 'src/app/shared/interfaces/question.interface';
 import { map } from 'rxjs/operators';
-import { AutofocusDirective } from '../../shared/directive/auto-focus.directive';
 import { RequiredSkills } from 'src/app/shared/interfaces/requiredSkill.interface';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { RequiredSkillsService } from 'src/app/service/required-skills.service';
+import { Month } from 'src/app/shared/interfaces/month.interface';
+import { MonthService } from 'src/app/service/month.service';
 @Component({
   selector: 'app-new-order',
   templateUrl: './new-order.component.html',
@@ -14,19 +15,19 @@ import { RequiredSkillsService } from 'src/app/service/required-skills.service';
 })
 export class NewOrderComponent implements OnInit {
   isLorem: boolean = false;
-  isMainSkill: boolean = false;
+  // isMainSkill: boolean = false;
   isAddSkill: boolean = false;
-  isUnitName: boolean = false;
-  isUnitLocation: boolean = false;
-  isJobLocation: boolean = false;
-  isSalary: boolean = false;
+  // isUnitName: boolean = false;
+  // isUnitLocation: boolean = false;
+  // isJobLocation: boolean = false;
+  // isSalary: boolean = false;
   isCurrency: boolean = false;
-  isDate: boolean = false;
+  // isDate: boolean = false;
   questText: string = 'Lg';
   myheight: string = '0px';
   editOrder: RequiredSkills;
   position: string;
-  dueDate = '11.09.2020';
+  month: Array<Month> = [];
   namesUnit: Array<string> = ['Tech HQ', 'Tech HQ', 'Tech HQ', 'Tech HQ', 'Tech HQ'];
   mainSkills: Array<string> = ['PHP', 'Java', 'C++', 'Flutter', 'iOS', 'UI UX', 'JS', 'C#', 'Python'];
   addSkills: Array<string> = ['PHP', 'Java', 'C++', 'Flutter', 'iOS', 'UI UX', 'JavaScript', 'C#', 'Python', 'HTML', 'CSS'];
@@ -41,7 +42,7 @@ export class NewOrderComponent implements OnInit {
   editorForm: FormGroup;
   order: FormGroup;
   editorStyle = {
-    height: '300px',
+   "min-height": '300px',
     border: 'none'
   }
   config = {
@@ -52,7 +53,7 @@ export class NewOrderComponent implements OnInit {
     ]
   }
 
-  constructor(private questService: QuestionService, private requiredSkills: RequiredSkillsService, public fb: FormBuilder) { }
+  constructor(private questService: QuestionService, private requiredSkills: RequiredSkillsService, public fb: FormBuilder, private monthService: MonthService) { }
 
   ngOnInit(): void {
     this.getQuestion();
@@ -65,18 +66,10 @@ export class NewOrderComponent implements OnInit {
       termOfContract: new FormControl('Any'),
       workMode: new FormControl('Any'),
       skillScore: new FormControl('Any'),
-      unitName: new FormControl({
-        value: '',
-        disabled: true
-      }),
-      mainSkil: new FormControl({
-        value: '',
-        disabled: true
-      }),
-      salary: new FormControl({
-        value: '',
-        disabled: true
-      }),
+      unitName: new FormControl(''),
+      mainSkil: new FormControl(''),
+      salary: new FormControl(''),
+      dueDate: new FormControl(''),
       addSkill: new FormControl({
         value: [],
         disabled: true
@@ -89,8 +82,19 @@ export class NewOrderComponent implements OnInit {
     this.editorForm = new FormGroup({
       'editor': new FormControl(null)
     })
+    this.getMonth();
 
-
+  }
+  getMonth(): void {
+    this.monthService.getAllmonth().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      )
+    ).subscribe(data => {
+      this.month = data;
+    });
 
   }
   parseOrder(order: RequiredSkills): void {
@@ -107,9 +111,10 @@ export class NewOrderComponent implements OnInit {
       unitName: order.unitName,
       mainSkil: order.mainSkill,
       salary: order.salaryRange,
-      addSkill: order.additionalSkill.split(', ')
+      addSkill: order.additionalSkill.split(', '),
     })
-    this.dueDate = order.dueDate;
+    this.order.get('dueDate').patchValue(new Date(order.dueDate));
+    this.checkAddSkill = order.additionalSkill.split(', ')
   }
 
   getQuestion(): void {
@@ -127,25 +132,25 @@ export class NewOrderComponent implements OnInit {
 
   }
   chooseItem(currName: string, item: string): void {
-    if (item == 'name') {
-      this.order.patchValue({
-        unitName: currName
-      })
-      this.isUnitName = false;
-    }
-    else if (item == 'mainSkill') {
-      this.order.patchValue({
-        mainSkil: currName
-      })
-      this.isMainSkill = false;
-    }
-    else if (item == 'salary') {
-      this.order.patchValue({
-        salary: currName
-      })
-      this.isSalary = false;
-    }
-    else if (item == 'currency') {
+    // if (item == 'name') {
+    //   this.order.patchValue({
+    //     unitName: currName
+    //   })
+    //   this.isUnitName = false;
+    // }
+    // else if (item == 'mainSkill') {
+    //   this.order.patchValue({
+    //     mainSkil: currName
+    //   })
+    //   this.isMainSkill = false;
+    // }
+    // else if (item == 'salary') {
+    //   this.order.patchValue({
+    //     salary: currName
+    //   })
+    //   this.isSalary = false;
+    // }
+    if (item == 'currency') {
       this.currCurrency = currName;
       this.isCurrency = false;
     }
@@ -245,30 +250,30 @@ export class NewOrderComponent implements OnInit {
 
 
   openHidden(item: string): void {
-    if (item == 'mainSkill') {
-      this.isMainSkill = !this.isMainSkill;
-    }
+    // if (item == 'mainSkill') {
+    //   this.isMainSkill = !this.isMainSkill;
+    // }
     if (item == 'addSkill') {
       this.isAddSkill = !this.isAddSkill;
     }
-    else if (item == 'unitName') {
-      this.isUnitName = !this.isUnitName;
-    }
-    else if (item == 'unitLocation') {
-      this.isUnitLocation = !this.isUnitLocation;
-    }
-    else if (item == 'jobLocation') {
-      this.isJobLocation = !this.isJobLocation;
-    }
-    else if (item == 'salary') {
-      this.isSalary = !this.isSalary;
-    }
+    // else if (item == 'unitName') {
+    //   this.isUnitName = !this.isUnitName;
+    // }
+    // else if (item == 'unitLocation') {
+    //   this.isUnitLocation = !this.isUnitLocation;
+    // }
+    // else if (item == 'jobLocation') {
+    //   this.isJobLocation = !this.isJobLocation;
+    // }
+    // else if (item == 'salary') {
+    //   this.isSalary = !this.isSalary;
+    // }
     else if (item == 'currency') {
       this.isCurrency = !this.isCurrency;
     }
-    else if (item == 'date') {
-      this.isDate = !this.isDate;
-    }
+    // else if (item == 'date') {
+    //   this.isDate = !this.isDate;
+    // }
     else if (item == 'question') {
       this.isQuestion = !this.isQuestion;
     }
@@ -290,8 +295,6 @@ export class NewOrderComponent implements OnInit {
       }
     }
 
-
-
   }
 
   deleteSkill(currId: number) {
@@ -301,8 +304,18 @@ export class NewOrderComponent implements OnInit {
   }
 
   createNewOrder(): void {
-    if (this.position && this.order.get('unitName').value && this.order.get('unitLocation').value && this.checkAddSkill.join(', ') && this.order.get('programmer').value && this.dueDate && this.order.get('salary').value && this.order.get('experience').value && this.order.get('skillScore').value && this.order.get('kindJob').value && this.order.get('workMode').value && this.order.get('termOfContract').value) {
 
+    if (this.position && this.order.get('unitName').value && this.order.get('unitLocation').value && this.checkAddSkill.join(', ') && this.order.get('programmer').value && this.order.get('dueDate').value && this.order.get('salary').value && this.order.get('experience').value && this.order.get('skillScore').value && this.order.get('kindJob').value && this.order.get('workMode').value && this.order.get('termOfContract').value) {
+
+      let date: string = new Date(this.order.get('dueDate').value).toString()
+      let dayNumber: number;
+
+      this.month.forEach((res, i) => {
+        if (res.monthName.substr(0, 3) === date.toString().split(' ')[1]) {
+          dayNumber = res.month;
+        }
+      })
+      date = `${dayNumber + 1}/${date.toString().split(' ')[2]}/${date.toString().split(' ')[3]}`;
       let arr = [new Date().getDate(), new Date().getMonth() + 1, new Date().getFullYear()];
       const newOrder: RequiredSkills = {
         creationDate: arr.join('.'),
@@ -312,7 +325,7 @@ export class NewOrderComponent implements OnInit {
         mainSkill: this.order.get('mainSkil').value,
         additionalSkill: this.order.get('addSkill').value.join(', '),
         progNeed: this.order.get('programmer').value,
-        dueDate: this.dueDate,
+        dueDate: date,
         salaryRange: this.order.get('salary').value,
         yearExperience: this.order.get('experience').value,
         skillScore: this.order.get('skillScore').value,
@@ -338,7 +351,18 @@ export class NewOrderComponent implements OnInit {
     }
   }
   updateOrder(): void {
-    if (this.position && this.order.get('unitName').value && this.order.get('unitLocation').value && this.checkAddSkill.join(', ') && this.order.get('programmer').value && this.dueDate && this.order.get('salary').value && this.order.get('experience').value && this.order.get('skillScore').value && this.order.get('kindJob').value && this.order.get('workMode').value && this.order.get('termOfContract').value) {
+
+    if (this.position && this.order.get('unitName').value && this.order.get('unitLocation').value && this.checkAddSkill.join(', ') && this.order.get('programmer').value && this.order.get('dueDate').value && this.order.get('salary').value && this.order.get('experience').value && this.order.get('skillScore').value && this.order.get('kindJob').value && this.order.get('workMode').value && this.order.get('termOfContract').value) {
+
+      let date: string = new Date(this.order.get('dueDate').value).toString()
+      let dayNumber: number;
+
+      this.month.forEach((res, i) => {
+        if (res.monthName.substr(0, 3) === date.toString().split(' ')[1]) {
+          dayNumber = res.month;
+        }
+      })
+      date = `${dayNumber + 1}/${date.toString().split(' ')[2]}/${date.toString().split(' ')[3]}`;
       const item: RequiredSkills = JSON.parse(localStorage.getItem('edit-order'))
       const newOrder: RequiredSkills = {
         creationDate: item.creationDate,
@@ -348,7 +372,7 @@ export class NewOrderComponent implements OnInit {
         mainSkill: this.order.get('mainSkil').value,
         additionalSkill: this.order.get('addSkill').value.join(', '),
         progNeed: this.order.get('programmer').value,
-        dueDate: this.dueDate,
+        dueDate: date,
         salaryRange: this.order.get('salary').value,
         yearExperience: this.order.get('experience').value,
         skillScore: this.order.get('skillScore').value,
@@ -383,6 +407,7 @@ export class NewOrderComponent implements OnInit {
       unitName: '',
       mainSkil: '',
       salary: '',
+      dueDate: '',
       addSkill: []
     })
 
@@ -392,29 +417,29 @@ export class NewOrderComponent implements OnInit {
 
   onClickedOutsideItem(e: Event, item: string) {
     e.stopPropagation()
-    if (item == 'mainSkill') {
-      this.isMainSkill = false;
-    }
+    // if (item == 'mainSkill') {
+    //   this.isMainSkill = false;
+    // }
     if (item == 'addSkill') {
       this.isAddSkill = false;
     }
-    else if (item == 'unitName') {
-      this.isUnitName = false;
-    }
-    else if (item == 'unitLocation') {
-      this.isUnitLocation = false;
-    }
-    else if (item == 'jobLocation') {
-      this.isJobLocation = false;
-    }
-    else if (item == 'salary') {
-      this.isSalary = false;
-    }
+    // else if (item == 'unitName') {
+    //   this.isUnitName = false;
+    // }
+    // else if (item == 'unitLocation') {
+    //   this.isUnitLocation = false;
+    // }
+    // else if (item == 'jobLocation') {
+    //   this.isJobLocation = false;
+    // }
+    // else if (item == 'salary') {
+    //   this.isSalary = false;
+    // }
     else if (item == 'currency') {
       this.isCurrency = false;
     }
-    else if (item == 'date') {
-      this.isDate = false;
-    }
+    // else if (item == 'date') {
+    //   this.isDate = false;
+    // }
   }
 }

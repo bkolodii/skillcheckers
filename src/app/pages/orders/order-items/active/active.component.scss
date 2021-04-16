@@ -9,7 +9,7 @@
   background-color: white;
 
   &__left {
-    width: 40%;
+    width: auto;
     height: 50px;
     @include flexbox(row, nowrap, flex-start, center);
 
@@ -33,7 +33,7 @@
 
         &__title {
           font-family: "Poppins";
-          font-size: 11px;
+          font-size: 12px;
           font-weight: 500;
           padding-left: 4px;
         }
@@ -102,7 +102,7 @@
 
         &__title {
           font-family: "Poppins";
-          font-size: 11px;
+          font-size: 12px;
           font-weight: 500;
           padding-left: 4px;
         }
@@ -162,7 +162,7 @@
 
       .title {
         font-family: "Poppins";
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 500;
         white-space: nowrap;
         padding-left: 4px;
@@ -232,7 +232,7 @@
 
       .drop-title {
         font-family: "Poppins";
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 500;
         padding-left: 4px;
         color: #292F3D;
@@ -319,7 +319,7 @@
           font-family: "Poppins";
           font-style: normal;
           font-weight: 500;
-          font-size: 10px;
+          font-size: 12px;
           line-height: 18px;
           text-transform: uppercase;
           color: #6E7585;
@@ -330,7 +330,8 @@
           font-family: 'Poppins';
           font-style: normal;
           font-weight: normal;
-          font-size: 12px;
+          font-weight: normal;
+          font-size: 14px;
           line-height: 21px;
           display: flex;
           align-items: center;
@@ -350,8 +351,10 @@
 
         &__text {
           @extend .createDate__text;
-          font-weight: 700;
+          // font-weight: 700;
           line-height: 22px;
+          font-weight: 500;
+          font-size: 15px;
         }
 
       }

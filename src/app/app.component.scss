@@ -23,14 +23,16 @@
 .container {
   // padding-top: 50px;
   @include flexbox(row, nowrap, left, none);
-  height: 93.8vh;
+  height: 100%;
   overflow: hidden;
   // height: 80vh;
+  position: fixed;
+  width: 100%;
   background-color: #EEF0F8;
 
   &__menu {
     width: 16%;
-    height: 93.8vh;
+    height: 100%;
     background-color: #292F3D;
 
   }

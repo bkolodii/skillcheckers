@@ -7,7 +7,6 @@ main {
 }
 
 .chat {
-  //   position: fixed;
   width: 67%;
   height: 87vh;
   background-color: white;
@@ -19,11 +18,6 @@ main {
     border-bottom: 1px solid #b9c1cc;
     @include flexbox(row, nowrap, flex-start, center);
 
-    // &--icon {
-    //   width: 13px;
-    //   height: 13px;
-    //   margin-left: 25px;
-    // }
     &--icon {
       width: 15px;
       height: 15px;
@@ -63,7 +57,6 @@ main {
       .settings {
         width: 15px;
         height: 15px;
-        // margin-left: 25px;
         line-height: 16px;
         font-family: 'settings';
         font-size: 15px;
@@ -77,9 +70,6 @@ main {
 
     }
 
-    &--setting:hover {
-      animation: rotate 600ms ease-in-out infinite;
-    }
   }
 
   &__conversation {
@@ -164,7 +154,6 @@ main {
           width: 35px;
           height: 35px;
           margin-left: 5px;
-          //   margin-bottom: 20px;
         }
 
         &__person-data {
@@ -233,7 +222,7 @@ main {
         &__hr {
           width: 100%;
           margin: 0%;
-          border-bottom: 0.1px solid #8c919e;
+          border-bottom: 0.1px solid #CBCBD9;
 
         }
       }
@@ -263,6 +252,7 @@ main {
         position: relative;
         overflow: hidden;
         display: inline-block;
+        margin-left: 5px
       }
 
       .btn {
@@ -273,7 +263,7 @@ main {
         font-size: 12px;
         font-weight: 500;
         width: 35px;
-        height: 35px;
+        height: 50px;
         cursor: pointer;
 
         &__paper-clip {
@@ -299,7 +289,7 @@ main {
         top: 0;
         opacity: 0;
         width: 35px;
-        height: 20px;
+        height: 50px;
         cursor: pointer;
 
       }
@@ -312,7 +302,7 @@ main {
       font-size: 11px;
       font-weight: 500;
       padding-left: 10px;
-      border: 1px solid #dbdbe5;
+      border: 1px solid #CBCBD9;
       box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.25);
     }
 
@@ -522,7 +512,6 @@ main {
         font-family: "Poppins";
         font-size: 13px;
         font-weight: 500;
-        // color: #25b5f9;
       }
     }
 
@@ -568,7 +557,6 @@ main {
   &__footer {
     width: 85%;
     height: 70px;
-    // border-bottom: 1px solid #b6bac1;
     @include flexbox(row, nowrap, space-between, center);
 
     &--interview {
@@ -663,14 +651,3 @@ main {
   }
 }
 
-@keyframes rotate {
-  0% {
-    border-radius: 50px;
-    transform: rotate(90deg);
-  }
-
-  100% {
-    border-radius: 50px;
-    transform: rotate(180deg);
-  }
-}

@@ -4,21 +4,16 @@
   background-color: #464e62;
 }
 
-// .select-contain {
-//   border-left: 5px solid #0cacf8;
-// }
 
 .menu-items {
   padding-top: 1rem;
   width: 100%;
   min-height: 10vh;
 
-  // background-color: turquoise;
   &__dashboard {
     width: 100%;
     height: 50px;
     @include flexbox(row, nowrap, center, center);
-    // padding: 10px;
 
 
     &--contain {
@@ -39,7 +34,6 @@
       }
 
       .icon {
-        // margin-top: 4px;
         width: 22px;
         height: 22px;
         margin-left: 15px;
@@ -68,7 +62,6 @@
     width: 100%;
     height: 50px;
     @include flexbox(row, nowrap, center, center);
-    // padding: 10px;
 
 
     &--contain {
@@ -89,7 +82,6 @@
       }
 
       .icon {
-        // margin-top: 4px;
         width: 22px;
         height: 22px;
         margin-left: 15px;
@@ -118,7 +110,6 @@
     width: 100%;
     height: 50px;
     @include flexbox(row, nowrap, center, center);
-    // padding: 10px;
 
 
     &--contain {
@@ -139,7 +130,6 @@
       }
 
       .icon {
-        // margin-top: 4px;
         width: 22px;
         height: 22px;
         margin-left: 15px;
@@ -168,8 +158,6 @@
     width: 100%;
     height: 50px;
     @include flexbox(row, nowrap, center, center);
-    // padding: 10px;
-
 
     &--contain {
       @include flexbox(row, nowrap, left, center);
@@ -189,7 +177,6 @@
       }
 
       .icon {
-        // margin-top: 4px;
         width: 22px;
         height: 22px;
         margin-left: 15px;
@@ -231,7 +218,6 @@
     width: 100%;
     height: 50px;
     @include flexbox(row, nowrap, center, center);
-    // padding: 10px;
 
 
     &--contain {
@@ -252,7 +238,6 @@
       }
 
       .icon {
-        // margin-top: 4px;
         width: 22px;
         height: 22px;
         margin-left: 15px;
@@ -281,7 +266,6 @@
     width: 100%;
     height: 50px;
     @include flexbox(row, nowrap, center, center);
-    // padding: 10px;
 
 
     &--contain {
@@ -302,7 +286,6 @@
       }
 
       .icon {
-        // margin-top: 4px;
         width: 22px;
         height: 22px;
         margin-left: 15px;

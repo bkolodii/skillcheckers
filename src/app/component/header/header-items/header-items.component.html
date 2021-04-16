@@ -2,29 +2,39 @@
   <section class="left-section">
     <img class="left-section__logo" src="../../../../assets/image/Skillcheckers-logo.png" alt="">
     <div class="left-section__search">
-      <span aria-hidden="true" data-icon="&#xe902;"  class="icon-search"></span>
+      <span aria-hidden="true" data-icon="&#xe902;" class="icon-search"></span>
       <input type="search" class="input-search" placeholder="Search">
     </div>
   </section>
   <section class="right-section">
     <button class="right-section__order" (click)="navigateToNewOrder()">
-      <span aria-hidden="true" data-icon="&#xe901;"  class="plus"></span>
+      <span aria-hidden="true" data-icon="&#xe901;" class="plus"></span>
       <p class="new-order">New order</p>
     </button>
     <button class="right-section__notification">
-      <span aria-hidden="true" data-icon1="&#xe903;" data-icon2="&#xe904;"  class="notifi-icon"></span>
+      <span aria-hidden="true" data-icon1="&#xe903;" data-icon2="&#xe904;" class="notifi-icon"></span>
     </button>
     <div class="right-section__user">
       <button class="right-section__user--button">
       </button>
-        <span aria-hidden="true" (click)="dropMenu()" data-icon="&#xe900;" *ngIf="!dropWay" class="items-drop-down"></span>
-        <span aria-hidden="true" (click)="dropMenu()" data-icon="&#xe900;" *ngIf="dropWay" class="items-drop-up"></span>
-      <div class="right-section__user--menu" [style.height]="dropWay ? '100px' : '0px'" [style.display]="dropWay ? 'flex' : 'none'"
-      [style.transition]="'height 600ms ease-in-out'">
-        <p class=" menu-profile"> <img src="../../../../assets/image/mainuser.png" alt="">  Profile</p>
-        <hr>
-        <p class="menu-sighOut">  <span aria-hidden="true" data-icon="&#xe900;" class="menu-sighOut__icon"></span> Sigh Out</p>
+      <div class="user-menu" (clickOutside)="onClickedOutsideItem($event)">
+        <button class="user-menu__visible" (click)="dropMenu()">
+          <span aria-hidden="true" data-icon="&#xe900;"
+            [style.font-family]="!dropWay ? 'drop-down-arrow' : 'drop-up-arrow'"
+            class="user-menu__visible--items-drop-down"></span>
+        </button>
+        <div class="user-menu__hidden" [style.height]="dropWay ? '100px' : '0px'"
+          [style.display]="dropWay ? 'flex' : 'none'" [style.transition]="'height 600ms ease-in-out'">
+          <p class="user-menu__hidden--profile" (click)="dropMenu()"> <img src="../../../../assets/image/mainuser.png" alt=""> Profile</p>
+          <hr>
+          <p class="user-menu__hidden--sighOut" (click)="dropMenu()"> <span aria-hidden="true" data-icon="&#xe900;"
+              class="logout-icon"></span> Sigh Out</p>
+        </div>
       </div>
+
+
+
     </div>
+
   </section>
 </header>

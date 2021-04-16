@@ -3,6 +3,7 @@
 .premium {
   min-height: 130px;
   width: 100%;
+  margin-bottom: 50px;
   background-color: #363d4c;
   @include flexbox(column, nowrap, flex-start, center);
 

@@ -5,7 +5,6 @@
         <h1 class="create-title" *ngIf="!editOrder">Create a new order</h1>
         <h1 class="create-title" *ngIf="editOrder">Edit order</h1>
         <div class="position">
-          <!-- <img class="position__icon" src="../../../assets/image/position.svg" alt=""> -->
           <span class="position__icon"><span class="path1"></span><span class="path2"></span><span
               class="path3"></span><span class="path4"></span><span class="path5"></span><span
               class="path6"></span><span class="path7"></span></span>
@@ -17,32 +16,25 @@
             <div class="order-info__programmer--counter">
               <button class="minus" (click)="counter('progNeed', false)">-</button>
               <!-- <input type="text" class="programmer-input" [(ngModel)]="progNeedNumber" minlength="1" value="1"> -->
-              <input type="text" class="programmer-input" formControlName="programmer" minlength="1" value="1">
+              <input matInput type="text" class="programmer-input" formControlName="programmer" minlength="1" value="1">
               <button class="add" (click)="counter('progNeed', true)">+</button>
             </div>
           </div>
           <div class="order-info__mainSkill">
             <p class="order-info__mainSkill--text">Main skill</p>
-            <div class="order-info__mainSkill--select" (clickOutside)="onClickedOutsideItem($event, 'mainSkill')">
-              <button class="visible" (click)="openHidden('mainSkill')"
-                [style.border]="isMainSkill? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-                <input class="visible__title" type="text" formControlName="mainSkil">
-                <span aria-hidden="true" data-icon="&#xe900;"
-                  [style.font-family]="!isMainSkill ? 'drop-down-arrow' : 'drop-up-arrow'"
-                  class="visible__drop-icon"></span>
-              </button>
-              <div class="hidden" [style.display]="isMainSkill ? 'block' : 'none'">
-                <p *ngFor="let skill of mainSkills; let i=index" (click)="chooseItem(skill, 'mainSkill')"
-                  [style.border-bottom]="i == mainSkills.length-1 ? 'none' : ''">{{skill}}</p>
-              </div>
-            </div>
+            <mat-select formControlName="mainSkil" class="order-info__mainSkill--select">
+              <mat-option *ngFor="let skill of mainSkills" [value]="skill" (click)="chooseItem(skill, 'mainSkill')">
+                {{skill}}
+              </mat-option>
+            </mat-select>
+
           </div>
           <div class="order-info__experience">
             <p class="order-info__experience--text">Years of experience</p>
             <div class="order-info__experience--counter">
               <button class="minus" (click)="counter('experience', false)">-</button>
               <!-- <input type="text" class="experience-input" [(ngModel)]="experienceNumber" minlength="1" value="4"> -->
-              <input type="text" class="experience-input" formControlName="experience" minlength="1" value="4">
+              <input matInput type="text" class="experience-input" formControlName="experience" minlength="1" value="4">
               <button class="add" (click)="counter('experience', true)">+</button>
             </div>
           </div>
@@ -61,32 +53,25 @@
 
               <span aria-hidden="true" data-icon="&#xe900;"
                 [style.font-family]="!isAddSkill ? 'drop-down-arrow' : 'drop-up-arrow'" class="drop-icon"></span>
-              <div class="hidden" [style.display]="isAddSkill ? 'block' : 'none'">
+              <div class="hidden" [style.display]="isAddSkill ? 'block' : 'none'" [style.transition]="'display 300ms ease-in-out'" >
                 <p *ngFor="let addential of addSkills; let i=index" (click)="addSkill(addential)"
-                  [style.border-bottom]="i == addSkills.length-1 ? 'none' : ''" (change)="changeCity($event)">{{addential}}</p>
+                  [style.border-bottom]="i == addSkills.length-1 ? 'none' : ''" (change)="changeCity($event)">
+                  {{addential}}</p>
               </div>
             </div>
           </div>
           <div class="order-info__unitName">
             <p class="order-info__unitName--text">Unit name</p>
-            <div class="order-info__unitName--select" (clickOutside)="onClickedOutsideItem($event, 'unitName')">
-              <button (click)="openHidden('unitName')" class="visible"
-                [style.border]="isUnitName? '1px solid #44b4e7' : '1px solid #dcdcdc'">
-                <input class="visible__title" type="text" name="unitName" formControlName="unitName">
-                <span aria-hidden="true" data-icon="&#xe900;"
-                  [style.font-family]="!isUnitName ? 'drop-down-arrow' : 'drop-up-arrow'"
-                  class="visible__drop-icon"></span>
-              </button>
-              <div class="hidden" [style.display]="isUnitName ? 'block' : 'none'">
-                <p *ngFor="let name of namesUnit; let i=index" (click)="chooseItem(name, 'name')"
-                  [style.border-bottom]="i == namesUnit.length-1 ? 'none' : ''">{{name}}</p>
-              </div>
-            </div>
+            <mat-select class="order-info__unitName--select" formControlName="unitName">
+              <mat-option *ngFor="let name of namesUnit" [value]="name" (click)="chooseItem(name, 'name')">
+                {{name}}
+              </mat-option>
+            </mat-select>
           </div>
           <div class="order-info__unitLocation">
             <p class="order-info__unitLocation--text">Unit location</p>
             <!-- <input class="order-info__unitLocation--input" [(ngModel)]="unitLocation" name="unitLocation" type="text"> -->
-            <input class="order-info__unitLocation--input" formControlName="unitLocation" name="unitLocation"
+            <input matInput class="order-info__unitLocation--input" formControlName="unitLocation" name="unitLocation"
               type="text">
           </div>
           <div class="order-info__skillScore">
@@ -96,50 +81,31 @@
 
               </button>
             </div>
-            <div class="order-info__skillScore--select">
-              <div class="skillScore-button">
-                <input type="radio" name="skillScore" id="any0" value="Any" formControlName="skillScore">
-                <label for="any0">Any</label>
-              </div>
-              <div class="skillScore-button">
-                <input type="radio" name="skillScore" value="8 Very good" id="veryGood" checked
-                  formControlName="skillScore">
-                <label for="veryGood">8 Very good</label>
-              </div>
-              <div class="skillScore-button">
-                <input type="radio" name="skillScore" id="good" value="7 Good" formControlName="skillScore">
-                <label for="good">7 Good</label>
-              </div>
-              <div class="skillScore-button">
-                <input type="radio" name="skillScore" id="except" value="9 Exceptional" formControlName="skillScore">
-                <label for="except">9 Exceptional</label>
-              </div>
-            </div>
+            <mat-radio-group class="order-info__skillScore--select" formControlName="skillScore">
+              <mat-radio-button value="Any" class="skillScore-button">Any</mat-radio-button>
+              <mat-radio-button value="9 Exceptional" class="skillScore-button">9 Exceptional</mat-radio-button>
+              <mat-radio-button value="8 Very good" class="skillScore-button">8 Very good</mat-radio-button>
+              <mat-radio-button value="7 Good" class="skillScore-button">7 Good</mat-radio-button>
+            </mat-radio-group>
           </div>
           <div class="order-info__jobLocation">
             <p class="order-info__jobLocation--text">Job location</p>
             <div class="order-info__jobLocation--choose">
               <!-- <input class="jobLocation-input" [(ngModel)]="jobLocation" name="jobLocation" type="text"> -->
               <input class="jobLocation-input" formControlName="jobLocation" name="jobLocation" type="text">
-              <div class="skillScore-button">
-                <input type="radio" name="kindJob" id="onSite" formControlName="kindJob" value="On site">
-                <label for="onSite">On site</label>
-              </div>
-              <div class="skillScore-button">
-                <input type="radio" name="kindJob" id="remote" formControlName="kindJob" value="Remote">
-                <label for="remote">Remote</label>
-              </div>
-              <div class="skillScore-button">
-                <input type="radio" name="kindJob" id="any1" checked formControlName="kindJob" value="Any">
-                <label for="any1">Any</label>
-              </div>
+              <mat-radio-group class="kindJob" formControlName="kindJob">
+                <mat-radio-button value="On site" class="kindJob__button">On site</mat-radio-button>
+                <mat-radio-button value="Remote" class="kindJob__button">Remote</mat-radio-button>
+                <mat-radio-button value="Any" class="kindJob__button">Any</mat-radio-button>
+              </mat-radio-group>
+
             </div>
 
           </div>
           <div class="order-info__salary">
             <p class="order-info__salary--text">Salary range</p>
             <div class="order-info__salary--choose">
-              <div class="select-salary" (clickOutside)="onClickedOutsideItem($event, 'salary')">
+              <!-- <div class="select-salary" (clickOutside)="onClickedOutsideItem($event, 'salary')">
                 <button class="visible" (click)="openHidden('salary')"
                   [style.border]="isSalary? '1px solid #44b4e7' : '1px solid #dcdcdc'">
                   <input class="visible__title" type="text" formControlName="salary">
@@ -151,7 +117,12 @@
                   <p *ngFor="let salar of salaryRange; let i=index" (click)="chooseItem(salar, 'salary')"
                     [style.border-bottom]="i == salaryRange.length-1 ? 'none' : ''">{{salar}}</p>
                 </div>
-              </div>
+              </div> -->
+              <mat-select class="select-salary" formControlName="salary">
+                <mat-option *ngFor="let salar of salaryRange" [value]="salar" (click)="chooseItem(salar, 'salary')">
+                  {{salar}}
+                </mat-option>
+              </mat-select>
               <div class="select-currency" (clickOutside)="onClickedOutsideItem($event, 'currency')">
                 <button class="visible" (click)="openHidden('currency')"
                   [style.border]="isCurrency? '1px solid #44b4e7' : '1px solid #dcdcdc'">
@@ -175,7 +146,7 @@
 
           <div class="order-info__termContr">
             <p class="order-info__termContr--text">Term of contract</p>
-            <div class="order-info__termContr--choose">
+            <!-- <div class="order-info__termContr--choose">
               <div class="termContr-button">
                 <input type="radio" name="termOfContract" id="longTerm" formControlName="termOfContract"
                   value="Long-term">
@@ -191,12 +162,16 @@
                   value="Any">
                 <label for="any2">Any</label>
               </div>
-            </div>
-
+            </div> -->
+            <mat-radio-group class="order-info__termContr--choose" formControlName="termOfContract">
+              <mat-radio-button value="Long-term" class="termContr-button">Long-term</mat-radio-button>
+              <mat-radio-button value="Short-term" class="termContr-button">Short-term</mat-radio-button>
+              <mat-radio-button value="Any" class="termContr-button">Any</mat-radio-button>
+            </mat-radio-group>
           </div>
           <div class="order-info__workMode">
             <p class="order-info__workMode--text">Work mode</p>
-            <div class="order-info__workMode--choose">
+            <!-- <div class="order-info__workMode--choose">
               <div class="workMode-button">
                 <input type="radio" name="workMode" id="fullTime" formControlName="workMode" value="Full time">
                 <label for="fullTime">Full time</label>
@@ -209,7 +184,12 @@
                 <input type="radio" name="workMode" id="any3" checked formControlName="workMode" value="Any">
                 <label for="any3">Any</label>
               </div>
-            </div>
+            </div> -->
+            <mat-radio-group class="order-info__workMode--choose" formControlName="workMode">
+              <mat-radio-button value="Long-term" class="workMode-button">Full time</mat-radio-button>
+              <mat-radio-button value="Short-term" class="workMode-button">Part time</mat-radio-button>
+              <mat-radio-button value="Any" class="workMode-button">Any</mat-radio-button>
+            </mat-radio-group>
 
           </div>
           <div class="order-info__dueDate">
@@ -218,15 +198,23 @@
                 <span aria-hidden="true" data-icon="&#xe900;" class="calendar-info__icon"></span>
               </button>
               Due date</div>
-            <div class="order-info__dueDate--select" (clickOutside)="onClickedOutsideItem($event, 'date')">
-              <button class="visible" (click)="openHidden('date')"
+            <div class="order-info__dueDate--select">
+              <!-- <button class="visible" (click)="openHidden('date')"
                 [style.border]="isDate? '1px solid #44b4e7' : '1px solid #dcdcdc'">
                 <p class="visible__title">{{dueDate}}</p>
-                <span aria-hidden="true" data-icon="&#xe900;" class="visible__drop-icon"></span>
+                
               </button>
               <div class="hidden" [style.display]="isDate ? 'block' : 'none'">
-              </div>
+              </div> -->
+              <input matInput formControlName="dueDate" [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon><span aria-hidden="true" data-icon="&#xe900;"
+                    class="drop-icon"></span></mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+
             </div>
+
 
           </div>
 

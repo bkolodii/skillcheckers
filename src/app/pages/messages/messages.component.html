@@ -8,7 +8,10 @@
         <div class="person" [routerLink]="[ item.url ]">
         
 
-          <img class="person__logo" [src]="item.img" alt="">
+          <div class="person__logo">
+            <img class="person__logo--icon" [src]="item.img" alt="">
+            <span class="person__logo--active"  [style.display]="item.missing == 0 ? 'none' : 'block' "></span>
+          </div>
           <div class="person__person-data">
             <h2 class="person__person-data--title">
               {{item.name}}

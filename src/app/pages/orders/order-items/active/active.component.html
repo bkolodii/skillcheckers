@@ -30,7 +30,6 @@
     <div class="sorting__left--choose-sort" *ngFor="let sortOption of sortOptions; let i=index">
       <p class="title">{{sortOption.item}}</p>
       <button class="delete-choose" (click)="deleteFilter(i, sortOption)">
-        <!-- <img class="delete-choose__cross" src="../../../../assets/image/close.svg" alt=""> -->
         <span aria-hidden="true" data-icon="&#xe900;" class="delete-choose__cross"></span>
       </button>
     </div>
@@ -51,10 +50,10 @@
 <section class="jobApply">
   <div class="jobApply__container">
     <div class="jobApply__container--list" *ngFor="let item of vacancies  | sortOrders: name : location; let i=index ">
-      <div class="createDate">
+      <!-- <div class="createDate">
         <p class="createDate__title">CREATION DATE</p>
         <p class="createDate__text">{{item.creationDate}}</p>
-      </div>
+      </div> -->
       <div class="name">
         <p class="name__title">NAME</p>
         <p class="name__text">{{item.name}}</p>
@@ -71,18 +70,18 @@
         <p class="mainSkill__title">MAIN SKILL</p>
         <p class="mainSkill__text">{{item.mainSkill}}</p>
       </div>
-      <div class="addSkill">
+      <!-- <div class="addSkill">
         <p class="addSkill__title">ADITIONAL SKILLS</p>
         <p class="addSkill__text">{{item.additionalSkill}}</p>
-      </div>
+      </div> -->
       <div class="progNeed">
         <p class="progNeed__title">PROGRAMMERS NEEDED</p>
         <p class="progNeed__text">{{item.progNeed}}</p>
       </div>
-      <div class="dueDate">
+      <!-- <div class="dueDate">
         <p class="dueDate__title">DUE DATE</p>
         <p class="dueDate__text">{{item.dueDate}}</p>
-      </div>
+      </div> -->
       <div class="option" (clickOutside)="onClickedOutsideOption($event, i)" (click)="openOption(i)">
         <button class="option__button">
           <span aria-hidden="true" [style.color]="checkOption == i ? '#0CACF8' : '#6E7585'" data-icon="&#xe900;"
