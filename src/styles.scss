@@ -1,6 +1,9 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
+@import "./assets/styles/reset";
+@import "./assets/styles/mixins";
+@import "./assets/styles/font";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -126,56 +129,75 @@ $skillcheckers-theme: mat-light-theme((color: (primary: $skillcheckers-primary,
 @include angular-material-theme($skillcheckers-theme);
 
 /* You can add global styles to this file, and also import other style files */
-@import "./assets/styles/reset";
-@import "./assets/styles/mixins";
-@import "./assets/styles/font";
+
 
 p {
   margin: 0;
 }
 
-.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-  border-color: #0CACF8;
-}
+// .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+//   border-color: #0CACF8;
+// }
 
-.mat-radio-button.mat-accent .mat-radio-inner-circle {
-  background-color: #0CACF8;
-}
+// .mat-radio-button.mat-accent .mat-radio-inner-circle {
+//   background-color: #0CACF8;
+// }
 
-.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
-  background-color: transparent;
-  opacity: 0;
-}
+// .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+//   background-color: transparent;
+//   opacity: 0;
+// }
 
-.mat-radio-button:not(.mat-radio-disabled).cdk-program-focused .mat-radio-persistent-ripple {
-  opacity: 0;
-}
+// .mat-radio-button:not(.mat-radio-disabled).cdk-program-focused .mat-radio-persistent-ripple {
+//   opacity: 0;
+// }
 
-.mat-radio-container {
-  .mat-radio-outer-circle {
-    width: 17px;
-    height: 17px;
-  }
+// .mat-radio-container {
+//   .mat-radio-outer-circle {
+//     width: 17px;
+//     height: 17px;
+//   }
 
-  .mat-radio-inner-circle {
-    border-radius: 50%;
-    box-sizing: border-box;
-    display: block;
-    height: 20px;
-    left: -1.4px;
-    position: absolute;
-    top: -1.9px;
-    transition: transform ease 280ms, background-color ease 280ms;
-    width: 20px;
-    transform: scale(0.001);
-    -webkit-print-color-adjust: exact;
-    color-adjust: exact;
-  }
-}
+//   .mat-radio-inner-circle {
+//     border-radius: 50%;
+//     box-sizing: border-box;
+//     display: block;
+//     height: 20px;
+//     left: -1.4px;
+//     position: absolute;
+//     top: -1.9px;
+//     transition: transform ease 280ms, background-color ease 280ms;
+//     width: 20px;
+//     transform: scale(0.001);
+//     -webkit-print-color-adjust: exact;
+//     color-adjust: exact;
+//   }
+// }
+// .mat-radio-container:nth-child(2) {
+//   .mat-radio-outer-circle {
+//     width: 17px;
+//     height: 17px;
+//   }
 
-.mat-radio-label-content {
-  padding-left: 0%;
-}
+//   .mat-radio-inner-circle {
+//     border-radius: 50%;
+//     box-sizing: border-box;
+//     display: block;
+//     height: 20px;
+//     left: -0.4px;
+//     position: absolute;
+//     top: -1.9px;
+//     transition: transform ease 280ms, background-color ease 280ms;
+//     width: 20px;
+//     transform: scale(0.001);
+//     -webkit-print-color-adjust: exact;
+//     color-adjust: exact;
+//   }
+// }
+
+// .mat-radio-label-content {
+//   padding-left: 0%;
+// }
 
 
 
@@ -275,7 +297,7 @@ mat-option {
       text-align: right;
       width: 100%;
       font-family: "Poppins";
-      font-size: 10px;
+      font-size: 10.5px;
       font-weight: 500;
       color: #434955;
       line-height: 18px;
@@ -299,6 +321,7 @@ mat-option {
     }
   }
 }
+
 .ql-editor {
   min-height: 100px;
 }
@@ -309,10 +332,101 @@ body {
 
 html,
 body {
-  height: 100%;
+  font-family: "Poppins";
+  height: 100vh;
 }
 
 body {
   margin: 0;
   font-family: "Poppins";
+}
+
+* {
+  font-family: "Poppins";
+}
+
+.flex {
+  display: flex;
+}
+
+.col {
+  flex-flow: column;
+}
+
+.nowr {
+  flex-wrap: nowrap;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+.jcsa {
+  justify-content: space-around;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.aic {
+  align-items: center;
+}
+
+.bc-gray {
+  background-color: #EEF0F8 !important;
+}
+
+.bc-blue {
+  background-color: #0CACF8 !important;
+}
+
+.bc-black {
+  background-color: #292f3d !important;
+}
+
+.bc-green {
+  background-color: #25BF50 !important;
+}
+
+.bc-white {
+  background-color: white !important;
+}
+
+.btn {
+  font-family: "Poppins";
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  padding: 10px 15px 10px 15px;
+  border: 1px solid transparent;
+  outline: none;
+  box-sizing: border-box;
+
+}
+
+.btn-icon-left {
+  padding-right: 7px;
+}
+
+.btn-icon-right {
+  padding-left: 7px;
+}
+
+
+.not-read {
+  min-width: 20px;
+  min-height: 20px;
+  font-family: "Poppins";
+  font-weight: 500;
+  font-style: normal;
+  margin-left: 10px;
+  font-size: 11px;
+  line-height: 11px;
+  border-radius: 50%;
+  color: white;
+}
+
+.w-100 {
+  width: 100%;
 }

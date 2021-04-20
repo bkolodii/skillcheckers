@@ -6,14 +6,14 @@
         [routerLink]="[ item.url ]">
         <span routerLinkActive="choose"></span>
         <div class="person" [routerLink]="[ item.url ]">
-        
+
 
           <div class="person__logo">
             <img class="person__logo--icon" [src]="item.img" alt="">
-            <span class="person__logo--active"  [style.display]="item.missing == 0 ? 'none' : 'block' "></span>
+            <span class="person__logo--active" [style.display]="item.missing == 0 ? 'none' : 'block' "></span>
           </div>
           <div class="person__person-data">
-            <h2 class="person__person-data--title">
+            <h2 class="person__person-data--title" routerLinkActive="select-color">
               {{item.name}}
             </h2>
             <p class="person__person-data--text">

@@ -145,7 +145,7 @@ export class UpcomingComponent implements OnInit {
     return 0;
   }
 
-  chooseDate(curr: Events): void {
+  chooseDate(curr: Events, i: number): void {
     if (typeof curr !== 'string') {
       if (curr.hasOwnProperty('monthNumber')) {
         this.getCalendarDays(new Date(curr.yearNumber, curr.monthNumber, curr.dayNumber));
@@ -155,6 +155,10 @@ export class UpcomingComponent implements OnInit {
       }
     }
     else {
+      console.log(this.month[this.currTime.currMonth - 1]);
+      console.log(i);
+      
+      
       this.getCalendarDays(new Date(this.currTime.currYear, this.currTime.currMonth, this.currTime.currDay));
     }
   }

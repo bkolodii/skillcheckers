@@ -42,7 +42,7 @@ export class NewOrderComponent implements OnInit {
   editorForm: FormGroup;
   order: FormGroup;
   editorStyle = {
-   "min-height": '300px',
+    "min-height": '300px',
     border: 'none'
   }
   config = {
@@ -315,7 +315,7 @@ export class NewOrderComponent implements OnInit {
           dayNumber = res.month;
         }
       })
-      date = `${dayNumber + 1}/${date.toString().split(' ')[2]}/${date.toString().split(' ')[3]}`;
+      date = `${dayNumber + 1}.${date.toString().split(' ')[2]}.${date.toString().split(' ')[3]}`;
       let arr = [new Date().getDate(), new Date().getMonth() + 1, new Date().getFullYear()];
       const newOrder: RequiredSkills = {
         creationDate: arr.join('.'),
@@ -362,7 +362,7 @@ export class NewOrderComponent implements OnInit {
           dayNumber = res.month;
         }
       })
-      date = `${dayNumber + 1}/${date.toString().split(' ')[2]}/${date.toString().split(' ')[3]}`;
+      date = `${dayNumber + 1}.${date.toString().split(' ')[2]}.${date.toString().split(' ')[3]}`;
       const item: RequiredSkills = JSON.parse(localStorage.getItem('edit-order'))
       const newOrder: RequiredSkills = {
         creationDate: item.creationDate,

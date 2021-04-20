@@ -5,6 +5,10 @@
   background-color: #eef0f8 !important;
 }
 
+.select-color{
+  color: #0CACF8;
+}
+
 .choose {
   position: absolute;
   height: 70%;
@@ -61,6 +65,7 @@ main {
           &--icon {
             width: 40px;
             height: 40px;
+            border-radius: 50%;
           }
 
           &--active {
@@ -69,7 +74,7 @@ main {
             bottom: 0px;
             right: 0px;
             width: 7px;
-            height: 8px;
+            height: 7px;
             background: #25BF50;
             border: 1px solid #FFFFFF;
             border-radius: 50%;

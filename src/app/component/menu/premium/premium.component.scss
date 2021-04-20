@@ -1,11 +1,9 @@
 @import "../../../../assets/styles/mixins";
 
 .premium {
-  min-height: 130px;
-  width: 100%;
+  min-height: 150px;
   margin-bottom: 50px;
   background-color: #363d4c;
-  @include flexbox(column, nowrap, flex-start, center);
 
   &__title {
     width: 80%;
@@ -13,7 +11,7 @@
     font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
-    font-size: 23px;
+    font-size: 24px;
     margin-top: 10px;
   }
 
@@ -22,15 +20,17 @@
     width: 80%;
     height: 30px;
     font-family: "Poppins";
-    font-size: 12px;
+    font-size: 13px;
   }
 
   &__button {
     width: 80%;
-    height: 40px;
+    height: 48px;
     background-color: transparent;
-    color: white;
     border: 2px solid #25BF50;
+    box-sizing: border-box;
+    font-weight: 600;
+    line-height: 19px;
     transition: background-color .250s linear, color .250s linear, border .250s linear;
   }
 

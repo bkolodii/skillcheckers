@@ -53,7 +53,8 @@
 
               <span aria-hidden="true" data-icon="&#xe900;"
                 [style.font-family]="!isAddSkill ? 'drop-down-arrow' : 'drop-up-arrow'" class="drop-icon"></span>
-              <div class="hidden" [style.display]="isAddSkill ? 'block' : 'none'" [style.transition]="'display 300ms ease-in-out'" >
+              <div class="hidden" [style.display]="isAddSkill ? 'block' : 'none'"
+                [style.transition]="'display 300ms ease-in-out'">
                 <p *ngFor="let addential of addSkills; let i=index" (click)="addSkill(addential)"
                   [style.border-bottom]="i == addSkills.length-1 ? 'none' : ''" (change)="changeCity($event)">
                   {{addential}}</p>
@@ -206,8 +207,8 @@
               </button>
               <div class="hidden" [style.display]="isDate ? 'block' : 'none'">
               </div> -->
-              <input matInput formControlName="dueDate" [matDatepicker]="picker">
-              <mat-datepicker-toggle matSuffix [for]="picker">
+              <input matInput formControlName="dueDate" placeholder="MM.DD.YYYY" [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker" >
                 <mat-icon matDatepickerToggleIcon><span aria-hidden="true" data-icon="&#xe900;"
                     class="drop-icon"></span></mat-icon>
               </mat-datepicker-toggle>

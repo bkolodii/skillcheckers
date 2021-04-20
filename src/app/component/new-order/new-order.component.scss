@@ -363,7 +363,7 @@ mat-option {
             margin-left: 5px;
             margin-right: 5px;
             font-family: "Poppins";
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 500;
             padding-left: 4px;
             color: #292F3D;
@@ -440,7 +440,7 @@ mat-option {
             font-family: "Poppins";
             font-size: 13px;
             font-weight: 500;
-            line-height: 40px
+            line-height: 40px;
           }
           p:hover{
             background-color: rgba(0, 0, 0, 0.04);
@@ -781,6 +781,7 @@ mat-option {
           font-family: "Poppins";
           font-size: 13px;
           font-weight: 500;
+          
         }
 
         .termContr-button:nth-child(3) {
@@ -1641,7 +1642,7 @@ mat-option {
             padding-left: 10px;
             background-color: transparent;
             font-family: "Poppins";
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 500;
           }
         }
@@ -1650,7 +1651,7 @@ mat-option {
           width: 80%;
           height: 14px;
           font-family: "Poppins";
-          font-size: 12px;
+          font-size: 13px;
           font-weight: 500;
 
           span {
@@ -1714,10 +1715,10 @@ mat-option {
         width: 140px;
         height: 22px;
         @include flexbox(row, nowrap, center, center);
-        margin-top: 5px;
+        margin-top: 10px;
         background-color: white;
-        font-size: 12px;
-        font-weight: 600;
+        font-size: 13px;
+        font-weight: 550;
         color: #39bbf9;
         border: none;
 

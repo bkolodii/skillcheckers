@@ -79,10 +79,10 @@
       <p class="calendar__day-list--day" *ngFor="let day of days">{{day.substr(0,2)}}</p>
     </div>
     <div class="calendar__day-number">
-      <div class="calendar__day-number--block-day" *ngFor="let item of dates"
+      <div class="calendar__day-number--block-day" *ngFor="let item of dates ; let i=index"
         [style.border]="(currDay === item.dayNumber ) ? '1px solid #16b4ff' : '1px solid #d2d2de'"
         [style.background-color]="currTime.currDay === item.dayNumber ? '#d0d7e1' : 'white' "
-        (click)="chooseDate(item)">
+        (click)="chooseDate(item, i)">
         {{item.dayNumber}}
         <div class="eventBox">
           <span [style.border]="currDay <= item.dayNumber ? '3px solid #21b3f9' : '3px solid #fab453' "

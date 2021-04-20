@@ -1,18 +1,18 @@
-<nav class="order-type">
-  <div class="order-type__active" routerLinkActive="active" [routerLink]="[ 'active' ]">
-    <p class="order-type__active--title">ACTIVE</p>
-    <p class="order-type__active--unread">23</p>
-    <span routerLinkActive="order-type__active--choose"></span>
+<nav class="order-type w-100 flex nowrap aic bc-white">
+  <div class="order-type__item flex nowrap aic" routerLinkActive="active" [routerLink]="[ 'active' ]">
+    <p class="order-type__item--title">ACTIVE</p>
+    <p class="not-read flex nowrap jcc aic bc-blue">23</p>
+    <span routerLinkActive="order-type__item--choose w-100 bc-blue"></span>
   </div>
-  <div class="order-type__drafts" routerLinkActive="active" [routerLink]="[ 'drafts' ]">
-    <p class="order-type__drafts--title">DRAFTS</p>
-    <p class="order-type__drafts--unread">2</p>
-    <span routerLinkActive="order-type__active--choose"></span>
+  <div class="order-type__item flex nowrap aic" routerLinkActive="active" [routerLink]="[ 'drafts' ]">
+    <p class="order-type__item--title">DRAFTS</p>
+    <p class="not-read flex nowrap jcc aic bc-blue">2</p>
+    <span routerLinkActive="order-type__item--choose w-100 bc-blue"></span>
   </div>
-  <div class="order-type__closed" routerLinkActive="active" [routerLink]="[ 'closed' ]">
-    <p class="order-type__closed--title">CLOSED</p>
-    <p class="order-type__closed--unread">4</p>
-    <span routerLinkActive="order-type__active--choose"></span>
+  <div class="order-type__item flex nowrap aic" routerLinkActive="active" [routerLink]="[ 'closed' ]">
+    <p class="order-type__item--title">CLOSED</p>
+    <p class="not-read flex nowrap jcc aic bc-blue">4</p>
+    <span routerLinkActive="order-type__item--choose w-100 bc-blue"></span>
   </div>
 </nav>
 <section>

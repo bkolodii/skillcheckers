@@ -2,40 +2,33 @@
 @import "../../../../../assets/styles/font";
 
 .sorting {
-  width: 100%;
-  height: 50px;
+  height: 60px;
   border-bottom: 1px solid #CBCBD9;
-  @include flexbox(row, nowrap, space-between, center);
-  background-color: white;
+  ;
 
   &__left {
     width: auto;
-    height: 50px;
-    @include flexbox(row, nowrap, flex-start, center);
+    height: 60px;
 
     &--name {
-      width: 110px;
-      height: 30px;
+      width: 150px;
+      height: 38px;
       margin-left: 30px;
-      @include flexbox(row, nowrap, space-between, center);
       cursor: pointer;
       position: relative;
 
       .visible {
         top: 0%;
         left: 0;
-        width: 100%;
-        height: 30px;
+        height: 38px;
         position: absolute;
-        background-color: transparent;
-        @include flexbox(row, nowrap, space-between, center);
+        color: #292F3D;
         border: 1px solid #CBCBD9;
 
         &__title {
           font-family: "Poppins";
-          font-size: 12px;
-          font-weight: 500;
-          padding-left: 4px;
+          font-size: 14px;
+          font-weight: 400;
         }
 
         .items-drop {
@@ -53,15 +46,11 @@
 
       }
 
-      // .visible:focus {
-      //   border: 1px solid #44b4e7;
-      // }
-
       .hidden {
         overflow-y: auto;
         position: absolute;
         height: 165px;
-        top: 30px;
+        top: 38px;
         left: 0;
         width: 100%;
         padding: 10px;
@@ -70,41 +59,42 @@
 
         p {
           width: 100%;
-          height: 34px;
+          height: 50px;
           border-bottom: 1px solid #CBCBD9;
           color: #292F3D;
           font-family: "Poppins";
-          font-size: 13px;
-          font-weight: 500;
-          line-height: 34px;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 50px;
+        }
+
+        p:hover {
+          background-color: rgba(0, 0, 0, 0.04);
         }
       }
 
     }
 
     &--location {
-      width: 110px;
-      height: 30px;
+      width: 150px;
+      height: 38px;
       margin-left: 10px;
-      @include flexbox(row, nowrap, space-between, center);
+      margin-right: 10px;
       cursor: pointer;
       position: relative;
 
       .visible {
         top: 0%;
         left: 0;
-        width: 100%;
-        height: 30px;
+        height: 38px;
+        color: #292F3D;
         position: absolute;
-        background-color: transparent;
-        @include flexbox(row, nowrap, space-between, center);
         border: 1px solid #CBCBD9;
 
         &__title {
           font-family: "Poppins";
-          font-size: 12px;
-          font-weight: 500;
-          padding-left: 4px;
+          font-size: 14px;
+          font-weight: 400;
         }
 
         .items-drop {
@@ -122,15 +112,11 @@
 
       }
 
-      // .visible:focus {
-      //   border: 1px solid #44b4e7;
-      // }
-
       .hidden {
         overflow-y: auto;
         position: absolute;
         height: 165px;
-        top: 30px;
+        top: 38px;
         left: 0;
         width: 100%;
         padding: 10px;
@@ -139,13 +125,17 @@
 
         p {
           width: 100%;
-          height: 34px;
+          height: 50px;
           border-bottom: 1px solid #CBCBD9;
           color: #292F3D;
           font-family: "Poppins";
-          font-size: 13px;
-          font-weight: 500;
-          line-height: 34px;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 50px;
+        }
+
+        p:hover {
+          background-color: rgba(0, 0, 0, 0.04);
         }
       }
 
@@ -153,17 +143,15 @@
 
     &--choose-sort {
       min-width: auto;
-      height: 20px;
+      height: 26px;
       padding: 6px;
       margin-left: 10px;
-      background-color: #EEF0F8;
       border-radius: 182px;
-      @include flexbox(row, nowrap, space-around, center);
 
       .title {
         font-family: "Poppins";
-        font-size: 12px;
-        font-weight: 500;
+        font-size: 14px;
+        font-weight: 400;
         white-space: nowrap;
         padding-left: 4px;
         color: #292F3D;
@@ -172,19 +160,15 @@
       }
 
       .delete-choose {
-        width: 20px;
-        height: 20px;
+        width: 25px;
+        height: 25px;
         background-color: #D2D4DE;
         border-radius: 50%;
-        border: none;
-        @include flexbox(row, nowrap, center, center);
+        padding: 10px 5px 10px 5px;
         transition: transform 400ms linear;
         margin-left: 6px;
 
-        // &__cross {
-        //   width: 7px;
-        //   height: 7px;
-        // }
+
 
         &__cross {
           width: 9px;
@@ -209,10 +193,8 @@
   }
 
   &__date {
-    width: 120px;
-    height: 30px;
-    @include flexbox(row, nowrap, space-around, center);
-    background-color: #EEF0F8;
+    width: 157px;
+    height: 38px;
     border-radius: 182px;
     margin-right: 10px;
     cursor: pointer;
@@ -223,25 +205,17 @@
       top: 0%;
       left: 0;
       width: 100%;
-      height: 32px;
+      height: 38px;
       position: absolute;
-      background-color: transparent;
       border-radius: 20px;
-      @include flexbox(row, nowrap, space-between, center);
-      // border: 1px solid #EEF0F8;
 
       .drop-title {
         font-family: "Poppins";
-        font-size: 12px;
-        font-weight: 500;
-        padding-left: 4px;
+        font-size: 14px;
+        font-weight: 400;
         color: #292F3D;
       }
 
-      // .drop {
-      //   width: 11px;
-      //   height: 9px;
-      // }
       .items-drop {
         width: 9px;
         height: 6px;
@@ -257,12 +231,10 @@
     }
 
     &--hidden {
-
-
       overflow-y: auto;
       position: absolute;
       height: 98px;
-      top: 35px;
+      top: 38px;
       right: 6px;
       width: 100%;
       padding: 10px;
@@ -272,13 +244,17 @@
 
       p {
         width: 100%;
-        height: 34px;
+        height: 50px;
         border-bottom: 1px solid #CBCBD9;
         color: #292F3D;
         font-family: "Poppins";
-        font-size: 13px;
-        font-weight: 500;
-        line-height: 34px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 50px;
+      }
+
+      p:hover {
+        background-color: rgba(0, 0, 0, 0.04);
       }
     }
 
@@ -291,29 +267,22 @@
 }
 
 .jobApply {
-  width: 100%;
-  height: 78vh;
-  background-color: #EEF0F8;
+  height: 75vh;
   overflow-y: auto;
 
   &__container {
     padding: 15px 15px 0px 15px;
     min-height: 10vh;
-    // overflow-y: auto;
 
     &--list {
-      width: 100%;
-      min-height: 60px;
-      background-color: white;
+      min-height: 82px;
       border-radius: 2px;
       margin-bottom: 10px;
-      @include flexbox(row, nowrap, space-around, center);
       box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
 
       .createDate {
         width: 10%;
         min-height: 40px;
-        @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
           font-family: "Poppins";
@@ -333,7 +302,6 @@
           font-weight: normal;
           font-size: 14px;
           line-height: 21px;
-          display: flex;
           align-items: center;
           color: #292F3D;
         }
@@ -343,7 +311,7 @@
       .name {
         width: 15%;
         min-height: 40px;
-        @include flexbox(column, nowrap, space-around, flex-start);
+        margin-left: 20px;
 
         &__title {
           @extend .createDate__title;
@@ -351,9 +319,8 @@
 
         &__text {
           @extend .createDate__text;
-          // font-weight: 700;
+          font-weight: bold;
           line-height: 22px;
-          font-weight: 500;
           font-size: 15px;
         }
 
@@ -362,7 +329,6 @@
       .unitName {
         width: 8%;
         min-height: 40px;
-        @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
           @extend .createDate__title;
@@ -377,7 +343,6 @@
       .unitLocation {
         width: 8%;
         min-height: 40px;
-        @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
           @extend .createDate__title;
@@ -392,7 +357,6 @@
       .mainSkill {
         width: 8%;
         min-height: 40px;
-        @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
           @extend .createDate__title;
@@ -407,7 +371,6 @@
       .addSkill {
         width: 15%;
         min-height: 40px;
-        @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
           @extend .createDate__title;
@@ -422,7 +385,6 @@
       .progNeed {
         width: 14%;
         min-height: 40px;
-        @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
           @extend .createDate__title;
@@ -437,7 +399,6 @@
       .dueDate {
         width: 10%;
         min-height: 40px;
-        @include flexbox(column, nowrap, space-around, flex-start);
 
         &__title {
           @extend .createDate__title;
@@ -451,102 +412,84 @@
 
       .option {
         width: 30px;
-        height: 20px;
+        height: 40px;
         position: relative;
+        margin-right: 20px;
 
         &__button {
           position: absolute;
           top: 0%;
           width: 30px;
-          height: 20px;
-          background-color: transparent;
+          height: 40px;
           border: none;
 
-          &--icon {
-            fill: #6E7585;
-            width: 15px;
-            height: 15px;
-          }
 
           &--icon {
             width: 4px;
             height: 16px;
-            line-height: 2px;
             font-family: 'more';
+            line-height: 16px;
+            font-size: 16px;
             color: #6E7585;
           }
 
+
+
           &--icon::before {
-            font-family: "more";
             content: attr(data-icon);
-            font-weight: normal;
-            font-variant: normal;
-            text-transform: none;
-            line-height: 1;
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
           }
         }
 
         &__menu {
-          // display: none;
           position: absolute;
           top: 30px;
           right: -6px;
-          width: 140px;
+          width: 150px;
           height: 112px;
-          background-color: white;
-          @include flexbox(column, nowrap, space-around, center);
           z-index: 3;
           box-shadow: 3px 3.5px 7px 0.5px rgba(0, 0, 0, 0.25);
 
+          &--line {
+            width: 80%;
+            background-color: #CBCBD9;
+            height: 1px;
+          }
+
           &--items {
-            @include flexbox(row, nowrap, flex-start, center);
-            width: 70%;
-            height: 33px;
-            padding: 5px;
-            border-bottom: 1px solid #CBCBD9;
+            width: 80%;
+            height: 50px;
             transition: background 600ms ease-in-out, background-position 600ms ease-in-out;
 
             .items-turn-off {
               width: 20px;
               height: 20px;
-              font-family: 'edit';
+              font-family: 'turn-off';
+              font-size: 15px;
+              line-height: 20px;
             }
 
             .items-edit {
               width: 20px;
               height: 20px;
-              font-family: 'turn-off';
+              font-family: 'edit';
+              font-size: 15px;
+              line-height: 20px;
+
             }
 
             .items-edit::before {
-              font-family: "edit";
               content: attr(data-icon);
-              font-weight: normal;
-              font-variant: normal;
-              text-transform: none;
-              line-height: 1;
-              font-size: 15px;
-              -webkit-font-smoothing: antialiased;
             }
 
             .items-turn-off::before {
-              font-family: "turn-off";
               content: attr(data-icon);
-              font-weight: normal;
-              font-variant: normal;
-              text-transform: none;
-              line-height: 1;
-              font-size: 15px;
-              -webkit-font-smoothing: antialiased;
             }
 
             .items-text {
               font-family: 'Poppins';
               font-style: normal;
               font-weight: normal;
-              font-size: 12px;
+              font-size: 14px;
               line-height: 21px;
               color: #292F3D;
               margin-left: 8px;

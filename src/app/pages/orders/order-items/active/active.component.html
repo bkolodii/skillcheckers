@@ -1,8 +1,10 @@
-<section class="sorting">
-  <div class="sorting__left">
+<section class="sorting w-100 flex nowrap jcsb aic bc-white">
+  <div class="sorting__left flex nowrap aic">
 
-    <div class="sorting__left--name" (clickOutside)="onClickedOutsideItem($event, 'name')" (click)="openHidden('name')">
-      <button class="visible" [style.border]="isName? '1px solid #0CACF8' : '1px solid #CBCBD9'">
+    <div class="sorting__left--name flex nowrap jcsb aic" (clickOutside)="onClickedOutsideItem($event, 'name')"
+      (click)="openHidden('name')">
+      <button class="visible flex nowrap jcsb aic btn bc-white w-100"
+        [style.border]="isName? '1px solid #0CACF8' : '1px solid #CBCBD9'">
         <p class="visible__title">{{name}}</p>
         <span aria-hidden="true" data-icon="&#xe900;"
           [style.font-family]="!isName ? 'drop-down-arrow' : 'drop-up-arrow'" class="items-drop"></span>
@@ -14,9 +16,10 @@
     </div>
 
 
-    <div class="sorting__left--location" (clickOutside)="onClickedOutsideItem($event, 'location')"
+    <div class="sorting__left--location flex nowrap jcsb aic" (clickOutside)="onClickedOutsideItem($event, 'location')"
       (click)="openHidden('location')">
-      <button class="visible" [style.border]="isLocation ? '1px solid #0CACF8' : '1px solid #CBCBD9'">
+      <button class="visible flex nowrap jcsb aic btn bc-white w-100"
+        [style.border]="isLocation ? '1px solid #0CACF8' : '1px solid #CBCBD9'">
         <p class="visible__title">{{location}}</p>
         <span aria-hidden="true" data-icon="&#xe900;"
           [style.font-family]="!isLocation ? 'drop-down-arrow' : 'drop-up-arrow'" class="items-drop"></span>
@@ -27,15 +30,18 @@
         </p>
       </div>
     </div>
-    <div class="sorting__left--choose-sort" *ngFor="let sortOption of sortOptions; let i=index">
+    <div class="sorting__left--choose-sort flex nowrap jcsa aic bc-gray"
+      *ngFor="let sortOption of sortOptions; let i=index">
       <p class="title">{{sortOption.item}}</p>
-      <button class="delete-choose" (click)="deleteFilter(i, sortOption)">
+      <button class="delete-choose flex nowrap jcc aic btn" (click)="deleteFilter(i, sortOption)">
         <span aria-hidden="true" data-icon="&#xe900;" class="delete-choose__cross"></span>
       </button>
     </div>
   </div>
-  <div class="sorting__date" (clickOutside)="onClickedOutsideItem($event, 'dates')" (click)="openHidden('dates')">
-    <button class="sorting__date--visible" [style.border]="isDate ? '1px solid #0CACF8' : '1px solid #EEF0F8'">
+  <div class="sorting__date flex nowrap jcsa aic bc-gray" (clickOutside)="onClickedOutsideItem($event, 'dates')"
+    (click)="openHidden('dates')">
+    <button class="sorting__date--visible bc-gray flex nowrap jcsa aic btn w-100"
+      [style.border]="isDate ? '1px solid #0CACF8' : '1px solid #EEF0F8'">
       <p class="drop-title">{{date}}</p>
       <span aria-hidden="true" data-icon="&#xe900;" [style.font-family]="!isDate ? 'drop-down-arrow' : 'drop-up-arrow'"
         class="items-drop"></span>
@@ -47,59 +53,60 @@
     </div>
   </div>
 </section>
-<section class="jobApply">
+<section class="jobApply bc-gray w-100">
   <div class="jobApply__container">
-    <div class="jobApply__container--list" *ngFor="let item of vacancies  | sortOrders: name : location; let i=index ">
-      <!-- <div class="createDate">
+    <div class="jobApply__container--list w-100 flex nowrap jcsb aic bc-white"
+      *ngFor="let item of vacancies  | sortOrders: name : location; let i=index ">
+      <!-- <div class="createDate flex col nowrap jcsa">
         <p class="createDate__title">CREATION DATE</p>
-        <p class="createDate__text">{{item.creationDate}}</p>
+        <p class="createDate__text flex">{{item.creationDate}}</p>
       </div> -->
-      <div class="name">
+      <div class="name flex col nowrap jcsa">
         <p class="name__title">NAME</p>
-        <p class="name__text">{{item.name}}</p>
+        <p class="name__text flex">{{item.name}}</p>
       </div>
-      <div class="unitName">
+      <div class="unitName flex col nowrap jcsa">
         <p class="unitName__title">UNIT NAME</p>
-        <p class="unitName__text">{{item.unitName}}</p>
+        <p class="unitName__text flex">{{item.unitName}}</p>
       </div>
-      <div class="unitLocation">
+      <div class="unitLocation flex col nowrap jcsa">
         <p class="unitLocation__title">UNIT LOCAION</p>
-        <p class="unitLocation__text">{{item.unitLocation}}</p>
+        <p class="unitLocation__text flex">{{item.unitLocation}}</p>
       </div>
-      <div class="mainSkill">
+      <div class="mainSkill flex col nowrap jcsa">
         <p class="mainSkill__title">MAIN SKILL</p>
-        <p class="mainSkill__text">{{item.mainSkill}}</p>
+        <p class="mainSkill__text flex">{{item.mainSkill}}</p>
       </div>
-      <!-- <div class="addSkill">
+      <!-- <div class="addSkill flex col nowrap jcsa">
         <p class="addSkill__title">ADITIONAL SKILLS</p>
-        <p class="addSkill__text">{{item.additionalSkill}}</p>
+        <p class="addSkill__text flex">{{item.additionalSkill}}</p>
       </div> -->
-      <div class="progNeed">
+      <div class="progNeed flex col nowrap jcsa">
         <p class="progNeed__title">PROGRAMMERS NEEDED</p>
-        <p class="progNeed__text">{{item.progNeed}}</p>
+        <p class="progNeed__text flex">{{item.progNeed}}</p>
       </div>
-      <!-- <div class="dueDate">
+      <!-- <div class="dueDate flex col nowrap jcsa">
         <p class="dueDate__title">DUE DATE</p>
-        <p class="dueDate__text">{{item.dueDate}}</p>
+        <p class="dueDate__text flex">{{item.dueDate}}</p>
       </div> -->
       <div class="option" (clickOutside)="onClickedOutsideOption($event, i)" (click)="openOption(i)">
-        <button class="option__button">
-          <span aria-hidden="true" [style.color]="checkOption == i ? '#0CACF8' : '#6E7585'" data-icon="&#xe900;"
-            class="option__button--icon"></span>
+        <button class="option__button btn bc-white flex aic">
+          <span aria-hidden="true" (mouseover)="changeText=i" [style.color]="checkOption == i ? '#0CACF8' : '#6E7585'"
+            data-icon="&#xe900;" class="option__button--icon"></span>
         </button>
-        <div class="option__menu"
+        <div class="option__menu bc-white flex col nowrap jcsa aic"
           [style.top]="((i === vacancies.length-1 && vacancies.length > 2) || (i === vacancies.length-2 && vacancies.length > 3) ) ? '-120px' : '30px'"
           [style.display]="checkOption == i ? 'flex' : 'none'">
           <!-- <div class="option__menu--items" (click)="openOption(i)">
             <img class="items-icon" src="../../../../assets/image/view.svg" alt="">
             <p class="items-text">View order</p>
           </div> -->
-          <div class="option__menu--items" (click)="openOption(i)" (click)="editCurrOrder(item)">
+          <div class="option__menu--items flex nowrap aic" (click)="openOption(i)" (click)="editCurrOrder(item)">
             <span aria-hidden="true" data-icon="&#xe900;" class="items-edit"></span>
             <p class="items-text">Edit order</p>
           </div>
-          <div class="option__menu--items" [style.border-bottom]="'none'" (click)="closeOrder(item.id)"
-            (click)="openOption(i)">
+          <span class="option__menu--line"></span>
+          <div class="option__menu--items flex nowrap aic" (click)="closeOrder(item.id)" (click)="openOption(i)">
             <span aria-hidden="true" data-icon="&#xe900;" class="items-turn-off"></span>
             <p class="items-text">Close order</p>
           </div>

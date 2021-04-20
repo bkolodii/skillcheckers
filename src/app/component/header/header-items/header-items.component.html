@@ -1,21 +1,21 @@
-<header>
-  <section class="left-section">
+<header class="flex jcsb aic nowrap w-100">
+  <section class="left-section flex jcsa aic nowrap">
     <img class="left-section__logo" src="../../../../assets/image/Skillcheckers-logo.png" alt="">
-    <div class="left-section__search">
+    <div class="left-section__search flex jcsa aic nowrap bc-gray">
       <span aria-hidden="true" data-icon="&#xe902;" class="icon-search"></span>
-      <input type="search" class="input-search" placeholder="Search">
+      <input type="search" class="input-search bc-gray" placeholder="Search">
     </div>
   </section>
-  <section class="right-section">
-    <button class="right-section__order" (click)="navigateToNewOrder()">
-      <span aria-hidden="true" data-icon="&#xe901;" class="plus"></span>
-      <p class="new-order">New order</p>
+  <section class="right-section flex jcsa aic nowrap">
+    <button class="right-section__order bc-green flex nowrap jcc aic btn" (click)="navigateToNewOrder()">
+      <span aria-hidden="true" data-icon="&#xe901;" class="plus btn-icon-left"></span>
+      New order
     </button>
     <button class="right-section__notification">
       <span aria-hidden="true" data-icon1="&#xe903;" data-icon2="&#xe904;" class="notifi-icon"></span>
     </button>
-    <div class="right-section__user">
-      <button class="right-section__user--button">
+    <div class="right-section__user flex nowrap jcc aic">
+      <button class="right-section__user--button btn">
       </button>
       <div class="user-menu" (clickOutside)="onClickedOutsideItem($event)">
         <button class="user-menu__visible" (click)="dropMenu()">
@@ -23,12 +23,13 @@
             [style.font-family]="!dropWay ? 'drop-down-arrow' : 'drop-up-arrow'"
             class="user-menu__visible--items-drop-down"></span>
         </button>
-        <div class="user-menu__hidden" [style.height]="dropWay ? '100px' : '0px'"
+        <div class="user-menu__hidden flex col jcc aic" [style.height]="dropWay ? 'auto' : '0px'"
           [style.display]="dropWay ? 'flex' : 'none'" [style.transition]="'height 600ms ease-in-out'">
-          <p class="user-menu__hidden--profile" (click)="dropMenu()"> <img src="../../../../assets/image/mainuser.png" alt=""> Profile</p>
+          <p class="user-menu__hidden--profile w-100 btn flex nowrap jcc aic " (click)="dropMenu()"> <img
+              class="btn-icon-left" src="../../../../assets/image/mainuser.png" alt=""> Profile</p>
           <hr>
-          <p class="user-menu__hidden--sighOut" (click)="dropMenu()"> <span aria-hidden="true" data-icon="&#xe900;"
-              class="logout-icon"></span> Sigh Out</p>
+          <p class="user-menu__hidden--sighOut w-100 btn flex nowrap jcc aic" (click)="dropMenu()"> <span aria-hidden="true"
+              data-icon="&#xe900;" class="logout-icon btn-icon-left"></span> Sigh Out</p>
         </div>
       </div>
 

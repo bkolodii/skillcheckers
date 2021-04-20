@@ -1,46 +1,18 @@
 @import "../assets/styles/mixins";
 
-#eventOut {
-  width: 10px;
-  height: 10px;
-  border-radius: 50px;
-  border: 1px solid #fab453;
-
-}
-
-#eventNext {
-  width: 10px;
-  height: 10px;
-  border-radius: 50px;
-  border: 1px solid #21b3f9;
-}
-
-.header {
-  width: 100%;
-  z-index: 1000;
-}
-
 .container {
-  // padding-top: 50px;
-  @include flexbox(row, nowrap, left, none);
-  height: 100%;
   overflow: hidden;
-  // height: 80vh;
-  position: fixed;
-  width: 100%;
-  background-color: #EEF0F8;
+  height: 100%;
+  // position: fixed;
 
   &__menu {
     width: 16%;
     height: 100%;
-    background-color: #292F3D;
-
   }
 
   &__items {
     width: 84%;
     height: 100%;
     overflow: hidden;
-    background-color: #EEF0F8;
   }
 }
