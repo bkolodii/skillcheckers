@@ -6,8 +6,8 @@
       <button class="visible flex nowrap jcsb aic btn bc-white w-100"
         [style.border]="isName? '1px solid #0CACF8' : '1px solid #CBCBD9'">
         <p class="visible__title">{{name}}</p>
-        <span aria-hidden="true" data-icon="&#xe900;"
-          [style.font-family]="!isName ? 'drop-down-arrow' : 'drop-up-arrow'" class="items-drop"></span>
+        <span aria-hidden="true" [class]="!isName ? 'icon-drop-down-arrow' : 'icon-drop-up-arrow'"
+          class="items-drop"></span>
       </button>
       <div class="hidden" [style.display]="isName ? 'block' : 'none'">
         <p *ngFor="let name of unitNames; let i=index" (click)="addFilter(name, 'name')"
@@ -21,8 +21,8 @@
       <button class="visible flex nowrap jcsb aic btn bc-white w-100"
         [style.border]="isLocation ? '1px solid #0CACF8' : '1px solid #CBCBD9'">
         <p class="visible__title">{{location}}</p>
-        <span aria-hidden="true" data-icon="&#xe900;"
-          [style.font-family]="!isLocation ? 'drop-down-arrow' : 'drop-up-arrow'" class="items-drop"></span>
+        <span aria-hidden="true" [class]="!isLocation ? 'icon-drop-down-arrow' : 'icon-drop-up-arrow'"
+          class="items-drop"></span>
       </button>
       <div class="hidden" [style.display]="isLocation ? 'block' : 'none'">
         <p *ngFor="let location of unitLocation; let i=index" (click)="addFilter(location, 'location')"
@@ -34,7 +34,7 @@
       *ngFor="let sortOption of sortOptions; let i=index">
       <p class="title">{{sortOption.item}}</p>
       <button class="delete-choose flex nowrap jcc aic btn" (click)="deleteFilter(i, sortOption)">
-        <span aria-hidden="true" data-icon="&#xe900;" class="delete-choose__cross"></span>
+        <span aria-hidden="true" class="delete-choose__cross icon-close"></span>
       </button>
     </div>
   </div>
@@ -43,7 +43,7 @@
     <button class="sorting__date--visible bc-gray flex nowrap jcsa aic btn w-100"
       [style.border]="isDate ? '1px solid #0CACF8' : '1px solid #EEF0F8'">
       <p class="drop-title">{{date}}</p>
-      <span aria-hidden="true" data-icon="&#xe900;" [style.font-family]="!isDate ? 'drop-down-arrow' : 'drop-up-arrow'"
+      <span aria-hidden="true" [class]="!isDate ? 'icon-drop-down-arrow' : 'icon-drop-up-arrow'"
         class="items-drop"></span>
 
     </button>
@@ -92,7 +92,7 @@
       <div class="option" (clickOutside)="onClickedOutsideOption($event, i)" (click)="openOption(i)">
         <button class="option__button btn bc-white flex aic">
           <span aria-hidden="true" (mouseover)="changeText=i" [style.color]="checkOption == i ? '#0CACF8' : '#6E7585'"
-            data-icon="&#xe900;" class="option__button--icon"></span>
+            class="option__button--icon icon-more-option"></span>
         </button>
         <div class="option__menu bc-white flex col nowrap jcsa aic"
           [style.top]="((i === vacancies.length-1 && vacancies.length > 2) || (i === vacancies.length-2 && vacancies.length > 3) ) ? '-120px' : '30px'"
@@ -102,12 +102,12 @@
             <p class="items-text">View order</p>
           </div> -->
           <div class="option__menu--items flex nowrap aic" (click)="openOption(i)" (click)="editCurrOrder(item)">
-            <span aria-hidden="true" data-icon="&#xe900;" class="items-edit"></span>
+            <span aria-hidden="true" class="items-edit icon-edit"></span>
             <p class="items-text">Edit order</p>
           </div>
           <span class="option__menu--line"></span>
           <div class="option__menu--items flex nowrap aic" (click)="closeOrder(item.id)" (click)="openOption(i)">
-            <span aria-hidden="true" data-icon="&#xe900;" class="items-turn-off"></span>
+            <span aria-hidden="true" class="items-turn-off icon-turn-off"></span>
             <p class="items-text">Close order</p>
           </div>
         </div>

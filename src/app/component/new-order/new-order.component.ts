@@ -32,9 +32,9 @@ export class NewOrderComponent implements OnInit {
   mainSkills: Array<string> = ['PHP', 'Java', 'C++', 'Flutter', 'iOS', 'UI UX', 'JS', 'C#', 'Python'];
   addSkills: Array<string> = ['PHP', 'Java', 'C++', 'Flutter', 'iOS', 'UI UX', 'JavaScript', 'C#', 'Python', 'HTML', 'CSS'];
   salaryRange: Array<string> = ['10,000 - 25,000', '25,000 - 50,000', '50,000 - 100,000', '100,000 - 120,000', '120,000 - 140,000', '140,000 - 160,000', '160,000 - 180,000', '180,000 - 200,000'];
-  currencyRange: Array<string> = ['euro', 'pound', 'poland', 'hryvnia', 'dollar'];
+  currencyRange: Array<string> = ['icon-euro-currency-symbol', 'icon-pound-symbol-variant', 'icon-poland-zloty-currency-symbol', 'icon-ukraine-hryvna', 'icon-dollar'];
   checkAddSkill: Array<string> = [];
-  currCurrency: string = 'dollar';
+  currCurrency: string = 'icon-dollar';
   questions: Array<Question> = [];
   prevQuestion: Question;
   isQuestion: boolean = true;

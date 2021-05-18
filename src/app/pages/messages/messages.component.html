@@ -1,18 +1,16 @@
-<main>
-  <section class="users">
-    <div class="users__all">
-      <div class="users__all--members" *ngFor="let item of messaging"
+<main class="w-100 flex nowrap jcfs jcfs bc-gray">
+  <section class="users flex col nowrap jcsb aic">
+    <div class="users__all w-100 flex col nowrap jcsb aic">
+      <div class="users__all--members w-100 flex nowrap jcfe aic" *ngFor="let item of messaging"
         [style.background-color]="item.missing == 0 ? 'white' : '#fdf5ec' " routerLinkActive="select-item"
         [routerLink]="[ item.url ]">
         <span routerLinkActive="choose"></span>
-        <div class="person" [routerLink]="[ item.url ]">
-
-
+        <div class="person w-100 flex nowrap jcfe aic" [routerLink]="[ item.url ]">
           <div class="person__logo">
             <img class="person__logo--icon" [src]="item.img" alt="">
-            <span class="person__logo--active" [style.display]="item.missing == 0 ? 'none' : 'block' "></span>
+            <span class="person__logo--active bc-green" [style.display]="item.missing == 0 ? 'none' : 'block' "></span>
           </div>
-          <div class="person__person-data">
+          <div class="person__person-data flex col nowrap jcc aifs">
             <h2 class="person__person-data--title" routerLinkActive="select-color">
               {{item.name}}
             </h2>
@@ -20,11 +18,11 @@
               {{item.text}}
             </p>
           </div>
-          <div class="person__other-data">
+          <div class="person__other-data flex col nowrap jcc aic">
             <p class="person__other-data--time">
               {{item.time}}
             </p>
-            <p class="person__other-data--missing" *ngIf="item.missing > 0">
+            <p class="person__other-data--missing bc-white txt-c-blue flex nowrap jcc aic" *ngIf="item.missing > 0">
               {{item.missing}}
             </p>
           </div>
@@ -32,7 +30,7 @@
       </div>
     </div>
   </section>
-  <section class="users-messages">
+  <section class="users-messages bc-gray">
     <router-outlet></router-outlet>
   </section>
 </main>

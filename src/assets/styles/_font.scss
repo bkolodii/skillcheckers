@@ -4,459 +4,367 @@
 }
 
 @font-face {
-  font-family: "turn-off";
-  src: url("../fonts/icomoon/fonts/icomoon.eot"),
-    url("../fonts/icomoon/fonts/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/icomoon/fonts/icomoon.woff") format("woff"),
-    url("../fonts/icomoon/fonts/icomoon.ttf") format("truetype"),
-    url("../fonts/icomoon/fonts/icomoon.svg#icomoon") format("svg");
+  font-family: 'icomoon';
+  src:  url('../fonts/fonts/icomoon.eot?jlowz4');
+  src:  url('../fonts/fonts//icomoon.eot?jlowz4#iefix') format('embedded-opentype'),
+    url('../fonts/fonts/icomoon.ttf?jlowz4') format('truetype'),
+    url('../fonts/fonts/icomoon.woff?jlowz4') format('woff'),
+    url('../fonts/fonts/icomoon.svg?jlowz4#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: block;
 }
 
-@font-face {
-  font-family: "edit";
-  src: url("../fonts/edit/icomoon.eot"),
-    url("../fonts/edit/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/edit/icomoon.woff") format("woff"),
-    url("../fonts/edit/icomoon.ttf") format("truetype"),
-    url("../fonts/edit/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
   font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@font-face {
-  font-family: "drop-down-arrow";
-  src: url("../fonts/drop-down-arrow/icomoon.eot"),
-    url("../fonts/drop-down-arrow/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/drop-down-arrow/icomoon.woff") format("woff"),
-    url("../fonts/drop-down-arrow/icomoon.ttf") format("truetype"),
-    url("../fonts/drop-down-arrow/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-arrowhead-thin-outline-to-the-left:before {
+  content: "\e925";
+  color: #6e7585;
 }
-
-@font-face {
-  font-family: "drop-up-arrow";
-  src: url("../fonts/drop-up-arrow/icomoon.eot"),
-    url("../fonts/drop-up-arrow/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/drop-up-arrow/icomoon.woff") format("woff"),
-    url("../fonts/drop-up-arrow/icomoon.ttf") format("truetype"),
-    url("../fonts/drop-up-arrow/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-arrow-point-to-right:before {
+  content: "\e926";
+  color: #6e7585;
 }
-
-@font-face {
-  font-family: "search";
-  src: url("../fonts/search/icomoon.eot"),
-    url("../fonts/search/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/search/icomoon.woff") format("woff"),
-    url("../fonts/search/icomoon.ttf") format("truetype"),
-    url("../fonts/search/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-calendar_clock_icon_135839:before {
+  content: "\e927";
+  color: #fff;
 }
-
-@font-face {
-  font-family: "plus-circuse";
-  src: url("../fonts/plus-circuse/icomoon.eot"),
-    url("../fonts/plus-circuse/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/plus-circuse/icomoon.woff") format("woff"),
-    url("../fonts/plus-circuse/icomoon.ttf") format("truetype"),
-    url("../fonts/plus-circuse/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-clock:before {
+  content: "\e928";
+  color: #0cacf8;
 }
-
-@font-face {
-  font-family: "notification";
-  src: url("../fonts/notification/icomoon.eot"),
-    url("../fonts/notification/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/notification/icomoon.woff") format("woff"),
-    url("../fonts/notification/icomoon.ttf") format("truetype"),
-    url("../fonts/notification/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-play:before {
+  content: "\e929";
+  color: #0cacf8;
 }
-
-@font-face {
-  font-family: "more";
-  src: url("../fonts/more/icomoon.eot"),
-    url("../fonts/more/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/more/icomoon.woff") format("woff"),
-    url("../fonts/more/icomoon.ttf") format("truetype"),
-    url("../fonts/more/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-logout1:before {
+  content: "\e920";
+  color: #6e7585;
 }
-
-@font-face {
-  font-family: "position";
-  src: url("../fonts/position/icomoon.eot"),
-    url("../fonts/position/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/position/icomoon.woff") format("woff"),
-    url("../fonts/position/icomoon.ttf") format("truetype"),
-    url("../fonts/position/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-add-person:before {
+  content: "\e921";
+  color: #6e7585;
 }
-
-@font-face {
-  font-family: "description";
-  src: url("../fonts/description/icomoon.eot"),
-    url("../fonts/description/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/description/icomoon.woff") format("woff"),
-    url("../fonts/description/icomoon.ttf") format("truetype"),
-    url("../fonts/description/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-delete-person:before {
+  content: "\e922";
+  color: #6e7585;
 }
-
-@font-face {
-  font-family: "companyDesc";
-  src: url("../fonts/companyDesc/icomoon.eot"),
-    url("../fonts/companyDesc/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/companyDesc/icomoon.woff") format("woff"),
-    url("../fonts/companyDesc/icomoon.ttf") format("truetype"),
-    url("../fonts/companyDesc/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-more-option:before {
+  content: "\e923";
+  color: #6e7585;
 }
-
-@font-face {
-  font-family: "screenQuest";
-  src: url("../fonts/screenQuest/icomoon.eot"),
-    url("../fonts/screenQuest/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/screenQuest/icomoon.woff") format("woff"),
-    url("../fonts/screenQuest/icomoon.ttf") format("truetype"),
-    url("../fonts/screenQuest/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-paper-clip:before {
+  content: "\e924";
+  color: #6e7585;
 }
-
-@font-face {
-  font-family: "up-navigate-arrow";
-  src: url("../fonts/up-navigate-arrow/icomoon.eot"),
-    url("../fonts/up-navigate-arrow/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/up-navigate-arrow/icomoon.woff") format("woff"),
-    url("../fonts/up-navigate-arrow/icomoon.ttf") format("truetype"),
-    url("../fonts/up-navigate-arrow/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-candidates:before {
+  content: "\e91a";
+  color: #fff;
 }
-
-@font-face {
-  font-family: "down-navigate-arrow";
-  src: url("../fonts/down-navigate-arrow/icomoon.eot"),
-    url("../fonts/down-navigate-arrow/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/down-navigate-arrow/icomoon.woff") format("woff"),
-    url("../fonts/down-navigate-arrow/icomoon.ttf") format("truetype"),
-    url("../fonts/down-navigate-arrow/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-conversation:before {
+  content: "\e91b";
+  color: #fff;
 }
-
-@font-face {
-  font-family: "close";
-  src: url("../fonts/close/icomoon.eot"),
-    url("../fonts/close/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/close/icomoon.woff") format("woff"),
-    url("../fonts/close/icomoon.ttf") format("truetype"),
-    url("../fonts/close/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-dasboard:before {
+  content: "\e91c";
+  color: #fff;
 }
-
-@font-face {
-  font-family: "question";
-  src: url("../fonts/question/icomoon.eot"),
-    url("../fonts/question/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/question/icomoon.woff") format("woff"),
-    url("../fonts/question/icomoon.ttf") format("truetype"),
-    url("../fonts/question/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-email:before {
+  content: "\e91d";
+  color: #fff;
 }
-
-@font-face {
-  font-family: "resent";
-  src: url("../fonts/resent/icomoon.eot"),
-    url("../fonts/resent/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/resent/icomoon.woff") format("woff"),
-    url("../fonts/resent/icomoon.ttf") format("truetype"),
-    url("../fonts/resent/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-paste:before {
+  content: "\e91e";
+  color: #fff;
 }
-
-@font-face {
-  font-family: "delete";
-  src: url("../fonts/delete/icomoon.eot"),
-    url("../fonts/delete/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/delete/icomoon.woff") format("woff"),
-    url("../fonts/delete/icomoon.ttf") format("truetype"),
-    url("../fonts/delete/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-settings:before {
+  content: "\e91f";
+  color: #fff;
 }
-
-@font-face {
-  font-family: "menu";
-  src: url("../fonts/menu/icomoon.eot"),
-    url("../fonts/menu/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/menu/icomoon.woff") format("woff"),
-    url("../fonts/menu/icomoon.ttf") format("truetype"),
-    url("../fonts/menu/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-logout:before {
+  content: "\e913";
 }
-
-@font-face {
-  font-family: "dollar";
-  src: url("../fonts/dollar/icomoon.eot"),
-    url("../fonts/dollar/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/dollar/icomoon.woff") format("woff"),
-    url("../fonts/dollar/icomoon.ttf") format("truetype"),
-    url("../fonts/dollar/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-calendar:before {
+  content: "\e914";
+  color: #0cacf8;
 }
-
-@font-face {
-  font-family: "pound";
-  src: url("../fonts/pound/icomoon.eot"),
-    url("../fonts/pound/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/pound/icomoon.woff") format("woff"),
-    url("../fonts/pound/icomoon.ttf") format("truetype"),
-    url("../fonts/pound/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-dollar:before {
+  content: "\e915";
 }
-
-@font-face {
-  font-family: "poland";
-  src: url("../fonts/poland/icomoon.eot"),
-    url("../fonts/poland/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/poland/icomoon.woff") format("woff"),
-    url("../fonts/poland/icomoon.ttf") format("truetype"),
-    url("../fonts/poland/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-euro-currency-symbol:before {
+  content: "\e916";
 }
-
-@font-face {
-  font-family: "euro";
-  src: url("../fonts/euro/icomoon.eot"),
-    url("../fonts/euro/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/euro/icomoon.woff") format("woff"),
-    url("../fonts/euro/icomoon.ttf") format("truetype"),
-    url("../fonts/euro/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-poland-zloty-currency-symbol:before {
+  content: "\e917";
 }
-
-@font-face {
-  font-family: "hryvnia";
-  src: url("../fonts/hryvnia/icomoon.eot"),
-    url("../fonts/hryvnia/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/hryvnia/icomoon.woff") format("woff"),
-    url("../fonts/hryvnia/icomoon.ttf") format("truetype"),
-    url("../fonts/hryvnia/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-pound-symbol-variant:before {
+  content: "\e918";
 }
-
-@font-face {
-  font-family: "calendar";
-  src: url("../fonts/calendar/icomoon.eot"),
-    url("../fonts/calendar/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/calendar/icomoon.woff") format("woff"),
-    url("../fonts/calendar/icomoon.ttf") format("truetype"),
-    url("../fonts/calendar/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-ukraine-hryvna:before {
+  content: "\e919";
 }
-
-@font-face {
-  font-family: "dashboard";
-  src: url("../fonts/dashboard/icomoon.eot"),
-    url("../fonts/dashboard/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/dashboard/icomoon.woff") format("woff"),
-    url("../fonts/dashboard/icomoon.ttf") format("truetype"),
-    url("../fonts/dashboard/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-resent:before {
+  content: "\e912";
+  color: #0cacf8;
 }
-
-@font-face {
-  font-family: "paste";
-  src: url("../fonts/paste/icomoon.eot"),
-    url("../fonts/paste/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/paste/icomoon.woff") format("woff"),
-    url("../fonts/paste/icomoon.ttf") format("truetype"),
-    url("../fonts/paste/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-question:before {
+  content: "\e911";
+  color: #fff;
 }
-
-@font-face {
-  font-family: "conversation";
-  src: url("../fonts/conversation/icomoon.eot"),
-    url("../fonts/conversation/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/conversation/icomoon.woff") format("woff"),
-    url("../fonts/conversation/icomoon.ttf") format("truetype"),
-    url("../fonts/conversation/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-close:before {
+  content: "\e910";
 }
-
-@font-face {
-  font-family: "messages";
-  src: url("../fonts/messages/icomoon.eot"),
-    url("../fonts/messages/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/messages/icomoon.woff") format("woff"),
-    url("../fonts/messages/icomoon.ttf") format("truetype"),
-    url("../fonts/messages/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-down-navigate-arrow:before {
+  content: "\e90f";
 }
-
-@font-face {
-  font-family: "candidates";
-  src: url("../fonts/candidates/icomoon.eot"),
-    url("../fonts/candidates/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/candidates/icomoon.woff") format("woff"),
-    url("../fonts/candidates/icomoon.ttf") format("truetype"),
-    url("../fonts/candidates/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-up-arrow:before {
+  content: "\e90e";
 }
-
-@font-face {
-  font-family: "settings";
-  src: url("../fonts/settings/icomoon.eot"),
-    url("../fonts/settings/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/settings/icomoon.woff") format("woff"),
-    url("../fonts/settings/icomoon.ttf") format("truetype"),
-    url("../fonts/settings/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-screenQuest .path1:before {
+  content: "\e90b";
+  color: rgb(12, 172, 248);
 }
-
-@font-face {
-  font-family: "add-person";
-  src: url("../fonts/add-person/icomoon.eot"),
-    url("../fonts/add-person/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/add-person/icomoon.woff") format("woff"),
-    url("../fonts/add-person/icomoon.ttf") format("truetype"),
-    url("../fonts/add-person/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-screenQuest .path2:before {
+  content: "\e92a";
+  margin-left: -1em;
+  color: rgb(12, 172, 248);
 }
-
-@font-face {
-  font-family: "delete-person";
-  src: url("../fonts/delete-person/icomoon.eot"),
-    url("../fonts/delete-person/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/delete-person/icomoon.woff") format("woff"),
-    url("../fonts/delete-person/icomoon.ttf") format("truetype"),
-    url("../fonts/delete-person/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-screenQuest .path3:before {
+  content: "\e92b";
+  margin-left: -1em;
+  color: rgb(12, 172, 248);
 }
-
-@font-face {
-  font-family: "more-option";
-  src: url("../fonts/more-option/icomoon.eot"),
-    url("../fonts/more-option/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/more-option/icomoon.woff") format("woff"),
-    url("../fonts/more-option/icomoon.ttf") format("truetype"),
-    url("../fonts/more-option/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-screenQuest .path4:before {
+  content: "\e92c";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
 }
-
-@font-face {
-  font-family: "paper-clip";
-  src: url("../fonts/paper-clip/icomoon.eot"),
-    url("../fonts/paper-clip/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/paper-clip/icomoon.woff") format("woff"),
-    url("../fonts/paper-clip/icomoon.ttf") format("truetype"),
-    url("../fonts/paper-clip/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-screenQuest .path5:before {
+  content: "\e92d";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
 }
-
-@font-face {
-  font-family: "play";
-  src: url("../fonts/play/icomoon.eot"),
-    url("../fonts/play/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/play/icomoon.woff") format("woff"),
-    url("../fonts/play/icomoon.ttf") format("truetype"),
-    url("../fonts/play/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-screenQuest .path6:before {
+  content: "\e92e";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
 }
-
-@font-face {
-  font-family: "calendar-date";
-  src: url("../fonts/calendar-date/icomoon.eot"),
-    url("../fonts/calendar-date/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/calendar-date/icomoon.woff") format("woff"),
-    url("../fonts/calendar-date/icomoon.ttf") format("truetype"),
-    url("../fonts/calendar-date/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-screenQuest .path7:before {
+  content: "\e92f";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
 }
-
-@font-face {
-  font-family: "clock";
-  src: url("../fonts/clock/icomoon.eot"),
-    url("../fonts/clock/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/clock/icomoon.woff") format("woff"),
-    url("../fonts/clock/icomoon.ttf") format("truetype"),
-    url("../fonts/clock/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-screenQuest .path8:before {
+  content: "\e930";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
 }
-@font-face {
-  font-family: "navigate-right";
-  src: url("../fonts/navigate-right/icomoon.eot"),
-    url("../fonts/navigate-right/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/navigate-right/icomoon.woff") format("woff"),
-    url("../fonts/navigate-right/icomoon.ttf") format("truetype"),
-    url("../fonts/navigate-right/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-screenQuest .path9:before {
+  content: "\e931";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
 }
-@font-face {
-  font-family: "navigate-left";
-  src: url("../fonts/navigate-left/icomoon.eot"),
-    url("../fonts/navigate-left/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/navigate-left/icomoon.woff") format("woff"),
-    url("../fonts/navigate-left/icomoon.ttf") format("truetype"),
-    url("../fonts/navigate-left/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-companyDesc .path1:before {
+  content: "\e90c";
+  color: rgb(12, 172, 248);
 }
-@font-face {
-  font-family: "navigate-left";
-  src: url("../fonts/navigate-left/icomoon.eot"),
-    url("../fonts/navigate-left/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/navigate-left/icomoon.woff") format("woff"),
-    url("../fonts/navigate-left/icomoon.ttf") format("truetype"),
-    url("../fonts/navigate-left/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-companyDesc .path2:before {
+  content: "\e932";
+  margin-left: -1em;
+  color: rgb(12, 172, 248);
 }
-@font-face {
-  font-family: "logout";
-  src: url("../fonts/logout/icomoon.eot"),
-    url("../fonts/logout/icomoon.eot?#iefix") format("embedded-opentype"),
-    url("../fonts/logout/icomoon.woff") format("woff"),
-    url("../fonts/logout/icomoon.ttf") format("truetype"),
-    url("../fonts/logout/icomoon.svg#icomoon") format("svg");
-  font-weight: normal;
-  font-style: normal;
+.icon-companyDesc .path3:before {
+  content: "\e933";
+  margin-left: -1em;
+  color: rgb(12, 172, 248);
+}
+.icon-companyDesc .path4:before {
+  content: "\e934";
+  margin-left: -1em;
+  color: rgb(12, 172, 248);
+}
+.icon-companyDesc .path5:before {
+  content: "\e935";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-companyDesc .path6:before {
+  content: "\e936";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-companyDesc .path7:before {
+  content: "\e937";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-companyDesc .path8:before {
+  content: "\e938";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-companyDesc .path9:before {
+  content: "\e939";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-companyDesc .path10:before {
+  content: "\e93a";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-companyDesc .path11:before {
+  content: "\e93b";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-companyDesc .path12:before {
+  content: "\e93c";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-companyDesc .path13:before {
+  content: "\e93d";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-companyDesc .path14:before {
+  content: "\e93e";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-companyDesc .path15:before {
+  content: "\e93f";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-companyDesc .path16:before {
+  content: "\e940";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-companyDesc .path17:before {
+  content: "\e941";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-description .path1:before {
+  content: "\e90d";
+  color: rgb(107, 113, 129);
+}
+.icon-description .path2:before {
+  content: "\e942";
+  margin-left: -1em;
+  color: rgb(12, 172, 248);
+}
+.icon-description .path3:before {
+  content: "\e943";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-description .path4:before {
+  content: "\e944";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-description .path5:before {
+  content: "\e945";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-description .path6:before {
+  content: "\e946";
+  margin-left: -1em;
+  color: rgb(107, 113, 129);
+}
+.icon-position .path1:before {
+  content: "\e90a";
+  color: rgb(62, 189, 250);
+}
+.icon-position .path2:before {
+  content: "\e947";
+  margin-left: -1em;
+  color: rgb(144, 148, 160);
+}
+.icon-position .path3:before {
+  content: "\e948";
+  margin-left: -1em;
+  color: rgb(144, 148, 160);
+}
+.icon-position .path4:before {
+  content: "\e949";
+  margin-left: -1em;
+  color: rgb(144, 148, 160);
+}
+.icon-position .path5:before {
+  content: "\e94a";
+  margin-left: -1em;
+  color: rgb(144, 148, 160);
+}
+.icon-position .path6:before {
+  content: "\e94b";
+  margin-left: -1em;
+  color: rgb(144, 148, 160);
+}
+.icon-position .path7:before {
+  content: "\e94c";
+  margin-left: -1em;
+  color: rgb(144, 148, 160);
+}
+.icon-delete:before {
+  content: "\e907";
+  color: #fd6868;
+}
+.icon-menu:before {
+  content: "\e908";
+  color: #ace2fd;
+}
+.icon-more:before {
+  content: "\e909";
+}
+.icon-iconmonstr-plus-6:before {
+  content: "\e904";
+  color: #fff;
+}
+.icon-icons8-search:before {
+  content: "\e905";
+  color: #0cacf8;
+}
+.icon-notification .path1:before {
+  content: "\e906";
+  color: rgb(41, 47, 61);
+}
+.icon-notification .path2:before {
+  content: "\e94d";
+  margin-left: -1em;
+  color: rgb(242, 34, 34);
+}
+.icon-drop-down-arrow:before {
+  content: "\e902";
+  color: #6e7585;
+}
+.icon-drop-up-arrow:before {
+  content: "\e903";
+  color: #6e7585;
+}
+.icon-edit:before {
+  content: "\e901";
+  color: #6e7585;
+}
+.icon-turn-off:before {
+  content: "\e900";
+  color: #6e7585;
 }

@@ -1,61 +1,69 @@
-<main>
-  <section class="users-list">
-    <div *ngFor="let event of fourDayEvents" class="users-list__fourEvents">
-      <p class="users-list__fourEvents--date"
+<main class="w-100 bc-gray flex nowrap jcsb aifs">
+  <section class="users-list flex col nowrap jcfs">
+    <div *ngFor="let event of fourDayEvents" class="users-list__fourEvents w-100">
+      <p class="users-list__fourEvents--date font-12 w-100 txt-c-initial"
         *ngIf="currDay === +event[0]?.interviewTime.split('.')[0] ; else tomorrow">
         TODAY</p>
       <ng-template #tomorrow>
-        <p class="users-list__fourEvents--date"
+        <p class="users-list__fourEvents--date font-12 w-100 txt-c-initial"
           *ngIf="currDay+1 === +event[0]?.interviewTime.split('.')[0] ; else date">
           TOMORROW, {{+event[0].interviewTime.split('.')[0]}}
           {{month[+event[0].interviewTime.split('.')[1] - 1].monthName.toUpperCase()}} </p>
       </ng-template>
       <ng-template #date>
-        <p class="users-list__fourEvents--date" *ngIf="+event[0]?.interviewTime.split('.')[0]">
-          {{+event[0].interviewTime.split('.')[0]}} {{month[+event[0].interviewTime.split('.')[1] - 1].monthName.toUpperCase()}} {{+event[0].interviewTime.split('.')[2].substr(0,4)}}</p>
+        <p class="users-list__fourEvents--date font-12 w-100 txt-c-initial"
+          *ngIf="+event[0]?.interviewTime.split('.')[0]">
+          {{+event[0].interviewTime.split('.')[0]}}
+          {{month[+event[0].interviewTime.split('.')[1] - 1].monthName.toUpperCase()}}
+          {{+event[0].interviewTime.split('.')[2].substr(0,4)}}</p>
       </ng-template>
 
-      <div class="users-list__fourEvents--person" *ngFor="let person of event">
+      <div class="users-list__fourEvents--person w-100 bc-white flex wrap jcsa aic" *ngFor="let person of event">
         <div class="logo">
           <img class="logo__person-img" [src]="person.interviewIcon" alt="">
-          <p class="logo__person-rate">{{person.personRate.toFixed(1)}}</p>
+          <p class="logo__person-rate font-10 bc-green txt-c-white">{{person.personRate.toFixed(1)}}</p>
         </div>
-        <div class="data">
-          <h2 class="data__person-name">{{person.personData}}</h2>
-          <p class="data__person-profession">{{person.profesion}}</p>
+        <div class="data flex col nowrap jcsa aifs ">
+          <h2 class="data__person-name font-13">{{person.personData}}</h2>
+          <p class="data__person-profession font-12 txt-c-initial w-100">{{person.profesion}}</p>
         </div>
-        <div class="interview-date">
-          <p class="interview-date__date-title"> DATE & TIME </p>
-          <div class="interview-date__interview-time">
-            <span aria-hidden="true" data-icon="&#xe900;" class="interview-date__interview-time--icon"></span>
-            <p class="interview-date__interview-time--text">{{person.interviewTime}}</p>
+        <div class="interview-date flex col nowrap jcsa aifs">
+          <p class="interview-date__date-title font-10 txt-c-initial"> DATE & TIME </p>
+          <div class="interview-date__interview-time font-12 w-100 flex nowrap jcfs aic">
+            <span aria-hidden="true" data-icon="&#xe900;"
+              class="interview-date__interview-time--icon txt-c-blue icon-clock"></span>
+            <p class="interview-date__interview-time--text font-12">{{person.interviewTime}}</p>
           </div>
         </div>
-        <div class="interviewers">
-          <p class="interviewers__interviewers-title">INTERVIEWERS</p>
-          <div class="interviewers__interviewers-all">
-            <img [src]="interv" alt="" class="interviewers__interviewers-all--icon" *ngFor="let interv of person.interviewers">
+        <div class="interviewers flex col nowrap jcsa aic">
+          <p class="interviewers__interviewers-title font-10 txt-c-initial">INTERVIEWERS</p>
+          <div class="interviewers__interviewers-all flex nowrap jcfs aic">
+            <img [src]="interv" alt="" class="interviewers__interviewers-all--icon"
+              *ngFor="let interv of person.interviewers">
           </div>
         </div>
-        <div class="orders">
-          <p class="orders__orders-title">ORDERS</p>
-          <p class="orders__orders-prof">{{person.orders}}</p>
+        <div class="orders flex col nowrap jcsa aifs">
+          <p class="orders__orders-title font-10 txt-c-initial">ORDERS</p>
+          <p class="orders__orders-prof font-12 w-100">{{person.orders}}</p>
         </div>
-        <div class="buttons">
-           <button class="buttons__start"> 
-              <span aria-hidden="true" data-icon="&#xe901;" class="buttons__start--play"></span>
+        <div class="buttons flex nowrap jcsa aic">
+          <button class="buttons__start font-11 flex nowrap jcc aic bc-white">
+            <span aria-hidden="true" class="buttons__start--play icon-play"></span>
             Start</button>
-          <button class="buttons__make-date"><span aria-hidden="true" data-icon="&#xe900;" class="buttons__make-date--calendar-date"></span></button>
+          <button class="buttons__make-date bc-blue"><span aria-hidden="true"
+              class="buttons__make-date--calendar-date icon-calendar_clock_icon_135839"></span></button>
           <div class="buttons__cancel-button">
-            <div class="buttons__cancel-button--hidden" [style.display]="hover == person.personData ? 'flex' : 'none'"
+            <div class="buttons__cancel-button--hidden flex col nowrap jcfs aic bc-initial"
+              [style.display]="hover == person.personData ? 'flex' : 'none'"
               [style.transition]="'display 1600ms ease-in-out'">
-              <p class="hidden-text">Cancel</p>
-              <span class="hidden-arrow-down"></span>
+              <p class="hidden-text font-11 flex nowrap jcc aic w-100">Cancel</p>
+              <span class="hidden-arrow-down bc-initial"></span>
             </div>
-            <button class="buttons__cancel-button--visible" (mouseover)="hoverCancel(true, person.personData)"
-              (mouseout)="hoverCancel(false, person.personData)"
+            <button class="buttons__cancel-button--visible flex nowrap aic jcc"
+              (mouseover)="hoverCancel(true, person.personData)" (mouseout)="hoverCancel(false, person.personData)"
               [style.background-color]="hover == person.personData ? '#0cacf8' : '#f0f8ff'">
-              <span aria-hidden="true" data-icon="&#xe900;" class="calendarout" [style.color]="hover == person.personData ? 'white' : '#6E7585'"></span>
+              <span aria-hidden="true" class="calendarout icon-logout"
+                [style.color]="hover == person.personData ? 'white' : '#6E7585'"></span>
             </button>
           </div>
         </div>
@@ -63,36 +71,37 @@
     </div>
 
   </section>
-  <section class="calendar">
-    <div class="calendar__month">
-      <button class="calendar__month--navigate-left"
+  <section class="calendar bc-white flex col nowrap jcc aic">
+    <div class="calendar__month flex nowrap jcsb aic">
+      <button class="calendar__month--navigate-left bc-white"
         (click)="changeDate(currTime.currYear, currTime.currMonth-1, currTime.currDay)">
-        <span aria-hidden="true" data-icon="&#xe900;" class="navigate-left"></span>
+        <span aria-hidden="true" data-icon="&#xe900;"
+          class="navigate-left icon-arrowhead-thin-outline-to-the-left"></span>
       </button>
-      <p class="calendar__month--date">{{currDate}}</p>
-      <button class="calendar__month--navigate-right"
-        (click)="changeDate(currTime.currYear, currTime.currMonth+1, currTime.currDay)"> 
-        <span aria-hidden="true" data-icon="&#xe900;" class="navigate-right"></span>
+      <p class="font-13">{{currDate}}</p>
+      <button class="calendar__month--navigate-right bc-white"
+        (click)="changeDate(currTime.currYear, currTime.currMonth+1, currTime.currDay)">
+        <span aria-hidden="true" data-icon="&#xe900;" class="navigate-right icon-arrow-point-to-right"></span>
       </button>
     </div>
-    <div class="calendar__day-list">
-      <p class="calendar__day-list--day" *ngFor="let day of days">{{day.substr(0,2)}}</p>
+    <div class="calendar__day-list flex nowrap jcfs aic">
+      <p class="calendar__day-list--day font-11" *ngFor="let day of days">{{day.substr(0,2)}}</p>
     </div>
-    <div class="calendar__day-number">
-      <div class="calendar__day-number--block-day" *ngFor="let item of dates ; let i=index"
+    <div class="calendar__day-number flex wrap jcfs aic">
+      <div class="calendar__day-number--block-day font-12 flex wrap aic jcc" *ngFor="let item of dates ; let i=index"
         [style.border]="(currDay === item.dayNumber ) ? '1px solid #16b4ff' : '1px solid #d2d2de'"
         [style.background-color]="currTime.currDay === item.dayNumber ? '#d0d7e1' : 'white' "
         (click)="chooseDate(item, i)">
         {{item.dayNumber}}
-        <div class="eventBox">
+        <div class="eventBox w-100 flex aic jcc">
           <span [style.border]="currDay <= item.dayNumber ? '3px solid #21b3f9' : '3px solid #fab453' "
             class="eventBox__event" *ngFor="let eventDayCount of item.countEvent"></span>
         </div>
       </div>
     </div>
-    <div class="calendar__mean">
-      <p class="calendar__mean--upcoming"> <span></span> Upcoming</p>
-      <p class="calendar__mean--completed"> <span></span> Completed </p>
+    <div class="calendar__mean flex wrap aic jcc ">
+      <p class="calendar__mean--upcoming font-11 flex wrap jcsa aic"> <span></span> Upcoming</p>
+      <p class="calendar__mean--completed font-11 flex wrap jcsa aic"> <span></span> Completed </p>
     </div>
   </section>
 </main>

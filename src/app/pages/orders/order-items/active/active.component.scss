@@ -35,13 +35,8 @@
           width: 9px;
           height: 6px;
           line-height: 5px;
-          font-family: 'drop-down-arrow';
           font-size: 9px;
           color: #6E7585;
-        }
-
-        .items-drop::before {
-          content: "\e900";
         }
 
       }
@@ -101,15 +96,9 @@
           width: 9px;
           height: 6px;
           line-height: 5px;
-          font-family: 'drop-down-arrow';
           font-size: 9px;
           color: #6E7585;
         }
-
-        .items-drop::before {
-          content: "\e900";
-        }
-
       }
 
       .hidden {
@@ -171,19 +160,12 @@
 
 
         &__cross {
-          width: 9px;
-          height: 6px;
-          line-height: 5px;
-          font-family: 'close';
+          // width: 9px;
+          // height: 6px;
+          line-height: 6px;
           font-size: 9px;
           color: #292F3D;
         }
-
-        &__cross::before {
-          content: "\e900";
-        }
-
-
       }
 
       .delete-choose:hover {
@@ -220,13 +202,9 @@
         width: 9px;
         height: 6px;
         line-height: 5px;
-        font-family: 'drop-down-arrow';
+        // font-family: 'drop-down-arrow';
         font-size: 9px;
         color: #6E7585;
-      }
-
-      .items-drop::before {
-        content: "\e900";
       }
     }
 
@@ -417,32 +395,26 @@
         margin-right: 20px;
 
         &__button {
-          position: absolute;
-          top: 0%;
           width: 30px;
           height: 40px;
           border: none;
 
 
           &--icon {
-            width: 4px;
-            height: 16px;
-            font-family: 'more';
-            line-height: 16px;
-            font-size: 16px;
+            height: 100%;
+            line-height: 20px;
+            font-size: 30px;
             color: #6E7585;
           }
 
-
-
-          &--icon::before {
-            content: attr(data-icon);
+          &--icon {
+            transform: rotate(90deg);
           }
         }
 
         &__menu {
           position: absolute;
-          top: 30px;
+          top: 35px;
           right: -6px;
           width: 150px;
           height: 112px;
@@ -463,7 +435,7 @@
             .items-turn-off {
               width: 20px;
               height: 20px;
-              font-family: 'turn-off';
+              // font-family: 'turn-off';
               font-size: 15px;
               line-height: 20px;
             }
@@ -471,19 +443,13 @@
             .items-edit {
               width: 20px;
               height: 20px;
-              font-family: 'edit';
+              // font-family: 'edit';
               font-size: 15px;
               line-height: 20px;
 
             }
 
-            .items-edit::before {
-              content: attr(data-icon);
-            }
 
-            .items-turn-off::before {
-              content: attr(data-icon);
-            }
 
             .items-text {
               font-family: 'Poppins';

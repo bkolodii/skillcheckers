@@ -37,10 +37,6 @@
         color: white;
       }
 
-      .icon::before {
-        content: attr(data-icon);
-      }
-
       .title {
         font-family: "Poppins";
         font-weight: 500;

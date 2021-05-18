@@ -6,7 +6,7 @@
 
 .interviews-type {
   width: 100%;
-  height: 45px;
+  height: 55px;
   border-bottom: 1px solid #CBCBD9;
   border-top: 1px solid #CBCBD9;
   @include flexbox(row, nowrap, flex-start, center);
@@ -16,14 +16,14 @@
     @include flexbox(row, nowrap, space-between, center);
     margin-left: 20px;
     min-width: 90px;
-    height: 45px;
+    height: 55px;
     cursor: pointer;
     position: relative;
     &--title {
       font-family: "Poppins";
       font-weight: 600;
       font-style: normal;
-      font-size: 12px;
+      font-size: 14px;
     }
 
     &--unread {

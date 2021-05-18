@@ -2,46 +2,39 @@
 @import "../../../../assets/styles/font";
 
 main {
-  @include flexbox(row, nowrap, space-around, flex-start);
-  background-color: #EEF0F8;
+  height: 92%;
 }
 
 .chat {
-  width: 67%;
-  height: 87vh;
-  background-color: white;
+  width: 65%;
+  height: 94%;
+  margin: 15px;
   box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.25);
-  @include flexbox(column, nowrap, space-between, center);
 
   &__search {
-    width: 100%;
-    height: 40px;
-    border-bottom: 1px solid #b9c1cc;
-    @include flexbox(row, nowrap, flex-start, center);
+    height: 45px;
+    border-bottom: 1px solid #CBCBD9;
 
     &--icon {
       width: 15px;
       height: 15px;
-      margin-left: 25px;
-      line-height: 15px;
-      font-family: 'search';
-      font-size: 15px;
-      color: #0CACF8;
-      transition: transform 400ms linear;
+      margin-left: 20px;
+      line-height: 14px;
+      // font-family: 'search';
+      font-size: 14px;
     }
 
-    &--icon::before {
-      content: "\e902";
-    }
+    // &--icon::before {
+    //   content: "\e902";
+    // }
 
     &--input {
       width: 84%;
-      height: 24px;
-      background-color: white;
+      height: 30px;
       border: none;
       padding-left: 10px;
       font-family: "Poppins";
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 500;
     }
 
@@ -50,23 +43,21 @@ main {
       height: 30px;
       padding: 0;
       border: none;
-      background-color: #F0F8FF;
       margin-left: 20px;
       margin-right: 7px;
-      @include flexbox(row, nowrap, center, center);
 
       .settings {
         width: 15px;
         height: 15px;
         line-height: 16px;
-        font-family: 'settings';
+        // font-family: 'settings';
         font-size: 15px;
         color: #6E7585;
         transition: transform 400ms linear;
       }
 
-      .settings::before {
-        content: "\e900";
+      .icon-settings::before {
+        color: #6E7585;
       }
 
     }
@@ -74,25 +65,19 @@ main {
   }
 
   &__conversation {
-    height: 90%;
+    height: 91%;
     width: 100%;
-    border-bottom: 1px solid #b9c1cc;
+    border-bottom: 1px solid #CBCBD9;
     overflow-y: auto;
     position: relative;
-    @include flexbox(row, nowrap, center, center);
 
     &--text {
       width: 97%;
-      @include flexbox(column, nowrap, space-around, flex-end);
       min-height: 10px;
       position: absolute;
       top: 10px;
 
       .user-recieve {
-
-        width: 100%;
-        min-height: 48px;
-        @include flexbox(row, nowrap, space-around, flex-start);
         margin-bottom: 10px;
 
         &__logo {
@@ -106,11 +91,9 @@ main {
         &__person-data {
           width: 80%;
           min-height: 35px;
-          @include flexbox(column, nowrap, flex-start, flex-start);
           margin-top: 3px;
 
           &--title {
-            width: 100%;
             font-family: "Poppins";
             font-size: 12px;
             font-weight: 600;
@@ -122,7 +105,6 @@ main {
             font-family: "Poppins";
             font-size: 10.5px;
             font-weight: 500;
-            color: #434955;
             line-height: 18px;
           }
 
@@ -132,13 +114,12 @@ main {
           width: 45px;
           height: 40px;
           margin-top: 5px;
-          @include flexbox(column, nowrap, flex-start, flex-end);
 
           &--time {
             font-family: "Poppins";
             font-size: 10px;
             font-weight: 500;
-            color: #b3b3b6;
+            color: #6E7585;
             margin-bottom: 5px;
 
           }
@@ -146,10 +127,7 @@ main {
       }
 
       .user-recieve-reverse {
-
-        width: 100%;
         min-height: 48px;
-        @include flexbox(row-reverse, nowrap, space-around, flex-start);
         margin-bottom: 10px;
 
         &__logo {
@@ -162,11 +140,9 @@ main {
         &__person-data {
           width: 80%;
           min-height: 35px;
-          @include flexbox(column, nowrap, flex-start, flex-start);
           margin-top: 3px;
 
           &--title {
-            width: 100%;
             font-family: "Poppins";
             font-size: 12px;
             font-weight: 600;
@@ -176,11 +152,9 @@ main {
 
           &--text {
             text-align: right;
-            width: 100%;
             font-family: "Poppins";
             font-size: 10.5px;
             font-weight: 500;
-            color: #434955;
             line-height: 18px;
           }
 
@@ -190,13 +164,12 @@ main {
           width: 45px;
           height: 40px;
           margin-top: 5px;
-          @include flexbox(column, nowrap, flex-start, flex-end);
 
           &--time {
             font-family: "Poppins";
             font-size: 10px;
             font-weight: 500;
-            color: #b3b3b6;
+            color: #6E7585;
             margin-bottom: 5px;
 
           }
@@ -204,22 +177,20 @@ main {
       }
 
       .date-period {
-        width: 100%;
         height: 43px;
         margin-bottom: 10px;
-        @include flexbox(row, nowrap, space-around, center);
 
         &__date {
-          min-width: 5%;
           font-family: "Poppins";
           font-size: 12px;
           font-weight: 600;
-          color: #8c919e;
+          color: #6E7585;
           margin-left: 7px;
           width: max-content;
           min-width: auto;
           margin-right: 15px;
           white-space: nowrap;
+          line-height: 8px;
         }
 
         &__hr {
@@ -272,16 +243,15 @@ main {
         &__paper-clip {
           width: 24px;
           height: 24px;
-
           line-height: 24px;
-          font-family: 'paper-clip';
+          // font-family: 'paper-clip';
           font-size: 22px;
           color: #6E7585;
           transition: transform 400ms linear;
         }
 
-        &__paper-clip::before {
-          content: "\e900";
+        .icon-paper-clip:before {
+          color: #6E7585;
         }
 
       }
@@ -350,6 +320,8 @@ main {
 .person-details {
   width: 30%;
   height: 346px;
+  margin-top: 15px;
+  margin-right: 15px;
   background-color: white;
   @include flexbox(column, nowrap, flex-start, center);
 
@@ -532,7 +504,7 @@ main {
       }
 
       .text-loc {
-        @include flexbox(row, wrap, flex-start, center);
+        @include flexbox(row, wrap, space-between, center);
         width: 100%;
         height: 14px;
         font-family: "Poppins";
@@ -544,7 +516,7 @@ main {
           height: 18px;
           background-color: #eef0f8;
           color: #676c78;
-          margin-left: 10px;
+          // margin-left: 10px;
           border-radius: 10px;
           font-family: "Poppins";
           font-size: 10px;
@@ -600,13 +572,8 @@ main {
         height: 18px;
         line-height: 22px;
         font-weight: 500;
-        font-family: 'add-person';
         font-size: 20px;
         color: #6E7585;
-      }
-
-      .add-person::before {
-        content: "\e900";
       }
     }
 
@@ -621,13 +588,8 @@ main {
         height: 18px;
         line-height: 22px;
         font-weight: 500;
-        font-family: 'delete-person';
         font-size: 20px;
         color: #6E7585;
-      }
-
-      .delete-person::before {
-        content: "\e900";
       }
     }
 
@@ -642,13 +604,8 @@ main {
         height: 18px;
         line-height: 22px;
         font-weight: 500;
-        font-family: 'more-option';
         font-size: 20px;
         color: #6E7585;
-      }
-
-      .more-option::before {
-        content: "\e900";
       }
     }
   }

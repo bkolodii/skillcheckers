@@ -24,20 +24,15 @@ header {
     width: 320px;
     padding: 2.5px;
     margin-left: 53px;
-    height: 36px;
+    height: 33px;
     border-radius: 2px;
 
     .icon-search {
       margin-left: 5px;
       height: 15px;
       width: 15px;
-      font-family: 'search';
       font-size: 15px;
       color: #0CACF8;
-    }
-
-    .icon-search::before {
-      content: attr(data-icon);
     }
 
     .input-search {
@@ -62,19 +57,13 @@ header {
     box-shadow: 0 0 0 0 rgba(0, 128, 0, 1);
     transition: background-color 600ms linear;
 
-    .plus {
+    .icon-iconmonstr-plus-6 {
       width: 19.25px;
       height: 19.25px;
       line-height: 21px;
-      font-family: 'plus-circuse';
       font-size: 19px;
       color: white;
     }
-
-    .plus::before {
-      content: attr(data-icon);
-    }
-
   }
 
   &__order:focus {
@@ -94,33 +83,17 @@ header {
     padding: 0;
     cursor: pointer;
 
-    .notifi-icon {
+    .icon-notification {
       width: 20.25px;
       height: 20.25px;
-      line-height: 21.25px;
-      font-family: 'notification';
+      line-height: 25.25px;
+      font-size: 20px;
       color: black;
       position: relative;
       margin-left: 10px;
 
 
     }
-
-    .notifi-icon::before {
-      content: attr(data-icon1);
-      font-size: 20px;
-    }
-
-    .notifi-icon::after {
-      position: absolute;
-      top: -3px;
-      left: 1px;
-      font-family: "notification";
-      content: attr(data-icon2);
-      font-size: 18px;
-      color: #F22222;
-    }
-
   }
 
 
@@ -154,16 +127,10 @@ header {
           width: 9px;
           height: 6px;
           line-height: 3px;
-          font-family: 'drop-down-arrow';
           color: #6E7585;
           line-height: 1;
           font-size: 9px;
         }
-
-        &--items-drop-down::before {
-          content: attr(data-icon);
-        }
-
       }
 
       &__hidden {
@@ -185,7 +152,7 @@ header {
         }
 
         &--profile {
-          height: 30px;
+          height: 50px;
           cursor: pointer;
           color: black;
 
@@ -198,7 +165,7 @@ header {
         }
 
         &--sighOut {
-          height: 30px;
+          height: 50px;
           cursor: pointer;
           color: black;
 
@@ -208,14 +175,9 @@ header {
             height: 30px;
             line-height: 32px;
             font-weight: 500;
-            font-family: "logout";
             font-size: 16px;
             color: #6E7585;
             transition: color 600ms ease-in-out;
-          }
-
-          .logout-icon::before {
-            content: "\e900";
           }
         }
       }

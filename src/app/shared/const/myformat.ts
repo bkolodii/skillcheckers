@@ -1,11 +1,11 @@
 export const MY_FORMATS = {
     parse: {
-        dateInput: 'LL'
+        dateInput: 'MM.DD.YYYY'
     },
     display: {
         dateInput: 'MM.DD.YYYY',
-        monthYearLabel: 'YYYY',
-        dateA11yLabel: 'LL',
-        monthYearA11yLabel: 'YYYY'
+        monthYearLabel: 'MM.DD.YYYY',
+        dateA11yLabel: 'MM.DD.YYYY',
+        monthYearA11yLabel: 'MM.DD.YYYY'
     }
 };

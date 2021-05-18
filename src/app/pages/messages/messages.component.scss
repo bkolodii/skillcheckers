@@ -24,42 +24,32 @@
 }
 
 main {
-  width: 100%;
   height: 100%;
-  @include flexbox(row, nowrap, flex-start, flex-start);
-  background-color: #EEF0F8;
   overflow: hidden;
 }
 
 .users {
-  width: 295px;
-  height: 92.5vh;
-  @include flexbox(column, nowrap, space-between, center);
+  width: 235px;
+  height: 92%;
   overflow-y: scroll;
 
   &__all {
-    width: 100%;
     min-height: 5rem;
-    @include flexbox(column, nowrap, space-between, center);
 
     &--members {
-      width: 100%;
       margin-top: 1px;
       cursor: pointer;
-      min-height: 3.8rem;
-      @include flexbox(row, nowrap, flex-end, center);
+      min-height: 80px;
       position: relative;
 
       .person {
-        width: 100%;
         height: 50px;
-        @include flexbox(row, nowrap, flex-end, center);
         position: relative;
 
         &__logo {
           width: 40px;
           height: 40px;
-          margin-right: 5px;
+          margin-right: 7px;
           position: relative;
 
           &--icon {
@@ -75,7 +65,6 @@ main {
             right: 0px;
             width: 7px;
             height: 7px;
-            background: #25BF50;
             border: 1px solid #FFFFFF;
             border-radius: 50%;
           }
@@ -84,11 +73,10 @@ main {
         &__person-data {
           width: 60%;
           height: 43px;
-          @include flexbox(column, nowrap, center, flex-start);
 
           &--title {
             font-family: "Poppins";
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
             margin-bottom: 5px;
           }
@@ -97,26 +85,22 @@ main {
             font-family: "Poppins";
             font-size: 10px;
             font-weight: 500;
-            color: #b3b3b6;
+            color: #6E7585;
           }
         }
 
         &__other-data {
           width: 30px;
           height: 43px;
-          @include flexbox(column, nowrap, center, center);
 
           &--missing {
             font-family: "Poppins";
             font-size: 9px;
             font-weight: 500;
-            border: 1.5px solid #5bc5f6;
+            border: 1.5px solid #0CACF8;
             border-radius: 50%;
             width: 13px;
             height: 13px;
-            background-color: white;
-            color: #5bc5f6;
-            @include flexbox(row, nowrap, center, none);
             line-height: 13px;
 
 
@@ -126,7 +110,7 @@ main {
             font-family: "Poppins";
             font-size: 11px;
             font-weight: 500;
-            color: #b3b3b6;
+            color: #6E7585;
             margin-bottom: 5px;
 
           }
@@ -135,85 +119,12 @@ main {
     }
 
   }
-
-  &__members {
-    width: 100%;
-    margin-top: 1px;
-    cursor: pointer;
-    height: 90px;
-    @include flexbox(row, nowrap, flex-end, center);
-
-    &--padding {
-      width: 100%;
-      height: 50px;
-      @include flexbox(row, nowrap, flex-end, center);
-
-      .logo {
-        width: 40px;
-        height: 40px;
-        margin-right: 5px;
-      }
-
-      .person-data {
-        width: 140px;
-        height: 43px;
-        @include flexbox(column, nowrap, center, flex-start);
-
-        &__title {
-          font-family: "Poppins";
-          font-size: 12px;
-          font-weight: 600;
-          margin-bottom: 5px;
-        }
-
-        &__text {
-          font-family: "Poppins";
-          font-size: 10px;
-          font-weight: 500;
-          color: #b3b3b6;
-        }
-      }
-
-      .other-data {
-        width: 30px;
-        height: 43px;
-        @include flexbox(column, nowrap, center, center);
-
-        &__missing {
-          font-family: "Poppins";
-          font-size: 9px;
-          font-weight: 500;
-          border: 1.5px solid #5bc5f6;
-          border-radius: 50%;
-          width: 13px;
-          height: 13px;
-          background-color: white;
-          color: #5bc5f6;
-          @include flexbox(row, nowrap, center, none);
-          line-height: 13px;
-
-
-        }
-
-        &__time {
-          font-family: "Poppins";
-          font-size: 11px;
-          font-weight: 500;
-          color: #b3b3b6;
-          margin-bottom: 5px;
-
-        }
-      }
-    }
-  }
 }
 
 .users-messages {
-  padding-top: 20px;
-  padding-left: 10px;
+  // padding-top: 20px;
+  // padding-left: 10px;
   height: 100%;
   overflow: hidden;
-  width: 100%;
-  background-color: #eef0f8;
-
+  width: 82%;
 }

@@ -2,47 +2,33 @@
 @import "../../../../../assets/styles/font";
 
 main {
-  width: 100%;
   height: 86vh;
-  background-color: #EEF0F8;
   overflow-y: auto;
-
-  @include flexbox(row, nowrap, space-between, flex-start);
 }
 
 
 .users-list {
   width: 50vw;
   min-height: 10px;
-  @include flexbox(column, nowrap, flex-start, center);
   margin-top: 2%;
+  margin-bottom: 4%;
   margin-left: 2%;
 
   &__fourEvents {
-    width: 100%;
-
     &--date:first-child {
       margin-top: 5px;
     }
 
     &--date {
-      width: 100%;
       height: 24px;
-      font-family: "Poppins";
       font-weight: 600;
-      font-style: normal;
-      font-size: 11px;
-      color: #79808f;
       margin-top: 10px;
     }
 
     &--person {
-      width: 100%;
-      min-height: 60px;
+      min-height: 65px;
       padding-top: 5px;
       padding-bottom: 5px;
-      background-color: white;
-      @include flexbox(row, wrap, space-around, center);
       margin-bottom: 10px;
 
       .logo {
@@ -65,12 +51,6 @@ main {
           width: 29px;
           height: 13px;
           border-radius: 10px;
-          background-color: #25bf50;
-          font-family: "Poppins";
-          font-weight: 500;
-          font-style: normal;
-          font-size: 10px;
-          color: white;
           text-align: center;
           line-height: 14px;
           border: 3px solid white;
@@ -78,60 +58,39 @@ main {
       }
 
       .data {
-        @include flexbox(column, nowrap, space-around, flex-start);
         height: 40px;
         width: 15%;
         margin-left: 5px;
 
         &__person-name {
-          font-family: "Poppins";
           font-weight: 600;
-          font-style: normal;
-          font-size: 13px;
         }
 
         &__person-profession {
-          font-family: "Poppins";
-          font-weight: 500;
-          font-style: normal;
-          font-size: 11px;
-          color: #b3b3b6;
+          height: 20px;
+          line-height: 20px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
       }
 
       .interview-date {
-        @include flexbox(column, nowrap, space-around, flex-start);
         height: 40px;
         width: 16%;
 
         &__interview-time {
-          width: 100%;
-          font-family: "Poppins";
-          font-weight: 500;
-          font-style: normal;
-          font-size: 12px;
-          @include flexbox(row, nowrap, flex-start, center);
 
           &--icon {
             width: 15px;
             height: 15px;
             line-height: 15px;
             font-weight: 500;
-            font-family: "clock";
             font-size: 15px;
-            color: #0CACF8;
             margin-right: 7px;
           }
 
-          &--icon::before {
-            content: "\e900";
-          }
-
           &--text {
-            font-family: "Poppins";
-            font-weight: 500;
-            font-style: normal;
-            font-size: 12px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -139,16 +98,11 @@ main {
         }
 
         &__date-title {
-          font-family: "Poppins";
           font-weight: 550;
-          font-style: normal;
-          font-size: 10px;
-          color: #b3b3b6;
         }
       }
 
       .interviewers {
-        @include flexbox(column, nowrap, space-around, center);
         height: 40px;
         width: 16%;
 
@@ -156,7 +110,6 @@ main {
           width: 50%;
           height: 24px;
           position: relative;
-          @include flexbox(row, nowrap, flex-start, center);
 
           &--icon {
             width: 20px;
@@ -173,25 +126,15 @@ main {
         }
 
         &__interviewers-title {
-          font-family: "Poppins";
           font-weight: 550;
-          font-style: normal;
-          font-size: 10px;
-          color: #b3b3b6;
         }
       }
 
       .orders {
-        @include flexbox(column, nowrap, space-around, flex-start);
         height: 40px;
         width: 15%;
 
         &__orders-prof {
-          width: 100%;
-          font-family: "Poppins";
-          font-weight: 500;
-          font-style: normal;
-          font-size: 12px;
           height: 20px;
           line-height: 20px;
           white-space: nowrap;
@@ -200,11 +143,7 @@ main {
         }
 
         &__orders-title {
-          font-family: "Poppins";
           font-weight: 550;
-          font-style: normal;
-          font-size: 10px;
-          color: #b3b3b6;
           height: 10px;
         }
       }
@@ -212,21 +151,12 @@ main {
       .buttons {
         width: 170px;
         height: 40px;
-        @include flexbox(row, nowrap, space-around, center);
 
         &__start {
           width: 80px;
           height: 32px;
-          display: flex;
-          flex-flow: row nowrap;
-          justify-content: center;
-          align-items: center;
           border: 2px solid #0cacf8;
           background-color: white;
-          font-family: "Poppins";
-          font-weight: 500;
-          font-style: normal;
-          font-size: 11px;
           padding: 0;
           transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
 
@@ -242,13 +172,8 @@ main {
             height: 12px;
             line-height: 12px;
             font-weight: 500;
-            font-family: 'play';
             font-size: 12px;
             color: #0CACF8;
-          }
-
-          &--play::before {
-            content: "\e901";
           }
 
         }
@@ -270,7 +195,6 @@ main {
         &__make-date {
           width: 35px;
           height: 32px;
-          background-color: #0cacf8;
           border: 1px solid #0cacf8;
           transition: box-shadow 600ms ease-in-out, fill 600ms ease-in-out;
 
@@ -279,13 +203,8 @@ main {
             height: 30px;
             line-height: 32px;
             font-weight: 500;
-            font-family: "calendar-date";
             font-size: 20px;
             color: #FFFFFF;
-          }
-
-          &--calendar-date::before {
-            content: "\e900";
           }
         }
 
@@ -310,20 +229,12 @@ main {
             top: calc(-91%);
             left: calc(-57%);
             height: 23px;
-            border-radius: 10px;
-            @include flexbox(column, nowrap, flex-start, center);
+            border-radius: 4px;
 
             .hidden-text {
-              width: 100%;
-              background-color: #696d77;
               height: 30px;
-              border-radius: 3px;
-              @include flexbox(row, nowrap, center, center);
-              font-family: "Poppins";
-              font-weight: 500;
-              font-style: normal;
-              font-size: 11px;
-              color: #cfd1d4;
+              border-radius: 2px;
+              color: white;
               z-index: 2;
             }
 
@@ -331,7 +242,6 @@ main {
               width: 15px;
               height: 15px;
               position: absolute;
-              background-color: #696d77;
               transform: rotate(45deg);
               top: 8px;
               z-index: 1;
@@ -343,7 +253,6 @@ main {
             height: 32px;
             background-color: #0cacf8;
             border: none;
-            @include flexbox(row, nowrap, center, center);
             padding: 0;
             cursor: auto;
             transition: background-color 600ms ease-in-out, fill 600ms ease-in-out;
@@ -351,16 +260,11 @@ main {
             .calendarout {
               width: 30px;
               height: 30px;
-              line-height: 32px;
+              line-height: 30px;
               font-weight: 500;
-              font-family: "logout";
-              font-size: 20px;
+              font-size: 16px;
               color: #6E7585;
               transition: color 600ms ease-in-out;
-            }
-
-            .calendarout::before {
-              content: "\e900";
             }
           }
 
@@ -377,80 +281,53 @@ main {
 .calendar {
   width: 27vw;
   min-height: 10px;
-  background-color: white;
   border-top: 5px solid #0cacf8;
   margin-top: 15px;
   margin-right: 10px;
-  @include flexbox(column, nowrap, center, center);
 
   &__month {
     width: 94%;
     height: 30px;
-    @include flexbox(row, nowrap, space-between, center);
     margin-top: 10px;
 
     &--navigate-right {
       width: 10px;
-      height: 13px;
+      height: 30px;
       padding: 0%;
       border: none;
-      background-color: white;
 
       .navigate-right {
         width: 15px;
         height: 15px;
         line-height: 15px;
         font-weight: 500;
-        font-family: "navigate-right";
         font-size: 15px;
         color: #6E7585;
-      }
-
-      .navigate-right::before {
-        content: "\e900";
       }
     }
 
     &--navigate-left {
       width: 10px;
-      height: 13px;
+      height: 30px;
       padding: 0%;
       border: none;
-      background-color: white;
 
       .navigate-left {
         width: 15px;
         height: 15px;
         line-height: 15px;
         font-weight: 500;
-        font-family: "navigate-left";
         font-size: 15px;
         color: #6E7585;
       }
-
-      .navigate-left::before {
-        content: "\e900";
-      }
-    }
-
-    &--date {
-      font-family: "Poppins";
-      font-weight: 500;
-      font-style: normal;
-      font-size: 13px;
     }
   }
 
   &__day-list {
     width: 94%;
     height: 30px;
-    @include flexbox(row, nowrap, flex-start, center);
 
     &--day {
-      font-family: "Poppins";
-      font-weight: 500;
-      font-style: normal;
-      font-size: 11px;
       width: 14%;
       text-align: center;
     }
@@ -459,31 +336,20 @@ main {
   &__day-number {
     width: 94%;
     min-height: 10vh;
-    @include flexbox(row, wrap, flex-start, center);
 
     &--block-day {
       width: 13.5%;
       height: 45px;
       border: 1px solid #d2d2de;
-      @include flexbox(row, wrap, center, center);
-      font-size: 12px;
-      font-weight: 500;
-      font-family: sans-serif;
-      color: #7e828b;
       cursor: pointer;
       transition: background-color 600ms ease-in-out;
 
       .eventBox {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
 
         &__event {
           width: 3px;
           height: 3px;
           border-radius: 50%;
-          border: 3px solid #fab453;
           margin-right: 2px;
 
         }
@@ -501,18 +367,12 @@ main {
   &__mean {
     width: 94%;
     min-height: 43px;
-    @include flexbox(row, wrap, center, center);
     margin-top: 5px;
     margin-bottom: 10px;
 
     &--upcoming {
       width: 75px;
       height: 24px;
-      font-family: "Poppins";
-      font-weight: 500;
-      font-style: normal;
-      font-size: 11px;
-      @include flexbox(row, wrap, space-around, center);
 
       span {
         width: 3px;
@@ -527,11 +387,6 @@ main {
       margin-left: 5px;
       width: 75px;
       height: 24px;
-      font-family: "Poppins";
-      font-weight: 500;
-      font-style: normal;
-      font-size: 11px;
-      @include flexbox(row, wrap, space-around, center);
 
       span {
         width: 3px;

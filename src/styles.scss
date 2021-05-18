@@ -10,12 +10,11 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat-core();
-
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $skillcheckers-primary: mat-palette($mat-indigo);
-$skillcheckers-accent: mat-palette($mat-pink, A200, A100, A400);
+$skillcheckers-accent: mat-palette($mat-blue, A700);
 
 // The warn palette is optional (defaults to red).
 $skillcheckers-warn: mat-palette($mat-red);
@@ -47,7 +46,7 @@ $skillcheckers-theme: mat-light-theme((color: (primary: $skillcheckers-primary,
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $skillcheckers-primary: mat-palette($mat-indigo);
-$skillcheckers-accent: mat-palette($mat-pink, A200, A100, A400);
+$skillcheckers-accent: mat-palette($mat-blue, A700);
 
 // The warn palette is optional (defaults to red).
 $skillcheckers-warn: mat-palette($mat-red);
@@ -79,7 +78,7 @@ $skillcheckers-theme: mat-light-theme((color: (primary: $skillcheckers-primary,
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $skillcheckers-primary: mat-palette($mat-indigo);
-$skillcheckers-accent: mat-palette($mat-pink, A200, A100, A400);
+$skillcheckers-accent: mat-palette($mat-blue, A700);
 
 // The warn palette is optional (defaults to red).
 $skillcheckers-warn: mat-palette($mat-red);
@@ -111,7 +110,7 @@ $skillcheckers-theme: mat-light-theme((color: (primary: $skillcheckers-primary,
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $skillcheckers-primary: mat-palette($mat-indigo);
-$skillcheckers-accent: mat-palette($mat-pink, A200, A100, A400);
+$skillcheckers-accent: mat-palette($mat-blue, A700);
 
 // The warn palette is optional (defaults to red).
 $skillcheckers-warn: mat-palette($mat-red);
@@ -135,70 +134,32 @@ p {
   margin: 0;
 }
 
-// .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
-//   border-color: #0CACF8;
-// }
+:host ::ng-deep .mat-radio-container {
+  height: 10px;
+  width: 10px;
+}
 
-// .mat-radio-button.mat-accent .mat-radio-inner-circle {
-//   background-color: #0CACF8;
-// }
+:host ::ng-deep .mat-radio-outer-circle {
+  height: 10px;
+  width: 10px;
+}
 
-// .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
-//   background-color: transparent;
-//   opacity: 0;
-// }
+:host ::ng-deep .mat-radio-inner-circle {
+  height: 10px;
+  width: 10px;
+}
 
-// .mat-radio-button:not(.mat-radio-disabled).cdk-program-focused .mat-radio-persistent-ripple {
-//   opacity: 0;
-// }
-
-// .mat-radio-container {
-//   .mat-radio-outer-circle {
-//     width: 17px;
-//     height: 17px;
-//   }
-
-//   .mat-radio-inner-circle {
-//     border-radius: 50%;
-//     box-sizing: border-box;
-//     display: block;
-//     height: 20px;
-//     left: -1.4px;
-//     position: absolute;
-//     top: -1.9px;
-//     transition: transform ease 280ms, background-color ease 280ms;
-//     width: 20px;
-//     transform: scale(0.001);
-//     -webkit-print-color-adjust: exact;
-//     color-adjust: exact;
-//   }
-// }
-// .mat-radio-container:nth-child(2) {
-//   .mat-radio-outer-circle {
-//     width: 17px;
-//     height: 17px;
-//   }
-
-//   .mat-radio-inner-circle {
-//     border-radius: 50%;
-//     box-sizing: border-box;
-//     display: block;
-//     height: 20px;
-//     left: -0.4px;
-//     position: absolute;
-//     top: -1.9px;
-//     transition: transform ease 280ms, background-color ease 280ms;
-//     width: 20px;
-//     transform: scale(0.001);
-//     -webkit-print-color-adjust: exact;
-//     color-adjust: exact;
-//   }
-// }
-
-// .mat-radio-label-content {
-//   padding-left: 0%;
-// }
-
+:host ::ng-deep .mat-radio-button .mat-radio-ripple {
+  height: 15px;
+  /*double of your required circle radius*/
+  width: 15px;
+  /*double of your required circle radius*/
+  left: calc(50% - 7.5px);
+  /*'10px'-same as your required circle radius*/
+  top: calc(50% - 7.5px);
+  /*'10px'-same as your required circle radius*/
+  background-color: #0CACF8;
+}
 
 
 mat-form-field-underline ng-tns-c66-0 ng-star-inserted {
@@ -353,44 +314,20 @@ body {
   flex-flow: column;
 }
 
-.nowr {
+.row-rev {
+  flex-flow: row-reverse;
+}
+
+.nowrap {
   flex-wrap: nowrap;
 }
 
-.jcsb {
-  justify-content: space-between;
-}
-
-.jcsa {
-  justify-content: space-around;
-}
-
-.jcc {
-  justify-content: center;
-}
-
-.aic {
-  align-items: center;
-}
-
-.bc-gray {
-  background-color: #EEF0F8 !important;
-}
-
-.bc-blue {
-  background-color: #0CACF8 !important;
-}
-
-.bc-black {
-  background-color: #292f3d !important;
+.wrap {
+  flex-wrap: wrap;
 }
 
 .bc-green {
   background-color: #25BF50 !important;
-}
-
-.bc-white {
-  background-color: white !important;
 }
 
 .btn {
@@ -430,3 +367,85 @@ body {
 .w-100 {
   width: 100%;
 }
+
+$aligh-selfs: (c: center,
+  fs: flex-start,
+  fe: flex-end,
+);
+$colors: (gray: #EEF0F8,
+  blue: #0CACF8,
+  light-blue:#F0F8FF,
+  black: #292f3d,
+  white: white,
+  dark-gray: #D2D4DE,
+  light-gray: #CBCBD9,
+  red: #FD6363,
+  initial: #6E7585);
+
+
+$flex-justs: (sb: space-between,
+  sa: space-around,
+  c: center,
+  fs: flex-start,
+  fe: flex-end,
+);
+$fonts: (9: 9px,
+  10: 10px,
+  11: 11px,
+  12: 12px,
+  13: 13px,
+  14: 14px,
+  15: 15px,
+  16: 16px,
+  17: 17px,
+);
+$flex-alighs: (c: center,
+  fs: flex-start,
+  fe: flex-end,
+);
+
+@each $fontSize,
+$font in $fonts {
+  .font-#{$fontSize} {
+    font-family: "Poppins";
+    font-weight: 500;
+    font-style: normal;
+    font-size: $font;
+  }
+}
+
+  @each $alighsname,
+  $aligh-self in $aligh-selfs {
+    .aligh-self-#{$alighsname} {
+      align-self: $aligh-self;
+    }
+  }
+
+  @each $flexjname,
+  $flex-just in $flex-justs {
+    .jc#{$flexjname} {
+      justify-content: $flex-just;
+    }
+  }
+
+  @each $flexaname,
+  $flex-aligh in $flex-alighs {
+    .ai#{$flexaname} {
+      align-items: $flex-aligh;
+    }
+  }
+
+  @each $colorname,
+  $color in $colors {
+    .bc-#{$colorname} {
+      background-color: $color;
+    }
+
+    .bdc-#{$colorname} {
+      border: 1px solid $color;
+    }
+
+    .txt-c-#{$colorname} {
+      color: $color;
+    }
+  }

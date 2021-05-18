@@ -2,52 +2,17 @@
 @import '../../../assets/styles/font';
 
 .new-order {
-  background-color: #EEF0F8;
   height: 92.7vh;
-  width: 100%;
   overflow-y: auto;
 
   &__items {
-    width: 100%;
     overflow-y: auto;
-    @include flexbox(column, nowrap, space-around, center);
   }
-
-
 }
+
 
 .ql-editor {
   min-height: 150px;
-}
-
-.mat-radio-button {
-  font-family: "Poppins";
-  font-size: 13px;
-  font-weight: 500;
-
-  .mat-radio-ripple {
-    position: absolute;
-    display: none;
-    height: 30px;
-    width: 30px;
-    z-index: 0;
-    pointer-events: none;
-  }
-}
-
-
-mat-select {
-  border: 1px solid #CBCBD9;
-  height: 35px;
-  width: 56.5%;
-  font-family: "Poppins";
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 18px;
-  outline: none;
-  padding-left: 10px;
-  padding-right: 5px;
-  @include flexbox(column, nowrap, center, center)
 }
 
 mat-option {
@@ -58,16 +23,12 @@ mat-option {
   width: 90%;
   margin: 30px auto;
   min-height: 10vh;
-  @include flexbox(row, nowrap, center, flex-start);
 }
 
 .create-order {
   width: 48.5%;
-  background-color: white;
-  min-height: 54vh;
+  height: fit-content;
   margin: 10px auto;
-
-  @include flexbox(column, wrap, flex-start, center);
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
   border-radius: 2px;
 
@@ -78,73 +39,27 @@ mat-option {
     font-family: "Poppins";
     font-size: 17px;
     font-weight: 700;
-    @include flexbox(row, wrap, left, center);
-
-
   }
 
   .position {
-    width: 100%;
-    height: 50px;
-    @include flexbox(row, nowrap, space-around, flex-start);
+    min-height: 65px;
     border-bottom: 1px solid #CBCBD9;
     margin-top: 10px;
 
-    &__icon {
+    .icon-position {
       width: 50px;
       height: 40px;
-      line-height: 35px;
+      line-height: 40px;
       font-size: 40px;
-      font-family: 'position';
+      // font-family: 'position';
       color: #6E7585;
       position: relative;
       margin-left: 4%;
     }
 
-    .path1:before {
-      content: "\e900";
-      color: #3ebdfa;
-    }
-
-    .path2:before {
-      content: "\e901";
-      color: #9094a0;
-      margin-left: -1em;
-    }
-
-    .path3:before {
-      content: "\e902";
-      color: #9094a0;
-      margin-left: -1em;
-    }
-
-    .path4:before {
-      content: "\e903";
-      color: #9094a0;
-      margin-left: -1em;
-    }
-
-    .path5:before {
-      content: "\e904";
-      color: #9094a0;
-      margin-left: -1em;
-    }
-
-    .path6:before {
-      content: "\e905";
-      color: #9094a0;
-      margin-left: -1em;
-    }
-
-    .path7:before {
-      content: "\e906";
-      color: #9094a0;
-      margin-left: -1em;
-    }
-
     &__input {
       width: 75%;
-      height: 30px;
+      height: 40px;
       padding-left: 15px;
       margin-right: 3%;
       border: 1px solid #c0c1c5;
@@ -163,13 +78,11 @@ mat-option {
   }
 
   .order-info {
+    margin-top: 20px;
     width: 90%;
     padding: 10px;
-    @include flexbox(column, nowrap, space-around, center);
 
     &__programmer {
-      @include flexbox(row, nowrap, space-between, center);
-      width: 100%;
       min-height: 35px;
       margin-bottom: 20px;
 
@@ -183,16 +96,11 @@ mat-option {
 
       &--counter {
         width: 60.4%;
-        @include flexbox(row, nowrap, left, center);
-        // padding-left: 10px;
-        // padding-right: 5px;
 
         .add {
           width: 45px;
-          height: 35px;
+          height: 37px;
           padding: 0;
-          background-color: white;
-          border: 1px solid #CBCBD9;
           transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
         }
 
@@ -204,37 +112,27 @@ mat-option {
           background-color: #0cacf8;
           border: 1px solid #0cacf8;
           box-shadow: 0px 0px 7px 1px #0cacf8;
-          color: white;
         }
 
         .minus {
           width: 45px;
-          height: 35px;
+          height: 37px;
           padding: 0;
-          background-color: white;
-          border: 1px solid #CBCBD9;
           transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
         }
 
         .programmer-input {
           width: 45px;
-          height: 33px;
+          height: 37px;
           padding: 0%;
           align-self: flex-end;
-          border: 1px solid #CBCBD9;
           text-align: center;
-          color: black;
-          font-family: "Poppins";
-          font-size: 12px;
-          font-weight: 500;
         }
 
       }
     }
 
     &__mainSkill {
-      @include flexbox(row, nowrap, space-between, center);
-      width: 100%;
       min-height: 35px;
       z-index: 1;
       margin-bottom: 20px;
@@ -249,7 +147,7 @@ mat-option {
       &--select {
         border: 1px solid #CBCBD9;
         height: 35px;
-        width: 56.5%;
+        width: 57.5%;
         font-family: "Poppins";
         font-size: 13px;
         font-weight: 500;
@@ -257,13 +155,10 @@ mat-option {
         outline: none;
         padding-left: 10px;
         padding-right: 5px;
-        @include flexbox(column, nowrap, center, center)
       }
     }
 
     &__experience {
-      @include flexbox(row, nowrap, space-between, center);
-      width: 100%;
       min-height: 35px;
       margin-bottom: 20px;
 
@@ -277,14 +172,11 @@ mat-option {
 
       &--counter {
         width: 60.4%;
-        @include flexbox(row, nowrap, left, center);
 
         .add {
           width: 45px;
-          height: 35px;
+          height: 37px;
           padding: 0;
-          background-color: white;
-          border: 1px solid #CBCBD9;
           transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
         }
 
@@ -296,37 +188,27 @@ mat-option {
           background-color: #0cacf8;
           border: 1px solid #0cacf8;
           box-shadow: 0px 0px 7px 1px #0cacf8;
-          color: white;
         }
 
         .minus {
           width: 45px;
-          height: 35px;
+          height: 37px;
           padding: 0;
-          background-color: white;
-          border: 1px solid #bdc1c8;
           transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
         }
 
         .experience-input {
           width: 45px;
-          height: 33px;
+          height: 37px;
           padding: 0;
           align-self: flex-end;
-          border: 1px solid #bdc1c8;
           text-align: center;
-          color: black;
-          font-family: "Poppins";
-          font-size: 12px;
-          font-weight: 500;
         }
 
       }
     }
 
     &__addSkill {
-      @include flexbox(row, nowrap, space-between, center);
-      width: 100%;
       min-height: 35px;
       margin-bottom: 20px;
 
@@ -339,15 +221,12 @@ mat-option {
       }
 
       &--select {
-        width: 56.5%;
+        width: 57.5%;
         min-height: 35px;
-        align-items: stretch;
-        @include flexbox(row, wrap, left, center);
         cursor: pointer;
         position: relative;
         padding-left: 10px;
         padding-right: 5px;
-        background-color: transparent;
         border: 1px solid #CBCBD9;
 
 
@@ -356,17 +235,14 @@ mat-option {
           min-width: 18%;
           height: 30px;
           border-radius: 20px;
-          background-color: #EEF0F8;
-          @include flexbox(row, nowrap, space-around, center);
 
           &__title {
             margin-left: 5px;
             margin-right: 5px;
             font-family: "Poppins";
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 500;
             padding-left: 4px;
-            color: #292F3D;
           }
 
           &__delete-choose {
@@ -374,27 +250,20 @@ mat-option {
             margin-right: 5px;
             width: 20px;
             height: 20px;
-            background-color: #D2D4DE;
             border-radius: 50%;
             border: none;
-            @include flexbox(row, nowrap, center, center);
             transition: transform 400ms linear;
 
             &--cross {
               width: 9px;
               height: 8px;
-              line-height: 7px;
-              font-family: 'close';
+              line-height: 8px;
               font-size: 9px;
               color: #292F3D;
               transition: transform 400ms linear;
             }
 
-            &--cross::before {
-              content: "\e900";
-            }
-
-            &--cross::before:hover {
+            .icon-close::before:hover {
               transform: rotate(180deg);
             }
           }
@@ -406,7 +275,6 @@ mat-option {
           width: 9px;
           height: 6px;
           line-height: 5px;
-          font-family: 'drop-down-arrow';
           font-size: 9px;
           color: #6E7585;
           position: absolute;
@@ -414,11 +282,6 @@ mat-option {
           right: 8px;
         }
 
-        .drop-icon::before {
-          content: "\e900";
-        }
-
-        // }
 
         .hidden {
           overflow-y: auto;
@@ -428,7 +291,6 @@ mat-option {
           top: -3px;
           left: -5px;
           width: 105%;
-          background-color: white;
           box-shadow: 3px 6px 8px 4px rgba(0, 0, 0, 0.25);
           border-radius: 5px;
 
@@ -442,7 +304,8 @@ mat-option {
             font-weight: 500;
             line-height: 40px;
           }
-          p:hover{
+
+          p:hover {
             background-color: rgba(0, 0, 0, 0.04);
           }
         }
@@ -451,8 +314,6 @@ mat-option {
     }
 
     &__unitName {
-      @include flexbox(row, nowrap, space-between, center);
-      width: 100%;
       min-height: 35px;
       margin-bottom: 20px;
 
@@ -467,21 +328,19 @@ mat-option {
       &--select {
         border: 1px solid #CBCBD9;
         height: 35px;
-        width: 56.5%;
+        width: 57.5%;
         font-family: "Poppins";
         font-size: 13px;
         font-weight: 500;
         line-height: 18px;
         outline: none;
+        padding: 0%;
         padding-left: 10px;
         padding-right: 5px;
-        @include flexbox(column, nowrap, center, center)
       }
     }
 
     &__unitLocation {
-      @include flexbox(row, nowrap, space-between, center);
-      width: 100%;
       min-height: 35px;
       margin-bottom: 20px;
 
@@ -494,17 +353,15 @@ mat-option {
       }
 
       &--input {
-        width: 56.5%;
-        height: 35px;
-        @include flexbox(row, nowrap, left, center);
+        width: 57.5%;
+        height: 37px;
         cursor: pointer;
-        background-color: transparent;
-        border: 1px solid #CBCBD9;
-        font-family: "Poppins";
-        font-size: 11px;
-        font-weight: 500;
+        padding: 0%;
         padding-left: 10px;
         padding-right: 5px;
+        border: 1px solid #CBCBD9;
+        font-family: "Poppins";
+        font-size: 13px;
       }
 
       &--input:focus {
@@ -513,8 +370,6 @@ mat-option {
     }
 
     &__skillScore {
-      @include flexbox(row, nowrap, space-between, center);
-      width: 100%;
       min-height: 65px;
 
       &--text {
@@ -524,9 +379,6 @@ mat-option {
         font-family: "Poppins";
         font-size: 12px;
         font-weight: 600;
-        @include flexbox(row, nowrap, none, center);
-
-
 
         .questInfo {
           margin-left: 5px;
@@ -534,21 +386,13 @@ mat-option {
           height: 17px;
           border: none;
           border-radius: 50px;
-          background-color: #c8cde4;
-          @include flexbox(row, nowrap, center, center);
 
-
-          &__quest-icon {
+          .icon-question {
             width: 10px;
             height: 10px;
             line-height: 10px;
-            font-family: 'question';
             font-size: 9px;
             color: white;
-          }
-
-          &__quest-icon::before {
-            content: "\e900";
           }
 
         }
@@ -558,18 +402,17 @@ mat-option {
         margin-top: 5px;
         width: 60%;
         min-height: 58px;
-        @include flexbox(row, wrap, left, center);
         cursor: pointer;
         position: relative;
 
         .skillScore-button {
-          width: 120px;
-          height: 30px;
-          display: flex;
-          align-items: center;
           font-family: "Poppins";
           font-size: 13px;
           font-weight: 500;
+          margin-right: 10px;
+          min-width: 100px;
+          margin-bottom: 10px;
+          word-wrap: break-word;
         }
 
 
@@ -577,8 +420,6 @@ mat-option {
     }
 
     &__jobLocation {
-      @include flexbox(row, nowrap, space-between, center);
-      width: 100%;
       min-height: 80px;
       margin-top: 10px;
 
@@ -591,43 +432,31 @@ mat-option {
       &--choose {
         width: 60%;
         min-height: 72px;
-        @include flexbox(row, wrap, flex-start, flex-start);
 
         .jobLocation-input {
-          width: 100%;
-          height: 33px;
-          @include flexbox(row, wrap, center, center);
+          height: 37px;
           cursor: pointer;
-          background-color: transparent;
-          border: 1px solid #CBCBD9;
-          font-family: "Poppins";
-          font-size: 11px;
-          font-weight: 500;
           padding: 0%;
           padding-left: 10px;
+          padding-right: 5px;
+          border: 1px solid #CBCBD9;
+          font-family: "Poppins";
+          font-size: 13px;
         }
 
 
         .kindJob {
           margin-top: 5px;
-          width: 100%;
           min-height: 58px;
-          @include flexbox(row, wrap, space-between, center);
           cursor: pointer;
 
           &__button {
-            width: 70px;
-            height: 30px;
-            margin-right: 10px;
-            display: flex;
-            align-items: center;
+            margin-right: 20px;
             font-family: "Poppins";
             font-size: 13px;
             font-weight: 500;
-
+            margin-bottom: 10px;
           }
-
-
         }
 
       }
@@ -638,8 +467,6 @@ mat-option {
     }
 
     &__salary {
-      @include flexbox(row, nowrap, space-between, center);
-      width: 100%;
       height: 45px;
 
       &--text {
@@ -653,38 +480,29 @@ mat-option {
       &--choose {
         width: 60%;
         height: 45px;
-        @include flexbox(row, nowrap, space-between, center);
 
         .select-salary {
-          border: 1px solid #CBCBD9;
-          height: 35px;
-          width: 70%;
-          font-family: "Poppins";
-          font-size: 13px;
-          font-weight: 500;
+          height: 37px;
+          width: 75%;
+          padding: 0;
           line-height: 18px;
           outline: none;
           padding-left: 10px;
           padding-right: 5px;
-          @include flexbox(column, nowrap, center, center)
         }
 
         .select-currency {
           width: 20%;
           height: 45px;
-          @include flexbox(row, nowrap, left, center);
           cursor: pointer;
           position: relative;
 
           .visible {
             top: 10%;
             left: 0;
-            width: 100%;
             height: 37px;
+            padding: 1px;
             position: absolute;
-            background-color: transparent;
-            @include flexbox(row, nowrap, space-between, center);
-            border: 1px solid #CBCBD9;
 
             &__title-icon {
               width: 15px;
@@ -692,24 +510,14 @@ mat-option {
               margin-left: 5px;
               line-height: 15px;
               font-size: 12px;
-              color: #292F3D;
-            }
-
-            &__title-icon::before {
-              content: "\e900";
             }
 
             &__drop-icon {
               width: 9px;
               height: 6px;
               line-height: 5px;
-              font-family: 'drop-down-arrow';
               font-size: 9px;
               color: #6E7585;
-            }
-
-            &__drop-icon::before {
-              content: "\e900";
             }
           }
 
@@ -721,32 +529,21 @@ mat-option {
             height: 100px;
             top: 45px;
             left: 0;
-            width: 100%;
-            padding: 10px;
-            background-color: white;
+            padding: 2px 8px;
             box-shadow: 3px 6px 8px 4px rgba(0, 0, 0, 0.25);
 
             &__currency {
-              width: 100%;
-              height: 30px;
+              height: 32px;
               border-bottom: 1px solid rgb(175, 175, 175);
-              color: #292F3D;
               margin-bottom: 5px;
 
               &--icon {
                 width: 10px;
-                height: 10px;
+                height: 32px;
                 margin-left: 7px;
-                line-height: 5px;
-                font-size: 10px;
-                color: #292F3D;
+                line-height: 32px;
+                font-size: 13px;
               }
-
-              &--icon::before {
-                content: "\e900";
-              }
-
-
             }
           }
         }
@@ -755,8 +552,6 @@ mat-option {
     }
 
     &__termContr {
-      @include flexbox(row, nowrap, space-between, center);
-      width: 100%;
       min-height: 35px;
       margin-top: 10px;
 
@@ -767,32 +562,17 @@ mat-option {
       }
 
       &--choose {
-        // margin-top: 10px;
         width: 60%;
         min-height: 45px;
-        @include flexbox(row, wrap, flex-start, center);
 
         .termContr-button {
           width: auto;
-          height: 32px;
           margin-right: 10px;
-          display: flex;
-          align-items: center;
           font-family: "Poppins";
           font-size: 13px;
           font-weight: 500;
-          
-        }
+          margin-bottom: 10px;
 
-        .termContr-button:nth-child(3) {
-          width: 50px;
-          height: 32px;
-          margin-right: 10px;
-          display: flex;
-          align-items: center;
-          font-family: "Poppins";
-          font-size: 13px;
-          font-weight: 500;
         }
       }
 
@@ -802,8 +582,6 @@ mat-option {
     }
 
     &__workMode {
-      @include flexbox(row, nowrap, space-between, center);
-      width: 100%;
       min-height: 45px;
       margin-top: 10px;
 
@@ -812,48 +590,26 @@ mat-option {
         font-size: 12px;
         font-weight: 600;
         width: 39%;
-
       }
 
       &--choose {
-        // margin-top: 10px;
         width: 60%;
         min-height: 45px;
         @include flexbox(row, wrap, flex-start, flex-start);
 
         .workMode-button {
-          width: auto;
-          height: 32px;
           margin-right: 10px;
-          display: flex;
-          align-items: center;
           font-family: "Poppins";
           font-size: 13px;
           font-weight: 500;
-
+          margin-bottom: 10px;
         }
 
-        .workMode-button:nth-child(3) {
-          width: 50px;
-          height: 32px;
-          margin-right: 10px;
-          display: flex;
-          align-items: center;
-
-          label {
-            margin-left: 7px;
-            font-family: "Poppins";
-            font-size: 11px;
-            font-weight: 500;
-          }
-        }
       }
 
     }
 
     &__dueDate {
-      @include flexbox(row, nowrap, space-between, center);
-      width: 100%;
       height: 45px;
 
       &--text {
@@ -861,38 +617,28 @@ mat-option {
         font-family: "Poppins";
         font-size: 12px;
         font-weight: 600;
-        @include flexbox(row, nowrap, none, center);
 
         .calendar-info {
           width: 20px;
           height: 22px;
           border: none;
           border-radius: 50px;
-          background-color: transparent;
-          @include flexbox(row, nowrap, left, center);
           padding: 0;
           margin-right: 9px;
 
-          &__icon {
+          .icon-calendar {
             width: 15px;
             height: 15px;
             line-height: 15px;
             font-size: 15px;
-            font-family: 'calendar';
-            color: #0CACF8;
+            // font-family: 'calendar';
           }
-
-          &__icon::before {
-            content: "\e900";
-          }
-
         }
       }
 
       &--select {
         width: 60%;
         height: 35px;
-        @include flexbox(row, nowrap, space-between, center);
         cursor: pointer;
         position: relative;
         border: 1px solid #CBCBD9;
@@ -908,75 +654,18 @@ mat-option {
           height: 90%;
         }
 
-        .drop-icon {
+        .icon-calendar {
           width: 14px;
           height: 14px;
           line-height: 15px;
           font-size: 14px;
-          font-family: 'calendar';
+          // font-family: 'calendar';
           color: #6E7585;
         }
 
-        .drop-icon::before {
-          content: "\e900";
+        .icon-calendar:before {
+          color: #6E7585;
         }
-
-        .visible {
-          top: 10%;
-          left: 0;
-          width: 100%;
-          height: 32px;
-          position: absolute;
-          background-color: transparent;
-          @include flexbox(row, nowrap, space-between, center);
-          border: 1px solid #CBCBD9;
-
-          &__title {
-            font-family: "Poppins";
-            font-size: 11px;
-            font-weight: 500;
-            padding-left: 4px;
-          }
-
-
-          &__drop-icon {
-            width: 12px;
-            height: 12px;
-            line-height: 15px;
-            font-size: 12px;
-            font-family: 'calendar';
-            color: #6E7585;
-          }
-
-          &__drop-icon::before {
-            content: "\e900";
-          }
-        }
-
-        .hidden {
-          z-index: 3;
-          display: none;
-          position: absolute;
-          height: 138px;
-          top: -158px;
-          left: 0;
-          width: 90%;
-          padding: 10px;
-          background-color: white;
-          box-shadow: 3px 6px 8px 4px rgba(0, 0, 0, 0.25);
-
-          p {
-            width: 100%;
-            height: 30px;
-            border-bottom: 1px solid rgb(175, 175, 175);
-            color: #292F3D;
-            margin-bottom: 5px;
-            font-family: "Poppins";
-            font-size: 11px;
-            font-weight: 500;
-          }
-        }
-
       }
     }
 
@@ -998,10 +687,8 @@ mat-option {
   &__jobDesc {
     width: 93%;
     min-height: 10px;
-    @include flexbox(column, nowrap, space-around, center);
     padding: 18px;
     position: relative;
-    background-color: white;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
 
     &--arrowNavigate {
@@ -1012,21 +699,15 @@ mat-option {
       height: 14px;
       cursor: pointer;
       font-size: 14px;
-      font-family: 'up-navigate-arrow';
       color: #6E7585;
     }
 
-    &--arrowNavigate:before {
-      content: "\e900";
-    }
-
     &--visible {
-      width: 100%;
       min-height: 10px;
-      @include flexbox(row, nowrap, space-around, center);
+      width: 97%;
 
       .jobDescription-icon {
-        width: 60px;
+        width: 50px;
         height: 72px;
 
         .icon-description {
@@ -1034,50 +715,14 @@ mat-option {
           height: 56px;
           line-height: 65px;
           font-size: 40px;
-          font-family: 'description';
           color: #6E7585;
           position: relative;
-        }
-
-        .icon-description .path1:before {
-          content: "\e900";
-          color: #6b7181;
-        }
-
-        .icon-description .path2:before {
-          content: "\e901";
-          color: #0cacf8;
-          margin-left: -1em;
-        }
-
-        .icon-description .path3:before {
-          content: "\e902";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-description .path4:before {
-          content: "\e903";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-description .path5:before {
-          content: "\e904";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-description .path6:before {
-          content: "\e905";
-          color: #6b7181;
-          margin-left: -1em;
         }
       }
 
       .job-description {
-        width: 84%;
-        height: 80px;
+        width: 86%;
+        min-height: 80px;
 
         &__title {
           width: 100%;
@@ -1085,15 +730,13 @@ mat-option {
           font-family: "Poppins";
           font-size: 17px;
           font-weight: 700;
-          @include flexbox(row, wrap, left, center);
         }
 
         &__text {
           font-family: "Poppins";
           font-size: 11px;
           font-weight: 500;
-          @include flexbox(row, wrap, left, center);
-          color: #acb0ba;
+          color: #6E7585;
           line-height: 15px;
         }
 
@@ -1102,12 +745,9 @@ mat-option {
 
     &--textNote {
       width: 97%;
-      @include flexbox(column, nowrap, left, center);
       overflow: hidden;
 
       .upload {
-        width: 100%;
-        @include flexbox(row, wrap, left, center);
         font-size: 16px;
         margin-bottom: 5px;
 
@@ -1122,30 +762,17 @@ mat-option {
         }
 
         .btn {
-          @include flexbox(row, wrap, space-around, center);
-          background-color: transparent;
-          color: #5dc8fa;
-          padding-left: 10px;
+          padding: 0%;
           border: none;
           font-size: 12px;
-          font-weight: 500;
-          width: 100%;
           height: 30px;
           cursor: pointer;
-          padding: 0%;
 
           &__resent-icon {
-            margin-right: 7px;
             width: 15px;
             height: 15px;
             line-height: 12px;
-            font-family: 'resent';
             font-size: 15px;
-            color: #0CACF8;
-          }
-
-          &__resent-icon::before {
-            content: "\e900";
           }
         }
 
@@ -1162,12 +789,9 @@ mat-option {
       }
 
       .notePad {
-        width: 100%;
         min-height: 150px;
-        // border: 1px solid #CBCBD9;
 
         &__form-group {
-          width: 100%;
           min-height: 100px;
         }
 
@@ -1181,10 +805,8 @@ mat-option {
     margin-top: 15px;
     width: 93%;
     min-height: 72px;
-    @include flexbox(column, nowrap, space-around, center);
     padding: 18px;
     position: relative;
-    background-color: white;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
 
     &--arrowNavigate {
@@ -1195,18 +817,12 @@ mat-option {
       height: 14px;
       cursor: pointer;
       font-size: 14px;
-      font-family: 'up-navigate-arrow';
       color: #6E7585;
     }
 
-    &--arrowNavigate:before {
-      content: "\e900";
-    }
-
     &--visible {
-      width: 100%;
       min-height: 72px;
-      @include flexbox(row, nowrap, space-around, center);
+      width: 97%;
 
       .compDescription-icon {
         width: 50px;
@@ -1217,132 +833,27 @@ mat-option {
           height: 56px;
           line-height: 65px;
           font-size: 44px;
-          font-family: 'companyDesc';
           color: #6E7585;
           position: relative;
-        }
-
-        .icon-companyDesc .path1:before {
-          content: "\e900";
-          color: #0cacf8;
-        }
-
-        .icon-companyDesc .path2:before {
-          content: "\e901";
-          color: #0cacf8;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path3:before {
-          content: "\e902";
-          color: #0cacf8;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path4:before {
-          content: "\e903";
-          color: #0cacf8;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path5:before {
-          content: "\e904";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path6:before {
-          content: "\e905";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path7:before {
-          content: "\e906";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path8:before {
-          content: "\e907";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path9:before {
-          content: "\e908";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path10:before {
-          content: "\e909";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path11:before {
-          content: "\e90a";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path12:before {
-          content: "\e90b";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path13:before {
-          content: "\e90c";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path14:before {
-          content: "\e90d";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path15:before {
-          content: "\e90e";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path16:before {
-          content: "\e90f";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-companyDesc .path17:before {
-          content: "\e910";
-          color: #6b7181;
-          margin-left: -1em;
         }
       }
 
       .company-description {
         width: 84%;
-        height: 80px;
+        min-height: 80px;
 
         &__title {
-          width: 100%;
           height: 40px;
           font-family: "Poppins";
           font-size: 17px;
           font-weight: 700;
-          @include flexbox(row, wrap, left, center);
         }
 
         &__text {
           font-family: "Poppins";
           font-size: 11px;
           font-weight: 500;
-          @include flexbox(row, wrap, left, center);
-          color: #acb0ba;
+          color: #6E7585;
           line-height: 15px;
         }
 
@@ -1351,77 +862,17 @@ mat-option {
 
     &--hidden {
       overflow: hidden;
-      width: 100%;
-      @include flexbox(column, nowrap, left, center);
-
-      .upload {
-        width: 100%;
-        @include flexbox(row, wrap, left, center);
-        font-size: 16px;
-        margin-bottom: 5px;
-
-        label {
-          font-size: 20px;
-        }
-
-        .upload-btn-wrapper {
-          position: relative;
-          overflow: hidden;
-          display: inline-block;
-        }
-
-        .btn {
-          @include flexbox(row, wrap, space-around, center);
-          background-color: transparent;
-          color: #5dc8fa;
-          padding-left: 10px;
-          border: none;
-          font-size: 12px;
-          font-weight: 500;
-          width: 100%;
-          height: 30px;
-          cursor: pointer;
 
 
-          &__resent-icon {
-            margin-right: 7px;
-            width: 15px;
-            height: 15px;
-            line-height: 12px;
-            font-family: 'resent';
-            font-size: 15px;
-            color: #0CACF8;
-          }
-
-          &__resent-icon::before {
-            content: "\e900";
-          }
-        }
-
-        .upload-btn-wrapper input[type=file] {
-          position: absolute;
-          left: 0;
-          top: 0;
-          opacity: 0;
-          width: 100%;
-          height: 30px;
-          cursor: pointer;
-
-        }
-
-
-
-      }
 
       .hidden-text {
         width: 90%;
+        margin-top: 25px;
         padding: 15px;
         font-family: "Poppins";
         font-size: 11px;
         font-weight: 400;
-        border: 1px solid #acb0ba;
         line-height: 20px;
-        @include flexbox(row, wrap, left, center);
       }
     }
 
@@ -1432,10 +883,8 @@ mat-option {
     margin-top: 15px;
     width: 93%;
     min-height: 72px;
-    @include flexbox(column, nowrap, space-around, center);
     padding: 18px;
     position: relative;
-    background-color: white;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
 
     &--arrowNavigate {
@@ -1446,18 +895,12 @@ mat-option {
       height: 14px;
       cursor: pointer;
       font-size: 14px;
-      font-family: 'up-navigate-arrow';
       color: #6E7585;
     }
 
-    &--arrowNavigate:before {
-      content: "\e900";
-    }
-
     &--visible {
-      width: 100%;
       min-height: 72px;
-      @include flexbox(row, nowrap, space-around, center);
+      width: 97%;
 
       .screenQuest-icon {
         width: 55px;
@@ -1468,84 +911,27 @@ mat-option {
           height: 56px;
           line-height: 65px;
           font-size: 45px;
-          font-family: 'screenQuest';
           color: #6E7585;
           position: relative;
-        }
-
-        .icon-screenQuest .path1:before {
-          content: "\e900";
-          color: #0cacf8;
-        }
-
-        .icon-screenQuest .path2:before {
-          content: "\e901";
-          color: #0cacf8;
-          margin-left: -1em;
-        }
-
-        .icon-screenQuest .path3:before {
-          content: "\e902";
-          color: #0cacf8;
-          margin-left: -1em;
-        }
-
-        .icon-screenQuest .path4:before {
-          content: "\e903";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-screenQuest .path5:before {
-          content: "\e904";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-screenQuest .path6:before {
-          content: "\e905";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-screenQuest .path7:before {
-          content: "\e906";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-screenQuest .path8:before {
-          content: "\e907";
-          color: #6b7181;
-          margin-left: -1em;
-        }
-
-        .icon-screenQuest .path9:before {
-          content: "\e908";
-          color: #6b7181;
-          margin-left: -1em;
         }
       }
 
       .screen-question {
         width: 84%;
-        height: 80px;
+        min-height: 80px;
 
         &__title {
-          width: 100%;
           height: 40px;
           font-family: "Poppins";
           font-size: 17px;
           font-weight: 700;
-          @include flexbox(row, wrap, left, center);
         }
 
         &__text {
           font-family: "Poppins";
           font-size: 11px;
           font-weight: 500;
-          @include flexbox(row, wrap, left, center);
-          color: #acb0ba;
+          color: #6E7585;
           line-height: 15px;
         }
 
@@ -1554,18 +940,11 @@ mat-option {
 
     &--questNote {
       overflow: hidden;
-      width: 100%;
-      @include flexbox(column, nowrap, left, center);
 
       .upload {
-        width: 100%;
-        @include flexbox(row, wrap, left, center);
         font-size: 16px;
         margin-bottom: 5px;
-
-        label {
-          font-size: 20px;
-        }
+        width: 97%;
 
         .upload-btn-wrapper {
           position: relative;
@@ -1574,30 +953,17 @@ mat-option {
         }
 
         .btn {
-          @include flexbox(row, wrap, space-around, center);
-          background-color: transparent;
-          color: #5dc8fa;
-          padding-left: 10px;
+          padding: 0;
           border: none;
           font-size: 12px;
-          font-weight: 500;
-          width: 100%;
           height: 30px;
           cursor: pointer;
 
-
-          &__resent-icon {
-            margin-right: 7px;
+          .icon-resent {
             width: 15px;
             height: 15px;
             line-height: 12px;
-            font-family: 'resent';
             font-size: 15px;
-            color: #0CACF8;
-          }
-
-          &__resent-icon::before {
-            content: "\e900";
           }
         }
 
@@ -1611,23 +977,17 @@ mat-option {
           cursor: pointer;
 
         }
-
-
-
       }
 
       .question-list {
         padding: 5px 15px 5px 15px;
         width: 91%;
         height: 35px;
-        background-color: #F0F8FF;
-        @include flexbox(row, nowrap, space-between, center);
         margin-bottom: 5px;
 
         &__write {
           width: 80%;
           height: 30px;
-          @include flexbox(row, nowrap, space-between, center);
 
           &--id {
             font-family: "Poppins";
@@ -1636,11 +996,9 @@ mat-option {
           }
 
           &--input {
-            width: 100%;
             height: 30px;
             border: none;
             padding-left: 10px;
-            background-color: transparent;
             font-family: "Poppins";
             font-size: 13px;
             font-weight: 500;
@@ -1663,50 +1021,27 @@ mat-option {
         &__button {
           width: 45px;
           height: 30px;
-          @include flexbox(row, nowrap, flex-end, center);
 
           &--bin {
             border: none;
-            width: 16.8px;
-            height: 17.1px;
-            margin-right: 10px;
-            background-color: #F0F8FF;
 
-            .delete {
-              margin-right: 7px;
+            .icon-delete {
               width: 15px;
               height: 15px;
-              line-height: 12px;
-              font-family: 'delete';
+              line-height: 15px;
               font-size: 15px;
-              color: #FD6363;
-            }
-
-            .delete::before {
-              content: "\e900";
             }
           }
 
           &--menu {
             border: none;
-            width: 16.8px;
-            height: 17.1px;
-            background-color: #F0F8FF;
 
-            .menu {
-              margin-right: 7px;
+            .icon-menu {
               width: 15px;
               height: 15px;
-              line-height: 12px;
-              font-family: 'menu';
+              line-height: 15px;
               font-size: 15px;
-              color: #0CACF8;
             }
-
-            .menu::before {
-              content: "\e900";
-            }
-
           }
         }
       }
@@ -1714,29 +1049,23 @@ mat-option {
       .add-question {
         width: 140px;
         height: 22px;
-        @include flexbox(row, nowrap, center, center);
         margin-top: 10px;
-        background-color: white;
         font-size: 13px;
         font-weight: 550;
-        color: #39bbf9;
         border: none;
+        padding: 0%;
 
-        .plus {
+        .icon-iconmonstr-plus-6 {
           width: 19.25px;
           height: 19.25px;
-          line-height: 22.25px;
-          font-family: 'plus-circuse';
+          line-height: 18px;
           font-size: 16px;
-          color: #0CACF8;
-          margin-right: 5px;
           font-weight: 400;
 
         }
 
-        .plus::before {
-          content: "\e901";
-
+        .icon-iconmonstr-plus-6:before {
+          color: #0cacf8;
         }
 
       }
@@ -1750,12 +1079,7 @@ mat-option {
 
 .order-button {
   width: 150px;
-  height: 40px;
-  background-color: #0cacf8;
-  color: white;
   border-radius: 2px;
-  border: 1px solid #0cacf8;
-  font-size: 13px;
   margin-bottom: 30px;
   transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
 }
