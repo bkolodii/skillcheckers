@@ -8,21 +8,21 @@
         <div class="person w-100 flex nowrap jcfe aic" [routerLink]="[ item.url ]">
           <div class="person__logo">
             <img class="person__logo--icon" [src]="item.img" alt="">
-            <span class="person__logo--active bc-green" [style.display]="item.missing == 0 ? 'none' : 'block' "></span>
+            <span class="person__logo--active bdc-white bc-green" [style.display]="item.missing == 0 ? 'none' : 'block' "></span>
           </div>
           <div class="person__person-data flex col nowrap jcc aifs">
-            <h2 class="person__person-data--title" routerLinkActive="select-color">
+            <h2 class="person__person-data--title font-13" routerLinkActive="txt-c-blue">
               {{item.name}}
             </h2>
-            <p class="person__person-data--text">
+            <p class="txt-c-initial font-10">
               {{item.text}}
             </p>
           </div>
           <div class="person__other-data flex col nowrap jcc aic">
-            <p class="person__other-data--time">
+            <p class="person__other-data--time font-11 txt-c-initial">
               {{item.time}}
             </p>
-            <p class="person__other-data--missing bc-white txt-c-blue flex nowrap jcc aic" *ngIf="item.missing > 0">
+            <p class="person__other-data--missing bdc-blue font-9 bc-white txt-c-blue flex nowrap jcc aic" *ngIf="item.missing > 0">
               {{item.missing}}
             </p>
           </div>

@@ -2,7 +2,7 @@
   <section class="chat bc-white flex col nowrap jcsb aic">
     <div class="chat__search w-100 flex nowrap jcfs aic">
       <span aria-hidden="true" class="chat__search--icon icon-icons8-search txt-c-blue"></span>
-      <input type="text" class="chat__search--input bc-white" placeholder="Search this conversation">
+      <input type="text" class="chat__search--input font-12 bc-white" placeholder="Search this conversation">
       <button class="chat__search--setting bc-gray flex nowrap jcc aic">
         <span aria-hidden="true" class="icon-settings"></span>
       </button>
@@ -14,23 +14,23 @@
             src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser4.png?alt=media&token=02f7edf6-6015-4545-b4c1-7ff79b8aeb4f"
             alt="">
           <div class="user-recieve__person-data flex col nowrap jcfs aifs">
-            <h2 class="user-recieve__person-data--title w-100">
+            <h2 class="user-recieve__person-data--title font-12 w-100">
               Albert Flores
             </h2>
-            <p class="user-recieve__person-data--text txt-c-black">
+            <p class="user-recieve__person-data--text font-11 txt-c-black">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget magnis lorem feugiat nulla proin. Vestibulum
               purus, nec interdum augue eu blandit.
             </p>
           </div>
           <div class="user-recieve__other-data flex col nowrap jcfs aifs">
-            <p class="user-recieve__other-data--time">
+            <p class="user-recieve__other-data--time font-10 txt-c-initial">
               10.45 AM
             </p>
           </div>
 
         </div>
         <div class="date-period w-100 flex nowrap jcsa aic">
-          <p class="date-period__date ">
+          <p class="date-period__date font-12">
             8 JULY 2020
           </p>
           <hr class="date-period__hr">
@@ -183,66 +183,66 @@
 
       </div>
     </div>
-    <div class="chat__message">
-      <div class="chat__message--upload">
+    <div class="chat__message bc-light-blue flex wrap jcsb aic w-100">
+      <div class="chat__message--upload flex wrap aic jcc">
         <div class="upload-btn-wrapper">
-          <button class="btn">
+          <button class="btn flex wrap ai jcsa font-12">
             <span aria-hidden="true" class="btn__paper-clip icon-paper-clip"></span>
           </button>
           <input type="file" name="myfile" />
         </div>
       </div>
-      <input type="text" class="chat__message--input" [(ngModel)]="getText" name="getText"
+      <input type="text" class="chat__message--input font-11 bdc-light-gray" [(ngModel)]="getText" name="getText"
         placeholder="Write a message...">
-      <button class="chat__message--send" (click)="sendMessage()"> Send </button>
+      <button class="chat__message--send font-11" (click)="sendMessage()"> Send </button>
     </div>
   </section>
-  <section class="person-details">
-    <div class="person-details__header">
+  <section class="person-details bc-white flex col nowrap jcfs aic">
+    <div class="person-details__header flex nowrap aic jcsb">
       <img class="person-details__header--user-icon"
         src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser4.png?alt=media&token=02f7edf6-6015-4545-b4c1-7ff79b8aeb4f"
         alt="">
-      <div class="person-details__header--info">
-        <p class="person-name">Albert Flores</p>
-        <p class="person-skill">Java Developer</p>
-        <p class="person-rate">8.6</p>
+      <div class="person-details__header--info flex nowrap col jcsb aifs">
+        <p class="person-name font-14">Albert Flores</p>
+        <p class="person-skill font-11">Java Developer</p>
+        <p class="person-rate font-10 bc-green flex nowrap aic jcc txt-c-white">8.6</p>
       </div>
     </div>
-    <div class="person-details__main">
+    <div class="person-details__main flex wrap jcsb aic">
       <div class="person-details__main--speedOfwork">
-        <p class="title-of-speed">SPEED OF WORK</p>
-        <p class="text-of-speed">top 18%</p>
+        <p class="title-of-speed font-9 w-100">SPEED OF WORK</p>
+        <p class="text-of-speed font-13 w-100">top 18%</p>
       </div>
       <div class="person-details__main--learnSkills">
-        <p class="title-learnSkills">LEARNING SKILLS</p>
-        <p class="text-learnSkills">top 27%</p>
+        <p class="title-learnSkills font-9 w-100">LEARNING SKILLS</p>
+        <p class="text-learnSkills font-13 w-100">top 27%</p>
       </div>
       <div class="person-details__main--date">
-        <p class="title-date">DATE</p>
-        <p class="text-date">11.09.2020</p>
+        <p class="title-date font-9 w-100">DATE</p>
+        <p class="text-date font-13 w-100">11.09.2020</p>
       </div>
       <div class="person-details__main--salaryRange">
-        <p class="title-salary">SALARY RANGE</p>
-        <p class="text-salary">100,000 - 120,000</p>
+        <p class="title-salary font-9 w-100">SALARY RANGE</p>
+        <p class="text-salary font-13 w-100">100,000 - 120,000</p>
       </div>
       <div class="person-details__main--experience">
-        <p class="title-experience">EXPERIENCE</p>
-        <p class="text-experience">4+</p>
+        <p class="title-experience font-9 w-100">EXPERIENCE</p>
+        <p class="text-experience font-13 w-100">4+</p>
       </div>
       <div class="person-details__main--location">
-        <p class="title-loc">LOCATION</p>
-        <div class="text-loc">Seatle <span>Remote</span> </div>
+        <p class="title-loc font-9 w-100">LOCATION</p>
+        <div class="text-loc font-13 w-100 flex wrap jcsb aic">Seatle <span class="font-10 bc-gray txt-c-initial flex wrap aic jcc">Remote</span> </div>
       </div>
     </div>
-    <div class="person-details__footer">
-      <button class="person-details__footer--interview">Interview</button>
-      <button class="person-details__footer--add-person">
+    <div class="person-details__footer flex nowrap jcsb aic ">
+      <button class="person-details__footer--interview font-12">Interview</button>
+      <button class="person-details__footer--add-person bc-light-blue">
         <span aria-hidden="true" data-icon="&#xe900;" class="add-person icon-add-person"></span>
       </button>
-      <button class="person-details__footer--delete-person">
+      <button class="person-details__footer--delete-person bc-light-blue">
         <span aria-hidden="true" data-icon="&#xe900;" class="delete-person icon-delete-person"></span>
       </button>
-      <button class="person-details__footer--more-option">
+      <button class="person-details__footer--more-option bc-light-blue">
         <span aria-hidden="true" data-icon="&#xe900;" class="more-option icon-more-option"></span>
       </button>
     </div>

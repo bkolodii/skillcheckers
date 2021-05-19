@@ -206,15 +206,10 @@ main {
   }
 
   &__message {
-    background-color: #F0F8FF;
-    width: 100%;
     height: 54px;
-
-    @include flexbox(row, nowrap, space-between, center);
 
     &--upload {
       width: 6%;
-      @include flexbox(row, wrap, center, center);
       font-size: 16px;
       margin-right: 10px;
 
@@ -230,12 +225,9 @@ main {
       }
 
       .btn {
-        @include flexbox(row, wrap, space-around, center);
         background-color: transparent;
         padding: 0px;
         border: none;
-        font-size: 12px;
-        font-weight: 500;
         width: 35px;
         height: 50px;
         cursor: pointer;
@@ -244,7 +236,6 @@ main {
           width: 24px;
           height: 24px;
           line-height: 24px;
-          // font-family: 'paper-clip';
           font-size: 22px;
           color: #6E7585;
           transition: transform 400ms linear;
@@ -271,11 +262,7 @@ main {
     &--input {
       width: 76%;
       height: 32px;
-      font-family: "Poppins";
-      font-size: 11px;
-      font-weight: 500;
       padding-left: 10px;
-      border: 1px solid #CBCBD9;
       box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.25);
     }
 
@@ -291,8 +278,6 @@ main {
       height: 33px;
       background-color: #0cacf8;
       border: 1px solid #0cacf8;
-      font-size: 11px;
-      font-weight: 500;
       color: white;
       margin-left: 10px;
       margin-right: 10px;
@@ -322,14 +307,11 @@ main {
   height: 346px;
   margin-top: 15px;
   margin-right: 15px;
-  background-color: white;
-  @include flexbox(column, nowrap, flex-start, center);
 
   &__header {
     width: 85%;
     height: 94px;
     border-bottom: 1px solid #b6bac1;
-    @include flexbox(row, nowrap, space-between, center);
 
     &--user-icon {
       width: 62px;
@@ -340,32 +322,19 @@ main {
     &--info {
       width: 80%;
       height: 57px;
-      @include flexbox(column, nowrap, space-between, flex-start);
 
       .person-name {
-        font-family: "Poppins";
-        font-size: 14px;
         font-weight: 600;
       }
 
       .person-skill {
-        font-family: "Poppins";
-        font-size: 11px;
-        font-weight: 500;
-        ;
         color: #b3b3b6;
       }
 
       .person-rate {
         width: 30px;
-        font-family: "Poppins";
-        font-size: 10px;
-        font-weight: 500;
-        color: white;
         height: 15px;
         border-radius: 15px;
-        background-color: #25bf50;
-        @include flexbox(row, nowrap, center, center);
       }
     }
   }
@@ -374,26 +343,18 @@ main {
     width: 85%;
     height: 180px;
     border-bottom: 1px solid #b6bac1;
-    @include flexbox(row, wrap, space-between, center);
 
     &--speedOfwork {
       width: 50%;
       height: 30px;
 
       .title-of-speed {
-        width: 100%;
         height: 14px;
-        font-family: "Poppins";
-        font-size: 9px;
-        font-weight: 500;
         color: #b3b3b6;
       }
 
       .text-of-speed {
-        width: 100%;
         height: 14px;
-        font-family: "Poppins";
-        font-size: 13px;
         font-weight: 550;
         color: #25b5f9;
       }
@@ -404,20 +365,12 @@ main {
       height: 30px;
 
       .title-learnSkills {
-        width: 100%;
         height: 14px;
-        font-family: "Poppins";
-        font-size: 9px;
-        font-weight: 500;
         color: #b3b3b6;
       }
 
       .text-learnSkills {
-        width: 100%;
         height: 14px;
-        font-family: "Poppins";
-        font-size: 13px;
-        font-weight: 500;
         color: #25b5f9;
       }
     }
@@ -427,20 +380,12 @@ main {
       height: 30px;
 
       .title-date {
-        width: 100%;
         height: 14px;
-        font-family: "Poppins";
-        font-size: 9px;
-        font-weight: 500;
         color: #b3b3b6;
       }
 
       .text-date {
-        width: 100%;
         height: 14px;
-        font-family: "Poppins";
-        font-size: 13px;
-        font-weight: 500;
         // color: #25b5f9;
       }
     }
@@ -450,20 +395,12 @@ main {
       height: 30px;
 
       .title-salary {
-        width: 100%;
         height: 14px;
-        font-family: "Poppins";
-        font-size: 9px;
-        font-weight: 500;
         color: #b3b3b6;
       }
 
       .text-salary {
-        width: 100%;
         height: 14px;
-        font-family: "Poppins";
-        font-size: 13px;
-        font-weight: 500;
         // color: #25b5f9;
       }
     }
@@ -473,20 +410,12 @@ main {
       height: 30px;
 
       .title-experience {
-        width: 100%;
         height: 14px;
-        font-family: "Poppins";
-        font-size: 9px;
-        font-weight: 500;
         color: #b3b3b6;
       }
 
       .text-experience {
-        width: 100%;
         height: 14px;
-        font-family: "Poppins";
-        font-size: 13px;
-        font-weight: 500;
       }
     }
 
@@ -495,33 +424,18 @@ main {
       height: 30px;
 
       .title-loc {
-        width: 100%;
         height: 14px;
-        font-family: "Poppins";
-        font-size: 9px;
-        font-weight: 500;
         color: #b3b3b6;
       }
 
       .text-loc {
-        @include flexbox(row, wrap, space-between, center);
-        width: 100%;
         height: 14px;
-        font-family: "Poppins";
-        font-size: 13px;
-        font-weight: 500;
 
         span {
           width: 57px;
           height: 18px;
-          background-color: #eef0f8;
-          color: #676c78;
           // margin-left: 10px;
           border-radius: 10px;
-          font-family: "Poppins";
-          font-size: 10px;
-          font-weight: 500;
-          @include flexbox(row, wrap, center, center);
         }
 
         // color: #25b5f9;
@@ -532,7 +446,6 @@ main {
   &__footer {
     width: 85%;
     height: 70px;
-    @include flexbox(row, nowrap, space-between, center);
 
     &--interview {
       width: 120px;
@@ -540,9 +453,6 @@ main {
       background-color: #0cacf8;
       border: 1px solid #0cacf8;
       color: white;
-      font-family: "Poppins";
-      font-size: 12px;
-      font-weight: 500;
       margin-right: 5px;
       transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
     }
@@ -565,7 +475,6 @@ main {
       width: 42px;
       height: 37px;
       border: none;
-      background-color: #F0F8FF;
 
       .add-person {
         width: 22px;

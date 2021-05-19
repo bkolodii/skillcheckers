@@ -5,10 +5,6 @@
   background-color: #eef0f8 !important;
 }
 
-.select-color{
-  color: #0CACF8;
-}
-
 .choose {
   position: absolute;
   height: 70%;
@@ -65,7 +61,6 @@ main {
             right: 0px;
             width: 7px;
             height: 7px;
-            border: 1px solid #FFFFFF;
             border-radius: 50%;
           }
         }
@@ -75,17 +70,8 @@ main {
           height: 43px;
 
           &--title {
-            font-family: "Poppins";
-            font-size: 13px;
             font-weight: 600;
             margin-bottom: 5px;
-          }
-
-          &--text {
-            font-family: "Poppins";
-            font-size: 10px;
-            font-weight: 500;
-            color: #6E7585;
           }
         }
 
@@ -94,10 +80,6 @@ main {
           height: 43px;
 
           &--missing {
-            font-family: "Poppins";
-            font-size: 9px;
-            font-weight: 500;
-            border: 1.5px solid #0CACF8;
             border-radius: 50%;
             width: 13px;
             height: 13px;
@@ -107,10 +89,7 @@ main {
           }
 
           &--time {
-            font-family: "Poppins";
-            font-size: 11px;
-            font-weight: 500;
-            color: #6E7585;
+            // color: #6E7585;
             margin-bottom: 5px;
 
           }

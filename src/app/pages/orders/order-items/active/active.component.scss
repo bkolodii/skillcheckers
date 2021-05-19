@@ -25,12 +25,6 @@
         color: #292F3D;
         border: 1px solid #CBCBD9;
 
-        &__title {
-          font-family: "Poppins";
-          font-size: 14px;
-          font-weight: 400;
-        }
-
         .items-drop {
           width: 9px;
           height: 6px;
@@ -57,9 +51,6 @@
           height: 50px;
           border-bottom: 1px solid #CBCBD9;
           color: #292F3D;
-          font-family: "Poppins";
-          font-size: 14px;
-          font-weight: 400;
           line-height: 50px;
         }
 
@@ -86,12 +77,6 @@
         position: absolute;
         border: 1px solid #CBCBD9;
 
-        &__title {
-          font-family: "Poppins";
-          font-size: 14px;
-          font-weight: 400;
-        }
-
         .items-drop {
           width: 9px;
           height: 6px;
@@ -117,9 +102,6 @@
           height: 50px;
           border-bottom: 1px solid #CBCBD9;
           color: #292F3D;
-          font-family: "Poppins";
-          font-size: 14px;
-          font-weight: 400;
           line-height: 50px;
         }
 
@@ -138,9 +120,6 @@
       border-radius: 182px;
 
       .title {
-        font-family: "Poppins";
-        font-size: 14px;
-        font-weight: 400;
         white-space: nowrap;
         padding-left: 4px;
         color: #292F3D;
@@ -160,8 +139,6 @@
 
 
         &__cross {
-          // width: 9px;
-          // height: 6px;
           line-height: 6px;
           font-size: 9px;
           color: #292F3D;
@@ -191,13 +168,6 @@
       position: absolute;
       border-radius: 20px;
 
-      .drop-title {
-        font-family: "Poppins";
-        font-size: 14px;
-        font-weight: 400;
-        color: #292F3D;
-      }
-
       .items-drop {
         width: 9px;
         height: 6px;
@@ -224,10 +194,7 @@
         width: 100%;
         height: 50px;
         border-bottom: 1px solid #CBCBD9;
-        color: #292F3D;
-        font-family: "Poppins";
-        font-size: 14px;
-        font-weight: 400;
+        // color: #292F3D;
         line-height: 50px;
       }
 
@@ -263,10 +230,6 @@
         min-height: 40px;
 
         &__title {
-          font-family: "Poppins";
-          font-style: normal;
-          font-weight: 500;
-          font-size: 12px;
           line-height: 18px;
           text-transform: uppercase;
           color: #6E7585;
@@ -274,14 +237,8 @@
         }
 
         &__text {
-          font-family: 'Poppins';
-          font-style: normal;
-          font-weight: normal;
-          font-weight: normal;
-          font-size: 14px;
           line-height: 21px;
           align-items: center;
-          color: #292F3D;
         }
 
       }
@@ -452,12 +409,7 @@
 
 
             .items-text {
-              font-family: 'Poppins';
-              font-style: normal;
-              font-weight: normal;
-              font-size: 14px;
               line-height: 21px;
-              color: #292F3D;
               margin-left: 8px;
               line-height: 21px;
             }

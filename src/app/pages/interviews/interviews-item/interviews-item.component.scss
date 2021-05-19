@@ -1,51 +1,21 @@
 @import "../../../../assets/styles/mixins";
 @import "../../../../assets/styles/font";
-.active {
-  color: #0caaf5;
-}
 
 .interviews-type {
   width: 100%;
   height: 55px;
   border-bottom: 1px solid #CBCBD9;
   border-top: 1px solid #CBCBD9;
-  @include flexbox(row, nowrap, flex-start, center);
-  background-color: white;
 
   &__upcoming {
-    @include flexbox(row, nowrap, space-between, center);
     margin-left: 20px;
     min-width: 90px;
     height: 55px;
     cursor: pointer;
     position: relative;
     &--title {
-      font-family: "Poppins";
       font-weight: 600;
-      font-style: normal;
-      font-size: 14px;
     }
-
-    &--unread {
-      width: 18px;
-      height: 18px;
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      @include flexbox(row, nowrap, center, center);
-      border-radius: 50%;
-      background-color: #0caaf5;
-      color: white;
-      margin-left: 5px;
-    }
-    &--choose{
-      position: absolute;
-      width: 100%;
-      height: 5px;
-      background-color: #0CACF8;
-      bottom: -1px;
- 
-     }
   }
 
   &__completed {
@@ -54,10 +24,6 @@
     &--title {
       @extend .interviews-type__upcoming--title;
 
-    }
-
-    &--unread {
-      @extend .interviews-type__upcoming--unread;
     }
   }
 
@@ -68,12 +34,6 @@
     &--title {
       @extend .interviews-type__upcoming--title;
 
-    }
-
-    &--unread {
-      @extend .interviews-type__upcoming--unread;
-      background-color: #eff1f9;
-      color: #bdc1cc;
     }
   }
 }

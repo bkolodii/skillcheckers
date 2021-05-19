@@ -5,12 +5,12 @@
       (click)="openHidden('name')">
       <button class="visible flex nowrap jcsb aic btn bc-white w-100"
         [style.border]="isName? '1px solid #0CACF8' : '1px solid #CBCBD9'">
-        <p class="visible__title">{{name}}</p>
+        <p class="font-14">{{name}}</p>
         <span aria-hidden="true" [class]="!isName ? 'icon-drop-down-arrow' : 'icon-drop-up-arrow'"
           class="items-drop"></span>
       </button>
       <div class="hidden" [style.display]="isName ? 'block' : 'none'">
-        <p *ngFor="let name of unitNames; let i=index" (click)="addFilter(name, 'name')"
+        <p class="font-14" *ngFor="let name of unitNames; let i=index" (click)="addFilter(name, 'name')"
           (click)="chooseItem(name, 'name')">{{name}}</p>
       </div>
     </div>
@@ -20,19 +20,19 @@
       (click)="openHidden('location')">
       <button class="visible flex nowrap jcsb aic btn bc-white w-100"
         [style.border]="isLocation ? '1px solid #0CACF8' : '1px solid #CBCBD9'">
-        <p class="visible__title">{{location}}</p>
+        <p class="font-14">{{location}}</p>
         <span aria-hidden="true" [class]="!isLocation ? 'icon-drop-down-arrow' : 'icon-drop-up-arrow'"
           class="items-drop"></span>
       </button>
       <div class="hidden" [style.display]="isLocation ? 'block' : 'none'">
-        <p *ngFor="let location of unitLocation; let i=index" (click)="addFilter(location, 'location')"
+        <p class="font-14" *ngFor="let location of unitLocation; let i=index" (click)="addFilter(location, 'location')"
           (click)="chooseItem(location, 'location')">{{location}}
         </p>
       </div>
     </div>
     <div class="sorting__left--choose-sort flex nowrap jcsa aic bc-gray"
       *ngFor="let sortOption of sortOptions; let i=index">
-      <p class="title">{{sortOption.item}}</p>
+      <p class="title font-14">{{sortOption.item}}</p>
       <button class="delete-choose flex nowrap jcc aic btn" (click)="deleteFilter(i, sortOption)">
         <span aria-hidden="true" class="delete-choose__cross icon-close"></span>
       </button>
@@ -42,13 +42,13 @@
     (click)="openHidden('dates')">
     <button class="sorting__date--visible bc-gray flex nowrap jcsa aic btn w-100"
       [style.border]="isDate ? '1px solid #0CACF8' : '1px solid #EEF0F8'">
-      <p class="drop-title">{{date}}</p>
+      <p class="font-14 txt-c-initial">{{date}}</p>
       <span aria-hidden="true" [class]="!isDate ? 'icon-drop-down-arrow' : 'icon-drop-up-arrow'"
         class="items-drop"></span>
 
     </button>
     <div class="sorting__date--hidden" [style.display]="isDate ? 'block' : 'none'">
-      <p *ngFor="let dates of creatDate; let i=index" (click)="chooseItem(dates, 'dates')">
+      <p class="font-14 txt-c-initial" *ngFor="let dates of creatDate; let i=index" (click)="chooseItem(dates, 'dates')">
         {{dates}}</p>
     </div>
   </div>
@@ -58,36 +58,36 @@
     <div class="jobApply__container--list w-100 flex nowrap jcsb aic bc-white"
       *ngFor="let item of vacancies  | sortOrders: name : location; let i=index ">
       <!-- <div class="createDate flex col nowrap jcsa">
-        <p class="createDate__title">CREATION DATE</p>
-        <p class="createDate__text flex">{{item.creationDate}}</p>
+        <p class="createDate__title font-12">CREATION DATE</p>
+        <p class="createDate__text font-14 txt-x-initial flex">{{item.creationDate}}</p>
       </div> -->
       <div class="name flex col nowrap jcsa">
-        <p class="name__title">NAME</p>
-        <p class="name__text flex">{{item.name}}</p>
+        <p class="name__title font-12">NAME</p>
+        <p class="name__text flex font-14 txt-x-initial">{{item.name}}</p>
       </div>
       <div class="unitName flex col nowrap jcsa">
-        <p class="unitName__title">UNIT NAME</p>
-        <p class="unitName__text flex">{{item.unitName}}</p>
+        <p class="unitName__title font-12">UNIT NAME</p>
+        <p class="unitName__text font-14 txt-x-initial flex">{{item.unitName}}</p>
       </div>
       <div class="unitLocation flex col nowrap jcsa">
-        <p class="unitLocation__title">UNIT LOCAION</p>
-        <p class="unitLocation__text flex">{{item.unitLocation}}</p>
+        <p class="unitLocation__title font-12">UNIT LOCAION</p>
+        <p class="unitLocation__text font-14 txt-x-initial flex">{{item.unitLocation}}</p>
       </div>
       <div class="mainSkill flex col nowrap jcsa">
-        <p class="mainSkill__title">MAIN SKILL</p>
-        <p class="mainSkill__text flex">{{item.mainSkill}}</p>
+        <p class="mainSkill__title font-12">MAIN SKILL</p>
+        <p class="mainSkill__text flex font-14 txt-x-initial">{{item.mainSkill}}</p>
       </div>
       <!-- <div class="addSkill flex col nowrap jcsa">
-        <p class="addSkill__title">ADITIONAL SKILLS</p>
-        <p class="addSkill__text flex">{{item.additionalSkill}}</p>
+        <p class="addSkill__title font-12">ADITIONAL SKILLS</p>
+        <p class="addSkill__text font-14 txt-x-initial flex">{{item.additionalSkill}}</p>
       </div> -->
       <div class="progNeed flex col nowrap jcsa">
-        <p class="progNeed__title">PROGRAMMERS NEEDED</p>
-        <p class="progNeed__text flex">{{item.progNeed}}</p>
+        <p class="progNeed__title font-12">PROGRAMMERS NEEDED</p>
+        <p class="progNeed__text font-14 txt-x-initial flex">{{item.progNeed}}</p>
       </div>
       <!-- <div class="dueDate flex col nowrap jcsa">
-        <p class="dueDate__title">DUE DATE</p>
-        <p class="dueDate__text flex">{{item.dueDate}}</p>
+        <p class="dueDate__title font-12">DUE DATE</p>
+        <p class="dueDate__text font-14 txt-x-initial flex">{{item.dueDate}}</p>
       </div> -->
       <div class="option" (clickOutside)="onClickedOutsideOption($event, i)" (click)="openOption(i)">
         <button class="option__button btn bc-white flex aic">
@@ -99,16 +99,16 @@
           [style.display]="checkOption == i ? 'flex' : 'none'">
           <!-- <div class="option__menu--items" (click)="openOption(i)">
             <img class="items-icon" src="../../../../assets/image/view.svg" alt="">
-            <p class="items-text">View order</p>
+            <p class="items-text font-14 txt-x-initial">View order</p>
           </div> -->
           <div class="option__menu--items flex nowrap aic" (click)="openOption(i)" (click)="editCurrOrder(item)">
             <span aria-hidden="true" class="items-edit icon-edit"></span>
-            <p class="items-text">Edit order</p>
+            <p class="items-text font-14 txt-x-initial">Edit order</p>
           </div>
           <span class="option__menu--line"></span>
           <div class="option__menu--items flex nowrap aic" (click)="closeOrder(item.id)" (click)="openOption(i)">
             <span aria-hidden="true" class="items-turn-off icon-turn-off"></span>
-            <p class="items-text">Close order</p>
+            <p class="items-text font-14 txt-x-initial">Close order</p>
           </div>
         </div>
       </div>

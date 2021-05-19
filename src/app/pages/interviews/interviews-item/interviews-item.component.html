@@ -1,20 +1,21 @@
-<nav class="interviews-type">
-  <div class="interviews-type__upcoming" routerLinkActive="active" [routerLink]="[ 'upcoming' ]">
-    <p class="interviews-type__upcoming--title">UPCOMING</p>
+<nav class="interviews-type flex nowrap jcfs aic bc-white">
+  <div class="interviews-type__upcoming flex nowrpa jcsb aic" routerLinkActive="txt-c-blue" [routerLink]="[ 'upcoming' ]">
+    <p class="interviews-type__upcoming--title font-14">UPCOMING</p>
     <p class="not-read flex nowrap jcc aic bc-blue">23</p>
-    <span routerLinkActive="interviews-type__upcoming--choose"></span>
+    <span routerLinkActive="active-link bc-blue"></span>
 
   </div>
-  <div class="interviews-type__completed" routerLinkActive="active" [routerLink]="[ 'completed' ]">
-    <p class="interviews-type__completed--title">COMPLETED</p>
+  <div class="interviews-type__completed flex nowrpa jcsb aic" routerLinkActive="txt-c-blue" [routerLink]="[ 'completed' ]">
+    <p class="interviews-type__completed--title font-14">COMPLETED</p>
     <p class="not-read flex nowrap jcc aic bc-blue">44</p>
-    <span routerLinkActive="interviews-type__upcoming--choose"></span>
+    <span routerLinkActive="active-link bc-blue"></span>
 
   </div>
-  <div class="interviews-type__unconfirmed" routerLinkActive="active" [routerLink]="[ 'unconfirmed' ]">
-    <p class="interviews-type__unconfirmed--title">UNCONFIRMED</p>
+  <div class="interviews-type__unconfirmed flex nowrpa jcsb aic" routerLinkActive="txt-c-blue"
+    [routerLink]="[ 'unconfirmed' ]">
+    <p class="interviews-type__unconfirmed--title font-14">UNCONFIRMED</p>
     <p class="not-read flex nowrap jcc aic bc-gray">0</p>
-    <span routerLinkActive="interviews-type__upcoming--choose"></span>
+    <span routerLinkActive="active-link bc-blue"></span>
 
   </div>
 </nav>

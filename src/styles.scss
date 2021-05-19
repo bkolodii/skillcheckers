@@ -350,6 +350,11 @@ body {
   padding-left: 7px;
 }
 
+.header-title{
+  font-family: "Poppins";
+    font-size: 17px;
+    font-weight: 700;
+}
 
 .not-read {
   min-width: 20px;
@@ -366,6 +371,12 @@ body {
 
 .w-100 {
   width: 100%;
+}
+.active-link{
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  bottom: -1px;
 }
 
 $aligh-selfs: (c: center,

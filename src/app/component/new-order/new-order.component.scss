@@ -36,9 +36,6 @@ mat-option {
   .create-title {
     width: 90%;
     height: 50px;
-    font-family: "Poppins";
-    font-size: 17px;
-    font-weight: 700;
   }
 
   .position {
@@ -63,9 +60,6 @@ mat-option {
       padding-left: 15px;
       margin-right: 3%;
       border: 1px solid #c0c1c5;
-      font-family: "Poppins";
-      font-size: 15px;
-      font-weight: 500;
     }
 
     &__input::placeholder {
@@ -88,8 +82,6 @@ mat-option {
 
 
       &--text {
-        font-family: "Poppins";
-        font-size: 12px;
         font-weight: 600;
         width: 40.6%;
       }
@@ -139,8 +131,6 @@ mat-option {
 
       &--text {
         width: 40.5%;
-        font-family: "Poppins";
-        font-size: 12px;
         font-weight: 600;
       }
 
@@ -148,9 +138,6 @@ mat-option {
         border: 1px solid #CBCBD9;
         height: 35px;
         width: 57.5%;
-        font-family: "Poppins";
-        font-size: 13px;
-        font-weight: 500;
         line-height: 18px;
         outline: none;
         padding-left: 10px;
@@ -163,8 +150,6 @@ mat-option {
       margin-bottom: 20px;
 
       &--text {
-        font-family: "Poppins";
-        font-size: 12px;
         font-weight: 600;
         width: 40.6%;
 
@@ -213,8 +198,6 @@ mat-option {
       margin-bottom: 20px;
 
       &--text {
-        font-family: "Poppins";
-        font-size: 12px;
         font-weight: 600;
         width: 40.5%;
 
@@ -239,9 +222,6 @@ mat-option {
           &__title {
             margin-left: 5px;
             margin-right: 5px;
-            font-family: "Poppins";
-            font-size: 13px;
-            font-weight: 500;
             padding-left: 4px;
           }
 
@@ -299,9 +279,6 @@ mat-option {
             width: 95%;
             height: 45px;
             color: #292F3D;
-            font-family: "Poppins";
-            font-size: 13px;
-            font-weight: 500;
             line-height: 40px;
           }
 
@@ -318,8 +295,6 @@ mat-option {
       margin-bottom: 20px;
 
       &--text {
-        font-family: "Poppins";
-        font-size: 12px;
         font-weight: 600;
         width: 40.5%;
 
@@ -329,9 +304,6 @@ mat-option {
         border: 1px solid #CBCBD9;
         height: 35px;
         width: 57.5%;
-        font-family: "Poppins";
-        font-size: 13px;
-        font-weight: 500;
         line-height: 18px;
         outline: none;
         padding: 0%;
@@ -345,8 +317,6 @@ mat-option {
       margin-bottom: 20px;
 
       &--text {
-        font-family: "Poppins";
-        font-size: 12px;
         font-weight: 600;
         width: 40.5%;
 
@@ -360,8 +330,6 @@ mat-option {
         padding-left: 10px;
         padding-right: 5px;
         border: 1px solid #CBCBD9;
-        font-family: "Poppins";
-        font-size: 13px;
       }
 
       &--input:focus {
@@ -376,8 +344,6 @@ mat-option {
         margin-top: 10px;
         align-self: start;
         width: 40.5%;
-        font-family: "Poppins";
-        font-size: 12px;
         font-weight: 600;
 
         .questInfo {
@@ -406,9 +372,6 @@ mat-option {
         position: relative;
 
         .skillScore-button {
-          font-family: "Poppins";
-          font-size: 13px;
-          font-weight: 500;
           margin-right: 10px;
           min-width: 100px;
           margin-bottom: 10px;
@@ -424,8 +387,6 @@ mat-option {
       margin-top: 10px;
 
       &--text {
-        font-family: "Poppins";
-        font-size: 12px;
         font-weight: 600;
       }
 
@@ -440,8 +401,6 @@ mat-option {
           padding-left: 10px;
           padding-right: 5px;
           border: 1px solid #CBCBD9;
-          font-family: "Poppins";
-          font-size: 13px;
         }
 
 
@@ -452,9 +411,6 @@ mat-option {
 
           &__button {
             margin-right: 20px;
-            font-family: "Poppins";
-            font-size: 13px;
-            font-weight: 500;
             margin-bottom: 10px;
           }
         }
@@ -470,8 +426,6 @@ mat-option {
       height: 45px;
 
       &--text {
-        font-family: "Poppins";
-        font-size: 12px;
         font-weight: 600;
         width: 39%;
 
@@ -556,8 +510,6 @@ mat-option {
       margin-top: 10px;
 
       &--text {
-        font-family: "Poppins";
-        font-size: 12px;
         font-weight: 600;
       }
 
@@ -568,9 +520,6 @@ mat-option {
         .termContr-button {
           width: auto;
           margin-right: 10px;
-          font-family: "Poppins";
-          font-size: 13px;
-          font-weight: 500;
           margin-bottom: 10px;
 
         }
@@ -586,8 +535,6 @@ mat-option {
       margin-top: 10px;
 
       &--text {
-        font-family: "Poppins";
-        font-size: 12px;
         font-weight: 600;
         width: 39%;
       }
@@ -595,13 +542,9 @@ mat-option {
       &--choose {
         width: 60%;
         min-height: 45px;
-        @include flexbox(row, wrap, flex-start, flex-start);
 
         .workMode-button {
           margin-right: 10px;
-          font-family: "Poppins";
-          font-size: 13px;
-          font-weight: 500;
           margin-bottom: 10px;
         }
 
@@ -614,8 +557,6 @@ mat-option {
 
       &--text {
         width: 39%;
-        font-family: "Poppins";
-        font-size: 12px;
         font-weight: 600;
 
         .calendar-info {
@@ -642,9 +583,6 @@ mat-option {
         cursor: pointer;
         position: relative;
         border: 1px solid #CBCBD9;
-        font-family: "Poppins";
-        font-size: 13px;
-        font-weight: 500;
 
         .mat-input-element {
           border: none;
@@ -725,18 +663,10 @@ mat-option {
         min-height: 80px;
 
         &__title {
-          width: 100%;
           height: 40px;
-          font-family: "Poppins";
-          font-size: 17px;
-          font-weight: 700;
         }
 
         &__text {
-          font-family: "Poppins";
-          font-size: 11px;
-          font-weight: 500;
-          color: #6E7585;
           line-height: 15px;
         }
 
@@ -844,16 +774,9 @@ mat-option {
 
         &__title {
           height: 40px;
-          font-family: "Poppins";
-          font-size: 17px;
-          font-weight: 700;
         }
 
         &__text {
-          font-family: "Poppins";
-          font-size: 11px;
-          font-weight: 500;
-          color: #6E7585;
           line-height: 15px;
         }
 
@@ -869,8 +792,6 @@ mat-option {
         width: 90%;
         margin-top: 25px;
         padding: 15px;
-        font-family: "Poppins";
-        font-size: 11px;
         font-weight: 400;
         line-height: 20px;
       }
@@ -922,16 +843,9 @@ mat-option {
 
         &__title {
           height: 40px;
-          font-family: "Poppins";
-          font-size: 17px;
-          font-weight: 700;
         }
 
         &__text {
-          font-family: "Poppins";
-          font-size: 11px;
-          font-weight: 500;
-          color: #6E7585;
           line-height: 15px;
         }
 
@@ -989,28 +903,17 @@ mat-option {
           width: 80%;
           height: 30px;
 
-          &--id {
-            font-family: "Poppins";
-            font-size: 11px;
-            font-weight: 500;
-          }
 
           &--input {
             height: 30px;
             border: none;
             padding-left: 10px;
-            font-family: "Poppins";
-            font-size: 13px;
-            font-weight: 500;
           }
         }
 
         &__text {
           width: 80%;
           height: 14px;
-          font-family: "Poppins";
-          font-size: 13px;
-          font-weight: 500;
 
           span {
             border-left: 1px solid black;
