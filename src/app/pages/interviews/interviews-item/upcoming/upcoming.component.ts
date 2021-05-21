@@ -156,9 +156,6 @@ export class UpcomingComponent implements OnInit {
     }
     else {
       console.log(this.month[this.currTime.currMonth - 1]);
-      console.log(i);
-      
-      
       this.getCalendarDays(new Date(this.currTime.currYear, this.currTime.currMonth, this.currTime.currDay));
     }
   }

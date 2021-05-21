@@ -3,7 +3,7 @@
 
     <div class="sorting__left--name flex nowrap jcsb aic" (clickOutside)="onClickedOutsideItem($event, 'name')"
       (click)="openHidden('name')">
-      <button class="visible flex nowrap jcsb aic btn bc-white w-100"
+      <button class="visible flex nowrap jcsb aic btn txt-c-initial  bc-white w-100"
         [style.border]="isName? '1px solid #0CACF8' : '1px solid #CBCBD9'">
         <p class="font-14">{{name}}</p>
         <span aria-hidden="true" [class]="!isName ? 'icon-drop-down-arrow' : 'icon-drop-up-arrow'"

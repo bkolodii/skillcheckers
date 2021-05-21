@@ -7,194 +7,55 @@
         <span aria-hidden="true" class="icon-settings"></span>
       </button>
     </div>
-    <div class="chat__conversation flex nowrap jcc aicc " #scroll [scrollTop]="scroll.scrollHeight">
+    <!-- <div class="chat__conversation flex nowrap jcc aicc " #scroll [scrollTop]="scroll.scrollHeight"> -->
+    <div class="chat__conversation flex nowrap jcc aicc " #scroll>
       <div class="chat__conversation--text flex col nowrap jcsa aife">
-        <div class="user-recieve w-100 flex nowrap jcsa aifs">
-          <img class="user-recieve__logo"
-            src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser4.png?alt=media&token=02f7edf6-6015-4545-b4c1-7ff79b8aeb4f"
-            alt="">
-          <div class="user-recieve__person-data flex col nowrap jcfs aifs">
-            <h2 class="user-recieve__person-data--title font-12 w-100">
-              Albert Flores
-            </h2>
-            <p class="user-recieve__person-data--text font-11 txt-c-black">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget magnis lorem feugiat nulla proin. Vestibulum
-              purus, nec interdum augue eu blandit.
-            </p>
-          </div>
-          <div class="user-recieve__other-data flex col nowrap jcfs aifs">
-            <p class="user-recieve__other-data--time font-10 txt-c-initial">
-              10.45 AM
-            </p>
-          </div>
-
-        </div>
-        <div class="date-period w-100 flex nowrap jcsa aic">
-          <p class="date-period__date font-12">
-            8 JULY 2020
-          </p>
-          <hr class="date-period__hr">
-        </div>
-        <div class="user-recieve-reverse w-100 flex row-rev jcsa aifs">
-          <img class="user-recieve-reverse__logo"
-            src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fmainuser.png?alt=media&token=e1f16a35-c4b8-48db-8316-8e2572a5cc99"
-            alt="">
-          <div class="user-recieve-reverse__person-data flex col nowrap jcfs aifs">
-            <h2 class="user-recieve-reverse__person-data--title w-100">
-              Benny Spanbauer
-            </h2>
-            <p class="user-recieve-reverse__person-data--text w-100 txt-c-black">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget
-            </p>
-          </div>
-          <div class="user-recieve-reverse__other-data flex nowrap jcfs aife">
-            <p class="user-recieve-reverse__other-data--time">
-              10.45 AM
-            </p>
-          </div>
-
-        </div>
-        <div class="user-recieve w-100 flex nowrap jcsa aifs">
-          <img class="user-recieve__logo"
-            src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser4.png?alt=media&token=02f7edf6-6015-4545-b4c1-7ff79b8aeb4f"
-            alt="">
-          <div class="user-recieve__person-data flex col nowrap jcfs aifs">
-            <h2 class="user-recieve__person-data--title w-100">
-              Albert Flores
-            </h2>
-            <p class="user-recieve__person-data--text txt-c-black">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget magnis lorem feugiat nulla proin. Vestibulum
-              purus, nec interdum augue eu blandit.
-            </p>
-          </div>
-          <div class="user-recieve__other-data flex col nowrap jcfs aifs">
-            <p class="user-recieve__other-data--time">
-              10.45 AM
-            </p>
-          </div>
-
-        </div>
-        <div class="user-recieve-reverse w-100 flex row-rev jcsa aifs">
-          <img class="user-recieve-reverse__logo"
-            src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fmainuser.png?alt=media&token=e1f16a35-c4b8-48db-8316-8e2572a5cc99"
-            alt="">
-          <div class="user-recieve-reverse__person-data flex col nowrap jcfs aifs">
-            <h2 class="user-recieve-reverse__person-data--title w-100">
-              Benny Spanbauer
-            </h2>
-            <p class="user-recieve-reverse__person-data--text w-100 txt-c-black" [style.color]="'#42befa'">
-              file.pdf
-            </p>
-          </div>
-          <div class="user-recieve-reverse__other-data flex nowrap jcfs aife">
-            <p class="user-recieve-reverse__other-data--time">
-              10.45 AM
-            </p>
-          </div>
-
-        </div>
-        <div class="date-period w-100 flex nowrap jcsa aic">
-          <p class="date-period__date">
-            TODAY
-          </p>
-          <hr class="date-period__hr">
-        </div>
-        <div class="user-recieve-reverse w-100 flex row-rev jcsa aifs">
-          <img class="user-recieve-reverse__logo"
-            src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fmainuser.png?alt=media&token=e1f16a35-c4b8-48db-8316-8e2572a5cc99"
-            alt="">
-          <div class="user-recieve-reverse__person-data flex col nowrap jcfs aifs">
-            <h2 class="user-recieve-reverse__person-data--title w-100">
-              Benny Spanbauer
-            </h2>
-            <p class="user-recieve-reverse__person-data--text w-100 txt-c-black">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget
-            </p>
-          </div>
-          <div class="user-recieve-reverse__other-data flex nowrap jcfs aife">
-            <p class="user-recieve-reverse__other-data--time">
-              10.45 AM
-            </p>
-          </div>
-
-        </div>
-        <div class="user-recieve w-100 flex nowrap jcsa aifs">
-          <img class="user-recieve__logo"
-            src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser4.png?alt=media&token=02f7edf6-6015-4545-b4c1-7ff79b8aeb4f"
-            alt="">
-          <div class="user-recieve__person-data flex col nowrap jcfs aifs">
-            <h2 class="user-recieve__person-data--title w-100">
-              Albert Flores
-            </h2>
-            <p class="user-recieve__person-data--text txt-c-black">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget magnis lorem feugiat nulla proin. Vestibulum
-              purus, nec interdum augue eu blandit.
-            </p>
-          </div>
-          <div class="user-recieve__other-data flex col nowrap jcfs aifs">
-            <p class="user-recieve__other-data--time">
-              10.45 AM
-            </p>
-          </div>
-
-        </div>
-        <div class="user-recieve-reverse w-100 flex row-rev jcsa aifs">
-          <img class="user-recieve-reverse__logo"
-            src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fmainuser.png?alt=media&token=e1f16a35-c4b8-48db-8316-8e2572a5cc99"
-            alt="">
-          <div class="user-recieve-reverse__person-data flex col nowrap jcfs aifs">
-            <h2 class="user-recieve-reverse__person-data--title w-100">
-              Benny Spanbauer
-            </h2>
-            <p class="user-recieve-reverse__person-data--text w-100 txt-c-black">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget
-            </p>
-          </div>
-          <div class="user-recieve-reverse__other-data flex nowrap jcfs aife">
-            <p class="user-recieve-reverse__other-data--time">
-              10.45 AM
-            </p>
-          </div>
-
-        </div>
-        <ng-template #mainuser>
-          <div class="user-recieve">
-            <div class="user-recieve__other-data">
-              <p class="user-recieve__other-data--time">
-                10.45 AM
-              </p>
-            </div>
-            <div class="user-recieve__person-data" [style.text-align]="'right'">
-              <h2 class="user-recieve__person-data--title">
-                Benny Spanbauer
+        <div class="w-100 flex col nowrap aife jcsa" *ngFor="let message of messages; let i=index">
+          <div class="message w-100 flex jcsa aifs" [class]="mainUser?.username == message?.user ? 'row-rev' : ''">
+            <img class="message__logo" [src]="message?.userIcon" alt="">
+            <div class="message__person-data flex col nowrap jcfs aifs">
+              <h2 class="message__person-data--title font-12 w-100"
+                [class]="mainUser?.username == message?.user ? 'txt-a-r' : 'txt-a-l'">
+                {{message?.user}}
               </h2>
-              <p class="user-recieve__person-data--text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget
+              <p class="message__person-data--text font-11 w-100 txt-c-black"
+                [class]="mainUser?.username == message?.user ? 'txt-a-r' : 'txt-a-l'">
+                <span (click)="downloadFile(message?.file)" class="txt-c-blue font-11 w-100">{{message?.file?.fileName}}</span>
+                {{message?.text}}
               </p>
+
             </div>
-            <img class="user-recieve__logo"
-              src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fmainuser.png?alt=media&token=e1f16a35-c4b8-48db-8316-8e2572a5cc99"
-              alt="">
+            <div class="message__other-data flex col nowrap jcfs aifs">
+              <p class="message__other-data--time font-10 txt-c-initial">
+                {{message?.time}}
+              </p>
 
-
-
+            </div>
           </div>
-        </ng-template>
-
+          <div class="date-period w-100 flex nowrap jcsa aic"
+            *ngIf="+messages[i]?.date?.split(' ')[0] < +messages[i+1]?.date?.split(' ')[0]">
+            <p class="date-period__date txt-c-initial font-12">
+              {{currDate == messages[i+1]?.date ? 'TODAY' : messages[i+1]?.date}}
+            </p>
+            <hr class="date-period__hr w-100">
+          </div>
+        </div>
       </div>
     </div>
-    <div class="chat__message bc-light-blue flex wrap jcsb aic w-100">
+    <div class="chat__message bc-light-blue flex nowrap jcsb aic w-100">
       <div class="chat__message--upload flex wrap aic jcc">
         <div class="upload-btn-wrapper">
-          <button class="btn flex wrap ai jcsa font-12">
+          <button class="btn flex wrap aic jcsa font-12">
             <span aria-hidden="true" class="btn__paper-clip icon-paper-clip"></span>
           </button>
-          <input type="file" name="myfile" />
+          <input type="file" name="myfile" (change)="getFile($event)">
         </div>
       </div>
       <input type="text" class="chat__message--input font-11 bdc-light-gray" [(ngModel)]="getText" name="getText"
         placeholder="Write a message...">
-      <button class="chat__message--send font-11" (click)="sendMessage()"> Send </button>
+
+      <button class="chat__message--send font-11" [disabled]="isDisabled" (click)="sendMessage()">
+        Send </button>
     </div>
   </section>
   <section class="person-details bc-white flex col nowrap jcfs aic">
@@ -231,7 +92,8 @@
       </div>
       <div class="person-details__main--location">
         <p class="title-loc font-9 w-100">LOCATION</p>
-        <div class="text-loc font-13 w-100 flex wrap jcsb aic">Seatle <span class="font-10 bc-gray txt-c-initial flex wrap aic jcc">Remote</span> </div>
+        <div class="text-loc font-13 w-100 flex wrap jcsb aic">Seatle <span
+            class="font-10 bc-gray txt-c-initial flex wrap aic jcc">Remote</span> </div>
       </div>
     </div>
     <div class="person-details__footer flex nowrap jcsb aic ">

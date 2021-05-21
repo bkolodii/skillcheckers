@@ -9,9 +9,6 @@ export class ScrollToBottomDirective {
 
   public scrollToBottom() {
     const el: HTMLDivElement = this._el.nativeElement;
-
     el.scrollTop = Math.max(0, el.scrollHeight - el.offsetHeight);
-    console.log(this._el.nativeElement, el.scrollTop);
-
   }
 }

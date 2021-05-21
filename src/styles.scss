@@ -168,7 +168,6 @@ mat-form-field-underline ng-tns-c66-0 ng-star-inserted {
 }
 
 mat-form-field {
-
   width: 50%;
   height: 40px;
   font-family: "Poppins";
@@ -224,63 +223,6 @@ mat-option {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #b7bac2;
-}
-
-.user-recieve-reverse {
-
-  width: 100%;
-  min-height: 48px;
-  @include flexbox(row-reverse, nowrap, space-around, flex-start);
-  margin-bottom: 10px;
-
-  &__logo {
-    width: 35px;
-    height: 35px;
-    margin-left: 5px;
-  }
-
-  &__person-data {
-    width: 80%;
-    min-height: 35px;
-    @include flexbox(column, nowrap, flex-start, flex-start);
-    margin-top: 3px;
-
-    &--title {
-      width: 100%;
-      font-family: "Poppins";
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 5px;
-      text-align: right;
-    }
-
-    &--text {
-      text-align: right;
-      width: 100%;
-      font-family: "Poppins";
-      font-size: 10.5px;
-      font-weight: 500;
-      color: #434955;
-      line-height: 18px;
-    }
-
-  }
-
-  &__other-data {
-    width: 45px;
-    height: 40px;
-    margin-top: 5px;
-    @include flexbox(column, nowrap, flex-start, flex-end);
-
-    &--time {
-      font-family: "Poppins";
-      font-size: 10px;
-      font-weight: 500;
-      color: #b3b3b6;
-      margin-bottom: 5px;
-
-    }
-  }
 }
 
 .ql-editor {
@@ -350,10 +292,10 @@ body {
   padding-left: 7px;
 }
 
-.header-title{
+.header-title {
   font-family: "Poppins";
-    font-size: 17px;
-    font-weight: 700;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .not-read {
@@ -372,7 +314,8 @@ body {
 .w-100 {
   width: 100%;
 }
-.active-link{
+
+.active-link {
   position: absolute;
   width: 100%;
   height: 5px;
@@ -400,6 +343,10 @@ $flex-justs: (sb: space-between,
   fs: flex-start,
   fe: flex-end,
 );
+$text-aligns: (c: center,
+  l: left,
+  r: right,
+);
 $fonts: (9: 9px,
   10: 10px,
   11: 11px,
@@ -415,6 +362,13 @@ $flex-alighs: (c: center,
   fe: flex-end,
 );
 
+@each $textAli,
+$text-align in $text-aligns {
+  .txt-a-#{$textAli} {
+    text-align: $text-align;
+  }
+}
+
 @each $fontSize,
 $font in $fonts {
   .font-#{$fontSize} {
@@ -425,38 +379,38 @@ $font in $fonts {
   }
 }
 
-  @each $alighsname,
-  $aligh-self in $aligh-selfs {
-    .aligh-self-#{$alighsname} {
-      align-self: $aligh-self;
-    }
+@each $alighsname,
+$aligh-self in $aligh-selfs {
+  .aligh-self-#{$alighsname} {
+    align-self: $aligh-self;
+  }
+}
+
+@each $flexjname,
+$flex-just in $flex-justs {
+  .jc#{$flexjname} {
+    justify-content: $flex-just;
+  }
+}
+
+@each $flexaname,
+$flex-aligh in $flex-alighs {
+  .ai#{$flexaname} {
+    align-items: $flex-aligh;
+  }
+}
+
+@each $colorname,
+$color in $colors {
+  .bc-#{$colorname} {
+    background-color: $color;
   }
 
-  @each $flexjname,
-  $flex-just in $flex-justs {
-    .jc#{$flexjname} {
-      justify-content: $flex-just;
-    }
+  .bdc-#{$colorname} {
+    border: 1px solid $color;
   }
 
-  @each $flexaname,
-  $flex-aligh in $flex-alighs {
-    .ai#{$flexaname} {
-      align-items: $flex-aligh;
-    }
+  .txt-c-#{$colorname} {
+    color: $color;
   }
-
-  @each $colorname,
-  $color in $colors {
-    .bc-#{$colorname} {
-      background-color: $color;
-    }
-
-    .bdc-#{$colorname} {
-      border: 1px solid $color;
-    }
-
-    .txt-c-#{$colorname} {
-      color: $color;
-    }
-  }
+}
