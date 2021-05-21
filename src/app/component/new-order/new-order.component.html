@@ -49,15 +49,15 @@
             <div class="order-info__addSkill--select flex wrap aic bc-white"
               (clickOutside)="onClickedOutsideItem($event, 'addSkill')" (click)="openHidden('addSkill')"
               [style.border]="isAddSkill? '1px solid #CBCBD9' : '1px solid #CBCBD9'">
-              <div class="choose-addSkill txt-c-black bc-gray flex nowrap jcsa aic"
+              <div class="choose-sort p-4 m-l-5 flex nowrap jcsa aic bc-gray"
                 *ngFor="let addSkill of order.get('addSkill').value; let i=index;"
                 [style.margin-top]="checkAddSkill.length >= 3 ? '4px' : '0px'"
                 [style.margin-bottom]="checkAddSkill.length >= 3 ? '4px' : '0px'">
-                <p class="choose-addSkill__title font-13">{{addSkill}}</p>
-                <button class="choose-addSkill__delete-choose flex nowrap jcc aic bc-dark-gray"
+                <p class="choose-sort__title txt-c-black font-13">{{addSkill}}</p>
+                <button class="choose-sort__delete-choose p-2 bc-dark-gray flex nowrap jcc aic btn"
                   (click)="deleteSkill(i)">
                   <span aria-hidden="true" data-icon="&#xe900;"
-                    class="choose-addSkill__delete-choose--cross icon-close"></span>
+                    class="choose-sort__delete-choose--cross txt-c-black icon-close"></span>
                 </button>
               </div>
 
@@ -196,7 +196,8 @@
             </div>
             <div class="job-description">
               <h2 class="job-description__title header-title w-100 flex wrap aic ">Job description</h2>
-              <p class="job-description__text font-11 txt-c-initial wrap aic">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              <p class="job-description__text font-11 txt-c-initial wrap aic">Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit.
                 Quis
                 sed non
                 quam
@@ -238,8 +239,10 @@
                   class="path16"></span><span class="path17"></span></span>
             </div>
             <div class="company-description">
-              <h2 class="company-description__title header-title w-100 flex wrap aic txt-c-black">Company description</h2>
-              <p class="company-description__text font-11 txt-c-initial flex wrap aic">Lorem ipsum dolor sit amet, consectetur
+              <h2 class="company-description__title header-title w-100 flex wrap aic txt-c-black">Company description
+              </h2>
+              <p class="company-description__text font-11 txt-c-initial flex wrap aic">Lorem ipsum dolor sit amet,
+                consectetur
                 adipiscing
                 elit. Quis sed non
                 quam
@@ -280,7 +283,8 @@
             </div>
             <div class="screen-question">
               <h2 class="screen-question__title header-title w-100 flex wrap aic">Your screening questions</h2>
-              <p class="screen-question__text font-11 txt-c-initial flex wrap aic">Lorem ipsum dolor sit amet, consectetur adipiscing
+              <p class="screen-question__text font-11 txt-c-initial flex wrap aic">Lorem ipsum dolor sit amet,
+                consectetur adipiscing
                 elit.
                 Quis sed non
                 quam

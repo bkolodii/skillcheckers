@@ -4,6 +4,10 @@
 @import "./assets/styles/reset";
 @import "./assets/styles/mixins";
 @import "./assets/styles/font";
+@import "./assets/styles/flexbox";
+@import "./assets/styles/general-style";
+@import "./assets/styles/choose-sorts";
+@import "./assets/styles/dropdown";
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -131,25 +135,30 @@ $skillcheckers-theme: mat-light-theme((color: (primary: $skillcheckers-primary,
 
 
 p {
+  font-family: "Poppins";
   margin: 0;
 }
 
 :host ::ng-deep .mat-radio-container {
+  font-family: "Poppins";
   height: 10px;
   width: 10px;
 }
 
 :host ::ng-deep .mat-radio-outer-circle {
+  font-family: "Poppins";
   height: 10px;
   width: 10px;
 }
 
 :host ::ng-deep .mat-radio-inner-circle {
+  font-family: "Poppins";
   height: 10px;
   width: 10px;
 }
 
 :host ::ng-deep .mat-radio-button .mat-radio-ripple {
+  font-family: "Poppins";
   height: 15px;
   /*double of your required circle radius*/
   width: 15px;
@@ -165,6 +174,7 @@ p {
 mat-form-field-underline ng-tns-c66-0 ng-star-inserted {
   height: 0%;
   display: none;
+  font-family: "Poppins";
 }
 
 mat-form-field {
@@ -178,6 +188,7 @@ mat-form-field {
 
   mat-form-field-underline ng-tns-c66-0 ng-star-inserted {
     height: 0%;
+    font-family: "Poppins";
   }
 }
 
@@ -192,11 +203,12 @@ mat-select {
 }
 
 mat-option {
+  font-family: "Poppins";
   border: none;
 }
 
 .mat-select-trigger {
-
+  font-family: "Poppins";
   height: 35px;
   line-height: 37px;
 }
@@ -248,105 +260,6 @@ body {
   font-family: "Poppins";
 }
 
-.flex {
-  display: flex;
-}
-
-.col {
-  flex-flow: column;
-}
-
-.row-rev {
-  flex-flow: row-reverse;
-}
-
-.nowrap {
-  flex-wrap: nowrap;
-}
-
-.wrap {
-  flex-wrap: wrap;
-}
-
-.bc-green {
-  background-color: #25BF50 !important;
-}
-
-.btn {
-  font-family: "Poppins";
-  font-size: 13px;
-  font-weight: 500;
-  color: white;
-  padding: 10px 15px 10px 15px;
-  border: 1px solid transparent;
-  outline: none;
-  box-sizing: border-box;
-
-}
-
-.btn-icon-left {
-  padding-right: 7px;
-}
-
-.btn-icon-right {
-  padding-left: 7px;
-}
-
-.header-title {
-  font-family: "Poppins";
-  font-size: 17px;
-  font-weight: 700;
-}
-
-.not-read {
-  min-width: 20px;
-  min-height: 20px;
-  font-family: "Poppins";
-  font-weight: 500;
-  font-style: normal;
-  margin-left: 10px;
-  font-size: 11px;
-  line-height: 11px;
-  border-radius: 50%;
-  color: white;
-}
-
-.w-100 {
-  width: 100%;
-}
-
-.active-link {
-  position: absolute;
-  width: 100%;
-  height: 5px;
-  bottom: -1px;
-}
-
-$aligh-selfs: (c: center,
-  fs: flex-start,
-  fe: flex-end,
-);
-$colors: (gray: #EEF0F8,
-  blue: #0CACF8,
-  light-blue:#F0F8FF,
-  black: #292f3d,
-  white: white,
-  dark-gray: #D2D4DE,
-  light-gray: #CBCBD9,
-  red: #FD6363,
-  initial: #6E7585);
-
-
-$flex-justs: (sb: space-between,
-  sa: space-around,
-  c: center,
-  fs: flex-start,
-  fe: flex-end,
-);
-$text-aligns: (c: center,
-  l: left,
-  r: right,
-);
 $fonts: (9: 9px,
   10: 10px,
   11: 11px,
@@ -357,17 +270,6 @@ $fonts: (9: 9px,
   16: 16px,
   17: 17px,
 );
-$flex-alighs: (c: center,
-  fs: flex-start,
-  fe: flex-end,
-);
-
-@each $textAli,
-$text-align in $text-aligns {
-  .txt-a-#{$textAli} {
-    text-align: $text-align;
-  }
-}
 
 @each $fontSize,
 $font in $fonts {
@@ -376,41 +278,5 @@ $font in $fonts {
     font-weight: 500;
     font-style: normal;
     font-size: $font;
-  }
-}
-
-@each $alighsname,
-$aligh-self in $aligh-selfs {
-  .aligh-self-#{$alighsname} {
-    align-self: $aligh-self;
-  }
-}
-
-@each $flexjname,
-$flex-just in $flex-justs {
-  .jc#{$flexjname} {
-    justify-content: $flex-just;
-  }
-}
-
-@each $flexaname,
-$flex-aligh in $flex-alighs {
-  .ai#{$flexaname} {
-    align-items: $flex-aligh;
-  }
-}
-
-@each $colorname,
-$color in $colors {
-  .bc-#{$colorname} {
-    background-color: $color;
-  }
-
-  .bdc-#{$colorname} {
-    border: 1px solid $color;
-  }
-
-  .txt-c-#{$colorname} {
-    color: $color;
   }
 }

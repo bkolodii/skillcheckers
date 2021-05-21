@@ -1,0 +1,31 @@
+.choose-sort {
+  min-width: auto;
+  height: 46%;
+  border-radius: 182px;
+
+  &__title {
+    white-space: nowrap;
+    padding-left: 4px;
+    margin-right: 7px;
+    margin-left: 5px;
+  }
+
+  &__delete-choose {
+    width: 26px;
+    height: 25px;
+    border-radius: 50%;
+    transition: transform 400ms linear;
+    margin-right: 3px;
+    margin-left: 5px;
+
+
+    &--cross {
+      line-height: 6px;
+      font-size: 9px;
+    }
+  }
+
+  &__delete-choose:hover {
+    transform: rotate(180deg);
+  }
+}

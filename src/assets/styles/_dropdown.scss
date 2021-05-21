@@ -1,0 +1,42 @@
+.dropdown {
+  width: 150px;
+  height: 38px;
+  cursor: pointer;
+  position: relative;
+
+  &__visible {
+    top: 0%;
+    left: 0;
+    height: 38px;
+    position: absolute;
+    border: 1px solid #CBCBD9;
+
+    &--items-drop {
+      width: 9px;
+      height: 6px;
+      line-height: 5px;
+      font-size: 9px;
+      color: #6E7585;
+    }
+
+  }
+
+  &__hidden {
+    overflow-y: auto;
+    position: absolute;
+    height: 165px;
+    top: 38px;
+    left: 0;
+    box-shadow: 0px 11px 20px rgba(29, 29, 47, 0.25);
+
+    p {
+      height: 50px;
+      border-bottom: 1px solid #CBCBD9;
+      line-height: 50px;
+    }
+
+    p:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+}

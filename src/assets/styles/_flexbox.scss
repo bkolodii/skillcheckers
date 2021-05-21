@@ -1,0 +1,56 @@
+.flex {
+  display: flex;
+}
+
+.col {
+  flex-flow: column;
+}
+
+.row-rev {
+  flex-flow: row-reverse;
+}
+
+.nowrap {
+  flex-wrap: nowrap;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+$aligh-selfs: (c: center,
+  fs: flex-start,
+  fe: flex-end,
+);
+$flex-justs: (sb: space-between,
+  sa: space-around,
+  c: center,
+  fs: flex-start,
+  fe: flex-end,
+);
+
+$flex-alighs: (c: center,
+  fs: flex-start,
+  fe: flex-end,
+);
+
+@each $alighsname,
+$aligh-self in $aligh-selfs {
+  .aligh-self-#{$alighsname} {
+    align-self: $aligh-self;
+  }
+}
+
+@each $flexjname,
+$flex-just in $flex-justs {
+  .jc#{$flexjname} {
+    justify-content: $flex-just;
+  }
+}
+
+@each $flexaname,
+$flex-aligh in $flex-alighs {
+  .ai#{$flexaname} {
+    align-items: $flex-aligh;
+  }
+}
