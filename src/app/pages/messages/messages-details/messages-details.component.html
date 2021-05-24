@@ -2,8 +2,8 @@
   <section class="chat bc-white flex col nowrap jcsb aic">
     <div class="chat__search w-100 flex nowrap jcfs aic">
       <span aria-hidden="true" class="chat__search--icon icon-icons8-search txt-c-blue"></span>
-      <input type="text" class="chat__search--input font-12 bc-white" placeholder="Search this conversation">
-      <button class="chat__search--setting bc-gray flex nowrap jcc aic">
+      <input type="text" class="chat__search--input p-l-20 font-12 bc-white" placeholder="Search this conversation">
+      <button class="chat__search--setting m-l-20 m-r-7 bc-gray flex nowrap jcc aic">
         <span aria-hidden="true" class="icon-settings"></span>
       </button>
     </div>
@@ -11,10 +11,10 @@
     <div class="chat__conversation flex nowrap jcc aicc " #scroll>
       <div class="chat__conversation--text flex col nowrap jcsa aife">
         <div class="w-100 flex col nowrap aife jcsa" *ngFor="let message of messages; let i=index">
-          <div class="message w-100 flex jcsa aifs" [class]="mainUser?.username == message?.user ? 'row-rev' : ''">
-            <img class="message__logo" [src]="message?.userIcon" alt="">
-            <div class="message__person-data flex col nowrap jcfs aifs">
-              <h2 class="message__person-data--title font-12 w-100"
+          <div class="message m-b-10 w-100 flex jcsa aifs" [class]="mainUser?.username == message?.user ? 'row-rev' : ''">
+            <img class="message__logo m-r-5" [src]="message?.userIcon" alt="">
+            <div class="message__person-data m-t-3 flex col nowrap jcfs aifs">
+              <h2 class="message__person-data--title m-b-5 font-12 w-100"
                 [class]="mainUser?.username == message?.user ? 'txt-a-r' : 'txt-a-l'">
                 {{message?.user}}
               </h2>
@@ -25,16 +25,16 @@
               </p>
 
             </div>
-            <div class="message__other-data flex col nowrap jcfs aifs">
-              <p class="message__other-data--time font-10 txt-c-initial">
+            <div class="message__other-data m-t-5 flex col nowrap jcfs aifs">
+              <p class="message__other-data--time m-b-5 font-10 txt-c-initial">
                 {{message?.time}}
               </p>
 
             </div>
           </div>
-          <div class="date-period w-100 flex nowrap jcsa aic"
+          <div class="date-period m-b-10 w-100 flex nowrap jcsa aic"
             *ngIf="+messages[i]?.date?.split(' ')[0] < +messages[i+1]?.date?.split(' ')[0]">
-            <p class="date-period__date txt-c-initial font-12">
+            <p class="date-period__date m-l-7 m-r-15 txt-c-initial font-12">
               {{currDate == messages[i+1]?.date ? 'TODAY' : messages[i+1]?.date}}
             </p>
             <hr class="date-period__hr w-100">
@@ -43,24 +43,24 @@
       </div>
     </div>
     <div class="chat__message bc-light-blue flex nowrap jcsb aic w-100">
-      <div class="chat__message--upload flex wrap aic jcc">
-        <div class="upload-btn-wrapper">
+      <div class="chat__message--upload m-r-10 flex wrap aic jcc">
+        <div class="upload-btn-wrapper m-l-5">
           <button class="btn flex wrap aic jcsa font-12">
             <span aria-hidden="true" class="btn__paper-clip icon-paper-clip"></span>
           </button>
           <input type="file" name="myfile" (change)="getFile($event)">
         </div>
       </div>
-      <input type="text" class="chat__message--input font-11 bdc-light-gray" [(ngModel)]="getText" name="getText"
+      <input type="text" class="chat__message--input p-l-10 font-11 bdc-light-gray" [(ngModel)]="getText" name="getText"
         placeholder="Write a message...">
 
-      <button class="chat__message--send font-11" [disabled]="isDisabled" (click)="sendMessage()">
+      <button class="chat__message--send m-l-10 m-r-10 font-11" [disabled]="isDisabled" (click)="sendMessage()">
         Send </button>
     </div>
   </section>
-  <section class="person-details bc-white flex col nowrap jcfs aic">
+  <section class="person-details m-r-15 m-t-15 bc-white flex col nowrap jcfs aic">
     <div class="person-details__header flex nowrap aic jcsb">
-      <img class="person-details__header--user-icon"
+      <img class="person-details__header--user-icon m-r-5"
         src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser4.png?alt=media&token=02f7edf6-6015-4545-b4c1-7ff79b8aeb4f"
         alt="">
       <div class="person-details__header--info flex nowrap col jcsb aifs">
@@ -97,7 +97,7 @@
       </div>
     </div>
     <div class="person-details__footer flex nowrap jcsb aic ">
-      <button class="person-details__footer--interview font-12">Interview</button>
+      <button class="person-details__footer--interview m-r-5 font-12">Interview</button>
       <button class="person-details__footer--add-person bc-light-blue">
         <span aria-hidden="true" data-icon="&#xe900;" class="add-person icon-add-person"></span>
       </button>

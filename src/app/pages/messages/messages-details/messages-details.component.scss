@@ -27,7 +27,7 @@ main {
       width: 84%;
       height: 30px;
       border: none;
-      padding-left: 10px;
+      // padding-left: 10px;
     }
 
     &--setting {
@@ -35,8 +35,8 @@ main {
       height: 30px;
       padding: 0;
       border: none;
-      margin-left: 20px;
-      margin-right: 7px;
+      // margin-left: 20px;
+      // margin-right: 7px;
 
       .settings {
         width: 15px;
@@ -70,12 +70,12 @@ main {
 
       .message {
         min-height: 48px;
-        margin-bottom: 10px;
+        // margin-bottom: 10px;
 
         &__logo {
           width: 35px;
           height: 35px;
-          margin-right: 5px;
+          // margin-right: 5px;
           border-radius: 50%;
           //   margin-bottom: 20px;
         }
@@ -83,11 +83,11 @@ main {
         &__person-data {
           width: 80%;
           min-height: 35px;
-          margin-top: 3px;
+          // margin-top: 3px;
 
           &--title {
             font-weight: 600;
-            margin-bottom: 5px;
+            // margin-bottom: 5px;
           }
 
           &--text {
@@ -99,25 +99,25 @@ main {
         &__other-data {
           width: 45px;
           height: 40px;
-          margin-top: 5px;
+          // margin-top: 5px;
 
-          &--time {
-            margin-bottom: 5px;
+          // &--time {
+          //   margin-bottom: 5px;
 
-          }
+          // }
         }
       }
 
       .date-period {
         height: 43px;
-        margin-bottom: 10px;
+        // margin-bottom: 10px;
 
         &__date {
           font-weight: 600;
-          margin-left: 7px;
+          // margin-left: 7px;
           width: max-content;
           min-width: auto;
-          margin-right: 15px;
+          // margin-right: 15px;
           white-space: nowrap;
           line-height: 8px;
         }
@@ -139,7 +139,7 @@ main {
     &--upload {
       width: 6%;
       font-size: 16px;
-      margin-right: 10px;
+      // margin-right: 10px;
 
       label {
         font-size: 20px;
@@ -149,7 +149,7 @@ main {
         position: relative;
         overflow: hidden;
         display: inline-block;
-        margin-left: 5px
+        // margin-left: 5px
       }
 
       .btn {
@@ -190,7 +190,7 @@ main {
     &--input {
       width: 76%;
       height: 32px;
-      padding-left: 10px;
+      // padding-left: 10px;
       box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.25);
     }
 
@@ -207,8 +207,8 @@ main {
       background-color: #0cacf8;
       border: 1px solid #0cacf8;
       color: white;
-      margin-left: 10px;
-      margin-right: 10px;
+      // margin-left: 10px;
+      // margin-right: 10px;
       transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
     }
 
@@ -233,8 +233,8 @@ main {
 .person-details {
   width: 30%;
   height: 346px;
-  margin-top: 15px;
-  margin-right: 15px;
+  // margin-top: 15px;
+  // margin-right: 15px;
 
   &__header {
     width: 85%;
@@ -244,7 +244,7 @@ main {
     &--user-icon {
       width: 62px;
       height: 60px;
-      margin-right: 5px;
+      // margin-right: 5px;
     }
 
     &--info {
@@ -381,7 +381,7 @@ main {
       background-color: #0cacf8;
       border: 1px solid #0cacf8;
       color: white;
-      margin-right: 5px;
+      // margin-right: 5px;
       transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
     }
 

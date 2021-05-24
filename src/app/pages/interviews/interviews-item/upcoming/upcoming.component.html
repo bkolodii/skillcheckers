@@ -18,12 +18,12 @@
           {{+event[0].interviewTime.split('.')[2].substr(0,4)}}</p>
       </ng-template>
 
-      <div class="users-list__fourEvents--person w-100 bc-white flex wrap jcsa aic" *ngFor="let person of event">
-        <div class="logo">
+      <div class="users-list__fourEvents--person p-t-5 p-b-5 m-b-10 w-100 bc-white flex wrap jcsa aic" *ngFor="let person of event">
+        <div class="logo m-l-10">
           <img class="logo__person-img" [src]="person.interviewIcon" alt="">
           <p class="logo__person-rate font-10 bc-green txt-c-white">{{person.personRate.toFixed(1)}}</p>
         </div>
-        <div class="data flex col nowrap jcsa aifs ">
+        <div class="data m-l-5 flex col nowrap jcsa aifs ">
           <h2 class="data__person-name font-13">{{person.personData}}</h2>
           <p class="data__person-profession font-12 txt-c-initial w-100">{{person.profesion}}</p>
         </div>
@@ -71,8 +71,8 @@
     </div>
 
   </section>
-  <section class="calendar bc-white flex col nowrap jcc aic">
-    <div class="calendar__month flex nowrap jcsb aic">
+  <section class="calendar m-t-15 m-r-10 bc-white flex col nowrap jcc aic">
+    <div class="calendar__month m-t-10 flex nowrap jcsb aic">
       <button class="calendar__month--navigate-left bc-white"
         (click)="changeDate(currTime.currYear, currTime.currMonth-1, currTime.currDay)">
         <span aria-hidden="true" data-icon="&#xe900;"
@@ -99,9 +99,9 @@
         </div>
       </div>
     </div>
-    <div class="calendar__mean flex wrap aic jcc ">
+    <div class="calendar__mean m-t-5 m-b-10 flex wrap aic jcc ">
       <p class="calendar__mean--upcoming font-11 flex wrap jcsa aic"> <span></span> Upcoming</p>
-      <p class="calendar__mean--completed font-11 flex wrap jcsa aic"> <span></span> Completed </p>
+      <p class="calendar__mean--completed m-l-5 font-11 flex wrap jcsa aic"> <span></span> Completed </p>
     </div>
   </section>
 </main>
