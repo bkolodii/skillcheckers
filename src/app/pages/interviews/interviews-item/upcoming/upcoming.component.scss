@@ -26,21 +26,11 @@ main {
 
     &--person {
       min-height: 65px;
-      // padding-top: 5px;
-      // padding-bottom: 5px;
-      // margin-bottom: 10px;
-
       .logo {
         width: 50px;
         height: 50px;
         position: relative;
-        // margin-left: 10px;
 
-        &__person-img {
-          width: 40px;
-          height: 41px;
-          border-radius: 50%;
-        }
 
         &__person-rate {
           position: absolute;
@@ -281,13 +271,11 @@ main {
   width: 27vw;
   min-height: 10px;
   border-top: 5px solid #0cacf8;
-  // margin-top: 15px;
-  // margin-right: 10px;
+
 
   &__month {
     width: 94%;
     height: 30px;
-    // margin-top: 10px;
 
     &--navigate-right {
       width: 10px;
@@ -366,8 +354,7 @@ main {
   &__mean {
     width: 94%;
     min-height: 43px;
-    // margin-top: 5px;
-    // margin-bottom: 10px;
+
 
     &--upcoming {
       width: 75px;
@@ -383,7 +370,6 @@ main {
     }
 
     &--completed {
-      // margin-left: 5px;
       width: 75px;
       height: 24px;
 
