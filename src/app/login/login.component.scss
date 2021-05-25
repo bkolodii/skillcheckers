@@ -1,0 +1,34 @@
+main {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.login-block {
+  width: 500px;
+  height: 573px;
+  border-top: 5px solid #0CACF8;
+  position: relative;
+  overflow: hidden;
+
+  &__header {
+    position: absolute;
+    width: 620px;
+    height: 180px;
+    left: -63px;
+    top: -75px;
+    border-radius: 63%;
+
+    &--logo {
+      height: 38px;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+  }
+  &__text {
+    font-weight: 300;
+  }
+}

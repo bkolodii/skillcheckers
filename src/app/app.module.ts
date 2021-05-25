@@ -43,6 +43,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MY_FORMATS } from './shared/const/myformat';
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,7 +67,8 @@ import { MY_FORMATS } from './shared/const/myformat';
     UpcomingComponent,
     SortOrdersPipe,
     CompletedComponent,
-    UnconfirmedComponent
+    UnconfirmedComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

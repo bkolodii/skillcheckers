@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewOrderComponent } from './component/new-order/new-order.component';
+import { LoginComponent } from './login/login.component';
 import { CompletedComponent } from './pages/interviews/interviews-item/completed/completed.component';
 import { InterviewsItemComponent } from './pages/interviews/interviews-item/interviews-item.component';
 import { UnconfirmedComponent } from './pages/interviews/interviews-item/unconfirmed/unconfirmed.component';
@@ -17,7 +18,8 @@ import { OrdersComponent } from './pages/orders/orders.component';
 
 const routes: Routes = [
 
-  { path: '', pathMatch: 'full', redirectTo: '' },
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  {path: 'login', component: LoginComponent},
   {
     path: 'orders', component: OrdersComponent, children: [
       { path: '', pathMatch: 'full', redirectTo: 'order-items/active' },
