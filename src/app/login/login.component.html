@@ -3,15 +3,29 @@
     <div class="login-block__header bc-light-blue flex aife jcc nowrap ">
       <img class="login-block__header--logo m-b-25" src="./../../assets/image/Skillcheckers-logo.png" alt="">
     </div>
-    <p class="login-block__title font-25">WELCOME</p>
-    <p class="login-block__text m-t-5 font-13 txt-c-initial">Create an order to start receiving resumes</p>
-    <form class="flex col m-t-28">
-      <label for="" class="font-14 m-b-3">Name</label>
-      <input type="text" name="" id="">
-      <label for="" class="font-14 m-t-15  m-b-3">Password</label>
-      <input type="text" name="" id="">
-      <button class="m-t-20 bc-light-blue txt-c-white bdc-light-blue btn">login</button>
+    <p class="login-block__title flex aic jcc font-25 m-t-35">Welcome</p>
+    <p class="login-block__text flex aic jcc font-13 txt-c-initial">Create an order to start receiving resumes</p>
+    <form [formGroup]="form" class="login-block__form flex col m-t-28">
+      <label for="user" class="w-100 font-14 m-b-3">Name</label>
+      <input [formControlName]="'username'" type="text" class="p-t-13 p-b-13 p-l-10 bdc-gray font-14"
+        placeholder="username" name="" id="user">
+      <span *ngIf="this.form.controls.username.getError('required')" class="font-10 m-t-4 txt-c-red">Field is
+        required</span>
+      <span *ngIf="this.form.controls.username.getError('pattern')" class="font-10 m-t-4 txt-c-red">Field should contain correct values</span>
+      <label for="password" class="font-14 w-100 m-t-15 m-b-3">Password</label>
+      <div class="flex nowrap jcsb aic p-t-12 p-b-12 p-l-10 bdc-gray">
+        <input [type]="isVisible ? 'text' : 'password'" [formControlName]="'pass'" min="8" max="16" name=""
+          class="bdc-white font-14" id="password" placeholder="password">
+        <button class="font-20 m-r-15 bc-white bdc-white" [class]="isVisible ? 'icon-visibility' : 'icon-visibility-off ' "
+          (click)="ChangeType()"></button>
+      </div>
+      <span *ngIf="this.form.controls.pass.getError('required')" class="font-10 m-t-4 txt-c-red">Field is
+        required</span>
+      <span *ngIf="this.form.controls.pass.getError('pattern')" class="font-10 m-t-4 txt-c-red">Field should be from 8 to 16 values</span>
+
+      <button (click)="signIN()" class="m-t-20 w-100 txt-c-white bdc-light-blue btn"
+        [class]="isDisabled ? 'bc-light-blue' : 'bc-blue'" [disabled]="isDisabled">Login</button>
     </form>
-    <p class="m-t-25">Forgot password?</p>
+    <p class="m-t-25 txt-c-blue font-14">Forgot password?</p>
   </section>
 </main>

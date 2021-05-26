@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-header-items',
@@ -8,13 +9,13 @@ import { Router } from '@angular/router';
 })
 export class HeaderItemsComponent implements OnInit {
   dropWay = false
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    localStorage.setItem('mainuser', JSON.stringify({
-      icon: '../../../../assets/image/mainuser.png',
-      username: 'Benny Spanbauer'
-    }))
+    // localStorage.setItem('mainuser', JSON.stringify({
+    //   icon: '../../../../assets/image/mainuser.png',
+    //   username: 'Benny Spanbauer'
+    // }))
   }
   dropMenu(): void {
     this.dropWay = !this.dropWay
@@ -31,6 +32,9 @@ export class HeaderItemsComponent implements OnInit {
 
   onClickedOutsideItem(e: Event) {
     e.stopPropagation()
-      this.dropWay = false;
+    this.dropWay = false;
+  }
+  signOUT(): void {
+    this.authService.signOut()
   }
 }

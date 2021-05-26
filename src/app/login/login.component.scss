@@ -27,8 +27,16 @@ main {
 
   &__title {
     font-weight: 600;
+    width: 270px;
+    height: 38px;
   }
   &__text {
     font-weight: 300;
+    width: 275px;
+    height: 20px;
+    white-space: nowrap;
+  }
+  &__form{
+    width: 330px;
   }
 }
