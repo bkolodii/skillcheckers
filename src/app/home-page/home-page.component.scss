@@ -1,0 +1,18 @@
+@import "../../assets/styles/mixins";
+
+.container {
+  overflow: hidden;
+  height: 100%;
+  // position: fixed;
+
+  &__menu {
+    width: 16%;
+    height: 100%;
+  }
+
+  &__items {
+    width: 84%;
+    height: 100%;
+    overflow: hidden;
+  }
+}

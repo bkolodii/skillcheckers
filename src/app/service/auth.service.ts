@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 export class AuthService {
   localUser: any;
   private dbPath = '/users';
+  updUser: Subject<any> = new Subject<any>();
   profRef: AngularFirestoreCollection<any> = null;
   constructor(private db: AngularFirestore,
     private auth: AngularFireAuth,
@@ -35,8 +37,6 @@ export class AuthService {
                   id: user.id,
                   ...user.data() as any
                 }
-                console.log(myUser);
-
                 localStorage.setItem('mainuser', JSON.stringify(myUser))
                 this.localUser = JSON.parse(localStorage.getItem('user'))
               })
@@ -68,10 +68,10 @@ export class AuthService {
                 ...userRef.data() as any
 
               }
-              // console.log(myUser);
+              this.updUser.next(myUser)
               localStorage.setItem('mainuser', JSON.stringify(myUser))
               this.localUser = JSON.parse(localStorage.getItem('user'))
-              this.router.navigateByUrl('orders');
+              this.router.navigateByUrl('home-page');
             })
           }
         )

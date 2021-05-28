@@ -32,7 +32,7 @@
     </div>
     <div class="choose-sort p-5 m-l-15 flex nowrap jcsa aic bc-gray"
       *ngFor="let sortOption of sortOptions; let i=index">
-      <p class="font-14 txt-c-black">{{sortOption.item}}</p>
+      <p class="font-14 m-l-10 txt-c-black">{{sortOption.item}}</p>
       <button class="choose-sort__delete-choose bc-dark-gray p-6 flex nowrap jcc aic btn"
         (click)="deleteFilter(i, sortOption)">
         <span aria-hidden="true" class="choose-sort__delete-choose--cross txt-c-black icon-close"></span>

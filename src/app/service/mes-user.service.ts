@@ -15,9 +15,17 @@ export class MesUserService {
   getAllusers(): AngularFirestoreCollection<mesUser> {
     return this.mesUserRef;
   }
+  create(data: mesUser): void {
+    this.mesUserRef.add({ ...data })
+  }
+  update(id: string, data: mesUser): Promise<void> {
+    return this.mesUserRef.doc(id).update({ ...data });
+  }
+  updateByName(id: string, data: mesUser): Promise<void> {
+    return this.mesUserRef.doc(id).update({ ...data });
+  }
   getOne(id): any {
     return this.mesUserRef.ref.where('url', '==', id);
-
   }
 }
 

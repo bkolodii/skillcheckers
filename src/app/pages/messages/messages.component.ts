@@ -115,7 +115,10 @@ export class MessagesComponent implements OnInit {
         )
       )
     ).subscribe(data => {
-      this.messaging = data;
+      if (localStorage.getItem('mainuser')) {
+        let user = JSON.parse(localStorage.getItem('mainuser'));
+        this.messaging = data.filter(res => res.name !== user.username)
+      }
     });
 
   }

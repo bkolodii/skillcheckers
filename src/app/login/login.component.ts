@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
       }
     })
     this.form.controls.pass.valueChanges.subscribe(res => {
-      res.match(this.pattern)
+      if (res) {
+        res.match(this.pattern)
+      }
       if (this.form.valid) {
         this.isDisabled = false
       } else {

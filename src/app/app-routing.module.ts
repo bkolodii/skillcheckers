@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewOrderComponent } from './component/new-order/new-order.component';
+import { IsLoginGuard } from './guards/is-login.guard';
+import { HomePageComponent } from './home-page/home-page.component';
+// import { IsLoginGuard } from './guards/is-login.guard';
 import { LoginComponent } from './login/login.component';
 import { CompletedComponent } from './pages/interviews/interviews-item/completed/completed.component';
 import { InterviewsItemComponent } from './pages/interviews/interviews-item/interviews-item.component';
@@ -17,43 +20,49 @@ import { OrderItemsComponent } from './pages/orders/order-items/order-items.comp
 import { OrdersComponent } from './pages/orders/orders.component';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'home-page' },
 
-  { path: '', pathMatch: 'full', redirectTo: 'login' },
-  {path: 'login', component: LoginComponent},
   {
-    path: 'orders', component: OrdersComponent, children: [
-      { path: '', pathMatch: 'full', redirectTo: 'order-items/active' },
+    path: 'home-page', component: HomePageComponent, canActivate: [IsLoginGuard], children: [
       {
-        path: 'order-items', component: OrderItemsComponent, children: [
-          { path: '', pathMatch: 'full', redirectTo: '' },
-          { path: 'active', component: ActiveComponent },
-          { path: 'drafts', component: DraftsComponent },
-          { path: 'closed', component: CloseComponent },
+        path: 'orders', component: OrdersComponent, canActivate: [IsLoginGuard], children: [
+          { path: '', pathMatch: 'full', redirectTo: 'order-items/active' },
+          {
+            path: 'order-items', component: OrderItemsComponent, children: [
+              { path: '', pathMatch: 'full', redirectTo: '' },
+              { path: 'active', component: ActiveComponent },
+              { path: 'drafts', component: DraftsComponent },
+              { path: 'closed', component: CloseComponent },
+            ]
+          },
+          { path: 'new-order', component: NewOrderComponent },
         ]
       },
-      { path: 'new-order', component: NewOrderComponent },
-    ]
-  },
-  {
-    path: 'interviews', component: InterviewsComponent, children: [
-      { path: '', pathMatch: 'full', redirectTo: 'interviews-item/upcoming' },
       {
-        path: 'interviews-item', component: InterviewsItemComponent, children: [
-          { path: '', pathMatch: 'full', redirectTo: '' },
-          { path: 'upcoming', component: UpcomingComponent },
-          { path: 'completed', component: CompletedComponent },
-          { path: 'unconfirmed', component: UnconfirmedComponent },
+        path: 'interviews', component: InterviewsComponent, canActivate: [IsLoginGuard], children: [
+          { path: '', pathMatch: 'full', redirectTo: 'interviews-item/upcoming' },
+          {
+            path: 'interviews-item', component: InterviewsItemComponent, children: [
+              { path: '', pathMatch: 'full', redirectTo: '' },
+              { path: 'upcoming', component: UpcomingComponent },
+              { path: 'completed', component: CompletedComponent },
+              { path: 'unconfirmed', component: UnconfirmedComponent },
+            ]
+          },
+          { path: 'new-order', component: NewOrderComponent },
         ]
       },
-      { path: 'new-order', component: NewOrderComponent },
+      {
+        path: 'messages', component: MessagesComponent, canActivate: [IsLoginGuard], children: [
+          { path: ':url', component: MessagesDetailsComponent },
+          // { path: '', pathMatch: 'full', redirectTo: 'Albert_Flores' },
+        ]
+      },
     ]
   },
-  {
-    path: 'messages', component: MessagesComponent, children: [
-      { path: ':url', component: MessagesDetailsComponent },
-      { path: '', pathMatch: 'full', redirectTo: 'Albert_Flores' },
-    ]
-  },
+  { path: 'login', component: LoginComponent, canLoad: [IsLoginGuard] },
+  { path: '**', component: LoginComponent },
+
 
 ]
 

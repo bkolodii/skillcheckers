@@ -1,6 +1,6 @@
 <main class="bc-gray flex nowrap jcsb aifs">
   <section class="chat bc-white flex col nowrap jcsb aic">
-    <div class="chat__search w-100 flex nowrap jcfs aic">
+    <div class="chat__search w-100 flex nowrap jcsb aic">
       <span aria-hidden="true" class="chat__search--icon icon-icons8-search txt-c-blue"></span>
       <input type="text" class="chat__search--input p-l-10 font-12 bc-white" placeholder="Search this conversation">
       <button class="chat__search--setting m-l-20 m-r-7 bc-gray flex nowrap jcc aic">
@@ -10,7 +10,7 @@
     <!-- <div class="chat__conversation flex nowrap jcc aicc " #scroll [scrollTop]="scroll.scrollHeight"> -->
     <div class="chat__conversation flex nowrap jcc aicc " #scroll>
       <div class="chat__conversation--text flex col nowrap jcsa aife">
-        <div class="w-100 flex col nowrap aife jcsa" *ngFor="let message of messages; let i=index">
+        <div class="w-100 flex col nowrap aife jcsa" *ngFor="let message of this.currMesUser?.messages; let i=index">
           <div class="message m-b-10 w-100 flex jcsa aifs" [class]="mainUser?.username == message?.user ? 'row-rev' : ''">
             <img class="message__logo m-r-5" [src]="message?.userIcon" alt="">
             <div class="message__person-data m-t-3 flex col nowrap jcfs aifs">
@@ -33,9 +33,9 @@
             </div>
           </div>
           <div class="date-period m-b-10 w-100 flex nowrap jcsa aic"
-            *ngIf="+messages[i]?.date?.split(' ')[0] < +messages[i+1]?.date?.split(' ')[0]">
+            *ngIf="+this.currMesUser?.messages[i]?.date?.split(' ')[0] < +this.currMesUser?.messages[i+1]?.date?.split(' ')[0]">
             <p class="date-period__date m-l-7 m-r-15 txt-c-initial font-12">
-              {{currDate == messages[i+1]?.date ? 'TODAY' : messages[i+1]?.date}}
+              {{currDate == this.currMesUser?.messages[i+1]?.date ? 'TODAY' : this.currMesUser?.messages[i+1]?.date}}
             </p>
             <hr class="date-period__hr w-100">
           </div>

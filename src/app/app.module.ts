@@ -44,6 +44,7 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { MY_FORMATS } from './shared/const/myformat';
 import { LoginComponent } from './login/login.component';
+import { HomePageComponent } from './home-page/home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +70,7 @@ import { LoginComponent } from './login/login.component';
     CompletedComponent,
     UnconfirmedComponent,
     LoginComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

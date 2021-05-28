@@ -8,22 +8,27 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./header-items.component.scss']
 })
 export class HeaderItemsComponent implements OnInit {
-  dropWay = false
+  dropWay = false;
+  currUser;
   constructor(private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
-    // localStorage.setItem('mainuser', JSON.stringify({
-    //   icon: '../../../../assets/image/mainuser.png',
-    //   username: 'Benny Spanbauer'
-    // }))
+    this.authService.updUser.subscribe(res => {
+        this.currUser = res;
+    })
+    if (localStorage.getItem('mainuser')) {
+      this.currUser = JSON.parse(localStorage.getItem('mainuser'));
+    }
+    // let n: number;
+    // n = window.setTimeout(function () { localStorage.removeItem('mainuser')}, 600000);
   }
   dropMenu(): void {
     this.dropWay = !this.dropWay
   }
   navigateToNewOrder(): void {
-    this.router.navigateByUrl('/orders/new-order')
+    this.router.navigateByUrl('/home-page/orders/new-order')
     localStorage.removeItem('edit-order');
-    let currentUrl = '/orders/new-order';
+    let currentUrl = '/home-page/orders/new-order';
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate([currentUrl]);
     });
