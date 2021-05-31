@@ -12,7 +12,7 @@ main {
   box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.25);
 
   &__search {
-    height: 45px;
+    height: 50px;
     border-bottom: 1px solid #CBCBD9;
 
     &--icon {
@@ -53,7 +53,7 @@ main {
   }
 
   &__conversation {
-    height: 91%;
+    height: 90%;
     width: 100%;
     border-bottom: 1px solid #CBCBD9;
     overflow-y: auto;
@@ -63,10 +63,10 @@ main {
       width: 97%;
       min-height: 10px;
       position: absolute;
-      top: 10px;
+      top: 11px;
 
       .message {
-        min-height: 48px;
+        min-height: 71px;
 
         &__logo {
           width: 35px;
@@ -89,8 +89,12 @@ main {
         }
 
         &__other-data {
-          width: 45px;
+          width: 55px;
           height: 40px;
+
+          &--time {
+            white-space: nowrap;
+          }
         }
       }
 
@@ -117,10 +121,10 @@ main {
   }
 
   &__message {
-    height: 54px;
+    height: 63px;
 
     &--upload {
-      width: 6%;
+      width: 50px;
       font-size: 16px;
 
       label {
@@ -170,7 +174,7 @@ main {
 
     &--input {
       width: 76%;
-      height: 32px;
+      height: 36px;
       box-shadow: 0px 1px 7px 0px rgba(0, 0, 0, 0.25);
     }
 
@@ -182,8 +186,8 @@ main {
     }
 
     &--send {
-      width: 11%;
-      height: 33px;
+      width: 77px;
+      height: 40px;
       background-color: #0cacf8;
       border: 1px solid #0cacf8;
       color: white;
@@ -210,11 +214,11 @@ main {
 
 .person-details {
   width: 30%;
-  height: 346px;
+  min-height: 346px;
 
   &__header {
     width: 85%;
-    height: 94px;
+    min-height: 94px;
     border-bottom: 1px solid #b6bac1;
 
     &--user-icon {
@@ -224,7 +228,7 @@ main {
 
     &--info {
       width: 80%;
-      height: 57px;
+      min-height: 57px;
 
       .person-name {
         font-weight: 600;
@@ -245,20 +249,20 @@ main {
 
   &__main {
     width: 85%;
-    height: 180px;
+    min-height: 180px;
     border-bottom: 1px solid #b6bac1;
 
     &--speedOfwork {
       width: 50%;
-      height: 30px;
+      min-height: 30px;
 
       .title-of-speed {
-        height: 14px;
+        min-height: 14px;
         color: #b3b3b6;
       }
 
       .text-of-speed {
-        height: 14px;
+        min-height: 14px;
         font-weight: 550;
         color: #25b5f9;
       }
@@ -266,76 +270,76 @@ main {
 
     &--learnSkills {
       width: 50%;
-      height: 30px;
+      min-height: 30px;
 
       .title-learnSkills {
-        height: 14px;
+        min-height: 14px;
         color: #b3b3b6;
       }
 
       .text-learnSkills {
-        height: 14px;
+        min-height: 14px;
         color: #25b5f9;
       }
     }
 
     &--date {
       width: 50%;
-      height: 30px;
+      min-height: 30px;
 
       .title-date {
-        height: 14px;
+        min-height: 14px;
         color: #b3b3b6;
       }
 
       .text-date {
-        height: 14px;
+        min-height: 14px;
       }
     }
 
     &--salaryRange {
       width: 50%;
-      height: 30px;
+      min-height: 30px;
 
       .title-salary {
-        height: 14px;
+        min-height: 14px;
         color: #b3b3b6;
       }
 
       .text-salary {
-        height: 14px;
+        min-height: 14px;
       }
     }
 
     &--experience {
       width: 50%;
-      height: 30px;
+      min-height: 30px;
 
       .title-experience {
-        height: 14px;
+        min-height: 14px;
         color: #b3b3b6;
       }
 
       .text-experience {
-        height: 14px;
+        min-height: 14px;
       }
     }
 
     &--location {
       width: 50%;
-      height: 30px;
+      min-height: 30px;
 
       .title-loc {
-        height: 14px;
+        min-height: 14px;
         color: #b3b3b6;
       }
 
       .text-loc {
-        height: 14px;
+        min-height: 14px;
 
         span {
-          width: 57px;
-          height: 18px;
+          width: 71px;
+          height: 23px;
           border-radius: 10px;
         }
 
@@ -345,7 +349,7 @@ main {
 
   &__footer {
     width: 85%;
-    height: 70px;
+    min-height: 50px;
 
     &--interview {
       width: 120px;

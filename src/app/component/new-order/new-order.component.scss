@@ -2,12 +2,12 @@
 @import '../../../assets/styles/font';
 
 .new-order {
-  height: 92.7vh;
+  height: 100%;
   overflow-y: auto;
 
-  &__items {
-    overflow-y: auto;
-  }
+  // &__items {
+  //   overflow-y: auto;
+  // }
 }
 
 

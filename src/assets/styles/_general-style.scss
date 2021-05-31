@@ -33,7 +33,11 @@
   font-size: 17px;
   font-weight: 700;
 }
-
+.txt-overflow{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .not-read {
   min-width: 20px;
   min-height: 20px;

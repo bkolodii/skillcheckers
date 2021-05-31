@@ -11,14 +11,14 @@
       <span aria-hidden="true" data-icon="&#xe901;" class="icon-iconmonstr-plus-6 btn-icon-left"></span>
       New order
     </button>
-    <button class="right-section__notification">
+    <button class="right-section__notification flex nowrap aic jcc m-l-20 m-r-20">
       <span class="icon-notification"><span class="path1"></span><span class="path2"></span></span>
     </button>
     <div class="right-section__user flex nowrap jcc aic">
       <button class="right-section__user--button btn flex aic jcc nowrap">
         <img class="btn-icon-left" [src]="currUser?.icon" alt="">
       </button>
-      <div class="user-menu" (clickOutside)="onClickedOutsideItem($event)">
+      <div class="user-menu m-r-15" (clickOutside)="onClickedOutsideItem($event)">
         <button class="user-menu__visible" (click)="dropMenu()">
           <span aria-hidden="true" [class]="!dropWay ? 'icon-drop-down-arrow' : 'icon-drop-up-arrow'"
             class="user-menu__visible--items-drop-down"></span>
