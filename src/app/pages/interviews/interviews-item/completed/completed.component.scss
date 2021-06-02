@@ -1,0 +1,150 @@
+@import "../../../../../assets/styles/mixins";
+@import "../../../../../assets/styles/font";
+
+.jobApply {
+  height: 94%;
+  overflow-y: scroll;
+
+  &__container {
+    padding: 15px 15px 15px 15px;
+    min-height: 10px;
+
+    &--list {
+      min-height: 82px;
+      border-radius: 2px;
+      margin-bottom: 10px;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+
+      .logo {
+        width: 16%;
+        height: 50px;
+
+        .data {
+          height: 44px;
+          width: 100%;
+          // margin-left: 5px;
+
+          &__person-name {
+            font-weight: 600;
+          }
+
+          &__person-profession {
+            height: 20px;
+            line-height: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+
+      .interview-date {
+        height: 44px;
+        width: 16%;
+
+        &__interview-time {
+
+          &--icon {
+            width: 15px;
+            height: 15px;
+            line-height: 15px;
+            font-weight: 500;
+            font-size: 15px;
+            margin-right: 7px;
+          }
+
+          &--text {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        &__date-title {
+          font-weight: 550;
+        }
+      }
+
+      .interviewers {
+        height: 44px;
+        width: 12%;
+
+        &__interviewers-all {
+          width: 50%;
+          height: 24px;
+          position: relative;
+
+          &--icon {
+            width: 23px;
+            height: 23px;
+            border-radius: 50px;
+            border: 1px solid white;
+          }
+
+          &--icon:nth-child(2) {
+            position: absolute;
+            left: 16px;
+            border: 1px solid white;
+          }
+        }
+
+        &__interviewers-title {
+          font-weight: 550;
+        }
+      }
+
+      .orders {
+        height: 44px;
+        width: 15%;
+
+        &__orders-prof {
+          height: 20px;
+          line-height: 20px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        &__orders-title {
+          font-weight: 550;
+          height: 10px;
+        }
+      }
+
+      .person-rate {
+        height: 44px;
+        width: 15%;
+
+        &__number {
+          width: 39px;
+          height: 21px;
+          border-radius: 15px;
+          text-align: center;
+          line-height: 21px;
+          border: 3px solid white;
+        }
+
+        &__orders-title {
+          font-weight: 550;
+          height: 10px;
+        }
+      }
+      .warning{
+        width: 172px;
+        height: 38px;
+        &__review{
+          font-weight: 600;
+        }
+      }
+
+
+
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  width: 2.5px;
+  height: 6px;
+  background: transparent;
+}

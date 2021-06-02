@@ -35,19 +35,19 @@ main {
         &__person-rate {
           position: absolute;
           bottom: 5px;
-          left: calc(50% - 22px);
-          top: calc(50% + 8px);
-          width: 29px;
-          height: 13px;
+          left: calc(50% - 20.5px);
+          top: calc(50% + 12px);
+          width: 35px;
+          height: 15px;
           border-radius: 10px;
           text-align: center;
-          line-height: 14px;
+          line-height: 15px;
           border: 3px solid white;
         }
       }
 
       .data {
-        height: 40px;
+        height: 44px;
         width: 15%;
         // margin-left: 5px;
 
@@ -65,7 +65,7 @@ main {
       }
 
       .interview-date {
-        height: 40px;
+        height: 44px;
         width: 16%;
 
         &__interview-time {
@@ -92,8 +92,8 @@ main {
       }
 
       .interviewers {
-        height: 40px;
-        width: 16%;
+        height: 44px;
+        width: 12%;
 
         &__interviewers-all {
           width: 50%;
@@ -101,8 +101,8 @@ main {
           position: relative;
 
           &--icon {
-            width: 20px;
-            height: 20px;
+            width: 23px;
+            height: 23px;
             border-radius: 50px;
             border: 1px solid white;
           }
@@ -120,7 +120,7 @@ main {
       }
 
       .orders {
-        height: 40px;
+        height: 44px;
         width: 15%;
 
         &__orders-prof {
@@ -138,12 +138,12 @@ main {
       }
 
       .buttons {
-        width: 170px;
+        width: 190px;
         height: 40px;
 
         &__start {
-          width: 80px;
-          height: 32px;
+          width: 90px;
+          height: 38px;
           border: 2px solid #0cacf8;
           background-color: white;
           padding: 0;
@@ -182,14 +182,14 @@ main {
         }
 
         &__make-date {
-          width: 35px;
-          height: 32px;
+          width: 38px;
+          height: 38px;
           border: 1px solid #0cacf8;
           transition: box-shadow 600ms ease-in-out, fill 600ms ease-in-out;
 
           &--calendar-date {
-            width: 30px;
-            height: 30px;
+            width: 38px;
+            height: 38px;
             line-height: 32px;
             font-weight: 500;
             font-size: 20px;
@@ -208,14 +208,14 @@ main {
         }
 
         &__cancel-button {
-          width: 35px;
-          height: 32px;
+          width: 38px;
+          height: 38px;
           position: relative;
 
           &--hidden {
             position: absolute;
             width: 60px;
-            top: calc(-91%);
+            top: calc(-75%);
             left: calc(-57%);
             height: 23px;
             border-radius: 4px;
@@ -238,8 +238,8 @@ main {
           }
 
           &--visible {
-            width: 35px;
-            height: 32px;
+            width: 38px;
+            height: 38px;
             background-color: #0cacf8;
             border: none;
             padding: 0;
@@ -284,11 +284,11 @@ main {
       border: none;
 
       .navigate-right {
-        width: 15px;
-        height: 15px;
-        line-height: 15px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
         font-weight: 500;
-        font-size: 15px;
+        font-size: 16px;
         color: #6E7585;
       }
     }
@@ -300,11 +300,11 @@ main {
       border: none;
 
       .navigate-left {
-        width: 15px;
-        height: 15px;
-        line-height: 15px;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
         font-weight: 500;
-        font-size: 15px;
+        font-size: 16px;
         color: #6E7585;
       }
     }
@@ -322,11 +322,12 @@ main {
 
   &__day-number {
     width: 94%;
-    min-height: 10vh;
+    min-height: 10px;
+    margin: 10px auto;
 
     &--block-day {
-      width: 13.5%;
-      height: 45px;
+      width: 13.7%;
+      height: 55px;
       border: 1px solid #d2d2de;
       cursor: pointer;
       transition: background-color 600ms ease-in-out;
@@ -334,9 +335,10 @@ main {
       .eventBox {
 
         &__event {
-          width: 3px;
-          height: 3px;
+          width: 5px;
+          height: 5px;
           border-radius: 50%;
+          margin-left: 2px;
           margin-right: 2px;
 
         }
@@ -357,12 +359,12 @@ main {
 
 
     &--upcoming {
-      width: 75px;
+      width: 90px;
       height: 24px;
 
       span {
-        width: 3px;
-        height: 3px;
+        width: 5px;
+        height: 5px;
         border-radius: 50%;
         border: 3px solid #21b3f9;
         margin-right: 2px;
@@ -370,12 +372,12 @@ main {
     }
 
     &--completed {
-      width: 75px;
+      width: 90px;
       height: 24px;
 
       span {
-        width: 3px;
-        height: 3px;
+        width: 5px;
+        height: 5px;
         border-radius: 50%;
         border: 3px solid #fab453;
         margin-right: 2px;

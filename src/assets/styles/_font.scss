@@ -30,7 +30,10 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-Vector:before {
+  content: "\e950";
+  color: #f9a530;
+}
 .icon-visibility:before {
   content: "\e94e";
   color: #979ca7;

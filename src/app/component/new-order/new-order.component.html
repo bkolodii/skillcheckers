@@ -13,7 +13,7 @@
         </div>
         <form class="order-info m-t-20 p-10 flex col nowrap jcsa aic" [formGroup]="order">
           <div class="order-info__programmer flex nowrap jcsb aic w-100">
-            <p class="order-info__programmer--text font-12">Programmers needed</p>
+            <p class="order-info__programmer--text font-14">Programmers needed</p>
             <div class="order-info__programmer--counter flex nowrap aic">
               <button class="minus bc-white btn bdc-light-gray txt-c-black"
                 (click)="counter('progNeed', false)">-</button>
@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="order-info__mainSkill flex nowrap jcsb aic w-100">
-            <p class="order-info__mainSkill--text font-12">Main skill</p>
+            <p class="order-info__mainSkill--text font-14">Main skill</p>
             <mat-select formControlName="mainSkil"
               class="order-info__mainSkill--select p-l-10 p-r-5 font-13 flex col nowrap jcc aic bdc-light-gray">
               <mat-option *ngFor="let skill of mainSkills" [value]="skill" (click)="chooseItem(skill, 'mainSkill')">
@@ -34,7 +34,7 @@
 
           </div>
           <div class="order-info__experience flex nowrap jcsb aic w-100">
-            <p class="order-info__experience--text font-12">Years of experience</p>
+            <p class="order-info__experience--text font-14">Years of experience</p>
             <div class="order-info__experience--counter flex nowrap aic ">
               <button class="minus bc-white btn bdc-light-gray txt-c-black"
                 (click)="counter('experience', false)">-</button>
@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="order-info__addSkill flex nowrap jcsb aic w-100">
-            <p class="order-info__addSkill--text font-12">Additional skills</p>
+            <p class="order-info__addSkill--text font-14">Additional skills</p>
             <div class="order-info__addSkill--select p-l-0 p-r-5 flex wrap aic bc-white"
               (clickOutside)="onClickedOutsideItem($event, 'addSkill')" (click)="openHidden('addSkill')"
               [style.border]="isAddSkill? '1px solid #CBCBD9' : '1px solid #CBCBD9'">
@@ -72,7 +72,7 @@
             </div>
           </div>
           <div class="order-info__unitName flex nowrap jcsb aic w-100">
-            <p class="order-info__unitName--text font-12">Unit name</p>
+            <p class="order-info__unitName--text font-14">Unit name</p>
             <mat-select class="order-info__unitName--select p-l-10 p-r-5 font-13 flex col nowrap jcc aic" formControlName="unitName">
               <mat-option *ngFor="let name of namesUnit" [value]="name" (click)="chooseItem(name, 'name')">
                 {{name}}
@@ -80,14 +80,14 @@
             </mat-select>
           </div>
           <div class="order-info__unitLocation flex nowrap jcsb aic w-100">
-            <p class="order-info__unitLocation--text font-12">Unit location</p>
+            <p class="order-info__unitLocation--text font-14">Unit location</p>
             <!-- <input class="order-info__unitLocation--input" [(ngModel)]="unitLocation" name="unitLocation" type="text"> -->
             <input matInput
               class="order-info__unitLocation--input p-l-10 p-r-5 font-13 flex nowrap aic bc-white bdc-light-gray txt-c-black"
               formControlName="unitLocation" name="unitLocation" type="text">
           </div>
           <div class="order-info__skillScore flex nowrap jcsb aic w-100">
-            <div class="order-info__skillScore--text m-t-10 font-12 flex nowrap aic">Skillcheckers Score
+            <div class="order-info__skillScore--text m-t-10 font-14 flex nowrap aic">Skillcheckers Score
               <button class="questInfo flex nowrap jcc m-l-5 aic bc-dark-gray">
                 <span aria-hidden="true" class="icon-question"></span>
 
@@ -104,7 +104,7 @@
             </mat-radio-group>
           </div>
           <div class="order-info__jobLocation m-t-10 flex nowrap jcsb aic w-100">
-            <p class="order-info__jobLocation--text font-12">Job location</p>
+            <p class="order-info__jobLocation--text font-14">Job location</p>
             <div class="order-info__jobLocation--choose flex wrap jcfs aifs">
               <!-- <input class="jobLocation-input" [(ngModel)]="jobLocation" name="jobLocation" type="text"> -->
               <input class="jobLocation-input p-l-10 p-r-5 font-13 w-100 flex wrap jcc aic bc-white bdc-light-gray txt-c-black"
@@ -121,7 +121,7 @@
 
           </div>
           <div class="order-info__salary flex nowrap jcsb aic w-100">
-            <p class="order-info__salary--text font-12">Salary range</p>
+            <p class="order-info__salary--text font-14">Salary range</p>
             <div class="order-info__salary--choose flex nowrap jcsb aic">
               <mat-select class="select-salary p-r-5 p-l-10 flex col nowrap jcc aic btn bdc-light-gray" formControlName="salary">
                 <mat-option *ngFor="let salar of salaryRange" [value]="salar" (click)="chooseItem(salar, 'salary')">
@@ -150,7 +150,7 @@
           </div>
 
           <div class="order-info__termContr m-t-10 flex nowrap jcsb aic w-100">
-            <p class="order-info__termContr--text font-12">Term of contract</p>
+            <p class="order-info__termContr--text font-14">Term of contract</p>
             <mat-radio-group class="order-info__termContr--choose font-13 flex wrap jcfs aic"
               formControlName="termOfContract">
               <mat-radio-button value="Long-term" class="termContr-button m-r-10 m-b-10 font-13 flex aic">Long-term</mat-radio-button>
@@ -160,7 +160,7 @@
             </mat-radio-group>
           </div>
           <div class="order-info__workMode m-t-10 flex nowrap jcsb aic w-100">
-            <p class="order-info__workMode--text font-12">Work mode</p>
+            <p class="order-info__workMode--text font-14">Work mode</p>
             <mat-radio-group class="order-info__workMode--choose flex wrap jcfs aifs" formControlName="workMode">
               <mat-radio-button value="Long-term" class="workMode-button m-r-10 m-b-10 font-13 flex aic">Full time</mat-radio-button>
               <mat-radio-button value="Short-term" class="workMode-button font-13 m-r-10 m-b-10 flex aic">Part time</mat-radio-button>
@@ -168,7 +168,7 @@
             </mat-radio-group>
           </div>
           <div class="order-info__dueDate w-100 flex nowrap jcsb aic">
-            <div class="order-info__dueDate--text font-12 flex nowrap aic">
+            <div class="order-info__dueDate--text font-14 flex nowrap aic">
               <button class="calendar-info btn bc-white flex nowrap aic">
                 <span aria-hidden="true" class="icon-calendar txt-c-blue"></span>
               </button>

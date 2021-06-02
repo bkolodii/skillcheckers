@@ -1,1 +1,47 @@
-<p>completed works!</p>
+<section class="jobApply bc-gray w-100">
+  <div class="jobApply__container">
+    <div class="jobApply__container--list w-100 flex nowrap jcsa aic bc-white"
+      *ngFor="let person of events ; let i=index ">
+      <div class="logo flex nowrap aic jcsb m-l-10">
+        <img class="user-logo" [src]="person.interviewIcon" alt="">
+        <div class="data m-r-10 m-l-5 flex col nowrap jcsb aifs ">
+          <h2 class="data__person-name font-15">{{person.personData}}</h2>
+          <p class="data__person-profession font-13 txt-c-initial w-100">{{person.profesion}}</p>
+        </div>
+      </div>
+
+      <div class="interview-date m-r-10 flex col nowrap jcsb aifs">
+        <p class="interview-date__date-title font-13 txt-c-initial"> DATE & TIME </p>
+        <div class="interview-date__interview-time font-15 w-100 flex nowrap jcfs aic">
+          <span aria-hidden="true" data-icon="&#xe900;"
+            class="interview-date__interview-time--icon txt-c-blue icon-clock"></span>
+          <p class="interview-date__interview-time--text font-15">{{person.interviewTime}}</p>
+        </div>
+      </div>
+      <div class="interviewers m-r-10 flex col nowrap jcsb aic">
+        <p class="interviewers__interviewers-title font-13 txt-c-initial">INTERVIEWERS</p>
+        <div class="interviewers__interviewers-all flex nowrap jcfs aic">
+          <img [src]="interv" alt="" class="interviewers__interviewers-all--icon"
+            *ngFor="let interv of person.interviewers">
+        </div>
+      </div>
+      <div class="orders m-r-10 flex col nowrap jcsb aifs">
+        <p class="orders__orders-title font-13 txt-c-initial">ORDERS</p>
+        <p class="orders__orders-prof font-15 w-100">{{person.orders}}</p>
+      </div>
+      <div class="person-rate m-r-10 flex col nowrap jcsb aifs">
+        <p class="person-rate__title font-13 txt-c-initial">SKILLCHECKERS SCORE</p>
+        <p class="person-rate__number font-13 bc-green txt-c-white">{{person.personRate.toFixed(1)}}</p>
+      </div>
+      <!-- <div class="person-rate m-r-10 flex col nowrap jcsb aifs">
+        <p class="person-rate__title font-12 txt-c-initial">OUR SCORE</p>
+        <p class="person-rate__number font-11 bc-green txt-c-white">{{person.personRate.toFixed(1)}}</p>
+      </div> -->
+      <div class="warning m-r-10 flex nowrap jcc aic bc-light-blue txt-c-black">
+        <span class="icon-Vector btn-icon-left font-19"></span> <p class="warning__review font-13 bc-light-blue txt-c-black"> Review needed</p>
+      </div>
+
+    </div>
+  </div>
+
+</section>
