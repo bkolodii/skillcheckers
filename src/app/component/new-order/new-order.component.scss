@@ -120,7 +120,7 @@ mat-option {
     }
 
     &__mainSkill {
-      min-height: 35px;
+      min-height: 40px;
       z-index: 1;
       margin-bottom: 20px;
 
@@ -131,9 +131,9 @@ mat-option {
 
       &--select {
         border: 1px solid #CBCBD9;
-        height: 35px;
+        height: 40px;
         width: 57.5%;
-        line-height: 18px;
+        line-height: 40px;
         outline: none;
       }
     }
@@ -917,7 +917,7 @@ mat-option {
 
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
   height: 6px;
   background: transparent;
 }

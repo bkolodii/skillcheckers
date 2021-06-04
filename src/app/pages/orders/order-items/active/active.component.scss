@@ -31,7 +31,7 @@
 }
 
 .jobApply {
-  height: 94%;
+  height: 96%;
   overflow-y: scroll;
 
   &__container {
@@ -259,7 +259,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 2.5px;
+  width: 3px;
   height: 6px;
   background: transparent;
 }

@@ -2,7 +2,7 @@
 @import "../../../../../assets/styles/font";
 
 .jobApply {
-  height: 94%;
+  height: 100%;
   overflow-y: scroll;
 
   &__container {
@@ -16,7 +16,7 @@
       box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
 
       .logo {
-        width: 16%;
+        width: 220px;
         height: 50px;
 
         .data {
@@ -40,7 +40,7 @@
 
       .interview-date {
         height: 44px;
-        width: 16%;
+        width: 180px;
 
         &__interview-time {
 
@@ -67,7 +67,7 @@
 
       .interviewers {
         height: 44px;
-        width: 12%;
+        width: 84px;
 
         &__interviewers-all {
           width: 50%;
@@ -95,7 +95,7 @@
 
       .orders {
         height: 44px;
-        width: 15%;
+        width: 163px;
 
         &__orders-prof {
           height: 20px;
@@ -113,7 +113,7 @@
 
       .person-rate {
         height: 44px;
-        width: 15%;
+        width: 170px;
 
         &__number {
           width: 39px;
@@ -129,10 +129,12 @@
           height: 10px;
         }
       }
-      .warning{
+
+      .warning {
         width: 172px;
         height: 38px;
-        &__review{
+
+        &__review {
           font-weight: 600;
         }
       }
@@ -143,8 +145,92 @@
   }
 }
 
+.modal {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.274);
+  // background: gray;
+
+  &__block {
+    width: 678px;
+    height: 335px;
+    background-color: white;
+
+    &--cross {
+      .icon-close {
+        font-size: 12px;
+        color: #6E7585;
+        cursor: pointer;
+      }
+    }
+
+    &--title {
+      font-weight: 600;
+    }
+
+    &--text {
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .rates {
+      width: 51px;
+      height: 68px;
+      border-radius: 5px;
+    }
+
+    &--button {
+      .skip {
+        padding: 0;
+        width: 105px;
+        height: 40px;
+        transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
+      }
+
+      .submit {
+        padding: 0;
+        width: 105px;
+        height: 40px;
+        transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
+      }
+
+
+      .submit:focus {
+        background-color: transparent;
+        border: 1px solid #0cacf8;
+        box-shadow: 0px 0px 7px 1px #0cacf8;
+        color: #0cacf8;
+      }
+      .skip:hover {
+        background-color: transparent;
+        border: 1px solid #EEF0F8;
+        box-shadow: 0px 0px 7px 1px #EEF0F8;
+        // color: #EEF0F8;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ::-webkit-scrollbar {
-  width: 2.5px;
+  width: 3px;
   height: 6px;
   background: transparent;
 }

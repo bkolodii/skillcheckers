@@ -95,3 +95,9 @@ main {
   overflow: hidden;
   width: 82%;
 }
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 6px;
+  background: transparent;
+}

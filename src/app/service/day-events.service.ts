@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
 import { Events } from '../shared/interfaces/events.interface';
-import { Question } from '../shared/interfaces/question.interface';
 
 @Injectable({
   providedIn: 'root'
