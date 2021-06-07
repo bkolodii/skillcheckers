@@ -92,6 +92,7 @@ export class CompletedComponent implements OnInit {
     this.completedDayEventsService.update(this.currPerson.id, this.currPerson).finally(() => {
       this.isModal = false;
       this.count = 0;
+      this.ngOnInit();
     })
   }
 
