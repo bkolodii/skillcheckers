@@ -45,6 +45,7 @@ import { MomentDateModule, MomentDateAdapter } from '@angular/material-moment-ad
 import { MY_FORMATS } from './shared/const/myformat';
 import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { ViewOrderComponent } from './component/view-order/view-order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,6 +72,7 @@ import { HomePageComponent } from './home-page/home-page.component';
     UnconfirmedComponent,
     LoginComponent,
     HomePageComponent,
+    ViewOrderComponent,
   ],
   imports: [
     BrowserModule,

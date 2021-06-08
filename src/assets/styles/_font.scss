@@ -30,6 +30,16 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-reverse:before {
+  content: "\e952";
+  color: #0cacf8;
+}
+
+.icon-arrow-back:before {
+  content: "\e951";
+  color: #6e7585;
+}
+
 .icon-Vector:before {
   content: "\e950";
   color: #f9a530;

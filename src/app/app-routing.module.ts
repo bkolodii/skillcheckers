@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewOrderComponent } from './component/new-order/new-order.component';
+import { ViewOrderComponent } from './component/view-order/view-order.component';
 import { IsLoginGuard } from './guards/is-login.guard';
 import { HomePageComponent } from './home-page/home-page.component';
 // import { IsLoginGuard } from './guards/is-login.guard';
@@ -36,6 +37,7 @@ const routes: Routes = [
             ]
           },
           { path: 'new-order', component: NewOrderComponent },
+          { path: ':id', component: ViewOrderComponent },
         ]
       },
       {

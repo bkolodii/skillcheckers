@@ -169,9 +169,12 @@ export class ActiveComponent implements OnInit {
     this.sortOptions.splice(currId, 1);
     this.checkOption = null;
   }
-  editCurrOrder(currOrder): void {
+  editCurrOrder(currOrder: RequiredSkills): void {
     localStorage.setItem('edit-order', JSON.stringify(currOrder))
-    this.router.navigateByUrl('/orders/new-order');
+    this.router.navigateByUrl('home-page/orders/new-order');
+  }
+  viewCurrOrder(currOrder: RequiredSkills): void {
+    this.router.navigateByUrl(`home-page/orders/${currOrder.id}`);
   }
   onClickedOutsideOption(e: Event, i: number) {
     if (this.checkOption == i && this.checkOption !== null) {

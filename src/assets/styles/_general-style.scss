@@ -137,8 +137,10 @@ $paddings: (1: 1px,
   18: 18px,
   19: 19px,
   20: 20px,
+  21: 21px,
   25: 25px,
   30: 30px,
+  35: 35px,
   50: 50px,
   100: 100px);
 
@@ -188,6 +190,41 @@ $margins: (1: 1px,
   25: 25px,
   28: 28px,
   30: 30px,
+  32: 32px,
+  34: 34px,
+  35: 35px,
+  40: 40px,
+  50: 50px,
+  100: 100px);
+
+$line-heights: (1: 1px,
+  2: 2px,
+  3: 3px,
+  4: 4px,
+  5: 5px,
+  6: 6px,
+  7: 7px,
+  8: 8px,
+  9: 9px,
+  10: 10px,
+  11: 11px,
+  12: 12px,
+  13: 13px,
+  14: 14px,
+  15: 15px,
+  16: 16px,
+  17: 17px,
+  18: 18px,
+  19: 19px,
+  20: 20px,
+  22: 22px,
+  24: 24px,
+  26: 26px,
+  25: 25px,
+  28: 28px,
+  30: 30px, 
+  32: 32px, 
+  34: 34px, 
   35: 35px,
   40: 40px,
   50: 50px,
@@ -227,5 +264,11 @@ $text-aligns: (c: center,
 $text-align in $text-aligns {
   .txt-a-#{$textAli} {
     text-align: $text-align;
+  }
+}
+@each $lineheight,
+$line-height in $line-heights {
+  .line-height-#{$lineheight} {
+    line-height: $line-height;
   }
 }

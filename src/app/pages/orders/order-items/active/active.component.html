@@ -97,10 +97,11 @@
         <div class="option__menu bc-white flex col nowrap jcsa aic"
           [style.top]="((i === vacancies.length-1 && vacancies.length > 2) || (i === vacancies.length-2 && vacancies.length > 3) ) ? '-120px' : '30px'"
           [style.display]="checkOption == i ? 'flex' : 'none'">
-          <!-- <div class="option__menu--items" (click)="openOption(i)">
-            <img class="items-icon" src="../../../../assets/image/view.svg" alt="">
+          <div class="option__menu--items flex nowrap aic" (click)="openOption(i)" (click)="viewCurrOrder(item)">
+            <span aria-hidden="true" class="icon-visibility items-view"></span>
             <p class="items-text font-14 txt-c-initial">View order</p>
-          </div> -->
+          </div>
+          <span class="option__menu--line bc-light-gray"></span>
           <div class="option__menu--items flex nowrap aic" (click)="openOption(i)" (click)="editCurrOrder(item)">
             <span aria-hidden="true" class="items-edit icon-edit"></span>
             <p class="items-text font-14 txt-c-initial">Edit order</p>

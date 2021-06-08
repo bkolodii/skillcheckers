@@ -1,0 +1,163 @@
+.view-order {
+  overflow-y: auto;
+  height: 94%;
+
+  .button-back {
+    width: 112px;
+    height: 38px;
+    border-radius: 20px;
+    border: 2px solid #C3C3CD;
+    font-weight: 300;
+
+    &__arrow {
+      font-size: 16px;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+    }
+  }
+
+  .order-text {
+    width: 800px;
+    height: 1556px;
+    margin-left: 98px;
+
+    &__description {
+      width: 740px;
+      height: 693px;
+
+      .order-title {
+        font-weight: 600;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      ul li::before {
+        content: "\2022";
+        color: #0CACF8;
+        font-weight: 900;
+        font-size: 24px;
+        width: 10px;
+        height: 26px;
+        margin-right: 13px;
+        line-height: 25px;
+      }
+
+      .order-skill {
+        min-height: 54px;
+
+        &__main {
+          min-width: 64px;
+          min-height: 54px;
+
+          &--skill {
+            min-width: 29px;
+            border-radius: 20px;
+          }
+        }
+
+        &__addition {
+          min-width: 64px;
+          min-height: 54px;
+
+          &--skill {
+            min-width: 29px;
+            border-radius: 20px;
+          }
+        }
+      }
+
+      .bottom-line {
+        padding: 0;
+        height: -1px;
+
+      }
+    }
+
+    &__question {
+      width: 740px;
+      height: 242px;
+
+      &--list {
+        width: 677px;
+        height: 28px;
+      }
+    }
+
+    &__candidates {
+      width: 800px;
+      height: 465px;
+
+      .order-type {
+        height: 63px;
+        ;
+        border-bottom: 1px solid #CBCBD9;
+
+        &__item {
+          margin-left: 30px;
+          width: auto;
+          height: 63px;
+          cursor: pointer;
+          position: relative;
+
+          &--title {
+            font-weight: 600;
+          }
+
+          &--choose {
+            position: absolute;
+            height: 5px;
+            bottom: -1px;
+
+          }
+        }
+      }
+
+      .tabcontent {
+        display: none;
+        height: 341px;
+
+        .candidates-info {
+          width: 324px;
+          height: 70px;
+          position: relative;
+
+          &__logo {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+          }
+
+          &__data {
+            min-width: 118px;
+            min-height: 24px;
+
+            &--name {
+              font-weight: 600;
+            }
+          }
+
+          &__rate {
+            position: absolute;
+            height: 21px;
+            width: 39px;
+            border: 2px solid #25BF50;
+            border-radius: 20px;
+            bottom: 20px;
+            right: 18px;
+          }
+
+          &__reverse {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            top: 3px;
+            right: 3px;
+          }
+        }
+      }
+    }
+  }
+}
