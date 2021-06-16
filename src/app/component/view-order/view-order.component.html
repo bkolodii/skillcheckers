@@ -13,7 +13,8 @@
         <div class="order-skill__addition flex col aifs jcsb">
           <p class="font-12 txt-c-initial">{{'Additional skill' | uppercase }}</p>
           <div class="flex nowrap font-13">
-            <p class="bc-gray font-13 order-skill__addition--skill p-l-10 p-r-10 p-t-5 p-b-5 m-r-5" *ngFor="let item of currOrder?.additionalSkill.split(', ')">{{item}}</p>
+            <p class="bc-gray font-13 order-skill__addition--skill p-l-10 p-r-10 p-t-5 p-b-5 m-r-5"
+              *ngFor="let item of currOrder?.additionalSkill.split(', ')">{{item}}</p>
             <!-- <p class="bc-gray font-13 order-skill__addition--skill p-l-10 p-r-10 p-t-5 p-b-5 m-r-5">HTML</p>
             <p class="bc-gray font-13 order-skill__addition--skill p-l-10 p-r-10 p-t-5 p-b-5 m-r-5">CSS | uppercase
             </p> -->
@@ -22,7 +23,8 @@
       </div>
       <hr class="bottom-line p-0 bc-light-gray bdc-light-gray w-100 m-t-20">
       <p class="order-title w-100 font-17 m-t-20">Job description</p>
-      <p class="font-14 m-t-10 w-100 line-height-20">Currently, we are looking for an experienced engineer to join one of our
+      <p class="font-14 m-t-10 w-100 line-height-20">Currently, we are looking for an experienced engineer to join one
+        of our
         teams that
         tightly collaborate
         with Silicon Valley startup in Unified Communications Federation space.</p>
@@ -37,7 +39,8 @@
         <li class="font-14 flex aic"> Bicycle and car-friendly office</li>
       </ul>
       <p class="order-title w-100 font-17 m-t-34">Company description</p>
-      <p class="font-14 w-100 m-t-10 line-height-24">We are committed to innovation to provide the global community with the
+      <p class="font-14 w-100 m-t-10 line-height-24">We are committed to innovation to provide the global community with
+        the
         highest quality
         betting products and
         gaming experience. Hi-tech solutions and innovative approach are what drive us forward in the gaming market and
@@ -47,13 +50,15 @@
     </div>
     <div class="order-text__question p-30 m-b-20 bc-white">
       <p class="font-17 w-100">Screening questions to candidates </p>
-      <p class="order-text__question--list w-100 bc-light-blue line-height-26 m-t-17 p-l-30 p-r-30 p-t-14 p-b-14 font-17"> 1.
-        Lorem ipsum dolor sit amet?</p>
-      <p class="order-text__question--list w-100 bc-light-blue line-height-26 m-t-10 p-l-30 p-r-30 p-t-14 p-b-14 font-17"> 2.
-        Lorem ipsum dolor sit amet?</p>
-      <p class="order-text__question--list w-100 bc-light-blue line-height-26 m-t-10 p-l-30 p-r-30 p-t-14 p-b-14 font-17">
+      <p class="order-text__question--list w-100 bc-light-blue line-height-26 m-t-17 p-l-30 p-r-30 p-t-14 p-b-14 font-17"
+        [style.display]="currOrder?.question.length > 0 ? 'block' : 'none'" *ngFor="let item of currOrder?.question">
+        {{item?.count}} {{ item?.text }} </p>
+      <p class="order-text__question--list w-100 txt-a-c bc-light-blue line-height-26 m-t-10 p-l-30 p-r-30 p-t-14 p-b-14 font-17"
+        *ngIf="!currOrder?.question">
+        No questions</p>
+      <!-- <p class="order-text__question--list w-100 bc-light-blue line-height-26 m-t-10 p-l-30 p-r-30 p-t-14 p-b-14 font-17">
         3. Lorem ipsum dolor sit amet?
-      </p>
+      </p> -->
     </div>
     <div class="order-text__candidates p-l-30 p-r-30 bc-white">
       <div class="order-type w-100 flex wrap aic jcc bc-white">
@@ -212,7 +217,8 @@
     </div>
     <hr class="m-t-30">
     <div class="w-100 p-t-20 flex aic jcc nowrap">
-      <button class="edit-order btn bc-white txt-c-black font-15 bdc-blue m-r-20" (click)="editCurrOrder()">Edit order</button>
+      <button class="edit-order btn bc-white txt-c-black font-15 bdc-blue m-r-20" (click)="editCurrOrder()">Edit
+        order</button>
       <button class="close-order btn bc-red txt-c-black font-15" (click)="closeOrder()">Close order</button>
     </div>
   </div>
