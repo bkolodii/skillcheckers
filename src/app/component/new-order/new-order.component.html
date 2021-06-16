@@ -302,13 +302,13 @@
                 <input type="file" name="myfile" />
               </div>
             </div>
-            <div class="question-list bc-light-blue flex nowrap jcsb aic" *ngFor="let item of questions"
+            <div class="question-list bc-light-blue flex nowrap jcsb aic" *ngFor="let item of questions; let i=index"
               (click)="selectQuestion(item)" [style.border]="item.status ? '1px solid #b7e6fd' : 'none'">
               <p class="question-list__text font-13">{{item.count}}. {{item.text}} <span *ngIf="item.count == 3"></span>
               </p>
               <div class="question-list__button flex nowrap jcfe aic">
                 <button *ngIf="item.status" class="question-list__button--bin bc-light-blue"
-                  (click)="deleteQuest(item)">
+                  (click)="deleteQuest(i)">
                   <span aria-hidden="true" data-icon="&#xe900;" class="icon-delete txt-c-red"></span>
                 </button>
                 <button class="question-list__button--menu bc-light-blue">
@@ -319,7 +319,7 @@
             <div class="question-list bc-light-blue flex nowrap jcsb aic">
 
               <div class="question-list__write flex nowrap jcsb aic">
-                <p class="font-11">{{questions.length+1}}.</p> <input type="text" autoFocus [(ngModel)]="questText"
+                <p class="font-13">{{questions.length+1}}.</p> <input type="text" autoFocus [(ngModel)]="questText"
                   class="question-list__write--input font-13 w-100 bc-light-blue">
               </div>
               <div class="question-list__button flex nowrap jcfe aic ">

@@ -1,3 +1,5 @@
+import { Question } from "./question.interface";
+
 export interface RequiredSkills {
     creationDate: string,
     name: string,
@@ -13,5 +15,6 @@ export interface RequiredSkills {
     kindJob: string,
     workMode: string,
     termOfContract: string,
+    question?: Array<Question>,
     id?: string
 }

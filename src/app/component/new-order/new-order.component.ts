@@ -23,7 +23,7 @@ export class NewOrderComponent implements OnInit {
   // isSalary: boolean = false;
   isCurrency: boolean = false;
   // isDate: boolean = false;
-  questText: string = 'Lg';
+  questText: string = '';
   myheight: string = '0px';
   editOrder: RequiredSkills;
   position: string;
@@ -56,7 +56,7 @@ export class NewOrderComponent implements OnInit {
   constructor(private questService: QuestionService, private requiredSkills: RequiredSkillsService, public fb: FormBuilder, private monthService: MonthService) { }
 
   ngOnInit(): void {
-    this.getQuestion();
+    // this.getQuestion();
     this.order = this.fb.group({
       programmer: new FormControl(1),
       experience: new FormControl(1),
@@ -114,23 +114,24 @@ export class NewOrderComponent implements OnInit {
       addSkill: order.additionalSkill.split(', '),
     })
     this.order.get('dueDate').patchValue(new Date(order.dueDate));
+    this.questions = order.question ? order.question.sort(this.compare) : [];
     this.checkAddSkill = order.additionalSkill.split(', ')
   }
 
-  getQuestion(): void {
-    this.questService.getAllquest().snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
-        )
-      )
-    ).subscribe(data => {
+  // getQuestion(): void {
+  //   this.questService.getAllquest().snapshotChanges().pipe(
+  //     map(changes =>
+  //       changes.map(c =>
+  //         ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+  //       )
+  //     )
+  //   ).subscribe(data => {
 
-      this.questions = data.sort(this.compare);
-      this.prevQuestion = this.questions[0];
-    });
+  //     this.questions = data.sort(this.compare);
+  //     this.prevQuestion = this.questions[0];
+  //   });
 
-  }
+  // }
   chooseItem(currName: string, item: string): void {
     // if (item == 'name') {
     //   this.order.patchValue({
@@ -159,15 +160,23 @@ export class NewOrderComponent implements OnInit {
     }
 
   }
-  deleteQuest(quest: Question): void {
-    this.questService.delete(quest.id.toString())
-      .then(() => {
-        this.getQuestion()
-      })
-      .catch(err => {
-        console.log(err);
+  deleteQuest(i: number): void {
+    this.questions.splice(i, 1);
+    this.questions = this.questions.map((res, i) => {
+      return {
+        count: i + 1,
+        text: res.text,
+        status: res.status
+      }
+    })
+    // this.questService.delete(quest.id.toString())
+    //   .then(() => {
+    //     // this.getQuestion()
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
 
-      });
+    //   });
   }
 
   selectQuestion(curr: Question): void {
@@ -184,23 +193,29 @@ export class NewOrderComponent implements OnInit {
   }
 
   addQuest(): void {
-    const newQuest: Question = {
-      count: this.questions.length + 1,
-      text: this.questText,
-      status: false
-    }
-    this.questService.create(newQuest)
-    this.questService.updQuest.subscribe(
-      data => {
-        this.questText = '';
-        newQuest.id = data
-        this.questService.update(data, newQuest).then(
-          () => {
-            this.getQuestion()
-          }
-        )
+    if (this.questText) {
+      const newQuest: Question = {
+        count: this.questions.length + 1,
+        text: this.questText,
+        status: false
       }
-    )
+      this.questions.push(newQuest);
+      this.questions = this.questions.sort(this.compare);
+      this.questText = '';
+    }
+
+    // this.questService.create(newQuest)
+    // this.questService.updQuest.subscribe(
+    //   data => {
+    //     this.questText = '';
+    //     newQuest.id = data
+    //     this.questService.update(data, newQuest).then(
+    //       () => {
+    //         // this.getQuestion()
+    //       }
+    //     )
+    //   }
+    // )
   }
   compare(a: Question, b: Question) {
 
@@ -332,6 +347,7 @@ export class NewOrderComponent implements OnInit {
         kindJob: this.order.get('kindJob').value,
         workMode: this.order.get('workMode').value,
         termOfContract: this.order.get('termOfContract').value,
+        question : this.questions
       }
       this.requiredSkills.create(newOrder)
       this.requiredSkills.updOrder.subscribe(
@@ -379,7 +395,8 @@ export class NewOrderComponent implements OnInit {
         kindJob: this.order.get('kindJob').value,
         workMode: this.order.get('workMode').value,
         termOfContract: this.order.get('termOfContract').value,
-        id: item.id
+        id: item.id,
+        question : this.questions
       }
       this.requiredSkills.update(newOrder.id, newOrder).then(
         () => {
@@ -410,7 +427,8 @@ export class NewOrderComponent implements OnInit {
       dueDate: '',
       addSkill: []
     })
-
+    this.questions = [];
+    this.questText = '';
     this.position = '';
     this.checkAddSkill = [];
   }
