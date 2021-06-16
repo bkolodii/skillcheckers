@@ -30,4 +30,7 @@ export class RequiredSkillsService {
   delete(id: string): Promise<void> {
     return this.requiredSkillsRef.doc(id).delete();
   }
+  getOne(id): any {
+    return this.requiredSkillsRef.ref.where('id', '==', id);
+  }
 }

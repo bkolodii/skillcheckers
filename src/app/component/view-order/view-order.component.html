@@ -3,31 +3,31 @@
       class="icon-arrow-back m-r-10 button-back__arrow"></span> Back </button>
   <div class="order-text">
     <div class="order-text__description p-30 m-b-20 bc-white">
-      <p class="order-number txt-c-initial m-l-5 font-14">Order number: 003</p>
-      <p class="order-title font-25 m-t-10 m-b-20">Full-stack developer</p>
-      <div class="order-skills flex nowrap ">
+      <p class="order-number txt-c-initial w-100 m-l-5 font-14">Order number: {{ currOrder?.id }}</p>
+      <p class="order-title font-25 m-t-10 w-100 m-b-20">{{ currOrder?.name }}</p>
+      <div class="order-skills flex nowrap w-100">
         <div class="order-skill__main flex col aifs jcsb m-r-25">
           <p class="font-12 txt-c-initial">{{'Main skill' | uppercase}}</p>
-          <p class="bc-gray font-13 order-skill__main--skill p-l-10 p-r-10 p-t-5 p-b-5">Java</p>
+          <p class="bc-gray font-13 order-skill__main--skill p-l-10 p-r-10 p-t-5 p-b-5">{{ currOrder?.mainSkill }}</p>
         </div>
         <div class="order-skill__addition flex col aifs jcsb">
           <p class="font-12 txt-c-initial">{{'Additional skill' | uppercase }}</p>
           <div class="flex nowrap font-13">
-            <p class="bc-gray font-13 order-skill__addition--skill p-l-10 p-r-10 p-t-5 p-b-5 m-r-5">JavaScript</p>
-            <p class="bc-gray font-13 order-skill__addition--skill p-l-10 p-r-10 p-t-5 p-b-5 m-r-5">HTML</p>
+            <p class="bc-gray font-13 order-skill__addition--skill p-l-10 p-r-10 p-t-5 p-b-5 m-r-5" *ngFor="let item of currOrder?.additionalSkill.split(', ')">{{item}}</p>
+            <!-- <p class="bc-gray font-13 order-skill__addition--skill p-l-10 p-r-10 p-t-5 p-b-5 m-r-5">HTML</p>
             <p class="bc-gray font-13 order-skill__addition--skill p-l-10 p-r-10 p-t-5 p-b-5 m-r-5">CSS | uppercase
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
       <hr class="bottom-line p-0 bc-light-gray bdc-light-gray w-100 m-t-20">
-      <p class="order-title font-17 m-t-20">Job description</p>
-      <p class="font-14 m-t-10 line-height-20">Currently, we are looking for an experienced engineer to join one of our
+      <p class="order-title w-100 font-17 m-t-20">Job description</p>
+      <p class="font-14 m-t-10 w-100 line-height-20">Currently, we are looking for an experienced engineer to join one of our
         teams that
         tightly collaborate
         with Silicon Valley startup in Unified Communications Federation space.</p>
-      <p class="order-title font-17 m-t-34">Requirements to candidate</p>
-      <ul class="m-t-11 line-height-34">
+      <p class="order-title font-17 w-100 m-t-34">Requirements to candidate</p>
+      <ul class="m-t-11 w-100 line-height-34">
         <li class="font-14 flex aic"> Great benefits package including medical, education, and fitness</li>
         <li class="font-14 flex aic"> Reimbursement for moving expenses for out-of-town candidates</li>
         <li class="font-14 flex aic"> Flexible working hours (including opportunities to periodically work from home)
@@ -36,8 +36,8 @@
         <li class="font-14 flex aic"> Choice of desktop or a laptop as the main workstation</li>
         <li class="font-14 flex aic"> Bicycle and car-friendly office</li>
       </ul>
-      <p class="order-title font-17 m-t-34">Company description</p>
-      <p class="font-14 m-t-10 line-height-24">We are committed to innovation to provide the global community with the
+      <p class="order-title w-100 font-17 m-t-34">Company description</p>
+      <p class="font-14 w-100 m-t-10 line-height-24">We are committed to innovation to provide the global community with the
         highest quality
         betting products and
         gaming experience. Hi-tech solutions and innovative approach are what drive us forward in the gaming market and
@@ -46,48 +46,47 @@
 
     </div>
     <div class="order-text__question p-30 m-b-20 bc-white">
-      <p class="font-17">Screening questions to candidates </p>
-      <p class="order-text__question--list bc-light-blue line-height-26 m-t-17 p-l-30 p-r-30 p-t-14 p-b-14 font-17"> 1.
+      <p class="font-17 w-100">Screening questions to candidates </p>
+      <p class="order-text__question--list w-100 bc-light-blue line-height-26 m-t-17 p-l-30 p-r-30 p-t-14 p-b-14 font-17"> 1.
         Lorem ipsum dolor sit amet?</p>
-      <p class="order-text__question--list bc-light-blue line-height-26 m-t-10 p-l-30 p-r-30 p-t-14 p-b-14 font-17"> 2.
+      <p class="order-text__question--list w-100 bc-light-blue line-height-26 m-t-10 p-l-30 p-r-30 p-t-14 p-b-14 font-17"> 2.
         Lorem ipsum dolor sit amet?</p>
-      <p class="order-text__question--list bc-light-blue line-height-26 m-t-10 p-l-30 p-r-30 p-t-14 p-b-14 font-17">
+      <p class="order-text__question--list w-100 bc-light-blue line-height-26 m-t-10 p-l-30 p-r-30 p-t-14 p-b-14 font-17">
         3. Lorem ipsum dolor sit amet?
       </p>
     </div>
-    <div class="order-text__candidates bc-white">
-      <div class="order-type w-100 flex nowrap aic bc-white">
-        <div class="order-type__item flex nowrap aic" (click)="openTab(0, 'candidates_inflow')"
-          routerLinkActive="txt-c-blue">
+    <div class="order-text__candidates p-l-30 p-r-30 bc-white">
+      <div class="order-type w-100 flex wrap aic jcc bc-white">
+        <div class="order-type__item txt-c-blue flex nowrap aic" (click)="openTab(0, 'candidates_inflow')">
           <p class="order-type__item--title font-14">{{'candidates inflow' | uppercase}}</p>
           <p class="not-read flex nowrap jcc aic bc-blue">35</p>
-          <span class=""></span>
+          <span class="active-link bc-blue"></span>
         </div>
-        <div class="order-type__item flex nowrap aic" (click)="openTab(1, 'saved')" routerLinkActive="txt-c-blue">
+        <div class="order-type__item flex nowrap aic" (click)="openTab(1, 'saved')">
           <p class="order-type__item--title font-14">{{'saved' | uppercase}}</p>
           <p class="not-read flex nowrap jcc aic bc-blue">18</p>
           <span class=""></span>
         </div>
-        <div class="order-type__item flex nowrap aic" (click)="openTab(2, 'interviewed')" routerLinkActive="txt-c-blue">
+        <div class="order-type__item flex nowrap aic" (click)="openTab(2, 'interviewed')">
           <p class="order-type__item--title font-14">{{'interviewed' | uppercase}}</p>
           <p class="not-read flex nowrap jcc aic bc-blue">6</p>
           <span class=""></span>
         </div>
-        <div class="order-type__item flex nowrap aic" (click)="openTab(3, 'offered')" routerLinkActive="txt-c-blue">
+        <div class="order-type__item flex nowrap aic" (click)="openTab(3, 'offered')">
           <p class="order-type__item--title font-14">{{'offered' | uppercase}}</p>
           <p class="not-read flex nowrap jcc aic bc-blue">2</p>
           <span class=""></span>
         </div>
-        <div class="order-type__item flex nowrap aic" (click)="openTab(4, 'hired')" routerLinkActive="txt-c-blue">
+        <div class="order-type__item flex nowrap aic" (click)="openTab(4, 'hired')">
           <p class="order-type__item--title font-14">{{'hired' | uppercase}}</p>
           <p class="not-read flex nowrap jcc aic bc-blue">1</p>
           <span class=""></span>
         </div>
       </div>
 
-      <div class="p-l-30 p-t-30 p-r-30 p-b-21">
+      <div class="p-t-30">
         <div id="candidates_inflow" class="tabcontent w-100 wrap aic jcsb">
-          <div class="candidates-info p-20 bc-light-blue flex nowrap aic jcfs">
+          <div class="candidates-info p-20 m-b-10 bc-light-blue flex nowrap aic jcfs">
             <img class="candidates-info__logo m-r-15"
               src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser_13.png?alt=media&token=1db536b8-3bb2-4b4e-a8c4-8f6344a8917b"
               alt="">
@@ -100,7 +99,7 @@
               <span class="icon-reverse font-20"></span>
             </div>
           </div>
-          <div class="candidates-info p-20 bc-light-blue flex nowrap aic jcfs">
+          <div class="candidates-info p-20 m-b-10 bc-light-blue flex nowrap aic jcfs">
             <img class="candidates-info__logo m-r-15"
               src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser_18.png?alt=media&token=cdc2ba2f-0182-4426-a822-9ec32b6f6791"
               alt="">
@@ -110,7 +109,7 @@
             </div>
             <p class="candidates-info__rate bc-white txt-c-green txt-a-c line-height-22 font-13">7.3</p>
           </div>
-          <div class="candidates-info p-20 m-t-10  bc-light-blue flex nowrap aic jcfs">
+          <div class="candidates-info p-20 m-b-10 bc-light-blue flex nowrap aic jcfs">
             <img class="candidates-info__logo m-r-15"
               src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser_14.png?alt=media&token=27076566-10a6-4e6b-8939-b49390236643"
               alt="">
@@ -120,7 +119,7 @@
             </div>
             <p class="candidates-info__rate bc-white txt-c-green txt-a-c line-height-22 font-13">7.5</p>
           </div>
-          <div class="candidates-info p-20 m-t-10 bc-light-blue flex nowrap aic jcfs">
+          <div class="candidates-info p-20 m-b-10 bc-light-blue flex nowrap aic jcfs">
             <img class="candidates-info__logo m-r-15"
               src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser_19.png?alt=media&token=59205ed2-81f3-4822-bc7c-4c0c5340736d"
               alt="">
@@ -130,7 +129,7 @@
             </div>
             <p class="candidates-info__rate bc-white txt-c-green txt-a-c line-height-22 font-13">8.1</p>
           </div>
-          <div class="candidates-info p-20 m-t-10 bc-light-blue flex nowrap aic jcfs">
+          <div class="candidates-info p-20 m-b-10 bc-light-blue flex nowrap aic jcfs">
             <img class="candidates-info__logo m-r-15"
               src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser_17.png?alt=media&token=af8709ab-db1c-4634-9fa8-dea0fe4cecff"
               alt="">
@@ -140,7 +139,7 @@
             </div>
             <p class="candidates-info__rate bc-white txt-c-green txt-a-c line-height-22 font-13">9.1</p>
           </div>
-          <div class="candidates-info p-20 m-t-10  bc-light-blue flex nowrap aic jcfs">
+          <div class="candidates-info p-20 m-b-10 bc-light-blue flex nowrap aic jcfs">
             <img class="candidates-info__logo m-r-15"
               src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser_20.png?alt=media&token=116eab50-dc7c-4305-b187-04f37ea0db07"
               alt="">
@@ -168,5 +167,53 @@
       </div>
     </div>
   </div>
-  <div class="order-data"></div>
+  <div class="order-data p-30 bc-white m-l-20">
+    <div class="flex w-100 wrap aifs jcc">
+      <div class="order-details m-b-20 flex aifs jcsb nowrap col">
+        <p class="font-12 txt-c-initial">UNIT NAME</p>
+        <p class="font-16 m-t-10">{{ currOrder?.unitName }}</p>
+      </div>
+      <div class="order-details m-b-20 flex aifs jcsb nowrap col">
+        <p class="font-12 txt-c-initial">UNIT LOCATION</p>
+        <p class="font-16 m-t-10">{{ currOrder?.unitLocation }}</p>
+      </div>
+      <div class="order-details m-b-20 flex aifs jcsb nowrap col">
+        <p class="font-12 txt-c-initial">PROGRAMMERS NEEDED</p>
+        <p class="font-16 m-t-10">{{ currOrder?.progNeed }}</p>
+      </div>
+      <div class="order-details flex m-b-20 aifs jcsb nowrap col">
+        <p class="font-12 txt-c-initial">DUE DATE</p>
+        <p class="font-16 m-t-10">{{ currOrder?.dueDate }}</p>
+      </div>
+      <div class="order-details m-b-20 flex aifs jcsb nowrap col">
+        <p class="font-12 txt-c-initial">YEARS OF EXPERIENCE</p>
+        <p class="font-16 m-t-10">{{ currOrder?.yearExperience }}</p>
+      </div>
+      <div class="order-details m-b-20 flex aifs jcsb nowrap col">
+        <p class="font-12 txt-c-initial">SKILLCHECKERS SCORE</p>
+        <p class="font-16 m-t-10">{{ currOrder?.skillScore }}</p>
+      </div>
+      <div class="order-details m-b-20 flex aifs jcsb nowrap col">
+        <p class="font-12 txt-c-initial">SALARY RANGE</p>
+        <p class="font-16 m-t-10">{{ currOrder?.salaryRange }}</p>
+      </div>
+      <div class="order-details m-b-20 flex aifs jcsb nowrap col">
+        <p class="font-12 txt-c-initial">JOB LOCATION</p>
+        <p class="font-16 m-t-10">{{ currOrder?.kindJob }}</p>
+      </div>
+      <div class="order-details m-b-20 flex aifs jcsb nowrap col">
+        <p class="font-12 txt-c-initial">WORK MODE</p>
+        <p class="font-16 m-t-10">{{ currOrder?.workMode }}</p>
+      </div>
+      <div class="order-details m-b-20 flex aifs jcsb nowrap col">
+        <p class="font-12 txt-c-initial">TERM OF CONTRACT</p>
+        <p class="font-16 m-t-10">{{ currOrder?.termOfContract }}</p>
+      </div>
+    </div>
+    <hr class="m-t-30">
+    <div class="w-100 p-t-20 flex aic jcc nowrap">
+      <button class="edit-order btn bc-white txt-c-black font-15 bdc-blue m-r-20" (click)="editCurrOrder()">Edit order</button>
+      <button class="close-order btn bc-red txt-c-black font-15" (click)="closeOrder()">Close order</button>
+    </div>
+  </div>
 </section>
