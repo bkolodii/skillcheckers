@@ -4,7 +4,7 @@ import { QuestionService } from 'src/app/service/question.service';
 import { Question } from 'src/app/shared/interfaces/question.interface';
 import { map } from 'rxjs/operators';
 import { RequiredSkills } from 'src/app/shared/interfaces/requiredSkill.interface';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RequiredSkillsService } from 'src/app/service/required-skills.service';
 import { Month } from 'src/app/shared/interfaces/month.interface';
 import { MonthService } from 'src/app/service/month.service';
@@ -47,9 +47,11 @@ export class NewOrderComponent implements OnInit {
   }
   config = {
     toolbar: [
-      [{ 'header': 1 }],
-      ['bold', 'italic', 'underline'],
-      [{ 'align': null }, { 'align': 'center' }, { 'align': 'right' }, { 'align': 'justify' }],
+      [{ 'header': [1, 2, 3, 4, false] }],
+      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+      [{ 'list': 'ordered' }, { 'list': 'bullet' }],     // superscript/subscript
+      [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent                      // text direction
+
     ]
   }
 
@@ -58,23 +60,27 @@ export class NewOrderComponent implements OnInit {
   ngOnInit(): void {
     // this.getQuestion();
     this.order = this.fb.group({
-      programmer: new FormControl(1),
-      experience: new FormControl(1),
-      unitLocation: new FormControl(''),
-      jobLocation: new FormControl(''),
-      kindJob: new FormControl('Remote'),
-      termOfContract: new FormControl('Any'),
-      workMode: new FormControl('Any'),
-      skillScore: new FormControl('Any'),
-      unitName: new FormControl(''),
-      mainSkil: new FormControl(''),
-      salary: new FormControl(''),
-      dueDate: new FormControl(''),
-      addSkill: new FormControl({
-        value: [],
-        disabled: true
-      }),
+      programmer: this.fb.control(1, [Validators.required, Validators.min(1)]),
+      experience: this.fb.control(1, [Validators.required, Validators.min(1)]),
+      unitLocation: this.fb.control('', [Validators.required]),
+      jobLocation: this.fb.control('', [Validators.required]),
+      kindJob: this.fb.control('Remote', [Validators.required]),
+      termOfContract: this.fb.control('Any', [Validators.required]),
+      workMode: this.fb.control('Any', [Validators.required]),
+      skillScore: this.fb.control('Any', [Validators.required]),
+      unitName: this.fb.control('', [Validators.required]),
+      mainSkil: this.fb.control('', [Validators.required]),
+      salary: this.fb.control('', [Validators.required]),
+      dueDate: this.fb.control('', [Validators.required]),
+      addSkill: this.fb.array([], [Validators.required]),
+      // addSkill: new FormControl({
+      //   value: [],
+      //   disabled: true
+      // }),
     });
+    this.editorForm = new FormGroup({
+      'editor': new FormControl('')
+    })
     if (localStorage.getItem('edit-order')) {
       this.editOrder = JSON.parse(localStorage.getItem('edit-order'));
       this.parseOrder(this.editOrder)
@@ -111,9 +117,16 @@ export class NewOrderComponent implements OnInit {
       unitName: order.unitName,
       mainSkil: order.mainSkill,
       salary: order.salaryRange,
-      addSkill: order.additionalSkill.split(', '),
+      // addSkill: order.additionalSkill.split(', ').map(res => this.fb.control(res)),
     })
     this.order.get('dueDate').patchValue(new Date(order.dueDate));
+    let inputItem = this.order.get('addSkill') as FormArray
+    order.additionalSkill.split(', ').forEach(el => {
+      inputItem.push(this.fb.control(el))
+    })
+    console.log( this.editorForm.get('editor'));
+    this.editorForm.get('editor').patchValue(this.editOrder.jobDesc)
+    console.log( this.editorForm.get('editor'));
     this.questions = order.question ? order.question.sort(this.compare) : [];
     this.checkAddSkill = order.additionalSkill.split(', ')
   }
@@ -304,23 +317,28 @@ export class NewOrderComponent implements OnInit {
   addSkill(curr: string): void {
     if (this.checkAddSkill.length < 10) {
       this.checkAddSkill = this.order.get('addSkill').value;
+      let itemsInput = this.order.get('addSkill') as FormArray;
       if (!this.checkAddSkill.some(res => res == curr)) {
-        this.checkAddSkill.push(curr);
-        this.order.get('addSkill').setValue(this.checkAddSkill)
+        // this.checkAddSkill.push(curr);
+        // this.order.get('addSkill').setValue(this.checkAddSkill)
+        itemsInput.push(this.fb.control(curr))
       }
     }
 
   }
 
   deleteSkill(currId: number) {
-    this.checkAddSkill = this.order.get('addSkill').value;
-    this.checkAddSkill.splice(currId, 1);
-    this.order.get('addSkill').setValue(this.checkAddSkill)
+    let itemsInput = this.order.get('addSkill') as FormArray;
+    itemsInput.removeAt(currId)
+    // this.checkAddSkill = this.order.get('addSkill').value;
+    // this.checkAddSkill.splice(currId, 1);
+    // this.order.get('addSkill').setValue(this.checkAddSkill)
   }
 
   createNewOrder(): void {
+    console.log(this.editorForm);
 
-    if (this.position && this.order.get('unitName').value && this.order.get('unitLocation').value && this.checkAddSkill.join(', ') && this.order.get('programmer').value && this.order.get('dueDate').value && this.order.get('salary').value && this.order.get('experience').value && this.order.get('skillScore').value && this.order.get('kindJob').value && this.order.get('workMode').value && this.order.get('termOfContract').value) {
+    if (this.position && this.order.valid) {
 
       let date: string = new Date(this.order.get('dueDate').value).toString()
       let dayNumber: number;
@@ -347,7 +365,8 @@ export class NewOrderComponent implements OnInit {
         kindJob: this.order.get('kindJob').value,
         workMode: this.order.get('workMode').value,
         termOfContract: this.order.get('termOfContract').value,
-        question : this.questions
+        question: this.questions,
+        jobDesc : this.editorForm.get('editor').value
       }
       this.requiredSkills.create(newOrder)
       this.requiredSkills.updOrder.subscribe(
@@ -368,7 +387,7 @@ export class NewOrderComponent implements OnInit {
   }
   updateOrder(): void {
 
-    if (this.position && this.order.get('unitName').value && this.order.get('unitLocation').value && this.checkAddSkill.join(', ') && this.order.get('programmer').value && this.order.get('dueDate').value && this.order.get('salary').value && this.order.get('experience').value && this.order.get('skillScore').value && this.order.get('kindJob').value && this.order.get('workMode').value && this.order.get('termOfContract').value) {
+    if (this.position && this.order.valid) {
 
       let date: string = new Date(this.order.get('dueDate').value).toString()
       let dayNumber: number;
@@ -396,7 +415,8 @@ export class NewOrderComponent implements OnInit {
         workMode: this.order.get('workMode').value,
         termOfContract: this.order.get('termOfContract').value,
         id: item.id,
-        question : this.questions
+        question: this.questions,
+        jobDesc : this.editorForm.get('editor').value
       }
       this.requiredSkills.update(newOrder.id, newOrder).then(
         () => {
@@ -427,6 +447,7 @@ export class NewOrderComponent implements OnInit {
       dueDate: '',
       addSkill: []
     })
+    this.editorForm.reset();
     this.questions = [];
     this.questText = '';
     this.position = '';

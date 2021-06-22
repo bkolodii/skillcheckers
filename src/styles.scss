@@ -8,6 +8,9 @@
 @import "./assets/styles/general-style";
 @import "./assets/styles/choose-sorts";
 @import "./assets/styles/dropdown";
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.bubble.css';
+@import '~quill/dist/quill.snow.css';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -271,6 +274,10 @@ $fonts: (9: 9px,
   17: 17px,
 );
 
+.initial-font {
+  font-family: 'Poppins';
+}
+
 @each $fontSize,
 $font in $fonts {
   .font-#{$fontSize} {
@@ -279,4 +286,44 @@ $font in $fonts {
     font-style: normal;
     font-size: $font;
   }
+}
+
+h2 {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-style: normal;
+  font-size: 17px;
+}
+h4 {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 14px;
+}
+h3 {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 15px;
+}
+h1 {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li::before {
+  content: "\2022";
+  color: #0CACF8;
+  font-weight: 900;
+  font-size: 24px;
+  width: 10px;
+  height: 26px;
+  margin-right: 13px;
+  line-height: 25px;
 }

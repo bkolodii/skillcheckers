@@ -16,5 +16,6 @@ export interface RequiredSkills {
     workMode: string,
     termOfContract: string,
     question?: Array<Question>,
+    jobDesc?: string,
     id?: string
 }

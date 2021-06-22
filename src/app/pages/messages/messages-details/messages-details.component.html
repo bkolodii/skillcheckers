@@ -12,15 +12,17 @@
       <div class="chat__conversation--text flex col nowrap jcsa aife">
         <div class="w-100 flex col nowrap aife jcsa" *ngFor="let message of this.currMesUser?.messages; let i=index">
           <div class="message w-100 flex jcsa aifs" [class]="mainUser?.username == message?.user ? 'row-rev' : ''">
-            <img class="message__logo m-t-14" [src]="message?.userIcon" alt="" [class]="mainUser?.username == message?.user ? 'm-l-10 m-r-5' : 'm-r-10 m-l-5'">
+            <img class="message__logo m-t-14" [src]="mainUser?.username == message?.user ? message?.userIcon : currMesUser?.img" alt=""
+              [class]="mainUser?.username == message?.user ? 'm-l-10 m-r-5' : 'm-r-10 m-l-5'">
             <div class="message__person-data m-t-3 flex col nowrap jcfs aifs">
-              <h2 class="message__person-data--title m-b-5 m-t-14 font-14 w-100"
+              <p class="message__person-data--title m-b-5 m-t-14 font-14 w-100"
                 [class]="mainUser?.username == message?.user ? 'txt-a-r' : 'txt-a-l'">
                 {{message?.user}}
-              </h2>
+              </p>
               <p class="message__person-data--text m-b-17 font-12 w-100 txt-c-black"
                 [class]="mainUser?.username == message?.user ? 'txt-a-r' : 'txt-a-l'">
-                <span (click)="downloadFile(message?.file)" class="txt-c-blue font-11 w-100">{{message?.file?.fileName}}</span>
+                <span (click)="downloadFile(message?.file)"
+                  class="txt-c-blue font-11 w-100">{{message?.file?.fileName}}</span>
                 {{message?.text}}
               </p>
 

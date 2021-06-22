@@ -19,7 +19,7 @@
                 (click)="counter('progNeed', false)">-</button>
               <!-- <input type="text" class="programmer-input" [(ngModel)]="progNeedNumber" minlength="1" value="1"> -->
               <input matInput type="text" class="programmer-input btn bdc-light-gray txt-c-black"
-                formControlName="programmer" minlength="1" value="1">
+              [formControlName]="'programmer'" minlength="1" value="1">
               <button class="add bc-white btn bdc-light-gray txt-c-black" (click)="counter('progNeed', true)">+</button>
             </div>
           </div>
@@ -217,7 +217,7 @@
             </div>
             <form [formGroup]="editorForm" class="notePad w-100">
               <div class="notePad__form-group w-100">
-                <quill-editor [style]="editorStyle" [modules]='config' formControlName="editor"></quill-editor>
+                <quill-editor [style]="editorStyle" [modules]='config' [formControlName]="'editor'" ></quill-editor>
               </div>
             </form>
 

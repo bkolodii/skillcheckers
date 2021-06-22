@@ -1,3 +1,10 @@
+h2 {
+  font-family: "Poppins";
+  font-weight: 500;
+  font-style: normal;
+  font-size: 17px;
+}
+
 .view-order {
   overflow-y: auto;
   height: 94%;
@@ -19,12 +26,12 @@
 
   .order-text {
     width: 51.06%;
-    min-height: 1556px;
+    min-height: 10px;
     margin-left: 6.3%;
 
     &__description {
       width: 92.5%;
-      min-height: 693px;
+      min-height: 10px;
 
       .order-title {
         font-weight: 600;
@@ -88,7 +95,7 @@
 
     &__candidates {
       width: 92.5%;
-      min-height: 465px;
+      min-height: 10px;
       overflow: hidden;
 
       .order-type {
@@ -192,4 +199,19 @@
     height: 50px;
     padding: 0;
   }
+}
+
+ul {
+  list-style: none;
+}
+
+ul li::before {
+  content: "\2022";
+  color: #0CACF8;
+  font-weight: 900;
+  font-size: 24px;
+  width: 10px;
+  height: 26px;
+  margin-right: 13px;
+  line-height: 25px;
 }
