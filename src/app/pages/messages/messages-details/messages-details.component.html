@@ -12,7 +12,8 @@
       <div class="chat__conversation--text flex col nowrap jcsa aife">
         <div class="w-100 flex col nowrap aife jcsa" *ngFor="let message of this.currMesUser?.messages; let i=index">
           <div class="message w-100 flex jcsa aifs" [class]="mainUser?.username == message?.user ? 'row-rev' : ''">
-            <img class="message__logo m-t-14" [src]="mainUser?.username == message?.user ? message?.userIcon : currMesUser?.img" alt=""
+            <img class="message__logo m-t-14"
+              [src]="mainUser?.username == message?.user ? message?.userIcon : currMesUser?.img" alt=""
               [class]="mainUser?.username == message?.user ? 'm-l-10 m-r-5' : 'm-r-10 m-l-5'">
             <div class="message__person-data m-t-3 flex col nowrap jcfs aifs">
               <p class="message__person-data--title m-b-5 m-t-14 font-14 w-100"
@@ -22,10 +23,9 @@
               <p class="message__person-data--text m-b-17 font-12 w-100 txt-c-black"
                 [class]="mainUser?.username == message?.user ? 'txt-a-r' : 'txt-a-l'">
                 <span (click)="downloadFile(message?.file)"
-                  class="txt-c-blue font-11 w-100">{{message?.file?.fileName}}</span>
+                  class="txt-c-blue font-12 w-100">{{message?.file?.fileName}}</span>
                 {{message?.text}}
               </p>
-
             </div>
             <div class="message__other-data flex col nowrap jcfs aifs">
               <p class="message__other-data--time m-b-5 m-t-14 font-12 txt-c-initial">
@@ -34,17 +34,34 @@
 
             </div>
           </div>
-          <div class="date-period w-100 flex nowrap jcsa aic"
-            *ngIf="+this.currMesUser?.messages[i]?.date?.split(' ')[0] < +this.currMesUser?.messages[i+1]?.date?.split(' ')[0]">
-            <p class="date-period__date m-l-7 m-r-15 txt-c-initial font-12">
-              {{currDate == this.currMesUser?.messages[i+1]?.date ? 'TODAY' : this.currMesUser?.messages[i+1]?.date}}
-            </p>
-            <hr class="date-period__hr w-100">
+          <div class="w-100"
+            *ngIf="+this.currMesUser?.messages[i]?.dateForCheck?.split('/')[2] <= +this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[2] ; else today">
+            <div class="w-100"
+              *ngIf="+this.currMesUser?.messages[i]?.dateForCheck?.split('/')[0] <= +this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[0] ; else today">
+              <div class="date-period w-100 flex nowrap jcsa aic"
+                *ngIf="+this.currMesUser?.messages[i]?.dateForCheck?.split('/')[1] < this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[1] ? +this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[1] : 0 ; else today">
+                <p class="date-period__date m-l-7 m-r-15 txt-c-initial font-12">
+                  {{currDate == this.currMesUser?.messages[i+1]?.date ? 'TODAY' : this.currMesUser?.messages[i+1]?.date}}
+                </p>
+                <hr class="date-period__hr w-100">
+              </div>
+            </div>
           </div>
+
+          <ng-template #today>
+            <div class="date-period w-100 flex nowrap jcsa aic "
+              *ngIf="this.currMesUser?.messages[i]?.dateForCheck?.split('/')[1] < this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[1]">
+              <p class="date-period__date m-l-7 m-r-15 txt-c-initial font-12">
+                {{currDate == this.currMesUser?.messages[i+1]?.date ? 'TODAY' : this.currMesUser?.messages[i+1]?.date}}
+              </p>
+              <hr class="date-period__hr w-100">
+            </div>
+          </ng-template>
+
         </div>
       </div>
     </div>
-    <div class="chat__message bc-light-blue flex nowrap jcsb aic w-100">
+    <div class="chat__message bc-light-blue flex nowrap jcsb aic w-100" [formGroup]="textInput">
       <div class="chat__message--upload flex wrap aic jcc">
         <div class="upload-btn-wrapper m-l-5">
           <button class="btn flex wrap aic jcsa font-12">
@@ -53,10 +70,11 @@
           <input type="file" name="myfile" (change)="getFile($event)">
         </div>
       </div>
-      <input type="text" class="chat__message--input p-l-10 font-14 bdc-light-gray" [(ngModel)]="getText" name="getText"
+      <input type="text" class="chat__message--input p-l-10 font-14 bdc-light-gray" formControlName="text"
         placeholder="Write a message...">
 
-      <button class="chat__message--send m-l-10 m-r-10 font-13" [disabled]="isDisabled" (click)="sendMessage()">
+      <button class="chat__message--send m-l-10 m-r-10 font-13" [class]="!isDisabled ? 'bc-dark-gray' : 'bc-blue'"
+        [disabled]="!isDisabled" (click)="sendMessage()">
         Send </button>
     </div>
   </section>
@@ -65,37 +83,37 @@
       <img class="person-details__header--user-icon m-r-5"
         src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser4.png?alt=media&token=02f7edf6-6015-4545-b4c1-7ff79b8aeb4f"
         alt="">
-      <div class="person-details__header--info m-l-10 flex nowrap col jcsb aifs">
-        <p class="person-name font-16">Albert Flores</p>
-        <p class="person-skill font-12">Java Developer</p>
-        <p class="person-rate font-10 bc-green flex nowrap aic jcc txt-c-white">8.6</p>
+      <div class="person-details__header--info m-l-10 flex nowrap col jcsb aifs line-height-26">
+        <p class="person-name font-20">Albert Flores</p>
+        <p class="person-skill font-13">Java Developer</p>
+        <p class="person-rate font-13 bc-green flex nowrap aic jcc txt-c-white">8.6</p>
       </div>
     </div>
-    <div class="person-details__main flex wrap jcsb aic">
-      <div class="person-details__main--speedOfwork">
-        <p class="title-of-speed font-11 w-100">SPEED OF WORK</p>
-        <p class="text-of-speed font-14 w-100">top 18%</p>
+    <div class="person-details__main flex wrap jcsb">
+      <div class="person-details__main--speedOfwork m-t-20 line-height-24">
+        <p class="title-of-speed font-12 w-100">SPEED OF WORK</p>
+        <p class="text-of-speed font-16 w-100">top 18%</p>
       </div>
-      <div class="person-details__main--learnSkills">
-        <p class="title-learnSkills font-11 w-100">LEARNING SKILLS</p>
-        <p class="text-learnSkills font-14 w-100">top 27%</p>
+      <div class="person-details__main--learnSkills m-t-20 line-height-24">
+        <p class="title-learnSkills font-12 w-100">LEARNING SKILLS</p>
+        <p class="text-learnSkills font-16 w-100">top 27%</p>
       </div>
-      <div class="person-details__main--date">
-        <p class="title-date font-11 w-100">DATE</p>
-        <p class="text-date font-14 w-100">11.09.2020</p>
+      <div class="person-details__main--date m-t-20 line-height-24">
+        <p class="title-date font-12 w-100">DATE</p>
+        <p class="text-date font-16 w-100">11.09.2020</p>
       </div>
-      <div class="person-details__main--salaryRange">
-        <p class="title-salary font-11 w-100">SALARY RANGE</p>
-        <p class="text-salary font-14 w-100">100,000 - 120,000</p>
+      <div class="person-details__main--salaryRange m-t-20 line-height-24">
+        <p class="title-salary font-12 w-100">SALARY RANGE</p>
+        <p class="text-salary font-16 w-100">100,000 - 120,000</p>
       </div>
-      <div class="person-details__main--experience">
-        <p class="title-experience font-11 w-100">EXPERIENCE</p>
-        <p class="text-experience font-14 w-100">4+</p>
+      <div class="person-details__main--experience m-t-20 m-b-30 line-height-24">
+        <p class="title-experience font-12 w-100">EXPERIENCE</p>
+        <p class="text-experience font-16 w-100">4+</p>
       </div>
-      <div class="person-details__main--location">
-        <p class="title-loc font-11 w-100">LOCATION</p>
-        <div class="text-loc font-14 w-100 flex wrap jcsb aic">Seatle <span
-            class="font-11 bc-gray txt-c-initial flex wrap aic jcc">Remote</span> </div>
+      <div class="person-details__main--location m-t-20 m-b-30 line-height-24">
+        <p class="title-loc font-12 w-100">LOCATION</p>
+        <div class="text-loc font-16 w-100 flex wrap jcsb aic">Seatle <span
+            class="font-12 bc-gray txt-c-initial flex wrap aic jcc">Remote</span> </div>
       </div>
     </div>
     <div class="person-details__footer flex wrap jcc p-t-10 p-b-10 aic">

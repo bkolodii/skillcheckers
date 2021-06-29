@@ -1,10 +1,15 @@
 import { AfterViewChecked, Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+import { map, take } from 'rxjs/operators';
+import { AuthService } from 'src/app/service/auth.service';
 import { MesUserService } from 'src/app/service/mes-user.service';
+import { MonthService } from 'src/app/service/month.service';
 import { ScrollToBottomDirective } from 'src/app/shared/directive/scroll-to-bottom.directive';
 import { mesUser } from 'src/app/shared/interfaces/mesUser.interface';
+import { Month } from 'src/app/shared/interfaces/month.interface';
 
 @Component({
   selector: 'app-messages-details',
@@ -19,71 +24,17 @@ export class MessagesDetailsComponent implements OnInit, AfterViewChecked {
   uplFile;
   isDisabled: boolean = false;
   currMesUser: mesUser;
-  currDate: string = '10 JULY 2020';
-  // messages = [
-  //   {
-  //     user: 'Albert Flores',
-  //     userIcon: 'https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser12.png?alt=media&token=10805ccc-1c2c-402f-a44b-bb7c254ac069',
-  //     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget magnis lorem feugiat nulla proin. Vestibulum purus, nec interdum augue eu blandit.',
-  //     date: '6 JULY 2020',
-  //     time: '10:45 AM',
-  //     file: ''
-  //   },
-  //   {
-  //     user: 'Benny Spanbauer',
-  //     userIcon: 'https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fmainuser.png?alt=media&token=af373004-c2a6-4da3-bf5f-27f65199b1d9',
-  //     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget',
-  //     date: '8 JULY 2020',
-  //     time: '10:45 AM',
-  //     file: ''
-  //   },
-  //   {
-  //     user: 'Albert Flores',
-  //     userIcon: 'https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser12.png?alt=media&token=10805ccc-1c2c-402f-a44b-bb7c254ac069',
-  //     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget magnis lorem feugiat nulla proin. Vestibulum purus, nec interdum augue eu blandit.',
-  //     date: '8 JULY 2020',
-  //     time: '10:45 AM',
-  //     file: ''
-  //   },
-  //   {
-  //     user: 'Benny Spanbauer',
-  //     userIcon: 'https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fmainuser.png?alt=media&token=af373004-c2a6-4da3-bf5f-27f65199b1d9',
-  //     text: '',
-  //     date: '8 JULY 2020',
-  //     time: '10:45 AM',
-  //     file: {
-  //       fileName: "file.pdf",
-  //       url: "https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/message-file%2Ffile.pdf?alt=media&token=c1558651-d2ee-4bd2-8e7b-e874ef0da020",
-  //     }
-  //   },
-  //   {
-  //     user: 'Benny Spanbauer',
-  //     userIcon: 'https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fmainuser.png?alt=media&token=af373004-c2a6-4da3-bf5f-27f65199b1d9',
-  //     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget',
-  //     date: '10 JULY 2020',
-  //     time: '10:45 AM',
-  //     file: ''
-  //   },
-  //   {
-  //     user: 'Albert Flores',
-  //     userIcon: 'https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser12.png?alt=media&token=10805ccc-1c2c-402f-a44b-bb7c254ac069',
-  //     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget magnis lorem feugiat nulla proin. Vestibulum purus, nec interdum augue eu blandit.',
-  //     date: '10 JULY 2020',
-  //     time: '10:45 AM',
-  //     file: ''
-  //   },
-  //   {
-  //     user: 'Benny Spanbauer',
-  //     userIcon: 'https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fmainuser.png?alt=media&token=af373004-c2a6-4da3-bf5f-27f65199b1d9',
-  //     text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eget',
-  //     date: '10 JULY 2020',
-  //     time: '10:45 AM',
-  //     file: ''
-  //   },
-  // ]
+  currDate: string = '';
+  allUsers: Array<any>;
   messaging: Array<mesUser> = [];
-  getText: string;
-  constructor(private activatedRoute: ActivatedRoute, private router: Router, private mesUser: MesUserService, private storage: AngularFireStorage,) {
+  // getText: string;
+  textInput: FormGroup = new FormGroup({
+    text: new FormControl('', [Validators.required])
+  });;
+  subject: Subject<string> = new Subject<string>();
+  userMessname: string;
+  month: Array<Month> = [];
+  constructor(private activatedRoute: ActivatedRoute, private router: Router, private monthService: MonthService, private authService: AuthService, private mesUser: MesUserService, private storage: AngularFireStorage,) {
     this.router.events.subscribe(res => {
       if (res.hasOwnProperty('routerEvent')) {
         this.ngOnInit();
@@ -95,6 +46,14 @@ export class MessagesDetailsComponent implements OnInit, AfterViewChecked {
     this.getMainUser();
     this.getCurrUser();
     this.getUser();
+    this.getMonth();
+    this.textInput.valueChanges.subscribe(res => {
+      if ((res.text || this.uplFile) && res.text.charCodeAt(0) !== 32) {
+        this.isDisabled = true;
+      } else {
+        this.isDisabled = false
+      }
+    })
   }
   ngAfterViewChecked() {
     this.scrollToBottom();
@@ -111,36 +70,78 @@ export class MessagesDetailsComponent implements OnInit, AfterViewChecked {
       this.mainUser = JSON.parse(localStorage.getItem('mainuser'));
     }
   }
-
-  getCurrUser(): void {
-    const name = this.activatedRoute.snapshot.paramMap.get('url');
-    this.mesUser.getOne(name).onSnapshot(
-      document => {
-        document.forEach(prod => {
-          const user = {
-            id: prod.id,
-            ...prod.data() as mesUser
-          };
-          this.currMesUser = user;
-
-        });
-      }
-    );
-  }
-  getUser(): void {
-    this.mesUser.getAllusers().snapshotChanges().pipe(
+  getMonth(): void {
+    this.monthService.getAllmonth().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
           ({ id: c.payload.doc.id, ...c.payload.doc.data() })
         )
       )
     ).subscribe(data => {
-      if (localStorage.getItem('mainuser')) {
-        let user = JSON.parse(localStorage.getItem('mainuser'));
-        this.messaging = data.filter(res => res.name == user.username)
-      }
+      this.month = data;
+      this.currDate = `${new Date().getDate()} ${this.month[new Date().getMonth()].monthName} ${new Date().getFullYear()}`
+      this.subject.next(this.currDate)
     });
 
+  }
+  getCurrUser(): void {
+    this.userMessname = this.activatedRoute.snapshot.paramMap.get('url');
+    // this.mesUser.getOne(name).onSnapshot(
+    //   document => {
+    //     document.forEach(prod => {
+    //       const user = {
+    //         id: prod.id,
+    //         ...prod.data() as mesUser
+    //       };
+    //       this.currMesUser = user;
+
+    //     });
+    //   }
+    // );
+    if (localStorage.getItem('mainuser')) {
+      let userInfo = JSON.parse(localStorage.getItem('mainuser'));
+      // this.currMesUser = user.usersMess.filter(res => res.url == this.userMessname)[0];
+      // this.messaging = user.usersMess;
+      this.authService.getOne(userInfo.id).onSnapshot(
+        document => {
+          document.forEach(prod => {
+            const user = {
+              id: prod.id,
+              ...prod.data()
+            };
+            this.subject.subscribe(item => {
+              this.currMesUser = user.usersMess.filter(res => res.url == this.userMessname)[0];
+              this.messaging = user.usersMess;
+            })
+
+
+          });
+        }
+      );
+      // this.messaging = data.filter(res => res.name !== user.username)
+
+    }
+  }
+  getUser(): void {
+    // this.mesUser.getAllusers().snapshotChanges().pipe(
+    //   map(changes =>
+    //     changes.map(c =>
+    //       ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+    //     )
+    //   )
+    // ).subscribe(data => {
+    // this.messaging = data.filter(res => res.name == user.username)
+    // });
+    this.authService.getAllusers().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+        )
+      ),
+      take(1)
+    ).subscribe(data => {
+      this.allUsers = data
+    });
   }
 
 
@@ -172,53 +173,97 @@ export class MessagesDetailsComponent implements OnInit, AfterViewChecked {
   }
 
   sendMessage(): void {
+    console.log('sdfsdf');
+
     if (!this.isDisabled) {
-      if (this.getText) {
+
+      if ((this.textInput.get('text').value || this.uplFile) && this.textInput.get('text').value.charCodeAt(0) !== 32) {
         const mess = {
           user: this.mainUser.username,
           userIcon: this.mainUser.icon,
-          text: this.getText,
-          date: '10 JULY 2020',
-          time: '10:45 AM',
-          file: this.uplFile ? this.uplFile : ''
+          text: this.textInput.get('text').value ? this.textInput.get('text').value : '',
+          date: this.currDate,
+          time: new Date().toLocaleString().split(', ')[1].substring(-1, 4) + new Date().toLocaleString().split(', ')[1].slice(-3),
+          file: this.uplFile ? this.uplFile : '',
+          dateForCheck: new Date().toLocaleString().split(', ')[0]
         }
         this.currMesUser.messages.push(mess)
         // // this.currMesUser.messages = this.messages
-        this.mesUser.update(this.currMesUser.id, this.currMesUser).finally(() => {
-          console.log('success');
+        // this.mesUser.update(this.currMesUser.id, this.currMesUser).finally(() => {
+        //   console.log('success');
+        // })
+        // this.messaging[0].messages.push(mess)
+        // this.mesUser.update(this.messaging[0].id, this.messaging[0]).finally(() => {
+        //   console.log('success');
+        // })
+        this.messaging[this.messaging.map((res, i) => { if (res.url == this.currMesUser.url) { return i } })[0]] = this.currMesUser
+        const user = {
+          ...this.mainUser,
+          usersMess: this.messaging
+        }
+        localStorage.setItem('mainuser', JSON.stringify(user))
+        this.authService.update(this.mainUser.id, user).finally(() => {
+          console.log('success')
+          this.ngOnInit();
         })
-        this.messaging[0].messages.push(mess)
-        this.mesUser.update(this.messaging[0].id, this.messaging[0]).finally(() => {
-          console.log('success');
-        })
+        if (this.allUsers.some(res => res.username == this.currMesUser.name)) {
+          let reciewUser = this.allUsers.find(res => res.username == this.currMesUser.name);
+          let index = reciewUser.usersMess.map((res, i) => { if (res.name == this.mainUser.username) { return i } }).filter(res => res)[0]
+          console.log(index);
+          reciewUser.usersMess[index].messages = this.currMesUser.messages;
+          this.authService.update(reciewUser.id, reciewUser).finally(() => {
+            console.log('success')
+            // this.ngOnInit();
+          })
+        }
 
 
       } else {
-        if (this.uplFile) {
-          const mess = {
-            user: this.mainUser.username,
-            userIcon: this.mainUser.icon,
-            text: this.getText ? this.getText : '',
-            date: '10 JULY 2020',
-            time: '10:45 AM',
-            file: this.uplFile
-          }
-          // this.messages.push(mess)
-          this.currMesUser.messages.push(mess)
+        // if (this.uplFile) {
+        //   const mess = {
+        //     user: this.mainUser.username,
+        //     userIcon: this.mainUser.icon,
+        //     text: this.getText ? this.getText : '',
+        //     date: this.currDate,
+        //     time: '10:45 AM',
+        //     file: this.uplFile
+        //   }
+        //   // this.messages.push(mess)
+        //   this.currMesUser.messages.push(mess)
 
-          // this.currMesUser.messages = this.messages
-          this.mesUser.update(this.currMesUser.id, this.currMesUser).finally(() => {
-            console.log('success');
-          })
-          this.messaging[0].messages.push(mess)
-          this.mesUser.update(this.messaging[0].id, this.messaging[0]).finally(() => {
-            console.log('success');
-          }) 
-        }
+        //   // this.currMesUser.messages = this.messages
+        //   // this.mesUser.update(this.currMesUser.id, this.currMesUser).finally(() => {
+        //   //   console.log('success');
+        //   // })
+        //   // this.messaging[0].messages.push(mess)
+        //   // this.mesUser.update(this.messaging[0].id, this.messaging[0]).finally(() => {
+        //   //   console.log('success');
+        //   // }) 
+        //   this.messaging[this.messaging.map((res, i) => { if (res.url == this.currMesUser.url) { return i } })[0]] = this.currMesUser
+        //   const user = {
+        //     ...this.mainUser,
+        //     usersMess: this.messaging
+        //   }
+        //   localStorage.setItem('mainuser', JSON.stringify(user))
+        //   this.authService.update(this.mainUser.id, user).finally(() => {
+        //     console.log('success')
+        //     this.ngOnInit();
+        //   })
+        //   if (this.allUsers.some(res => res.username == this.currMesUser.name)) {
+        //     let reciewUser = this.allUsers.find(res => res.username == this.currMesUser.name);
+        //     let index = reciewUser.usersMess.map((res, i) => { if (res.name == this.mainUser.username) { return i } }).filter(res => res)[0]
+        //     console.log(index);
+        //     reciewUser.usersMess[index].messages = this.currMesUser.messages;
+        //     this.authService.update(reciewUser.id, reciewUser).finally(() => {
+        //       console.log('success')
+        //       // this.ngOnInit();
+        //     })
+        //   }
+        // }
       }
     }
     this.uplFile = null
-    this.getText = '';
+    this.textInput.reset();
   }
 
 }

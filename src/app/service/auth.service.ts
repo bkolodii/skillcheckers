@@ -91,5 +91,15 @@ export class AuthService {
         this.router.navigateByUrl('login');
       })
   }
+
+  getAllusers(): AngularFirestoreCollection<any> {
+    return this.profRef;
+  }
+  update(id: string, data ): Promise<void> {
+    return this.profRef.doc(id).update({ ...data });
+  }
+  getOne(id): any {
+    return this.profRef.ref.where('id', '==', id);
+  }
 }
 

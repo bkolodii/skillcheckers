@@ -188,18 +188,18 @@ main {
     &--send {
       width: 77px;
       height: 40px;
-      background-color: #0cacf8;
+      // background-color: #0cacf8;
       border: 1px solid #0cacf8;
       color: white;
       transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
     }
 
-    &--send:hover {
-      background-color: transparent;
-      border: 1px solid #0cacf8;
-      box-shadow: 0px 0px 7px 1px #0cacf8;
-      color: #0cacf8;
-    }
+    // &--send:hover {
+    //   background-color: transparent;
+    //   border: 1px solid #0cacf8;
+    //   box-shadow: 0px 0px 7px 1px #0cacf8;
+    //   color: #0cacf8;
+    // }
 
     &--send:focus {
       background-color: transparent;
@@ -214,16 +214,16 @@ main {
 
 .person-details {
   width: 30%;
-  min-height: 346px;
+  min-height: 444px;
 
   &__header {
     width: 85%;
-    min-height: 94px;
+    min-height: 115px;
     border-bottom: 1px solid #b6bac1;
 
     &--user-icon {
-      width: 62px;
-      height: 60px;
+      width: 65px;
+      height: 65px;
     }
 
     &--info {
@@ -239,8 +239,8 @@ main {
       }
 
       .person-rate {
-        width: 30px;
-        height: 15px;
+        width: 39px;
+        height: 21px;
         line-height: 15px;
         border-radius: 15px;
       }
@@ -348,12 +348,12 @@ main {
   }
 
   &__footer {
-    width: 85%;
+    width: 100%;
     min-height: 50px;
 
     &--interview {
-      width: 120px;
-      height: 37px;
+      width: 149px;
+      height: 50px;
       background-color: #0cacf8;
       border: 1px solid #0cacf8;
       color: white;
@@ -375,8 +375,8 @@ main {
     }
 
     &--add-person {
-      width: 42px;
-      height: 37px;
+      width: 50px;
+      height: 50px;
       border: none;
 
       .add-person {
@@ -390,8 +390,8 @@ main {
     }
 
     &--delete-person {
-      width: 42px;
-      height: 37px;
+      width: 50px;
+      height: 50px;
       border: none;
       background-color: #F0F8FF;
 
@@ -406,8 +406,8 @@ main {
     }
 
     &--more-option {
-      width: 42px;
-      height: 37px;
+      width: 50px;
+      height: 50px;
       border: none;
       background-color: #F0F8FF;
 
