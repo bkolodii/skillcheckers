@@ -62,7 +62,6 @@ export class MessagesDetailsComponent implements OnInit, AfterViewChecked, OnCha
     this.getCurrUser();
     this.getUser();
     this.getMonth();
-    // setInterval(() => { this.ngOnInit() }, 1000)
     this.textInput.valueChanges.subscribe(res => {
       if ((res.text && res.text.charCodeAt(0) !== 32) || this.uplFile) {
         this.isDisabled = true;
@@ -72,9 +71,6 @@ export class MessagesDetailsComponent implements OnInit, AfterViewChecked, OnCha
     })
   }
   ngOnChanges(changes: SimpleChanges): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    console.log(changes);
     this.ngOnInit();
   }
 
@@ -225,10 +221,12 @@ export class MessagesDetailsComponent implements OnInit, AfterViewChecked, OnCha
 
   sendEditMessage(): void {
     if (this.isDisabled) {
-      if ((this.textInput.get('text').value || this.uplFile) && this.textInput.get('text').value.charCodeAt(0) !== 32) {
+      if ((this.textInput.get('text').value || this.uplFile) && this.textInput.get('text').value.charCodeAt(0) !== 32 && this.deleteIndex !== this.editMessage) {
         this.currMesUser.messages[this.editMessage].text = this.textInput.get('text').value ? this.textInput.get('text').value : '';
         this.currMesUser.messages[this.editMessage].file = this.uplFile ? this.uplFile : '';
         this.submit();
+      } else {
+        this.textInput.reset();
       }
     }
     this.uplFile = null
@@ -270,7 +268,7 @@ export class MessagesDetailsComponent implements OnInit, AfterViewChecked, OnCha
 
   closeModal(): void {
     this.isModal = false;
-    this.deleteIndex = null;
+    // this.deleteIndex = null;
     this.deleteForm.reset();
   }
 

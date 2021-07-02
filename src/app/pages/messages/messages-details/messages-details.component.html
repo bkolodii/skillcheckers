@@ -95,6 +95,7 @@
         <div class="upload-btn-wrapper m-l-5">
           <button class="btn flex wrap aic jcsa font-12">
             <span aria-hidden="true" class="btn__paper-clip icon-paper-clip"></span>
+            <span class="btn__isfile bc-red" *ngIf="uplFile"></span>
           </button>
           <input type="file" name="myfile" (change)="getFile($event)">
         </div>
