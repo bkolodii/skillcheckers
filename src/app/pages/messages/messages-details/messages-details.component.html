@@ -10,7 +10,7 @@
     <!-- <div class="chat__conversation flex nowrap jcc aicc " #scroll [scrollTop]="scroll.scrollHeight"> -->
     <div class="chat__conversation flex nowrap jcc aicc " #scroll>
       <div class="chat__conversation--text flex col nowrap jcsa aife">
-        <div class="w-100 flex col nowrap aife jcsa" *ngFor="let message of this.currMesUser?.messages; let i=index">
+        <div class="w-100 flex col nowrap aife jcsa" *ngFor="let message of currMesUser?.messages; let i=index">
           <div class="message w-100 flex jcsa aifs" [class]="mainUser?.username == message?.user ? 'row-rev' : ''">
             <img class="message__logo m-t-14"
               [src]="mainUser?.username == message?.user ? message?.userIcon : currMesUser?.img" alt=""
@@ -31,24 +31,53 @@
               <p class="message__other-data--time m-b-5 m-t-14 font-12 txt-c-initial">
                 {{message?.time}}
               </p>
-
-            </div>
-          </div>
-          <div class="w-100"
-            *ngIf="+this.currMesUser?.messages[i]?.dateForCheck?.split('/')[2] <= +this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[2] ; else today">
-            <div class="w-100"
-              *ngIf="+this.currMesUser?.messages[i]?.dateForCheck?.split('/')[0] <= +this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[0] ; else today">
-              <div class="date-period w-100 flex nowrap jcsa aic"
-                *ngIf="+this.currMesUser?.messages[i]?.dateForCheck?.split('/')[1] < this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[1] ? +this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[1] : 0 ; else today">
-                <p class="date-period__date m-l-7 m-r-15 txt-c-initial font-12">
-                  {{currDate == this.currMesUser?.messages[i+1]?.date ? 'TODAY' : this.currMesUser?.messages[i+1]?.date}}
-                </p>
-                <hr class="date-period__hr w-100">
+              <div class="option" (clickOutside)="onClickedOutsideOption($event, i)" (click)="openOption(i, $event)">
+                <button class="option__button btn bc-white flex aic bc-white icon-more-option" aria-hidden="true"
+                  (mouseover)="changeText=i" [class]="(mainUser?.username == message?.user) ? 'jcfs' : 'jcc'">
+                </button>
+                <div class="option__menu bc-white flex col nowrap jcsa aic"
+                  [style.top]="((i === currMesUser?.messages.length-1 && currMesUser?.messages.length > 2) || (i === currMesUser?.messages.length-2 && currMesUser?.messages.length > 3) ) ? '-100px' : '20px'"
+                  [style.left]="(mainUser?.username == message?.user) ? '0px' : '-50px'"
+                  [style.height]="checkOption == i ? '100px' : '0px'" [style.z-index]="checkOption == i ? '1' : '-1'"
+                  [style.opacity]="checkOption == i ? '1' : '0'">
+                  <div class="option__menu--items w-100 flex nowrap aic jcc" (click)="editCurrMess(message, i)"
+                    (click)="openOption(i,$event)"> <span aria-hidden="true" class="items-edit icon-edit"></span>
+                    <p class="items-text font-14 txt-c-initial">Edit</p>
+                  </div>
+                  <span class="option__menu--line bc-light-gray"></span>
+                  <div class="option__menu--items w-100 flex nowrap aic jcc" (click)="deleteCurrMess(i)"
+                    (click)="openOption(i,$event)">
+                    <span aria-hidden="true" class="items-turn-off icon-turn-off"></span>
+                    <p class="items-text font-14 txt-c-initial">Delete</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <!-- <div class="w-100"
+            *ngIf="+this.currMesUser?.messages[i]?.dateForCheck?.split('/')[2] <= +this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[2] ; else today">
+            <div class="w-100"
+              *ngIf="+this.currMesUser?.messages[i]?.dateForCheck?.split('/')[0] <= +this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[0] ; else today"> -->
+          <div class="date-period w-100 flex nowrap jcsa aic"
+            *ngIf="(this.currMesUser?.messages[i]?.dateForCheck !== this.currMesUser?.messages[i+1]?.dateForCheck) && this.currMesUser?.messages[i+1]?.dateForCheck">
+            <p class="date-period__date m-l-7 m-r-15 txt-c-initial font-12">
+              {{currDate == this.currMesUser?.messages[i+1]?.date ? 'TODAY' : this.currMesUser?.messages[i+1]?.date}}
+            </p>
+            <hr class="date-period__hr w-100">
+          </div>
+          <!-- </div>
+          </div> -->
 
-          <ng-template #today>
+          <!-- <ng-template #today>
+            <div class="date-period w-100 flex nowrap jcsa aic "
+              *ngIf="this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[1] && (this.currMesUser?.messages[i]?.dateForCheck?.split('/')[1] > this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[1]) ; else day">
+              <p class="date-period__date m-l-7 m-r-15 txt-c-initial font-12">
+                {{currDate == this.currMesUser?.messages[i+1]?.date ? 'TODAY' : this.currMesUser?.messages[i+1]?.date}}
+              </p>
+              <hr class="date-period__hr w-100">
+            </div>
+          </ng-template>
+          <ng-template #day>
             <div class="date-period w-100 flex nowrap jcsa aic "
               *ngIf="this.currMesUser?.messages[i]?.dateForCheck?.split('/')[1] < this.currMesUser?.messages[i+1]?.dateForCheck?.split('/')[1]">
               <p class="date-period__date m-l-7 m-r-15 txt-c-initial font-12">
@@ -56,7 +85,7 @@
               </p>
               <hr class="date-period__hr w-100">
             </div>
-          </ng-template>
+          </ng-template> -->
 
         </div>
       </div>
@@ -73,9 +102,12 @@
       <input type="text" class="chat__message--input p-l-10 font-14 bdc-light-gray" formControlName="text"
         placeholder="Write a message...">
 
-      <button class="chat__message--send m-l-10 m-r-10 font-13" [class]="!isDisabled ? 'bc-dark-gray' : 'bc-blue'"
-        [disabled]="!isDisabled" (click)="sendMessage()">
+      <button class="chat__message--send m-l-10 m-r-10 font-13" *ngIf="!isEdit"
+        [class]="!isDisabled ? 'bc-dark-gray' : 'bc-blue'" [disabled]="!isDisabled" (click)="sendMessage()">
         Send </button>
+      <button class="chat__message--send m-l-10 m-r-10 font-13" *ngIf="isEdit"
+        [class]="!isDisabled ? 'bc-dark-gray' : 'bc-blue'" [disabled]="!isDisabled" (click)="sendEditMessage()">
+        Edit </button>
     </div>
   </section>
   <section class="person-details m-r-15 m-t-15 bc-white flex col nowrap jcfs aic">
@@ -83,7 +115,7 @@
       <img class="person-details__header--user-icon m-r-5"
         src="https://firebasestorage.googleapis.com/v0/b/skillcheckers-ac855.appspot.com/o/userImg%2Fuser4.png?alt=media&token=02f7edf6-6015-4545-b4c1-7ff79b8aeb4f"
         alt="">
-      <div class="person-details__header--info m-l-10 flex nowrap col jcsb aifs line-height-26">
+      <div class="person-details__header--info m-l-10 m-b-10 flex nowrap col jcsb aifs line-height-26">
         <p class="person-name font-20">Albert Flores</p>
         <p class="person-skill font-13">Java Developer</p>
         <p class="person-rate font-13 bc-green flex nowrap aic jcc txt-c-white">8.6</p>
@@ -117,7 +149,7 @@
       </div>
     </div>
     <div class="person-details__footer flex wrap jcc p-t-10 p-b-10 aic">
-      <button class="person-details__footer--interview m-r-5 m-t-10 m-b-10 font-14">Interview</button>
+      <button class="person-details__footer--interview m-t-10 m-b-10 font-14">Interview</button>
       <button class="person-details__footer--add-person m-l-10 m-t-10 m-b-10 bc-light-blue">
         <span aria-hidden="true" data-icon="&#xe900;" class="add-person icon-add-person"></span>
       </button>
@@ -130,4 +162,21 @@
     </div>
   </section>
 
+  <section class="modal w-100 flex aic jcc nowrap" *ngIf="isModal">
+    <div class="modal__block flex col aic jcsb p-10" (clickOutside)="onClickedOutsideItem($event)">
+      <div class="modal__block--cross w-100 flex m-t-4 m-r-4 aic jcfe" (click)="closeModal()">
+        <span class="icon-close"></span>
+      </div>
+      <div class="modal__block--title w-100 flex aic jcc nowrap txt-c-blue font-25">Delete message</div>
+      <div class="modal__block--text w-100 flex aic jcc nowrap font-20 txt-c-black">Do you really want to delete this
+        message?</div>
+      <div class="w-100 flex nowrap aic jcc" [formGroup]="deleteForm">
+        <input type="checkbox" class="checkbox" formControlName="checkbox">
+        <p class="font-16 m-l-20">Also delete for {{currMesUser?.name}}</p>
+      </div>
+      <div class="modal__block--button m-b-35 flex aic jcc nowrap"><button
+          class="btn cancel bc-blue bdc-blue m-r-10 font-13 txt-c-white" (click)="closeModal()">Cancel</button> <button
+          class="submit btn bc-red bdc-red font-13" (click)="delete()">Delete</button></div>
+    </div>
+  </section>
 </main>

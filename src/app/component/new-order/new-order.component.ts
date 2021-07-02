@@ -8,6 +8,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { RequiredSkillsService } from 'src/app/service/required-skills.service';
 import { Month } from 'src/app/shared/interfaces/month.interface';
 import { MonthService } from 'src/app/service/month.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-new-order',
   templateUrl: './new-order.component.html',
@@ -15,14 +16,8 @@ import { MonthService } from 'src/app/service/month.service';
 })
 export class NewOrderComponent implements OnInit {
   isLorem: boolean = false;
-  // isMainSkill: boolean = false;
   isAddSkill: boolean = false;
-  // isUnitName: boolean = false;
-  // isUnitLocation: boolean = false;
-  // isJobLocation: boolean = false;
-  // isSalary: boolean = false;
   isCurrency: boolean = false;
-  // isDate: boolean = false;
   questText: string = '';
   myheight: string = '0px';
   editOrder: RequiredSkills;
@@ -55,10 +50,9 @@ export class NewOrderComponent implements OnInit {
     ]
   }
 
-  constructor(private questService: QuestionService, private requiredSkills: RequiredSkillsService, public fb: FormBuilder, private monthService: MonthService) { }
+  constructor(private requiredSkills: RequiredSkillsService, public fb: FormBuilder, private monthService: MonthService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    // this.getQuestion();
     this.order = this.fb.group({
       programmer: this.fb.control(1, [Validators.required, Validators.min(1)]),
       experience: this.fb.control(1, [Validators.required, Validators.min(1)]),
@@ -130,40 +124,7 @@ export class NewOrderComponent implements OnInit {
     this.questions = order.question ? order.question.sort(this.compare) : [];
     this.checkAddSkill = order.additionalSkill.split(', ')
   }
-
-  // getQuestion(): void {
-  //   this.questService.getAllquest().snapshotChanges().pipe(
-  //     map(changes =>
-  //       changes.map(c =>
-  //         ({ id: c.payload.doc.id, ...c.payload.doc.data() })
-  //       )
-  //     )
-  //   ).subscribe(data => {
-
-  //     this.questions = data.sort(this.compare);
-  //     this.prevQuestion = this.questions[0];
-  //   });
-
-  // }
   chooseItem(currName: string, item: string): void {
-    // if (item == 'name') {
-    //   this.order.patchValue({
-    //     unitName: currName
-    //   })
-    //   this.isUnitName = false;
-    // }
-    // else if (item == 'mainSkill') {
-    //   this.order.patchValue({
-    //     mainSkil: currName
-    //   })
-    //   this.isMainSkill = false;
-    // }
-    // else if (item == 'salary') {
-    //   this.order.patchValue({
-    //     salary: currName
-    //   })
-    //   this.isSalary = false;
-    // }
     if (item == 'currency') {
       this.currCurrency = currName;
       this.isCurrency = false;
@@ -182,14 +143,6 @@ export class NewOrderComponent implements OnInit {
         status: res.status
       }
     })
-    // this.questService.delete(quest.id.toString())
-    //   .then(() => {
-    //     // this.getQuestion()
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-
-    //   });
   }
 
   selectQuestion(curr: Question): void {
@@ -216,19 +169,6 @@ export class NewOrderComponent implements OnInit {
       this.questions = this.questions.sort(this.compare);
       this.questText = '';
     }
-
-    // this.questService.create(newQuest)
-    // this.questService.updQuest.subscribe(
-    //   data => {
-    //     this.questText = '';
-    //     newQuest.id = data
-    //     this.questService.update(data, newQuest).then(
-    //       () => {
-    //         // this.getQuestion()
-    //       }
-    //     )
-    //   }
-    // )
   }
   compare(a: Question, b: Question) {
 
@@ -278,30 +218,12 @@ export class NewOrderComponent implements OnInit {
 
 
   openHidden(item: string): void {
-    // if (item == 'mainSkill') {
-    //   this.isMainSkill = !this.isMainSkill;
-    // }
     if (item == 'addSkill') {
       this.isAddSkill = !this.isAddSkill;
     }
-    // else if (item == 'unitName') {
-    //   this.isUnitName = !this.isUnitName;
-    // }
-    // else if (item == 'unitLocation') {
-    //   this.isUnitLocation = !this.isUnitLocation;
-    // }
-    // else if (item == 'jobLocation') {
-    //   this.isJobLocation = !this.isJobLocation;
-    // }
-    // else if (item == 'salary') {
-    //   this.isSalary = !this.isSalary;
-    // }
     else if (item == 'currency') {
       this.isCurrency = !this.isCurrency;
     }
-    // else if (item == 'date') {
-    //   this.isDate = !this.isDate;
-    // }
     else if (item == 'question') {
       this.isQuestion = !this.isQuestion;
     }
@@ -319,8 +241,6 @@ export class NewOrderComponent implements OnInit {
       this.checkAddSkill = this.order.get('addSkill').value;
       let itemsInput = this.order.get('addSkill') as FormArray;
       if (!this.checkAddSkill.some(res => res == curr)) {
-        // this.checkAddSkill.push(curr);
-        // this.order.get('addSkill').setValue(this.checkAddSkill)
         itemsInput.push(this.fb.control(curr))
       }
     }
@@ -330,9 +250,6 @@ export class NewOrderComponent implements OnInit {
   deleteSkill(currId: number) {
     let itemsInput = this.order.get('addSkill') as FormArray;
     itemsInput.removeAt(currId)
-    // this.checkAddSkill = this.order.get('addSkill').value;
-    // this.checkAddSkill.splice(currId, 1);
-    // this.order.get('addSkill').setValue(this.checkAddSkill)
   }
 
   createNewOrder(): void {
@@ -376,10 +293,11 @@ export class NewOrderComponent implements OnInit {
           this.requiredSkills.update(data, newOrder).then(
             () => {
               this.resetAll();
+              this.toastr.success(`You add new the order`, 'Adding success');
             }
           ).catch((e) => {
             console.log(e);
-
+            this.toastr.error('Smth went wrong', 'Adding denied');
           })
         }
       )
@@ -421,12 +339,13 @@ export class NewOrderComponent implements OnInit {
       this.requiredSkills.update(newOrder.id, newOrder).then(
         () => {
           this.resetAll();
+          this.toastr.success(`You edit the order`, 'Edding success');
           localStorage.removeItem('edit-order');
         }
       ).catch(
         (e) => {
           console.log(e);
-
+          this.toastr.error('Smth went wrong', 'Edditing denied');
         }
       )
     }
@@ -456,29 +375,11 @@ export class NewOrderComponent implements OnInit {
 
   onClickedOutsideItem(e: Event, item: string) {
     e.stopPropagation()
-    // if (item == 'mainSkill') {
-    //   this.isMainSkill = false;
-    // }
     if (item == 'addSkill') {
       this.isAddSkill = false;
     }
-    // else if (item == 'unitName') {
-    //   this.isUnitName = false;
-    // }
-    // else if (item == 'unitLocation') {
-    //   this.isUnitLocation = false;
-    // }
-    // else if (item == 'jobLocation') {
-    //   this.isJobLocation = false;
-    // }
-    // else if (item == 'salary') {
-    //   this.isSalary = false;
-    // }
     else if (item == 'currency') {
       this.isCurrency = false;
     }
-    // else if (item == 'date') {
-    //   this.isDate = false;
-    // }
   }
 }

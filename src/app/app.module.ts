@@ -46,6 +46,15 @@ import { MY_FORMATS } from './shared/const/myformat';
 import { LoginComponent } from './login/login.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ViewOrderComponent } from './component/view-order/view-order.component';
+
+import { ToastrModule } from 'ngx-toastr';
+import { CandidatesInflowComponent } from './component/view-order/candidates-inflow/candidates-inflow.component';
+import { SavedComponent } from './component/view-order/saved/saved.component';
+import { InterviewedComponent } from './component/view-order/interviewed/interviewed.component';
+import { OfferedComponent } from './component/view-order/offered/offered.component';
+import { HiredComponent } from './component/view-order/hired/hired.component';
+
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +82,11 @@ import { ViewOrderComponent } from './component/view-order/view-order.component'
     LoginComponent,
     HomePageComponent,
     ViewOrderComponent,
+    CandidatesInflowComponent,
+    SavedComponent,
+    InterviewedComponent,
+    OfferedComponent,
+    HiredComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,6 +107,11 @@ import { ViewOrderComponent } from './component/view-order/view-order.component'
     MatDatepickerModule,
     MatNativeDateModule,
     MomentDateModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
+    CommonModule
   ],
   providers: [
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },

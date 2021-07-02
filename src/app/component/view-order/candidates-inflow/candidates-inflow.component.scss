@@ -1,0 +1,45 @@
+.tabcontent {
+    min-height: 341px;
+
+    .candidates-info {
+      width: 324px;
+      height: 70px;
+      position: relative;
+      margin-left: 5px;
+      margin-right: 5px;
+
+      &__logo {
+        width: 65px;
+        height: 65px;
+        border-radius: 50%;
+      }
+
+      &__data {
+        min-width: 118px;
+        min-height: 24px;
+
+        &--name {
+          font-weight: 600;
+        }
+      }
+
+      &__rate {
+        position: absolute;
+        height: 21px;
+        width: 39px;
+        border: 2px solid #25BF50;
+        border-radius: 20px;
+        bottom: 20px;
+        right: 18px;
+      }
+
+      &__reverse {
+        width: 35px;
+        height: 35px;
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        cursor: pointer;
+      }
+    }
+  }

@@ -1,3 +1,5 @@
+import { Message } from "./messages.interface";
+
 export interface mesUser{
     id?: string,
     img: string,
@@ -6,5 +8,5 @@ export interface mesUser{
     missing: number,
     text: string,
     url: string,
-    messages?: Array<any>
+    messages?: Array<Message>
 }

@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewOrderComponent } from './component/new-order/new-order.component';
+import { CandidatesInflowComponent } from './component/view-order/candidates-inflow/candidates-inflow.component';
+import { HiredComponent } from './component/view-order/hired/hired.component';
+import { InterviewedComponent } from './component/view-order/interviewed/interviewed.component';
+import { OfferedComponent } from './component/view-order/offered/offered.component';
+import { SavedComponent } from './component/view-order/saved/saved.component';
 import { ViewOrderComponent } from './component/view-order/view-order.component';
 import { IsLoginGuard } from './guards/is-login.guard';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -37,7 +42,16 @@ const routes: Routes = [
             ]
           },
           { path: 'new-order', component: NewOrderComponent },
-          { path: ':id', component: ViewOrderComponent },
+          {
+            path: ':id', component: ViewOrderComponent, children: [
+              { path: 'candidates-inflow', component: CandidatesInflowComponent },
+              { path: 'saved', component: SavedComponent },
+              { path: 'interviewed', component: InterviewedComponent },
+              { path: 'offered', component: OfferedComponent },
+              { path: 'hired', component: HiredComponent },
+              { path: '', pathMatch: 'full', redirectTo: 'candidates-inflow' },
+            ]
+          },
         ]
       },
       {

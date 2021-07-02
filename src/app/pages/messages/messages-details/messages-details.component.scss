@@ -47,9 +47,7 @@ main {
       .icon-settings::before {
         color: #6E7585;
       }
-
     }
-
   }
 
   &__conversation {
@@ -67,6 +65,7 @@ main {
 
       .message {
         min-height: 71px;
+        // overflow: hidden;
 
         &__logo {
           width: 35px;
@@ -94,6 +93,94 @@ main {
 
           &--time {
             white-space: nowrap;
+          }
+
+          .option {
+            width: 100%;
+            height: 40px;
+            position: relative;
+            margin-right: 20px;
+
+            &__button {
+              width: 100%;
+              height: 40px;
+              border: none;
+            }
+
+            .icon-more-option {
+              padding: 0;
+              border: none;
+              height: 100%;
+              line-height: 20px;
+              font-size: 30px;
+              color: #6E7585;
+            }
+
+            // .icon-more-option {
+            //   transform: rotate(90deg);
+            // }
+
+            .icon-more-option:hover::before {
+              color: #0CACF8;
+            }
+
+            .icon-more-option:focus::before {
+              color: #0CACF8;
+            }
+
+
+            &__menu {
+              position: absolute;
+              right: -6px;
+              width: 100px;
+              // height: 100px;
+              z-index: 3;
+              border-radius: 5px;
+              box-shadow: 3px 3.5px 7px 0.5px rgba(0, 0, 0, 0.25);
+              transition: height 600ms ease-in-out, opacity 600ms ease-in-out, z-index 600ms ease-in-out;
+              opacity: 0;
+
+              &--line {
+                width: 80%;
+                // background-color: #CBCBD9;
+                height: 1px;
+              }
+
+              &--items {
+                height: 50px;
+                transition: background 600ms ease-in-out, background-position 600ms ease-in-out;
+
+                .items-turn-off {
+                  width: 20px;
+                  height: 20px;
+                  // font-family: 'turn-off';
+                  font-size: 18px;
+                  line-height: 20px;
+                }
+
+                .items-edit {
+                  width: 20px;
+                  height: 20px;
+                  // font-family: 'edit';
+                  font-size: 18px;
+                  line-height: 20px;
+
+                }
+
+                .items-text {
+                  line-height: 21px;
+                  margin-left: 8px;
+                  line-height: 21px;
+                }
+              }
+
+              &--items:hover {
+                background: whitesmoke;
+                background-position: 50%;
+                cursor: pointer;
+              }
+            }
+
           }
         }
       }
@@ -348,7 +435,7 @@ main {
   }
 
   &__footer {
-    width: 100%;
+    width: 85%;
     min-height: 50px;
 
     &--interview {
@@ -422,6 +509,77 @@ main {
     }
   }
 }
+
+.modal {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.274);
+  // background: gray;
+
+  &__block {
+    width: 678px;
+    height: 335px;
+    background-color: white;
+
+    &--cross {
+      .icon-close {
+        font-size: 12px;
+        color: #6E7585;
+        cursor: pointer;
+      }
+    }
+
+    &--title {
+      font-weight: 600;
+    }
+
+    &--text {
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .checkbox {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+    }
+
+    &--button {
+      .cancel {
+        padding: 0;
+        width: 105px;
+        height: 40px;
+        transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
+      }
+
+      .submit {
+        padding: 0;
+        width: 105px;
+        height: 40px;
+        transition: background-color 600ms ease-in-out, border 600ms ease-in-out, box-shadow 600ms ease-in-out, color 600ms ease-in-out;
+      }
+
+
+      .submit:hover {
+        background-color: transparent;
+        border: 1px solid #FD6363;
+        box-shadow: 0px 0px 5px 2px #FD6363;
+        color: #FD6363;
+      }
+
+      .cancel:hover {
+        background-color: transparent;
+        border: 1px solid #0CACF8;
+        box-shadow: 0px 0px 5px 2px #0CACF8;
+        color: #0CACF8;
+      }
+    }
+  }
+}
+
 ::-webkit-scrollbar {
   width: 3px;
   height: 6px;
